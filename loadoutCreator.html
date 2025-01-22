@@ -71,6 +71,7 @@
             font-weight: bold;
             width: fit-content;
             flex: 0;
+            cursor: pointer;
         }
         .button:hover {
             background-color: #e6b800;
@@ -92,8 +93,10 @@
     <br>
     <h1>Generator</h1>
     <div class="container" style="display: flex;flex-direction: row;">
-        <a class="button">Copy Loadout</a>
-        <textarea id="textbox"></textarea>
+        <a class="button">
+            <img src="copy_icon.png" alt="Copy">
+        </a>
+        <textarea id="textbox" readonly></textarea>
     </div>
 
     <script>
