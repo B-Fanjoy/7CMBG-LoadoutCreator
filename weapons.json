@@ -57,8 +57,8 @@
               ],
               "primaryMagazines": [
                 { "id": "None", "name": "None" },
-                { "id": "rhs_mag_30Rnd_556x45_Mk262_Stanag", "name": "[RHS] 30 Round STANAG Mk262 Mod 1 " },
-                { "id": "rhs_mag_30Rnd_556x45_Mk262_Stanag_Pull", "name": "[RHS] 30 Round STANAG (Puller) Mk262 Mod 1 " }
+                { "id": "rhs_mag_30Rnd_556x45_Mk262_Stanag", "name": "[RHS] 30 Round STANAG Mk262 Mod 1" },
+                { "id": "rhs_mag_30Rnd_556x45_Mk262_Stanag_Pull", "name": "[RHS] 30 Round STANAG (Puller) Mk262 Mod 1" }
               ],
               "secondaryMagazines": [
                 { "id": "None", "name": "None" }
@@ -115,8 +115,8 @@
               ],
               "primaryMagazines": [
                 { "id": "None", "name": "None" },
-                { "id": "rhs_mag_30Rnd_556x45_Mk262_Stanag", "name": "[RHS] 30 Round STANAG Mk262 Mod 1 " },
-                { "id": "rhs_mag_30Rnd_556x45_Mk262_Stanag_Pull", "name": "[RHS] 30 Round STANAG (Puller) Mk262 Mod 1 " }
+                { "id": "rhs_mag_30Rnd_556x45_Mk262_Stanag", "name": "[RHS] 30 Round STANAG Mk262 Mod 1" },
+                { "id": "rhs_mag_30Rnd_556x45_Mk262_Stanag_Pull", "name": "[RHS] 30 Round STANAG (Puller) Mk262 Mod 1" }
               ],
               "secondaryMagazines": [
                 { "id": "None", "name": "None" },
@@ -180,8 +180,8 @@
               ],
               "primaryMagazines": [
                 { "id": "None", "name": "None" },
-                { "id": "rhs_mag_30Rnd_556x45_Mk262_Stanag", "name": "[RHS] 30 Round STANAG Mk262 Mod 1 " },
-                { "id": "rhs_mag_30Rnd_556x45_Mk262_Stanag_Pull", "name": "[RHS] 30 Round STANAG (Puller) Mk262 Mod 1 " }
+                { "id": "rhs_mag_30Rnd_556x45_Mk262_Stanag", "name": "[RHS] 30 Round STANAG Mk262 Mod 1" },
+                { "id": "rhs_mag_30Rnd_556x45_Mk262_Stanag_Pull", "name": "[RHS] 30 Round STANAG (Puller) Mk262 Mod 1" }
               ],
               "secondaryMagazines": [
                 { "id": "None", "name": "None" }
@@ -238,8 +238,8 @@
               ],
               "primaryMagazines": [
                 { "id": "None", "name": "None" },
-                { "id": "rhs_mag_30Rnd_556x45_Mk262_Stanag", "name": "[RHS] 30 Round STANAG Mk262 Mod 1 " },
-                { "id": "rhs_mag_30Rnd_556x45_Mk262_Stanag_Pull", "name": "[RHS] 30 Round STANAG (Puller) Mk262 Mod 1 " }
+                { "id": "rhs_mag_30Rnd_556x45_Mk262_Stanag", "name": "[RHS] 30 Round STANAG Mk262 Mod 1" },
+                { "id": "rhs_mag_30Rnd_556x45_Mk262_Stanag_Pull", "name": "[RHS] 30 Round STANAG (Puller) Mk262 Mod 1" }
               ],
               "secondaryMagazines": [
                 { "id": "None", "name": "None" },
@@ -247,6 +247,66 @@
                 { "id": "rhs_mag_m713_Red", "name": "[RHS] M713 Red Smoke Round" },
                 { "id": "rhs_mag_m714_White", "name": "[RHS] M714 White Smoke Round" },
                 { "id": "rhs_mag_m715_Green", "name": "[RHS] M715 Green Smoke Round" }
+              ]
+            }
+          },
+          {
+            "id": "TFC_W_c9a2",
+            "name": "C9A2 Light Machine Gun",
+            "attachments": {
+              "sights": [
+                { "id": "None", "name": "None" },
+                { "id": "TFC_WA_C79_Elcan", "name": "[TFC] ELCAN C79A2 (PIP)" },
+                { "id": "TFC_WA_c79_Elcan_3d", "name": "[TFC] ELCAN C79A2 (3D)" },
+                { "id": "TFC_WA_Elcan_SpecterDR_3d", "name": "[TFC] ELCAN SpectreDR (Tan)" },
+                { "id": "TFC_WA_Elcan_SpecterDR_3d_blk", "name": "[TFC] ELCAN SpectreDR (Black)" },
+                { "id": "TFC_WA_Elcan_SpecterDR_3d_mrds", "name": "[TFC] ELCAN SpectreDR w/MRDS (Tan)" },
+                { "id": "TFC_WA_Elcan_SpecterDR_3d_mrds_blk", "name": "[TFC] ELCAN SpectreDR w/MRDS (Black)" },
+                { "id": "TFC_WA_Elcan_SpecterDR_3d_WF", "name": "[TFC] ELCAN SpectreDR w/MRDS + Flashhide (Tan)" },
+                { "id": "TFC_WA_Elcan_SpecterDR_3d_WF_blk", "name": "[TFC] ELCAN SpectreDR w/MRDS + Flashhide (Black)" },
+                { "id": "TFC_WA_Eotech_flip_up_blk", "name": "[TFC] EOTech w/3x Magnifier (Black)" },
+                { "id": "TFC_WA_Eotech_flip_up_tan", "name": "[TFC] EOTech w/3x Magnifier (Tan)" },
+                { "id": "optic_Holosight_arid_F", "name": "EOTech XPS3 (Arid)" },
+                { "id": "optic_Holosight_blk_F", "name": "EOTech XPS3 (Black)" },
+                { "id": "optic_Holosight_khk_F", "name": "EOTech XPS3 (Khaki)" },
+                { "id": "optic_Holosight_lush_F", "name": "EOTech XPS3 (Lush)" },
+                { "id": "optic_Holosight", "name": "EOTech XPS3 (Tan)" },
+                { "id": "optic_Holosight_smg_blk_F", "name": "EOTech XPS3 SMG (Black)" },
+                { "id": "optic_Holosight_smg_khk_F", "name": "EOTech XPS3 SMG (Khaki)" },
+                { "id": "optic_Holosight_smg", "name": "EOTech XPS3 SMG (Tan)" },
+                { "id": "rhsusf_acc_eotech_xps3", "name": "[RHS] XPS3 (Black) (Doesn't have any dirt)" },
+                { "id": "rhsusf_acc_eotech_552", "name": "[RHS] M552 CCO (Black)" },
+                { "id": "rhsusf_acc_eotech_552_d", "name": "[RHS] M552 CCO (Desert)" },
+                { "id": "rhsusf_acc_eotech_552_wd", "name": "[RHS] M552 CCO (Woodland)" }
+              ],
+              "rails": [
+                { "id": "None", "name": "None" },
+                { "id": "TFC_WA_peq15_sand", "name": "[TFC] PEQ-15 (Arid)" },
+                { "id": "TFC_WA_peq15_blk", "name": "[TFC] PEQ-15 (Black)" },
+                { "id": "TFC_WA_peq15_tan", "name": "[TFC] PEQ-15 (Tan)" },
+                { "id": "TFC_WA_peq15_winter", "name": "[TFC] PEQ-15 (Winter)" },
+                { "id": "TFC_WA_peq15_wood", "name": "[TFC] PEQ-15 (Woodland)" }
+              ],
+              "muzzles": [
+                { "id": "None", "name": "None" },
+                { "id": "TFC_WA_huxwrx_556", "name": "[TFC] HUXWRX Flow 556K (Tan)" },
+                { "id": "TFC_WA_556_Ops_painted", "name": "[TFC] Op Cinc 556 (Arid)" },
+                { "id": "TFC_WA_opsinc_556", "name": "[TFC] Op Cinc 556 (Black)" },
+                { "id": "TFC_WA_556_Ops_painted_tw", "name": "[TFC] Op Cinc 556 (Woodland)" },
+                { "id": "TFC_WA_556_Ops_painted_wo", "name": "[TFC] Op Cinc 556 (Winter)" }
+              ],
+              "undermounts": [
+                { "id": "None", "name": "None" },
+                { "id": "TFC_WA_grip_afg", "name": "[TFC] Angled Forward Grip" },
+                { "id": "TFC_WA_cadex_grip", "name": "[TFC] CADEX Folding Grip" },
+                { "id": "TFC_WA_Virtgrip", "name": "[TFC] Vert Grip" }
+              ],
+              "primaryMagazines": [
+                { "id": "None", "name": "None" },
+                { "id": "rhsusf_200rnd_556x45_mixed_box", "name": "[RHS] 200 Round M249 Box M855A1 (Mixed)" }
+              ],
+              "secondaryMagazines": [
+                { "id": "None", "name": "None" }
               ]
             }
           }

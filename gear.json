@@ -1,0 +1,248 @@
+{
+    "sections": [
+      {
+        "id": "uniform",
+        "name": "Uniform",
+        "options": [
+          {
+            "id": "TFC_CU_CombatUniform_otw_cadpat_AR",
+            "name": "Outside The Wire CADPAT (Arid Regions)"
+          },
+          {
+            "id": "TFC_CU_CombatUniform_otw_cadpat_MT",
+            "name": "Outside The Wire CADPAT (Multi-Terrain)"
+          },
+          {
+            "id": "TFC_CU_CombatUniform_otw_cadpat_TW",
+            "name": "Outside The Wire CADPAT (Temperate Woodlands)"
+          },
+          {
+            "id": "TFC_CU_CombatUniform_tunic_cadpat_AR",
+            "name": "Tunic CADPAT (Arid Regions)"
+          },
+          {
+            "id": "TFC_CU_CombatUniform_tunic_cadpat_MT",
+            "name": "Tunic CADPAT (Multi-Terrain)"
+          },
+          {
+            "id": "TFC_CU_CombatUniform_tunic_cadpat_TW",
+            "name": "Tunic CADPAT (Temperate Woodlands)"
+          },
+          {
+            "id": "TFC_CU_CombatUniform_tunic_cadpat_WO",
+            "name": "Tunic CADPAT (Winter)"
+          }
+        ]
+      },
+      {
+        "id": "vest",
+        "name": "Vest",
+        "options": [
+          {
+            "id": "TFC_CV_SORD_Ballistic_AR",
+            "name": "SORD SCS Basic + Ballistic Vest (Arid Regions)"
+          },
+          {
+            "id": "TFC_CV_SORD_Ballistic_MT",
+            "name": "SORD SCS Basic + Ballistic Vest (Multi-Terrain)"
+          },
+          {
+            "id": "TFC_CV_SORD_Ballistic_TW",
+            "name": "SORD SCS Basic + Ballistic Vest (Temperate Woodlands)"
+          },
+          {
+            "id": "TFC_CV_OTV_BV_ar",
+            "name": "TacVest + Ballistic Vest (Arid Regions)"
+          },
+          {
+            "id": "TFC_CV_OTV_BV_MT",
+            "name": "TacVest + Ballistic Vest (Multi-Terrain)"
+          },
+          {
+            "id": "TFC_CV_OTV_BV_tw",
+            "name": "TacVest + Ballistic Vest (Temperate Woodlands)"
+          }
+        ]
+      },
+      {
+        "id": "backpack",
+        "name": "Backpack",
+        "options": [
+          {
+            "id": "TFC_CB_Smallpack_AR",
+            "name": "Small Pack (Arid Regions)"
+          },
+          {
+            "id": "TFC_CB_Smallpack_AR",
+            "name": "Small Pack (Multi-Terrain)"
+          },
+          {
+            "id": "TFC_CB_Smallpack_TW",
+            "name": "Small Pack (Temperate Woodlands)"
+          },
+          {
+            "id": "tfc_cb_Carryall_AR",
+            "name": "Carryall (Arid Regions)"
+          },
+          {
+            "id": "tfc_cb_Carryall_MT",
+            "name": "Carryall (Multi-Terrain)"
+          },
+          {
+            "id": "tfc_cb_Carryall_tw",
+            "name": "Carryall (Temperate Woodlands)"
+          },
+          {
+            "id": "TFC_CB_CTS_Rucksack_AR",
+            "name": "Rucksack (Arid Regions)"
+          },
+          {
+            "id": "TFC_CB_CTS_Rucksack_MT",
+            "name": "Rucksack (Multi-Terrain)"
+          },
+          {
+            "id": "TFC_CB_CTS_Rucksack_TW",
+            "name": "Rucksack (Temperate Woodlands)"
+          },
+          {
+            "id": "TFC_CB_CTS_Rucksack_WO",
+            "name": "Rucksack (Winter)"
+          }
+        ]
+      },
+      {
+        "id": "headgear",
+        "name": "Headgear",
+        "options": [
+          {
+            "id": "TFC_CH_CG634_CADPAT_AR",
+            "name": "CG634 CADPAT (Arid Regions)"
+          },
+          {
+            "id": "TFC_CH_CG634_CADPAT_GG_AR",
+            "name": "CG634 CADPAT w/Goggles (Arid Regions)"
+          },
+          {
+            "id": "TFC_CH_CG634_HS_CADPAT_AR",
+            "name": "CG634 CADPAT w/Headset (Arid Regions)"
+          },
+          {
+            "id": "TFC_CH_CG634_CADPAT_GG_HS_AR",
+            "name": "CG634 CADPAT w/Goggles + Headset (Arid Regions)"
+          },
+          {
+            "id": "TFC_CH_CG634_CADPAT_MT",
+            "name": "CG634 CADPAT (Multi-Terrain)"
+          },
+          {
+            "id": "TFC_CH_CG634_CADPAT_GG_MT",
+            "name": "CG634 CADPAT w/Goggles (Multi-Terrain)"
+          },
+          {
+            "id": "TFC_CH_CG634_HS_CADPAT_MT",
+            "name": "CG634 CADPAT w/Headset (Multi-Terrain)"
+          },
+          {
+            "id": "TFC_CH_CG634_CADPAT_GG_HS_MT",
+            "name": "CG634 CADPAT w/Goggles + Headset (Multi-Terrain)"
+          },
+          {
+            "id": "TFC_CH_CG634_CADPAT_TW",
+            "name": "CG634 CADPAT (Temperate Woodlands)"
+          },
+          {
+            "id": "TFC_CH_CG634_CADPAT_GG_TW",
+            "name": "CG634 CADPAT w/Goggles (Temperate Woodlands)"
+          },
+          {
+            "id": "TFC_CH_CG634_HS_CADPAT_TW",
+            "name": "CG634 CADPAT w/Headset (Temperate Woodlands)"
+          },
+          {
+            "id": "TFC_CH_CG634_CADPAT_GG_HS_TW",
+            "name": "CG634 CADPAT w/Goggles + Headset (Temperate Woodlands)"
+          },
+          {
+            "id": "TFC_CH_CG634_CADPAT_WO",
+            "name": "CG634 CADPAT (Winter)"
+          },
+          {
+            "id": "TFC_CH_CG634_CADPAT_GG_WO",
+            "name": "CG634 CADPAT w/Goggles (Winter)"
+          },
+          {
+            "id": "TFC_CH_CG634_HS_CADPAT_WO",
+            "name": "CG634 CADPAT w/Headset (Winter)"
+          },
+          {
+            "id": "TFC_CH_CG634_CADPAT_GG_HS_WO",
+            "name": "CG634 CADPAT w/Goggles + Headset (Winter)"
+          }
+        ]
+      },
+      {
+        "id": "facewear",
+        "name": "Facewear",
+        "options": [
+          {
+            "id": "tfc_cg_ballistics_clear",
+            "name": "Ballistics Eyewear - Clear Shade"
+          },
+          {
+            "id": "tfc_cg_ballistics_dark",
+            "name": "Ballistics Eyewear - Dark Shade"
+          },
+          {
+            "id": "tfc_cg_ballistics_orange",
+            "name": "Ballistics Eyewear - Orange Shade"
+          },
+          {
+            "id": "tfc_cg_ballistics_yellow",
+            "name": "Ballistics Eyewear - Yellow Shade"
+          },
+          {
+            "id": "tfc_cg_oakley_mframe",
+            "name": "Oakley SI M-Frame"
+          }
+        ]
+      },
+      {
+        "id": "binoculars",
+        "name": "Binoculars",
+        "options": [
+          {
+            "id": "Binocular",
+            "name": "Binoculars"
+          },
+          {
+            "id": "rhsusf_bino_m24",
+            "name": "M24 Binoculars"
+          },
+          {
+            "id": "rhsusf_bino_m24_ARD",
+            "name": "M24 Binoculars (ARD)"
+          }
+        ]
+      },
+      {
+        "id": "map",
+        "name": "Map",
+        "options": [
+          {
+            "id": "ItemMap",
+            "name": "Map"
+          }
+        ]
+      },
+      {
+        "id": "terminal",
+        "name": "Terminal",
+        "options": [
+          {
+            "id": "ItemGPS",
+            "name": "GPS"
+          }
+        ]
+      }
+    ]
+}
