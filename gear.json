@@ -243,6 +243,78 @@
             "name": "GPS"
           }
         ]
+      },
+      {
+        "id": "communication",
+        "name": "Communication",
+        "options": [
+          {
+            "id": "na",
+            "name": "Option Not In Use"
+          }
+        ]
+      },
+      {
+        "id": "navigation",
+        "name": "Navigation",
+        "options": [
+          {
+            "id": "ItemCompass",
+            "name": "Compass"
+          }
+        ]
+      },
+      {
+        "id": "watch",
+        "name": "Watch",
+        "options": [
+          {
+            "id": "ItemWatch",
+            "name": "Watch"
+          },
+          {
+            "id": "ACE_Altimeter",
+            "name": "Altimeter Watch"
+          }
+        ]
+      },
+      {
+        "id": "nvgs",
+        "name": "NVGs",
+        "options": [
+          {
+            "id": "TFC_NVG_PVS14",
+            "name": "[TFC] PVS-14"
+          },
+          {
+            "id": "rhsusf_ANPVS_14",
+            "name": "[RHS] AN/PVS-14"
+          }
+        ]
+      },
+      {
+        "id": "insignia",
+        "name": "Insignia",
+        "options": [
+          {
+            "id": "tfc_insignia_7cmbg",
+            "name": "7 Canadian Mechanized Brigade Group"
+          }
+        ]
+      },
+      {
+        "id": "earplugs",
+        "name": "ACE Earplugs",
+        "options": [
+          {
+            "id": "true",
+            "name": "Yes"
+          },
+          {
+            "id": "false",
+            "name": "No"
+          }
+        ]
       }
     ]
 }
