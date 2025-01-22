@@ -93,7 +93,7 @@
     <br>
     <h1>Generator</h1>
     <div class="container" style="display: flex;flex-direction: row;">
-        <a class="button">
+        <a class="button" onclick="copyFunction()">
             <img src="copy_icon.png" alt="Copy">
         </a>
         <textarea id="textbox" readonly></textarea>
@@ -130,6 +130,18 @@
             .catch((error) => {
                 console.error('Error loading gear.json:', error);
             });
+
+        // Function to copy output string to clipboard
+        function copyFunction() {
+            var copyText = document.getElementById("textbox");
+            copyText.select();
+            navigator.clipboard.writeText(copyText.value);
+            alert("Copied import string to clipboard.")
+        }
+
+        function generateImportString() {
+            var weaponID = document.getElementById("");
+        }
 
         // Function to render weapon sections
         function renderWeaponSections(data) {
@@ -235,13 +247,6 @@
                 const weaponSelect = document.getElementById(`${section.id}Weapon`);
                 weaponSelect.addEventListener('change', (event) => updateAttachments(event.target, section.id, data));
             });
-        }
-    </script>
-
-    <!-- Script for Generating Output String -->
-    <script>
-        function updateOutputString() {
-            const weaponName = document.getElementById("")
         }
     </script>
 </body>
