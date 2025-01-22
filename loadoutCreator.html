@@ -9,7 +9,7 @@
         body {
             margin: 0;
             font-family: 'Roboto', sans-serif;
-            background-color: #f4f4f9;
+            background-color: #5e5e5e;
             color: #333;
             padding: 20px;
         }
@@ -20,7 +20,7 @@
         .container {
             max-width: 800px;
             margin: 0 auto;
-            background: white;
+            background: rgb(190, 190, 190);
             padding: 20px;
             border-radius: 8px;
             box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
@@ -65,444 +65,103 @@
 <body>
     <h1>Loadout Creator</h1>
     <div class="container">
-        <!-- Primary Weapon Section -->
-        <div class="section">
-            <h2>Primary Weapon</h2>
-            <!-- Primary Weapons -->
-            <label for="primaryWeapon">Select Primary Weapon:</label>
-            <select id="primaryWeapon">
-                <option value="">-- Choose a Weapon --</option>
-                <option value="None">None</option>
-                <option value="tfc_w_c7a2">C7A2 Automatic Rifle</option>
-                <option value="tfc_w_c7a2_m203">C7A2 Automatic Rifle w/M203</option>
-                <option value="TFC_W_c8a3">C8A3 Carbine Rifle</option>
-                <option value="TFC_W_c8a3_m203">C8A3 Carbine Rifle w/M203</option>
-                <option value="TFC_W_c9a2">C9A2 Light Machine Gun</option>
-                <option value="TFC_W_c20">C20 Semi-Automatic Sniper Weapon</option>
-                <option value="TFC_W_c6">C6 Medium Machine Gun</option>
-                <option value="TFC_W_c6a1">C6A1 General Purpose Machine Gun</option>
-            </select>
-
-            <!-- Primary Weapon Sights -->
-            <label for="sightAttachment">Sight Attachment:</label>
-            <select id="sightAttachment">
-                <option value="">-- Choose an Attachment --</option>
-                <option value="None">None</option>
-            </select>
-
-            <!-- Primary Weapon Rail Attachments -->
-            <label for="railAttachment">Rail Attachment:</label>
-            <select id="railAttachment">
-                <option value="">-- Choose an Attachment --</option>
-                <option value="None">None</option>
-            </select>
-
-            <!-- Primary Weapon Muzzle Devices -->
-            <label for="muzzleAttachment">Muzzle Attachment:</label>
-            <select id="muzzleAttachment">
-                <option value="">-- Choose an Attachment --</option>
-                <option value="None">None</option>
-            </select>
-
-            <!-- Primary Weapon Undermounts -->
-            <label for="undermountAttachment">Undermount Attachment:</label>
-            <select id="undermountAttachment">
-                <option value="">-- Choose an Attachment --</option>
-                <option value="None">None</option>
-            </select>
-
-            <!-- Primary Weapon Primary Magazine -->
-            <label for="primaryMagazineAttachment">Primary Magazine:</label>
-            <select id="primaryMagazineAttachment">
-                <option value="">-- Choose an Attachment --</option>
-                <option value="None">None</option>
-            </select>
-
-            <!-- Primary Weapon Secondary Magazine -->
-            <label for="secondaryMagazineAttachment">Secondary Magazine:</label>
-            <select id="secondaryMagazineAttachment">
-                <option value="">-- Choose an Attachment --</option>
-                <option value="None">None</option>
-            </select>
-        </div>
-
-        <!-- Secondary Weapon Section -->
-        <div class="section">
-            <h2>Secondary Weapon</h2>
-            <!-- Secondary Weapons -->
-            <label for="secondaryWeapon">Select Secondary Weapon:</label>
-            <select id="secondaryWeapon">
-                <option value="">-- Choose a Weapon --</option>
-                <option value="None">None</option>
-                <option value="tfc_w_C22">C22 Full Frame Modular Pistol</option>
-            </select>
-
-            <!-- Secondary Weapon Sights -->
-            <label for="sightAttachment">Sight Attachment:</label>
-            <select id="sightAttachment">
-                <option value="">-- Choose an Attachment --</option>
-                <option value="None">None</option>
-            </select>
-
-            <!-- Secondary Weapon Rail Attachments -->
-            <label for="railAttachment">Rail Attachment:</label>
-            <select id="railAttachment">
-                <option value="">-- Choose an Attachment --</option>
-                <option value="None">None</option>
-            </select>
-
-            <!-- Secondary Weapon Muzzle Devices -->
-            <label for="muzzleAttachment">Muzzle Attachment:</label>
-            <select id="muzzleAttachment">
-                <option value="">-- Choose an Attachment --</option>
-                <option value="None">None</option>
-            </select>
-
-            <!-- Secondary Weapon Undermounts -->
-            <label for="undermountAttachment">Undermount Attachment:</label>
-            <select id="undermountAttachment">
-                <option value="">-- Choose an Attachment --</option>
-                <option value="None">None</option>
-            </select>
-
-            <!-- Secondary Weapon Primary Magazine -->
-            <label for="primaryMagazineAttachment">Primary Magazine:</label>
-            <select id="primaryMagazineAttachment">
-                <option value="">-- Choose an Attachment --</option>
-                <option value="None">None</option>
-            </select>
-
-            <!-- Secondary Weapon Secondary Magazine -->
-            <label for="secondaryMagazineAttachment">Secondary Magazine:</label>
-            <select id="secondaryMagazineAttachment">
-                <option value="">-- Choose an Attachment --</option>
-                <option value="None">None</option>
-            </select>
-        </div>
-
-        <!-- Tertiary Weapon Section -->
-        <div class="section">
-            <h2>Tertiary Weapon</h2>
-            <!-- Tertiary Weapons -->
-            <label for="tertiaryWeapon">Select Tertiary Weapon:</label>
-            <select id="tertiaryWeapon">
-                <option value="">-- Choose a Weapon --</option>
-                <option value="None">None</option>
-                <option value="rhs_weap_m72a7">M72A7 Light Anti-Tank Weapon (RHS Mod)</option>
-                <option value="TFC_launch_M72A6">M72C7 Light Anti-Tank Weapon (TFC Mod)</option>
-                <option value="TFC_launch_CarlG_M3">M3 Carl Gustaf Recoilless Rifle</option>
-                <option value="rhs_weap_maaws">M3 MAAWS </option>
-            </select>
-
-            <!-- Tertiary Weapon Sights -->
-            <label for="sightAttachment">Sight Attachment:</label>
-            <select id="sightAttachment">
-                <option value="">-- Choose an Attachment --</option>
-                <option value="None">None</option>
-            </select>
-
-            <!-- Tertiary Weapon Rail Attachments -->
-            <label for="railAttachment">Rail Attachment:</label>
-            <select id="railAttachment">
-                <option value="">-- Choose an Attachment --</option>
-                <option value="None">None</option>
-            </select>
-
-            <!-- Tertiary Weapon Muzzle Devices -->
-            <label for="muzzleAttachment">Muzzle Attachment:</label>
-            <select id="muzzleAttachment">
-                <option value="">-- Choose an Attachment --</option>
-                <option value="None">None</option>
-            </select>
-
-            <!-- Tertiary Weapon Undermounts -->
-            <label for="undermountAttachment">Undermount Attachment:</label>
-            <select id="undermountAttachment">
-                <option value="">-- Choose an Attachment --</option>
-                <option value="None">None</option>
-            </select>
-
-            <!-- Tertiary Weapon Primary Magazine -->
-            <label for="primaryMagazineAttachment">Primary Magazine:</label>
-            <select id="primaryMagazineAttachment">
-                <option value="">-- Choose an Attachment --</option>
-                <option value="None">None</option>
-            </select>
-
-            <!-- Tertiary Weapon Secondary Magazine -->
-            <label for="secondaryMagazineAttachment">Secondary Magazine:</label>
-            <select id="secondaryMagazineAttachment">
-                <option value="">-- Choose an Attachment --</option>
-                <option value="None">None</option>
-            </select>
-        </div>
-
-        <!-- Gear Section -->
-        <div class="section">
-            <h2>Gear</h2>
-            <!-- Uniforms -->
-            <label for="uniform">Uniform:</label>
-            <select id="uniform">
-                <option value="">-- Choose a Uniform --</option>
-                <option value="None">None</option>
-                <option value="TFC_CU_CombatUniform_otw_cadpat_AR">Outside The Wire CADPAT (Arid Regions)</option>
-                <option value="TFC_CU_CombatUniform_otw_cadpat_MT">Outside The Wire CADPAT (Multi-Terrain)</option>
-                <option value="TFC_CU_CombatUniform_otw_cadpat_TW">Outside The Wire CADPAT (Temperate Woodlands)</option>
-                <option value="TFC_CU_CombatUniform_tunic_cadpat_AR">Tunic CADPAT (Arid Regions)</option>
-                <option value="TFC_CU_CombatUniform_tunic_cadpat_MT">Tunic CADPAT (Multi-Terrain)</option>
-                <option value="TFC_CU_CombatUniform_tunic_cadpat_TW">Tunic CADPAT (Temperate Woodlands)</option>
-                <option value="TFC_CU_CombatUniform_tunic_cadpat_WO">Tunic CADPAT (Winter)</option>
-            </select>
-
-            <!-- Vests -->
-            <label for="vest">Vest:</label>
-            <select id="vest">
-                <option value="">-- Choose a Vest --</option>
-                <option value="None">None</option>
-                <option value="TFC_CV_SORD_Ballistic_AR">SORD SCS Basic + Ballistic Vest (Arid Regions)</option>
-                <option value="TFC_CV_SORD_Ballistic_MT">SORD SCS Basic + Ballistic Vest (Multi-Terrain)</option>
-                <option value="TFC_CV_SORD_Ballistic_TW">SORD SCS Basic + Ballistic Vest (Temperate Woodlands)</option>
-                <option value="TFC_CV_OTV_BV_ar">TacVest + Ballistic Vest (Arid Regions)</option>
-                <option value="TFC_CV_OTV_BV_MT">TacVest + Ballistic Vest (Multi-Terrain)</option>
-                <option value="TFC_CV_OTV_BV_tw">TacVest + Ballistic Vest (Temperate Woodlands)</option>
-            </select>
-
-            <!-- Backpacks -->
-            <label for="backpack">Backpack:</label>
-            <select id="backpack">
-                <option value="">-- Choose a Backpack --</option>
-                <option value="None">None</option>
-                <option value="TFC_CB_Smallpack_AR">Small Pack (Arid Regions)</option>
-                <option value="TFC_CB_Smallpack_MT">Small Pack (Multi-Terrain)</option>
-                <option value="TFC_CB_Smallpack_TW">Small Pack (Temperate Woodlands)</option>
-                <option value="tfc_cb_Carryall_AR">Carryall (Arid Regions)</option>
-                <option value="tfc_cb_Carryall_MT">Carryall (Multi-Terrain)</option>
-                <option value="tfc_cb_Carryall_tw">Carryall (Temperate Woodlands)</option>
-                <option value="TFC_CB_CTS_Rucksack_AR">Rucksack (Arid Regions)</option>
-                <option value="TFC_CB_CTS_Rucksack_MT">Rucksack (Multi-Terrain)</option>
-                <option value="TFC_CB_CTS_Rucksack_TW">Rucksack (Temperate Woodlands)</option>
-                <option value="TFC_CB_CTS_Rucksack_WO">Rucksack (Winter)</option>
-            </select>
-
-            <!-- Headgear -->
-            <label for="headgear">Headgear:</label>
-            <select id="headgear">
-                <option value="">-- Choose your Headgear --</option>
-                <option value="None">None</option>
-                <option value="TFC_CH_CG634_CADPAT_AR">CG634 CADPAT (Arid Regions)</option>
-                <option value="TFC_CH_CG634_CADPAT_GG_AR">CG634 CADPAT w/Goggles (Arid Regions)</option>
-                <option value="TFC_CH_CG634_HS_CADPAT_AR">CG634 CADPAT w/Headset (Arid Regions)</option>
-                <option value="TFC_CH_CG634_CADPAT_GG_HS_AR">CG634 CADPAT w/Goggles + Headset (Arid Regions)</option>
-                <option value="TFC_CH_CG634_CADPAT_MT">CG634 CADPAT (Multi-Terrain)</option>
-                <option value="TFC_CH_CG634_CADPAT_GG_MT">CG634 CADPAT w/Goggles (Multi-Terrain)</option>
-                <option value="TFC_CH_CG634_HS_CADPAT_MT">CG634 CADPAT w/Headset (Multi-Terrain)</option>
-                <option value="TFC_CH_CG634_CADPAT_GG_HS_MT">CG634 CADPAT w/Goggles + Headset (Multi-Terrain)</option>
-                <option value="TFC_CH_CG634_CADPAT_TW">CG634 CADPAT (Temperate Woodlands)</option>
-                <option value="TFC_CH_CG634_CADPAT_GG_TW">CG634 CADPAT w/Goggles (Temperate Woodlands)</option>
-                <option value="TFC_CH_CG634_HS_CADPAT_TW">CG634 CADPAT w/Headset (Temperate Woodlands)</option>
-                <option value="TFC_CH_CG634_CADPAT_GG_HS_TW">CG634 CADPAT w/Goggles + Headset (Temperate Woodlands)</option>
-                <option value="TFC_CH_CG634_CADPAT_WO">CG634 CADPAT (Winter)</option>
-                <option value="TFC_CH_CG634_CADPAT_GG_WO">CG634 CADPAT w/Goggles (Winter)</option>
-                <option value="TFC_CH_CG634_HS_CADPAT_WO">CG634 CADPAT w/Headset (Winter)</option>
-                <option value="TFC_CH_CG634_CADPAT_GG_HS_WO">CG634 CADPAT w/Goggles + Headset (Winter)</option>
-            </select>
-
-            <!-- Facewear -->
-            <label for="facewear">Facewear:</label>
-            <select id="facewear">
-                <option value="">-- Choose your Facewear --</option>
-                <option value="None">None</option>
-                <option value="tfc_cg_ballistics_clear">Ballistics Eyewear - Clear Shade</option>
-                <option value="tfc_cg_ballistics_dark">Ballistics Eyewear - Dark Shade</option>
-                <option value="tfc_cg_ballistics_orange">Ballistics Eyewear - Orange Shade</option>
-                <option value="tfc_cg_ballistics_yellow">Ballistics Eyewear - Yellow Shade</option>
-                <option value="tfc_cg_oakley_mframe">Oakley SI M-Frame</option>
-            </select>
-
-            <!-- Binoculars -->
-            <label for="binoculars">Binoculars:</label>
-            <select id="binoculars">
-                <option value="">-- Choose your Binoculars --</option>
-                <option value="None">None</option>
-                <option value="Binocular">Binoculars</option>
-                <option value="rhsusf_bino_m24">M24 Binoculars</option>
-                <option value="rhsusf_bino_m24_ARD">M24 Binoculars (ARD)</option>
-            </select>
-
-            <!-- Map -->
-            <label for="map">Map:</label>
-            <select id="map">
-                <option value="">-- Choose a Map --</option>
-                <option value="None">None</option>
-                <option value="ItemMap">Map</option>
-            </select>
-
-            <!-- Terminal -->
-            <label for="terminal">Terminal:</label>
-            <select id="terminal">
-                <option value="">-- Choose a Terminal --</option>
-                <option value="None">None</option>
-                <option value="ItemGPS">GPS</option>
-            </select>
-
-            <!-- Communication -->
-            <label for="communication">Communication:</label>
-            <select id="communication">
-                <option value="">-- This field does not apply --</option>
-            </select>
-
-            <!-- Navigation -->
-            <label for="navigation">Navigation:</label>
-            <select id="navigation">
-                <option value="">-- Choose a Navigation Device --</option>
-                <option value="None">None</option>
-                <option value="ItemWatch">Watch</option>
-                <option value="ACE_Altimeter">Altimeter Watch</option>
-            </select>
-
-            <!-- NVGs -->
-            <label for="nvgs">NVGs:</label>
-            <select id="nvgs">
-                <option value="">-- Choose your NVGs --</option>
-                <option value="None">None</option>
-                <option value="TFC_NVG_PVS14">[TFC] PVS-14</option>
-                <option value="rhsusf_ANPVS_14">[RHS] AN/PVS-14</option>
-            </select>
-
-            <!-- Insignia -->
-            <label for="insignia">Insignia:</label>
-            <select id="insignia">
-                <option value="">-- Choose an Insignia --</option>
-                <option value="None">None</option>
-                <option value="tfc_insignia_7cmbg">7 Canadian Mechanized Brigade Group</option>
-            </select>
-
-            <!-- Earplugs -->
-            <label for="earplugs">ACE Earplugs:</label>
-            <select id="earplugs">
-                <option value="">-- Do you want ACE Earplugs Equipped? --</option>
-                <option value="true">Yes</option>
-                <option value="false">No</option>
-            </select>
-        </div>
-
+        <div id="weaponSections"></div>
         <!-- Submit Button -->
         <a href="#" class="button">Generate Loadout</a>
     </div>
 
     <script>
-        // Object mapping weapons to their attachments
-        const primaryWeaponAttachments = {
-            "tfc_w_c7a2": {
-                sights: [
-                    { value: "TFC_WA_C79_Elcan", text: "[TFC] ELCAN C79A2 (PIP)" },
-                    { value: "TFC_WA_c79_Elcan_3d", text: "[TFC] ELCAN C79A2 (3D)" },
-                    { value: "TFC_WA_Elcan_SpecterDR_3d", text: "[TFC] ELCAN SpectreDR (Tan)" },
-                    { value: "TFC_WA_Elcan_SpecterDR_3d_blk", text: "[TFC] ELCAN SpectreDR (Black)" },
-                    { value: "TFC_WA_Elcan_SpecterDR_3d_mrds", text: "[TFC] ELCAN SpectreDR w/MRDS (Tan)" },
-                    { value: "TFC_WA_Elcan_SpecterDR_3d_mrds_blk", text: "[TFC] ELCAN SpectreDR w/MRDS (Black)" },
-                    { value: "TFC_WA_Elcan_SpecterDR_3d_WF", text: "[TFC] ELCAN SpectreDR w/MRDS + Flashhide (Tan)" },
-                    { value: "TFC_WA_Elcan_SpecterDR_3d_WF_blk", text: "[TFC] ELCAN SpectreDR w/MRDS + Flashhide (Black)" },
-                    { value: "TFC_WA_Eotech_flip_up_blk", text: "[TFC] EOTech w/3x Magnifier (Black)" },
-                    { value: "TFC_WA_Eotech_flip_up_tan", text: "[TFC] EOTech w/3x Magnifier (Tan)" },
-                    { value: "optic_Holosight_arid_F", text: "EOTech XPS3 (Arid)" },
-                    { value: "optic_Holosight_blk_F", text: "EOTech XPS3 (Black)" },
-                    { value: "optic_Holosight_khk_F", text: "EOTech XPS3 (Khaki)" },
-                    { value: "optic_Holosight_lush_F", text: "EOTech XPS3 (Lush)" },
-                    { value: "optic_Holosight", text: "EOTech XPS3 (Tan)" },
-                    { value: "optic_Holosight_smg_blk_F", text: "EOTech XPS3 SMG (Black)" },
-                    { value: "optic_Holosight_smg_khk_F", text: "EOTech XPS3 SMG (Khaki)" },
-                    { value: "optic_Holosight_smg", text: "EOTech XPS3 SMG (Tan)" },
-                    { value: "rhsusf_acc_eotech_xps3", text: "[RHS] XPS3 (Black) (Doesn't have any dirt)" },
-                    { value: "rhsusf_acc_eotech_552", text: "[RHS] M552 CCO (Black)" },
-                    { value: "rhsusf_acc_eotech_552_d", text: "[RHS] M552 CCO (Desert)" },
-                    { value: "rhsusf_acc_eotech_552_wd", text: "[RHS] M552 CCO (Woodland)" }
-                ],
-                rails: [
-                    { value: "TFC_WA_peq15_sand", text: "[TFC] PEQ-15 (Arid)" },
-                    { value: "TFC_WA_peq15_blk", text: "[TFC] PEQ-15 (Black)" },
-                    { value: "TFC_WA_peq15_tan", text: "[TFC] PEQ-15 (Tan)" },
-                    { value: "TFC_WA_peq15_winter", text: "[TFC] PEQ-15 (Winter)" },
-                    { value: "TFC_WA_peq15_wood", text: "[TFC] PEQ-15 (Woodland)" }
-                ],
-                muzzle: [
-                    { value: "TFC_WA_huxwrx_556", text: "[TFC] HUXWRX Flow 556K (Tan)" },
-                    { value: "TFC_WA_556_Ops_painted", text: "[TFC] Op Cinc 556 (Arid)" },
-                    { value: "TFC_WA_opsinc_556", text: "[TFC] Op Cinc 556 (Black)" },
-                    { value: "TFC_WA_556_Ops_painted_tw", text: "[TFC] Op Cinc 556 (Woodland)" },
-                    { value: "TFC_WA_556_Ops_painted_wo", text: "[TFC] Op Cinc 556 (Winter)" }
-                ],
-                undermount: [
-                    { value: "TFC_WA_grip_afg", text: "[TFC] Angled Forward Grip" },
-                    { value: "TFC_WA_cadex_grip", text: "[TFC] CADEX Folding Grip" },
-                    { value: "TFC_WA_Virtgrip", text: "[TFC] Vert Grip" },
-                ],
-                primaryMagazines: [
-                    { value: "TFC_MG_30rnd", text: "30-Round Magazine" }
-                ]
-            },
-            "tfc_w_c7a2_m203": {
-                sights: [
-                    { value: "TFC_WA_ACOG_blk", text: "[TFC] ACOG (Black)" }
-                ],
-                rails: [],
-                muzzle: [
-                    { value: "TFC_MA_muzzle_brake", text: "[TFC] Muzzle Brake" }
-                ],
-                undermount: [
-                    { value: "TFC_UM_grenade_launcher", text: "[TFC] Grenade Launcher" }
-                ],
-                magazines: [
-                    { value: "TFC_MG_40mm", text: "40mm Grenade Rounds" }
-                ]
-            },
-            "default": {
-                sights: [{ value: "None", text: "None" }],
-                rails: [{ value: "None", text: "None" }],
-                muzzle: [{ value: "None", text: "None" }],
-                undermount: [{ value: "None", text: "None" }],
-                magazines: [{ value: "None", text: "None" }]
-            }
-        };
-        const secondaryWeaponAttachments = {
+        // Load weapon data from weapons.json
+        fetch('weapons.json')
+            .then((response) => {
+                if (!response.ok) {
+                    throw new Error(`HTTP error! status: ${response.status}`);
+                }
+                return response.json();
+            })
+            .then((data) => {
+                renderWeaponSections(data);
+                attachEventListeners(data);
+            })
+            .catch((error) => {
+                console.error('Error loading weapons.json:', error);
+            });
 
-        };
-        const tertiaryWeaponAttachments = {
+        // Function to render weapon sections
+        function renderWeaponSections(data) {
+            const weaponSections = document.getElementById('weaponSections');
 
-        };
+            data.sections.forEach((section) => {
+                const sectionDiv = document.createElement('div');
+                sectionDiv.classList.add('section');
 
-        // Update the options of a select element
-        function updateSelectOptions(selectElement, options) {
-            selectElement.innerHTML = ""; // Clear existing options
-            // Setting default value
-            const opt = document.createElement("option");
-            opt.value = "";
-            opt.textContent = "-- Choose an Attachment --";
-            selectElement.appendChild(opt);
-            // Add the rest of the values
-            options.forEach(option => {
-                const opt = document.createElement("option");
-                opt.value = option.value;
-                opt.textContent = option.text;
-                selectElement.appendChild(opt);
+                const header = document.createElement('h2');
+                header.textContent = section.name;
+                sectionDiv.appendChild(header);
+
+                const weaponLabel = document.createElement('label');
+                weaponLabel.setAttribute('for', `${section.id}Weapon`);
+                weaponLabel.textContent = `Select ${section.name} Weapon:`;
+                sectionDiv.appendChild(weaponLabel);
+
+                const weaponSelect = document.createElement('select');
+                weaponSelect.id = `${section.id}Weapon`;
+                const weaponOptions = [`<option value="">-- Choose a Weapon --</option>`, `<option value="None">None</option>`];
+                section.weapons.forEach((weapon) => {
+                    weaponOptions.push(`<option value="${weapon.id}">${weapon.name}</option>`);
+                });
+                weaponSelect.innerHTML = weaponOptions.join('');
+                sectionDiv.appendChild(weaponSelect);
+
+                // Placeholder dropdowns for attachments
+                [
+                    'sights', 
+                    'rails', 
+                    'muzzles', 
+                    'undermounts', 
+                    'primaryMagazines', 
+                    'secondaryMagazines'
+                ].forEach((type) => {
+                    const label = document.createElement('label');
+                    label.setAttribute('for', `${section.id}${type}Attachment`);
+                    label.textContent = `${type.replace(/([A-Z])/g, ' $1').replace(/^./, str => str.toUpperCase())} Attachment:`;
+                    sectionDiv.appendChild(label);
+
+                    const select = document.createElement('select');
+                    select.id = `${section.id}${type}Attachment`;
+                    select.innerHTML = `<option value="">-- Choose an Attachment --</option>`;
+                    sectionDiv.appendChild(select);
+                });
+
+                weaponSections.appendChild(sectionDiv);
             });
         }
 
-        // Event listener for weapon selection
-        function onWeaponChange(event) {
-            const weapon = event.target.value;
-            const attachments = weaponAttachments[weapon] || weaponAttachments["default"];
+        // Update attachment dropdowns based on selected weapon
+        function updateAttachments(weapon, sectionId, data) {
+            const selectedWeapon = weapon.value;
+            const sectionData = data.sections.find(section => section.id === sectionId);
+            const weaponData = sectionData.weapons.find(w => w.id === selectedWeapon);
+
+            if (!weaponData || !weaponData.attachments) return;
 
             // Update each attachment type
-            updateSelectOptions(document.getElementById("sightAttachment"), attachments.sights);
-            updateSelectOptions(document.getElementById("railAttachment"), attachments.rails);
-            updateSelectOptions(document.getElementById("muzzleAttachment"), attachments.muzzle);
-            updateSelectOptions(document.getElementById("undermountAttachment"), attachments.undermount);
-            updateSelectOptions(document.getElementById("primaryMagazineAttachment"), attachments.magazines);
+            Object.keys(weaponData.attachments).forEach(type => {
+                const select = document.getElementById(`${sectionId}${type}Attachment`);
+                const options = weaponData.attachments[type].map(
+                    attachment => `<option value="${attachment.id}">${attachment.name}</option>`
+                );
+                select.innerHTML = `<option value="">-- Choose an Attachment --</option>` + options.join('');
+            });
         }
 
-        // Attach event listeners to weapon dropdowns
-        document.getElementById("primaryWeapon").addEventListener("change", onWeaponChange);
+        // Attach change event listeners to weapon dropdowns
+        function attachEventListeners(data) {
+            data.sections.forEach(section => {
+                const weaponSelect = document.getElementById(`${section.id}Weapon`);
+                weaponSelect.addEventListener('change', (event) => updateAttachments(event.target, section.id, data));
+            });
+        }
     </script>
 </body>
 </html>
