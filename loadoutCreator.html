@@ -69,9 +69,17 @@
             text-align: center;
             text-decoration: none;
             font-weight: bold;
+            width: fit-content;
+            flex: 0;
         }
         .button:hover {
             background-color: #e6b800;
+        }
+        #textbox {
+            display: inline-block;
+            padding: 10px, 20px;
+            flex: 1;
+            resize: none;
         }
     </style>
 </head>
@@ -80,8 +88,12 @@
     <div class="container">
         <div id="weaponSections"></div>
         <div id="gearSections"></div>
-        <!-- Submit Button -->
-        <a class="button">Generate Loadout</a>
+    </div>
+    <br>
+    <h1>Generator</h1>
+    <div class="container" style="display: flex;flex-direction: row;">
+        <a class="button">Copy Loadout</a>
+        <textarea id="textbox"></textarea>
     </div>
 
     <script>
