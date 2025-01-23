@@ -11,7 +11,7 @@
             font-family: 'Roboto', sans-serif;
             background-color: #2e2e2e;
             color: #f0e68c;
-            padding: 20px;
+            padding: 0px;
         }
         h1 {
             text-align: center;
@@ -28,7 +28,7 @@
             box-shadow: 0 0 15px rgba(0, 0, 0, 0.2);
         }
         .maincontainer {
-            width: auto;
+            width: max-content;
             max-width: max-content;
             margin: 0 auto;
             background: #3c3c3c;
@@ -46,6 +46,7 @@
             font-size: 1.5rem;
             margin-bottom: 10px;
             color: #ffd700;
+            text-align: center;
         }
         label {
             display: block;
@@ -74,6 +75,7 @@
             background-color: #3c3c3c;
             padding: 10px;
             box-shadow: 0 -2px 5px rgba(0, 0, 0, 0.5);
+            border-radius: 20px;
         }
 
         #stickyBar div {
@@ -145,8 +147,8 @@
     <br>
     <br>
     <br>
-    <h1>Generated Import String</h1>
     <div id="stickyBar">
+        <h1>Generated Import String</h1>
         <div style="display: flex; align-items: center;">
             <a class="button" onclick="copyFunction()">
                 <img src="copy_icon.png" alt="Copy"/>
@@ -198,6 +200,7 @@
             alert("Copied import string to clipboard.")
         }
 
+        // Function to generate import string
         function generateImportString() {
             let loadout = [
                 [
