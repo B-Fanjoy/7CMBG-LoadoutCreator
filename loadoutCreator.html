@@ -141,39 +141,75 @@
             alert("Copied import string to clipboard.")
         }
 
-        // Function to generate the import string
         function generateImportString() {
-            let importString = "";
+            let loadout = [
+                [
+                    ["", "", "", "", ["", 1000], ["", 1000], ""], // Primary weapon
+                    ["", "", "", "", ["", 1000], ["", 1000], ""], // Secondary weapon
+                    ["", "", "", "", ["", 1000], ["", 1000], ""], // Tertiary weapon
+                    ["", []], // Uniform
+                    ["", []], // Vest
+                    ["", []], // Backpack
+                    "", // Headgear
+                    "", // Facewear
+                    ["", "", "", "", ["", 1000], [], ""], // Binoculars
+                    ["", "", "", "", "", ""] // Map, Terminal, Communication, Navigation, Watch, NVGs
+                ],
+                [
+                    ["", ""], // Insignia
+                    ["ace_earplugs", true] // Earplugs
+                ]
+            ];
 
-            // Iterate over all select elements in the document
+            // Map dropdown selections to loadout
             document.querySelectorAll('select').forEach(select => {
-                const selectedValue = select.options[select.selectedIndex].text;
-                // Skip default placeholders and "None"
-                if (
-                    selectedValue !== "-- Choose a Weapon --" &&
-                    selectedValue !== "-- Choose an Attachment --" &&
-                    selectedValue !== "-- Choose Uniform --" &&
-                    selectedValue !== "-- Choose Vest --" &&
-                    selectedValue !== "-- Choose Backpack --" &&
-                    selectedValue !== "-- Choose Headgear --" &&
-                    selectedValue !== "-- Choose Facewear --" &&
-                    selectedValue !== "-- Choose Binoculars --" &&
-                    selectedValue !== "-- Choose Map --" &&
-                    selectedValue !== "-- Choose Terminal --" &&
-                    selectedValue !== "-- Choose Communication --" &&
-                    selectedValue !== "-- Choose Navigation --" &&
-                    selectedValue !== "-- Choose Watch --" &&
-                    selectedValue !== "-- Choose NVGs --" &&
-                    selectedValue !== "-- Choose Insignia --" &&
-                    selectedValue !== "-- Choose ACE Earplugs --" &&
-                    selectedValue !== "None"
-                ) {
-                    importString += selectedValue + " ";
+                const selectedOption = select.options[select.selectedIndex];
+                const selectedText = selectedOption.text;
+                const selectedValue = selectedOption.value; // Use the value for ID mapping
+                const selectId = select.id;
+
+                if (selectId.includes("primaryWeapon")) {
+                    loadout[0][0][0] = selectedValue !== "None" ? selectedValue : "";
+                } else if (selectId.includes("secondaryWeapon")) {
+                    loadout[0][1][0] = selectedValue !== "None" ? selectedValue : "";
+                } else if (selectId.includes("tertiaryWeapon")) {
+                    loadout[0][2][0] = selectedValue !== "None" ? selectedValue : "";
+                } else if (selectId.includes("Uniform")) {
+                    loadout[0][3][0] = selectedValue !== "None" ? selectedValue : "";
+                } else if (selectId.includes("Vest")) {
+                    loadout[0][4][0] = selectedValue !== "None" ? selectedValue : "";
+                } else if (selectId.includes("Backpack")) {
+                    loadout[0][5][0] = selectedValue !== "None" ? selectedValue : "";
+                } else if (selectId.includes("Headgear")) {
+                    loadout[0][6] = selectedValue !== "None" ? selectedValue : "";
+                } else if (selectId.includes("Facewear")) {
+                    loadout[0][7] = selectedValue !== "None" ? selectedValue : "";
+                } else if (selectId.includes("Binoculars")) {
+                    loadout[0][8][0] = selectedValue !== "None" ? selectedValue : "";
+                } else if (selectId.includes("Map")) {
+                    loadout[0][9][0] = selectedValue !== "None" ? selectedValue : "";
+                } else if (selectId.includes("Terminal")) {
+                    loadout[0][9][1] = selectedValue !== "None" ? selectedValue : "";
+                } else if (selectId.includes("Communication")) {
+                    loadout[0][9][2] = selectedValue !== "None" ? selectedValue : "";
+                } else if (selectId.includes("Navigation")) {
+                    loadout[0][9][3] = selectedValue !== "None" ? selectedValue : "";
+                } else if (selectId.includes("Watch")) {
+                    loadout[0][9][4] = selectedValue !== "None" ? selectedValue : "";
+                } else if (selectId.includes("NVGs")) {
+                    loadout[0][9][5] = selectedValue !== "None" ? selectedValue : "";
+                } else if (selectId.includes("Insignia")) {
+                    loadout[1][0][1] = selectedValue !== "None" ? selectedValue : "";
+                } else if (selectId.includes("ACE Earplugs")) {
+                    loadout[1][1][1] = selectedText === "Yes" ? true : false;
                 }
             });
 
-            // Trim trailing whitespace and update the textarea
-            document.getElementById("textbox").textContent = importString.trim();
+            // Convert loadout to JSON format
+            const importString = JSON.stringify(loadout);
+
+            // Update the textarea
+            document.getElementById("textbox").textContent = importString;
         }
 
         // Function to render weapon sections
@@ -286,7 +322,7 @@
         function attachEventListenersForAll() {
             document.querySelectorAll('select').forEach(select => {
                 // Attach a change event listener to each select element
-                select.addEventListener('change', () => generateImportString());
+                select.addEventListener('change', generateImportString);
             });
         }
     </script>
