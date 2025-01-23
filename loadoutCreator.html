@@ -110,7 +110,8 @@
             })
             .then((data) => {
                 renderWeaponSections(data);
-                attachEventListeners(data);
+                attachWeaponEventListeners(data);
+                attachEventListenersForAll();
             })
             .catch((error) => {
                 console.error('Error loading weapons.json:', error);
@@ -126,6 +127,7 @@
             })
             .then((data) => {
                 renderGearSections(data);
+                attachEventListenersForAll();
             })
             .catch((error) => {
                 console.error('Error loading gear.json:', error);
@@ -141,19 +143,37 @@
 
         // Function to generate the import string
         function generateImportString() {
-            // Weapon Selections
-            var primaryWeapon = document.getElementById("primaryWeapon");
-            var primWepSel = primaryWeapon.options[primaryWeapon.selectedIndex].text;
-            var secondaryWeapon = document.getElementById("secondaryWeapon");
-            var secWeaSel = secondaryWeapon.options[secondaryWeapon.selectedIndex].text;
-            var tertiaryWeapon = document.getElementById("tertiaryWeapon");
-            var terWepSel = tertiaryWeapon.options[tertiaryWeapon.selectedIndex].text;
+            let importString = "";
 
-            // Gear Selections
+            // Iterate over all select elements in the document
+            document.querySelectorAll('select').forEach(select => {
+                const selectedValue = select.options[select.selectedIndex].text;
+                // Skip default placeholders and "None"
+                if (
+                    selectedValue !== "-- Choose a Weapon --" &&
+                    selectedValue !== "-- Choose an Attachment --" &&
+                    selectedValue !== "-- Choose Uniform --" &&
+                    selectedValue !== "-- Choose Vest --" &&
+                    selectedValue !== "-- Choose Backpack --" &&
+                    selectedValue !== "-- Choose Headgear --" &&
+                    selectedValue !== "-- Choose Facewear --" &&
+                    selectedValue !== "-- Choose Binoculars --" &&
+                    selectedValue !== "-- Choose Map --" &&
+                    selectedValue !== "-- Choose Terminal --" &&
+                    selectedValue !== "-- Choose Communication --" &&
+                    selectedValue !== "-- Choose Navigation --" &&
+                    selectedValue !== "-- Choose Watch --" &&
+                    selectedValue !== "-- Choose NVGs --" &&
+                    selectedValue !== "-- Choose Insignia --" &&
+                    selectedValue !== "-- Choose ACE Earplugs --" &&
+                    selectedValue !== "None"
+                ) {
+                    importString += selectedValue + " ";
+                }
+            });
 
-            var importString = primWepSel + secWeaSel + terWepSel;
-            var importStringBox = document.getElementById("textbox");
-            importStringBox.textContent = importString;
+            // Trim trailing whitespace and update the textarea
+            document.getElementById("textbox").textContent = importString.trim();
         }
 
         // Function to render weapon sections
@@ -255,11 +275,18 @@
         }
 
         // Attach change event listeners to weapon dropdowns
-        function attachEventListeners(data) {
+        function attachWeaponEventListeners(data) {
             data.sections.forEach(section => {
                 const weaponSelect = document.getElementById(`${section.id}Weapon`);
                 weaponSelect.addEventListener('change', (event) => updateAttachments(event.target, section.id, data));
-                weaponSelect.addEventListener('change', (event) => generateImportString());
+            });
+        }
+
+        // Function to update import string when any option is changed
+        function attachEventListenersForAll() {
+            document.querySelectorAll('select').forEach(select => {
+                // Attach a change event listener to each select element
+                select.addEventListener('change', () => generateImportString());
             });
         }
     </script>
