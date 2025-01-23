@@ -19,7 +19,17 @@
             margin-bottom: 20px;
         }
         .container {
-            max-width: 800px;
+            width: max-content;
+            max-width: max-content;
+            margin: 0 auto;
+            background: #3c3c3c;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 0 15px rgba(0, 0, 0, 0.2);
+        }
+        .maincontainer {
+            width: auto;
+            max-width: max-content;
             margin: 0 auto;
             background: #3c3c3c;
             padding: 20px;
@@ -27,7 +37,7 @@
             box-shadow: 0 0 15px rgba(0, 0, 0, 0.2);
         }
         .section {
-            margin-bottom: 20px;
+            margin-bottom: 0px;
             padding: 15px;
             background: #4a4a4a;
             border-radius: 8px;
@@ -104,16 +114,33 @@
             color: #f0e68c;
             resize: none;
         }
+
+        .centered-select {
+            text-align: center;
+            text-align-last: center;
+            width: fit-content;
+            min-width: max-content;
+            display: block;
+            margin: 10px 0;
+        }
     </style>
 </head>
 <body>
     <h1>Loadout Creator</h1>
-    <div class="container">
+    <div class="maincontainer">
         <div id="weaponSections" style="display: flex;align-items: center;"></div>
     </div>
     <br>
-    <div class="container">
-        <div id="gearSections"style="display: flex;align-items: center;"></div>
+    <div class="maincontainer">
+        <div class="container">
+            <div id="fillableGearSections"style="display: flex;align-items: center;"></div>
+        </div>
+        
+        <br>
+
+        <div class="container">
+            <div id="headGearSections"style="display: flex;align-items: center;"></div>
+        </div>
     </div>
     <br>
     <br>
@@ -155,7 +182,8 @@
                 return response.json();
             })
             .then((data) => {
-                renderGearSections(data);
+                renderFillableGearSections(data);
+                renderHeadGearSections(data);
                 attachEventListenersForAll();
             })
             .catch((error) => {
@@ -294,6 +322,7 @@
             data.sections.forEach((section) => {
                 const sectionDiv = document.createElement('div');
                 sectionDiv.classList.add('section');
+                sectionDiv.style.marginInline = '20px';
 
                 const header = document.createElement('h2');
                 header.textContent = section.name;
@@ -306,6 +335,7 @@
 
                 const weaponSelect = document.createElement('select');
                 weaponSelect.id = `${section.id}Weapon`;
+                weaponSelect.classList.add('centered-select');
                 const weaponOptions = [`<option value="">-- Choose a Weapon --</option>`, `<option value="None">None</option>`];
                 section.weapons.forEach((weapon) => {
                     weaponOptions.push(`<option value="${weapon.id}">${weapon.name}</option>`);
@@ -329,6 +359,7 @@
 
                     const select = document.createElement('select');
                     select.id = `${section.id}${type}Attachment`;
+                    select.classList.add('centered-select');
                     select.innerHTML = `<option value="">-- Choose an Attachment --</option>`;
                     sectionDiv.appendChild(select);
                 });
@@ -337,33 +368,69 @@
             });
         }
 
-        // Function to render gear sections
-        function renderGearSections(data) {
-            const gearSections = document.getElementById('gearSections');
+        // Function to render fillable gear sections
+        function renderFillableGearSections(data) {
+            const fillableGearSections = document.getElementById('fillableGearSections');
 
             data.sections.forEach((section) => {
-                const sectionDiv = document.createElement('div');
-                sectionDiv.classList.add('section');
+                if (section.id == "uniform" || section.id == "vest" || section.id == "backpack") {
+                    const sectionDiv = document.createElement('div');
+                    sectionDiv.classList.add('section');
 
-                const header = document.createElement('h2');
-                header.textContent = section.name;
-                sectionDiv.appendChild(header);
+                    const header = document.createElement('h2');
+                    header.textContent = section.name;
+                    sectionDiv.appendChild(header);
 
-                const label = document.createElement('label');
-                label.setAttribute('for', section.id);
-                label.textContent = `Select ${section.name}:`;
-                sectionDiv.appendChild(label);
+                    const label = document.createElement('label');
+                    label.setAttribute('for', section.id);
+                    label.textContent = `Select ${section.name}:`;
+                    sectionDiv.appendChild(label);
 
-                const select = document.createElement('select');
-                select.id = section.id;
-                const options = [`<option value="">-- Choose ${section.name} --</option>`];
-                section.options.forEach((option) => {
-                    options.push(`<option value="${option.id}">${option.name}</option>`);
-                });
-                select.innerHTML = options.join('');
-                sectionDiv.appendChild(select);
+                    const select = document.createElement('select');
+                    select.id = section.id;
+                    select.classList.add('centered-select');
+                    const options = [`<option value="">-- Choose ${section.name} --</option>`];
+                    section.options.forEach((option) => {
+                        options.push(`<option value="${option.id}">${option.name}</option>`);
+                    });
+                    select.innerHTML = options.join('');
+                    sectionDiv.appendChild(select);
 
-                gearSections.appendChild(sectionDiv);
+                    fillableGearSections.appendChild(sectionDiv);
+                }
+            });
+        }
+
+        // Function to render head gear sections
+        function renderHeadGearSections(data) {
+            const headGearSections = document.getElementById('headGearSections');
+
+            data.sections.forEach((section) => {
+                if (section.id == "headgear" || section.id == "facewear" || section.id == "nvgs") {
+                    const sectionDiv = document.createElement('div');
+                    sectionDiv.classList.add('section');
+
+                    const header = document.createElement('h2');
+                    header.textContent = section.name;
+                    sectionDiv.appendChild(header);
+
+                    const label = document.createElement('label');
+                    label.setAttribute('for', section.id);
+                    label.textContent = `Select ${section.name}:`;
+                    sectionDiv.appendChild(label);
+
+                    const select = document.createElement('select');
+                    select.id = section.id;
+                    select.classList.add('centered-select');
+                    const options = [`<option value="">-- Choose ${section.name} --</option>`];
+                    section.options.forEach((option) => {
+                        options.push(`<option value="${option.id}">${option.name}</option>`);
+                    });
+                    select.innerHTML = options.join('');
+                    sectionDiv.appendChild(select);
+
+                    headGearSections.appendChild(sectionDiv);
+                }
             });
         }
 
@@ -378,10 +445,14 @@
             // Update each attachment type
             Object.keys(weaponData.attachments).forEach(type => {
                 const select = document.getElementById(`${sectionId}${type}Attachment`);
-                const options = weaponData.attachments[type].map(
-                    attachment => `<option value="${attachment.id}">${attachment.name}</option>`
-                );
-                select.innerHTML = `<option value="">-- Choose an Attachment --</option>` + options.join('');
+                if (select) {
+                    select.classList.add('centered-select');
+
+                    const options = weaponData.attachments[type].map(
+                        attachment => `<option value="${attachment.id}">${attachment.name}</option>`
+                    );
+                    select.innerHTML = `<option value="">-- Choose an Attachment --</option>` + options.join('');
+                }
             });
         }
 
