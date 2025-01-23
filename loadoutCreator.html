@@ -168,13 +168,59 @@
                 const selectedValue = selectedOption.value; // Use the value for ID mapping
                 const selectId = select.id;
 
+                // Primary
                 if (selectId.includes("primaryWeapon")) {
                     loadout[0][0][0] = selectedValue !== "None" ? selectedValue : "";
-                } else if (selectId.includes("secondaryWeapon")) {
+                } else if (selectId.includes("primarymuzzlesAttachment")) {
+                    loadout[0][0][1] = selectedValue !== "None" ? selectedValue : "";
+                } else if (selectId.includes("primaryrailsAttachment")) {
+                    loadout[0][0][2] = selectedValue !== "None" ? selectedValue : "";
+                } else if (selectId.includes("primarysightsAttachment")) {
+                    loadout[0][0][3] = selectedValue !== "None" ? selectedValue : "";
+                } else if (selectId.includes("primaryprimaryMagazinesAttachment")) {
+                    loadout[0][0][4][0] = selectedValue !== "None" ? selectedValue : "";
+                } else if (selectId.includes("primarysecondaryMagazinesAttachment")) {
+                    loadout[0][0][5][0] = selectedValue !== "None" ? selectedValue : "";
+                } else if (selectId.includes("primaryundermountsAttachment")) {
+                    loadout[0][0][6] = selectedValue !== "None" ? selectedValue : "";
+                } 
+
+                // Secondary
+                else if (selectId.includes("secondaryWeapon")) {
                     loadout[0][1][0] = selectedValue !== "None" ? selectedValue : "";
-                } else if (selectId.includes("tertiaryWeapon")) {
+                } else if (selectId.includes("secondarymuzzlesAttachment")) {
+                    loadout[0][1][1] = selectedValue !== "None" ? selectedValue : "";
+                } else if (selectId.includes("secondaryrailsAttachment")) {
+                    loadout[0][1][2] = selectedValue !== "None" ? selectedValue : "";
+                } else if (selectId.includes("secondarysightsAttachment")) {
+                    loadout[0][1][3] = selectedValue !== "None" ? selectedValue : "";
+                } else if (selectId.includes("secondaryprimaryMagazinesAttachment")) {
+                    loadout[0][1][4][0] = selectedValue !== "None" ? selectedValue : "";
+                } else if (selectId.includes("secondarysecondaryMagazinesAttachment")) {
+                    loadout[0][1][5][0] = selectedValue !== "None" ? selectedValue : "";
+                } else if (selectId.includes("secondaryundermountsAttachment")) {
+                    loadout[0][1][6] = selectedValue !== "None" ? selectedValue : "";
+                } 
+                
+                // Tertiary
+                else if (selectId.includes("tertiaryWeapon")) {
                     loadout[0][2][0] = selectedValue !== "None" ? selectedValue : "";
-                } else if (selectId.includes("uniform")) {
+                } else if (selectId.includes("tertiarymuzzlesAttachment")) {
+                    loadout[0][2][1] = selectedValue !== "None" ? selectedValue : "";
+                } else if (selectId.includes("tertiaryrailsAttachment")) {
+                    loadout[0][2][2] = selectedValue !== "None" ? selectedValue : "";
+                } else if (selectId.includes("tertiarysightsAttachment")) {
+                    loadout[0][2][3] = selectedValue !== "None" ? selectedValue : "";
+                } else if (selectId.includes("tertiaryprimaryMagazinesAttachment")) {
+                    loadout[0][2][4][0] = selectedValue !== "None" ? selectedValue : "";
+                } else if (selectId.includes("tertiarysecondaryMagazinesAttachment")) {
+                    loadout[0][2][5][0] = selectedValue !== "None" ? selectedValue : "";
+                } else if (selectId.includes("tertiaryundermountsAttachment")) {
+                    loadout[0][2][6] = selectedValue !== "None" ? selectedValue : "";
+                } 
+                
+                // Other Gear
+                else if (selectId.includes("uniform")) {
                     loadout[0][3][0] = selectedValue !== "None" ? selectedValue : "";
                 } else if (selectId.includes("vest")) {
                     loadout[0][4][0] = selectedValue !== "None" ? selectedValue : "";
