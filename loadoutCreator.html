@@ -139,8 +139,21 @@
             alert("Copied import string to clipboard.")
         }
 
+        // Function to generate the import string
         function generateImportString() {
-            var weaponID = document.getElementById("");
+            // Weapon Selections
+            var primaryWeapon = document.getElementById("primaryWeapon");
+            var primWepSel = primaryWeapon.options[primaryWeapon.selectedIndex].text;
+            var secondaryWeapon = document.getElementById("secondaryWeapon");
+            var secWeaSel = secondaryWeapon.options[secondaryWeapon.selectedIndex].text;
+            var tertiaryWeapon = document.getElementById("tertiaryWeapon");
+            var terWepSel = tertiaryWeapon.options[tertiaryWeapon.selectedIndex].text;
+
+            // Gear Selections
+
+            var importString = primWepSel + secWeaSel + terWepSel;
+            var importStringBox = document.getElementById("textbox");
+            importStringBox.textContent = importString;
         }
 
         // Function to render weapon sections
@@ -157,7 +170,7 @@
 
                 const weaponLabel = document.createElement('label');
                 weaponLabel.setAttribute('for', `${section.id}Weapon`);
-                weaponLabel.textContent = `Select ${section.name} Weapon:`;
+                weaponLabel.textContent = `Select ${section.name}:`;
                 sectionDiv.appendChild(weaponLabel);
 
                 const weaponSelect = document.createElement('select');
@@ -246,6 +259,7 @@
             data.sections.forEach(section => {
                 const weaponSelect = document.getElementById(`${section.id}Weapon`);
                 weaponSelect.addEventListener('change', (event) => updateAttachments(event.target, section.id, data));
+                weaponSelect.addEventListener('change', (event) => generateImportString());
             });
         }
     </script>
