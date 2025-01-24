@@ -9,7 +9,6 @@
             "name": "C7A2 Automatic Rifle",
             "attachments": {
               "sights": [
-                { "id": "None", "name": "None" },
                 { "id": "TFC_WA_C79_Elcan", "name": "[TFC] ELCAN C79A2 (PIP)" },
                 { "id": "TFC_WA_c79_Elcan_3d", "name": "[TFC] ELCAN C79A2 (3D)" },
                 { "id": "TFC_WA_Elcan_SpecterDR_3d", "name": "[TFC] ELCAN SpectreDR (Tan)" },
@@ -34,7 +33,6 @@
                 { "id": "rhsusf_acc_eotech_552_wd", "name": "[RHS] M552 CCO (Woodland)" }
               ],
               "rails": [
-                { "id": "None", "name": "None" },
                 { "id": "TFC_WA_peq15_sand", "name": "[TFC] PEQ-15 (Arid)" },
                 { "id": "TFC_WA_peq15_blk", "name": "[TFC] PEQ-15 (Black)" },
                 { "id": "TFC_WA_peq15_tan", "name": "[TFC] PEQ-15 (Tan)" },
@@ -42,7 +40,6 @@
                 { "id": "TFC_WA_peq15_wood", "name": "[TFC] PEQ-15 (Woodland)" }
               ],
               "muzzles": [
-                { "id": "None", "name": "None" },
                 { "id": "TFC_WA_huxwrx_556", "name": "[TFC] HUXWRX Flow 556K (Tan)" },
                 { "id": "TFC_WA_556_Ops_painted", "name": "[TFC] Op Cinc 556 (Arid)" },
                 { "id": "TFC_WA_opsinc_556", "name": "[TFC] Op Cinc 556 (Black)" },
@@ -50,19 +47,15 @@
                 { "id": "TFC_WA_556_Ops_painted_wo", "name": "[TFC] Op Cinc 556 (Winter)" }
               ],
               "undermounts": [
-                { "id": "None", "name": "None" },
                 { "id": "TFC_WA_grip_afg", "name": "[TFC] Angled Forward Grip" },
                 { "id": "TFC_WA_cadex_grip", "name": "[TFC] CADEX Folding Grip" },
                 { "id": "TFC_WA_Virtgrip", "name": "[TFC] Vert Grip" }
               ],
               "primaryMagazines": [
-                { "id": "None", "name": "None" },
                 { "id": "rhs_mag_30Rnd_556x45_Mk262_Stanag", "name": "[RHS] 30 Round STANAG Mk262 Mod 1" },
                 { "id": "rhs_mag_30Rnd_556x45_Mk262_Stanag_Pull", "name": "[RHS] 30 Round STANAG (Puller) Mk262 Mod 1" }
               ],
-              "secondaryMagazines": [
-                { "id": "None", "name": "None" }
-              ]
+              "secondaryMagazines": []
             }
           },
           {
@@ -70,7 +63,6 @@
             "name": "C7A2 Automatic Rifle w/M203",
             "attachments": {
               "sights": [
-                { "id": "None", "name": "None" },
                 { "id": "TFC_WA_C79_Elcan", "name": "[TFC] ELCAN C79A2 (PIP)" },
                 { "id": "TFC_WA_c79_Elcan_3d", "name": "[TFC] ELCAN C79A2 (3D)" },
                 { "id": "TFC_WA_Elcan_SpecterDR_3d", "name": "[TFC] ELCAN SpectreDR (Tan)" },
@@ -95,7 +87,6 @@
                 { "id": "rhsusf_acc_eotech_552_wd", "name": "[RHS] M552 CCO (Woodland)" }
               ],
               "rails": [
-                { "id": "None", "name": "None" },
                 { "id": "TFC_WA_peq15_sand", "name": "[TFC] PEQ-15 (Arid)" },
                 { "id": "TFC_WA_peq15_blk", "name": "[TFC] PEQ-15 (Black)" },
                 { "id": "TFC_WA_peq15_tan", "name": "[TFC] PEQ-15 (Tan)" },
@@ -103,23 +94,18 @@
                 { "id": "TFC_WA_peq15_wood", "name": "[TFC] PEQ-15 (Woodland)" }
               ],
               "muzzles": [
-                { "id": "None", "name": "None" },
                 { "id": "TFC_WA_huxwrx_556", "name": "[TFC] HUXWRX Flow 556K (Tan)" },
                 { "id": "TFC_WA_556_Ops_painted", "name": "[TFC] Op Cinc 556 (Arid)" },
                 { "id": "TFC_WA_opsinc_556", "name": "[TFC] Op Cinc 556 (Black)" },
                 { "id": "TFC_WA_556_Ops_painted_tw", "name": "[TFC] Op Cinc 556 (Woodland)" },
                 { "id": "TFC_WA_556_Ops_painted_wo", "name": "[TFC] Op Cinc 556 (Winter)" }
               ],
-              "undermounts": [
-                { "id": "None", "name": "None" }
-              ],
+              "undermounts": [],
               "primaryMagazines": [
-                { "id": "None", "name": "None" },
                 { "id": "rhs_mag_30Rnd_556x45_Mk262_Stanag", "name": "[RHS] 30 Round STANAG Mk262 Mod 1" },
                 { "id": "rhs_mag_30Rnd_556x45_Mk262_Stanag_Pull", "name": "[RHS] 30 Round STANAG (Puller) Mk262 Mod 1" }
               ],
               "secondaryMagazines": [
-                { "id": "None", "name": "None" },
                 { "id": "rhs_mag_M433_HEDP", "name": "[RHS] M433 HEDP Grenade Round" },
                 { "id": "rhs_mag_m713_Red", "name": "[RHS] M713 Red Smoke Round" },
                 { "id": "rhs_mag_m714_White", "name": "[RHS] M714 White Smoke Round" },
@@ -132,7 +118,6 @@
             "name": "C8A3 Carbine Rifle",
             "attachments": {
               "sights": [
-                { "id": "None", "name": "None" },
                 { "id": "TFC_WA_C79_Elcan", "name": "[TFC] ELCAN C79A2 (PIP)" },
                 { "id": "TFC_WA_c79_Elcan_3d", "name": "[TFC] ELCAN C79A2 (3D)" },
                 { "id": "TFC_WA_Elcan_SpecterDR_3d", "name": "[TFC] ELCAN SpectreDR (Tan)" },
@@ -157,7 +142,6 @@
                 { "id": "rhsusf_acc_eotech_552_wd", "name": "[RHS] M552 CCO (Woodland)" }
               ],
               "rails": [
-                { "id": "None", "name": "None" },
                 { "id": "TFC_WA_peq15_sand", "name": "[TFC] PEQ-15 (Arid)" },
                 { "id": "TFC_WA_peq15_blk", "name": "[TFC] PEQ-15 (Black)" },
                 { "id": "TFC_WA_peq15_tan", "name": "[TFC] PEQ-15 (Tan)" },
@@ -165,7 +149,6 @@
                 { "id": "TFC_WA_peq15_wood", "name": "[TFC] PEQ-15 (Woodland)" }
               ],
               "muzzles": [
-                { "id": "None", "name": "None" },
                 { "id": "TFC_WA_huxwrx_556", "name": "[TFC] HUXWRX Flow 556K (Tan)" },
                 { "id": "TFC_WA_556_Ops_painted", "name": "[TFC] Op Cinc 556 (Arid)" },
                 { "id": "TFC_WA_opsinc_556", "name": "[TFC] Op Cinc 556 (Black)" },
@@ -173,19 +156,15 @@
                 { "id": "TFC_WA_556_Ops_painted_wo", "name": "[TFC] Op Cinc 556 (Winter)" }
               ],
               "undermounts": [
-                { "id": "None", "name": "None" },
                 { "id": "TFC_WA_grip_afg", "name": "[TFC] Angled Forward Grip" },
                 { "id": "TFC_WA_cadex_grip", "name": "[TFC] CADEX Folding Grip" },
                 { "id": "TFC_WA_Virtgrip", "name": "[TFC] Vert Grip" }
               ],
               "primaryMagazines": [
-                { "id": "None", "name": "None" },
                 { "id": "rhs_mag_30Rnd_556x45_Mk262_Stanag", "name": "[RHS] 30 Round STANAG Mk262 Mod 1" },
                 { "id": "rhs_mag_30Rnd_556x45_Mk262_Stanag_Pull", "name": "[RHS] 30 Round STANAG (Puller) Mk262 Mod 1" }
               ],
-              "secondaryMagazines": [
-                { "id": "None", "name": "None" }
-              ]
+              "secondaryMagazines": []
             }
           },
           {
@@ -193,7 +172,6 @@
             "name": "C8A3 Carbine Rifle w/M203",
             "attachments": {
               "sights": [
-                { "id": "None", "name": "None" },
                 { "id": "TFC_WA_C79_Elcan", "name": "[TFC] ELCAN C79A2 (PIP)" },
                 { "id": "TFC_WA_c79_Elcan_3d", "name": "[TFC] ELCAN C79A2 (3D)" },
                 { "id": "TFC_WA_Elcan_SpecterDR_3d", "name": "[TFC] ELCAN SpectreDR (Tan)" },
@@ -218,7 +196,6 @@
                 { "id": "rhsusf_acc_eotech_552_wd", "name": "[RHS] M552 CCO (Woodland)" }
               ],
               "rails": [
-                { "id": "None", "name": "None" },
                 { "id": "TFC_WA_peq15_sand", "name": "[TFC] PEQ-15 (Arid)" },
                 { "id": "TFC_WA_peq15_blk", "name": "[TFC] PEQ-15 (Black)" },
                 { "id": "TFC_WA_peq15_tan", "name": "[TFC] PEQ-15 (Tan)" },
@@ -226,23 +203,18 @@
                 { "id": "TFC_WA_peq15_wood", "name": "[TFC] PEQ-15 (Woodland)" }
               ],
               "muzzles": [
-                { "id": "None", "name": "None" },
                 { "id": "TFC_WA_huxwrx_556", "name": "[TFC] HUXWRX Flow 556K (Tan)" },
                 { "id": "TFC_WA_556_Ops_painted", "name": "[TFC] Op Cinc 556 (Arid)" },
                 { "id": "TFC_WA_opsinc_556", "name": "[TFC] Op Cinc 556 (Black)" },
                 { "id": "TFC_WA_556_Ops_painted_tw", "name": "[TFC] Op Cinc 556 (Woodland)" },
                 { "id": "TFC_WA_556_Ops_painted_wo", "name": "[TFC] Op Cinc 556 (Winter)" }
               ],
-              "undermounts": [
-                { "id": "None", "name": "None" }
-              ],
+              "undermounts": [],
               "primaryMagazines": [
-                { "id": "None", "name": "None" },
                 { "id": "rhs_mag_30Rnd_556x45_Mk262_Stanag", "name": "[RHS] 30 Round STANAG Mk262 Mod 1" },
                 { "id": "rhs_mag_30Rnd_556x45_Mk262_Stanag_Pull", "name": "[RHS] 30 Round STANAG (Puller) Mk262 Mod 1" }
               ],
               "secondaryMagazines": [
-                { "id": "None", "name": "None" },
                 { "id": "rhs_mag_M433_HEDP", "name": "[RHS] M433 HEDP Grenade Round" },
                 { "id": "rhs_mag_m713_Red", "name": "[RHS] M713 Red Smoke Round" },
                 { "id": "rhs_mag_m714_White", "name": "[RHS] M714 White Smoke Round" },
@@ -255,7 +227,6 @@
             "name": "C9A2 Light Machine Gun",
             "attachments": {
               "sights": [
-                { "id": "None", "name": "None" },
                 { "id": "TFC_WA_C79_Elcan", "name": "[TFC] ELCAN C79A2 (PIP)" },
                 { "id": "TFC_WA_c79_Elcan_3d", "name": "[TFC] ELCAN C79A2 (3D)" },
                 { "id": "TFC_WA_Elcan_SpecterDR_3d", "name": "[TFC] ELCAN SpectreDR (Tan)" },
@@ -280,7 +251,6 @@
                 { "id": "rhsusf_acc_eotech_552_wd", "name": "[RHS] M552 CCO (Woodland)" }
               ],
               "rails": [
-                { "id": "None", "name": "None" },
                 { "id": "TFC_WA_peq15_sand", "name": "[TFC] PEQ-15 (Arid)" },
                 { "id": "TFC_WA_peq15_blk", "name": "[TFC] PEQ-15 (Black)" },
                 { "id": "TFC_WA_peq15_tan", "name": "[TFC] PEQ-15 (Tan)" },
@@ -288,7 +258,6 @@
                 { "id": "TFC_WA_peq15_wood", "name": "[TFC] PEQ-15 (Woodland)" }
               ],
               "muzzles": [
-                { "id": "None", "name": "None" },
                 { "id": "TFC_WA_huxwrx_556", "name": "[TFC] HUXWRX Flow 556K (Tan)" },
                 { "id": "TFC_WA_556_Ops_painted", "name": "[TFC] Op Cinc 556 (Arid)" },
                 { "id": "TFC_WA_opsinc_556", "name": "[TFC] Op Cinc 556 (Black)" },
@@ -296,18 +265,14 @@
                 { "id": "TFC_WA_556_Ops_painted_wo", "name": "[TFC] Op Cinc 556 (Winter)" }
               ],
               "undermounts": [
-                { "id": "None", "name": "None" },
                 { "id": "TFC_WA_grip_afg", "name": "[TFC] Angled Forward Grip" },
                 { "id": "TFC_WA_cadex_grip", "name": "[TFC] CADEX Folding Grip" },
                 { "id": "TFC_WA_Virtgrip", "name": "[TFC] Vert Grip" }
               ],
               "primaryMagazines": [
-                { "id": "None", "name": "None" },
                 { "id": "rhsusf_200rnd_556x45_mixed_box", "name": "[RHS] 200 Round M249 Box M855A1 (Mixed)" }
               ],
-              "secondaryMagazines": [
-                { "id": "None", "name": "None" }
-              ]
+              "secondaryMagazines": []
             }
           },
           {
@@ -315,7 +280,6 @@
             "name": "C6 Medium Machine Gun",
             "attachments": {
               "sights": [
-                { "id": "None", "name": "None" },
                 { "id": "rhsusf_acc_ELCAN", "name": "[RHS] M145 MGO" },
                 { "id": "rhsusf_acc_ELCAN_ard", "name": "[RHS] M145 MGO (ARD)" },
                 { "id": "TFC_WA_C79_Elcan", "name": "[TFC] ELCAN C79A2 (PIP)" },
@@ -342,26 +306,18 @@
                 { "id": "rhsusf_acc_eotech_552_wd", "name": "[RHS] M552 CCO (Woodland)" }
               ],
               "rails": [
-                { "id": "None", "name": "None" },
                 { "id": "TFC_WA_peq15_sand", "name": "[TFC] PEQ-15 (Arid)" },
                 { "id": "TFC_WA_peq15_blk", "name": "[TFC] PEQ-15 (Black)" },
                 { "id": "TFC_WA_peq15_tan", "name": "[TFC] PEQ-15 (Tan)" },
                 { "id": "TFC_WA_peq15_winter", "name": "[TFC] PEQ-15 (Winter)" },
                 { "id": "TFC_WA_peq15_wood", "name": "[TFC] PEQ-15 (Woodland)" }
               ],
-              "muzzles": [
-                { "id": "None", "name": "None" }
-              ],
-              "undermounts": [
-                { "id": "None", "name": "None" }
-              ],
+              "muzzles": [],
+              "undermounts": [],
               "primaryMagazines": [
-                { "id": "None", "name": "None" },
                 { "id": "TFC_220Rnd_762x51_Box", "name": "[TFC] 220 Round 7.62x51 Box" }
               ],
-              "secondaryMagazines": [
-                { "id": "None", "name": "None" }
-              ]
+              "secondaryMagazines": []
             }
           },
           {
@@ -369,7 +325,6 @@
             "name": "C6A1 General Purpose Machine Gun",
             "attachments": {
               "sights": [
-                { "id": "None", "name": "None" },
                 { "id": "rhsusf_acc_ELCAN", "name": "[RHS] M145 MGO" },
                 { "id": "rhsusf_acc_ELCAN_ard", "name": "[RHS] M145 MGO (ARD)" },
                 { "id": "TFC_WA_C79_Elcan", "name": "[TFC] ELCAN C79A2 (PIP)" },
@@ -396,26 +351,18 @@
                 { "id": "rhsusf_acc_eotech_552_wd", "name": "[RHS] M552 CCO (Woodland)" }
               ],
               "rails": [
-                { "id": "None", "name": "None" },
                 { "id": "TFC_WA_peq15_sand", "name": "[TFC] PEQ-15 (Arid)" },
                 { "id": "TFC_WA_peq15_blk", "name": "[TFC] PEQ-15 (Black)" },
                 { "id": "TFC_WA_peq15_tan", "name": "[TFC] PEQ-15 (Tan)" },
                 { "id": "TFC_WA_peq15_winter", "name": "[TFC] PEQ-15 (Winter)" },
                 { "id": "TFC_WA_peq15_wood", "name": "[TFC] PEQ-15 (Woodland)" }
               ],
-              "muzzles": [
-                { "id": "None", "name": "None" }
-              ],
-              "undermounts": [
-                { "id": "None", "name": "None" }
-              ],
+              "muzzles": [],
+              "undermounts": [],
               "primaryMagazines": [
-                { "id": "None", "name": "None" },
                 { "id": "TFC_220Rnd_762x51_Box", "name": "[TFC] 220 Round 7.62x51 Box" }
               ],
-              "secondaryMagazines": [
-                { "id": "None", "name": "None" }
-              ]
+              "secondaryMagazines": []
             }
           },
           {
@@ -423,13 +370,11 @@
             "name": "C20 Semi-Automatic Sniper Weapon",
             "attachments": {
               "sights": [
-                { "id": "None", "name": "None" },
                 { "id": "tfc_wa_3_20_x50", "name": "S&B 3-20x50 PM II Ultra Short" },
                 { "id": "tfc_wa_5_25_x56_high", "name": "S&B 5-25x56 PM II/LP High Mount" },
                 { "id": "tfc_wa_5_25_x56_low", "name": "S&B 5-25x56 PM II/LP Low Mount" }
               ],
               "rails": [
-                { "id": "None", "name": "None" },
                 { "id": "TFC_WA_peq15_sand", "name": "[TFC] PEQ-15 (Arid)" },
                 { "id": "TFC_WA_peq15_blk", "name": "[TFC] PEQ-15 (Black)" },
                 { "id": "TFC_WA_peq15_tan", "name": "[TFC] PEQ-15 (Tan)" },
@@ -437,11 +382,9 @@
                 { "id": "TFC_WA_peq15_wood", "name": "[TFC] PEQ-15 (Woodland)" }
               ],
               "muzzles": [
-                { "id": "None", "name": "None" },
                 { "id": "TFC_WA_c20_suppressor", "name": "[TFC] C20 Suppressor" }
               ],
               "undermounts": [
-                { "id": "None", "name": "None" },
                 { "id": "tfc_wa_harris_bipod_small", "name": "[TFC] Harris Bipod (C20 Only)" },
                 { "id": "TFC_WA_c20_vgbp", "name": "[TFC] Vert Grip w/Harris Bipod (C20 Only)" },
                 { "id": "TFC_WA_grip_afg", "name": "[TFC] Angled Forward Grip" },
@@ -449,13 +392,10 @@
                 { "id": "TFC_WA_Virtgrip", "name": "[TFC] Vert Grip" }
               ],
               "primaryMagazines": [
-                { "id": "None", "name": "None" },
                 { "id": "rhsusf_20Rnd_762x51_SR25_m118_special_Mag", "name": "[RHS] 20 Round SR-25 M118" },
                 { "id": "rhsusf_20Rnd_762x51_SR25_m993_Mag", "name": "[RHS] 20 Round SR-25 M993 AP" }
               ],
-              "secondaryMagazines": [
-                { "id": "None", "name": "None" }
-              ]
+              "secondaryMagazines": []
             }
           }
         ]
@@ -468,26 +408,16 @@
             "id": "tfc_w_C22",
             "name": "C22 Full Frame Modular Pistol",
             "attachments": {
-              "sights": [
-                { "id": "None", "name": "None" }
-              ],
+              "sights": [],
               "rails": [
-                { "id": "None", "name": "None" },
                 { "id": "acc_flashlight_pistol", "name": "Pistol Flashlight" }
               ],
-              "muzzles": [
-                { "id": "None", "name": "None" }
-              ],
-              "undermounts": [
-                { "id": "None", "name": "None" }
-              ],
+              "muzzles": [],
+              "undermounts": [],
               "primaryMagazines": [
-                { "id": "None", "name": "None" },
                 { "id": "16Rnd_9x21_Mag", "name": "17 Round 9mm Magazine" }
               ],
-              "secondaryMagazines": [
-                { "id": "None", "name": "None" }
-              ]
+              "secondaryMagazines": []
             }
           }
         ]
@@ -500,49 +430,26 @@
             "id": "rhs_weap_m72a7",
             "name": "[RHS] M72A7 Light Anti-Tank Weapon",
             "attachments": {
-              "sights": [
-                { "id": "None", "name": "None" }
-              ],
+              "sights": [],
               "rails": [
-                { "id": "None", "name": "None" },
                 { "id": "rhsusf_acc_anpeq15side", "name": "AN/PEQ-15" }
               ],
-              "muzzles": [
-                { "id": "None", "name": "None" }
-              ],
-              "undermounts": [
-                { "id": "None", "name": "None" }
-              ],
-              "primaryMagazines": [
-                { "id": "None", "name": "None" }
-              ],
-              "secondaryMagazines": [
-                { "id": "None", "name": "None" }
-              ]
+              "muzzles": [],
+              "undermounts": [],
+              "primaryMagazines": [],
+              "secondaryMagazines": []
             }
           },
           {
             "id": "TFC_launch_M72A6",
             "name": "[TFC] M72C7 Light Anti-Tank Weapon",
             "attachments": {
-              "sights": [
-                { "id": "None", "name": "None" }
-              ],
-              "rails": [
-                { "id": "None", "name": "None" }
-              ],
-              "muzzles": [
-                { "id": "None", "name": "None" }
-              ],
-              "undermounts": [
-                { "id": "None", "name": "None" }
-              ],
-              "primaryMagazines": [
-                { "id": "None", "name": "None" }
-              ],
-              "secondaryMagazines": [
-                { "id": "None", "name": "None" }
-              ]
+              "sights": [],
+              "rails": [],
+              "muzzles": [],
+              "undermounts": [],
+              "primaryMagazines": [],
+              "secondaryMagazines": []
             }
           },
           {
@@ -550,27 +457,17 @@
             "name": "M3 Carl Gustaf Recoilless Rifle",
             "attachments": {
               "sights": [
-                { "id": "None", "name": "None" },
                 { "id": "tfc_wa_CG_Sight", "name": "Carl-G Sight" }
               ],
-              "rails": [
-                { "id": "None", "name": "None" }
-              ],
-              "muzzles": [
-                { "id": "None", "name": "None" }
-              ],
-              "undermounts": [
-                { "id": "None", "name": "None" }
-              ],
+              "rails": [],
+              "muzzles": [],
+              "undermounts": [],
               "primaryMagazines": [
-                { "id": "None", "name": "None" },
                 { "id": "MRAWS_HE_F", "name": "MAAWS HE 44 Round" },
                 { "id": "MRAWS_HEAT55_F", "name": "MAAWS HEAT 55 Round" },
                 { "id": "MRAWS_HEAT_F", "name": "MAAWS HEAT 75 Round" }
               ],
-              "secondaryMagazines": [
-                { "id": "None", "name": "None" }
-              ]
+              "secondaryMagazines": []
             }
           },
           {
@@ -578,26 +475,16 @@
             "name": "M3 MAAWS",
             "attachments": {
               "sights": [
-                { "id": "None", "name": "None" },
                 { "id": "rhs_optic_maaws", "name": "M3 MAAWS Sight" }
               ],
-              "rails": [
-                { "id": "None", "name": "None" }
-              ],
-              "muzzles": [
-                { "id": "None", "name": "None" }
-              ],
-              "undermounts": [
-                { "id": "None", "name": "None" }
-              ],
+              "rails": [],
+              "muzzles": [],
+              "undermounts": [],
               "primaryMagazines": [
-                { "id": "None", "name": "None" },
                 { "id": "MRAWS_HE_F", "name": "MAAWS HE 44 Round" },
                 { "id": "MRAWS_HEAT_F", "name": "MAAWS HEAT 75 Round" }
               ],
-              "secondaryMagazines": [
-                { "id": "None", "name": "None" }
-              ]
+              "secondaryMagazines": []
             }
           }
         ]

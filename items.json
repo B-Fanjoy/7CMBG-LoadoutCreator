@@ -1,0 +1,25 @@
+{
+    "sections": [
+      {
+        "id": "medical",
+        "name": "Medical",
+        "options": [
+
+        ]
+      },
+      {
+        "id": "tools",
+        "name": "Tools",
+        "options": [
+
+        ]
+      },
+      {
+        "id": "magazines",
+        "name": "Magazines",
+        "options": [
+
+        ]
+      }
+    ]
+}
