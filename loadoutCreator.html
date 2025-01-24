@@ -6,6 +6,7 @@
     <title>Loadout Creator</title>
     <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
     <style>
+        /* General styling */
         body {
             margin: 0;
             font-family: 'Roboto', sans-serif;
@@ -18,6 +19,8 @@
             color: #ffcc00;
             margin-bottom: 20px;
         }
+
+        /* Container styling */
         .container {
             width: max-content;
             max-width: max-content;
@@ -36,6 +39,8 @@
             border-radius: 8px;
             box-shadow: 0 0 15px rgba(0, 0, 0, 0.2);
         }
+
+        /* Section styling */
         .section {
             margin-bottom: 0px;
             padding: 15px;
@@ -54,6 +59,12 @@
             font-weight: bold;
             color: #ffeb99;
         }
+
+        /* Select styling */
+        select {
+            text-align: center;
+            text-align-last: center; /* Ensures the selected text is centered */
+        }
         select, input[type="text"] {
             width: 100%;
             padding: 10px;
@@ -68,22 +79,8 @@
             border-color: #ffcc00;
             outline: none;
         }
-        #stickyBar {
-            position: sticky;
-            bottom: 0;
-            z-index: 1000;
-            background-color: #3c3c3c;
-            padding: 10px;
-            box-shadow: 0 -2px 5px rgba(0, 0, 0, 0.5);
-            border-radius: 20px;
-        }
 
-        #stickyBar div {
-            display: flex;
-            align-items: center;
-            width: 100%;
-        }
-
+        /* Button styling */
         .button {
             display: inline-flex;
             align-items: center;
@@ -95,16 +92,31 @@
             background-color: #ffeb99;
             border-radius: 30px;
         }
-
         .button img {
             width: 30px;
             height: auto;
         }
-
         .button:hover {
             background-color: #e6b800;
         }
 
+        /* Sticky bar styling */
+        #stickyBar {
+            position: sticky;
+            bottom: 0;
+            z-index: 1000;
+            background-color: #3c3c3c;
+            padding: 10px;
+            box-shadow: 0 -2px 5px rgba(0, 0, 0, 0.5);
+            border-radius: 20px;
+        }
+        #stickyBar div {
+            display: flex;
+            align-items: center;
+            width: 100%;
+        }
+
+        /* Textarea styling */
         #textbox {
             flex-grow: 1;
             margin-left: 20px;
@@ -115,15 +127,6 @@
             background-color: #2e2e2e;
             color: #f0e68c;
             resize: none;
-        }
-
-        .centered-select {
-            text-align: center;
-            text-align-last: center;
-            width: fit-content;
-            min-width: max-content;
-            display: block;
-            margin: 10px 0;
         }
     </style>
 </head>
@@ -338,7 +341,6 @@
 
                 const weaponSelect = document.createElement('select');
                 weaponSelect.id = `${section.id}Weapon`;
-                weaponSelect.classList.add('centered-select');
                 const weaponOptions = [`<option value="">-- Choose a Weapon --</option>`, `<option value="None">None</option>`];
                 section.weapons.forEach((weapon) => {
                     weaponOptions.push(`<option value="${weapon.id}">${weapon.name}</option>`);
@@ -362,7 +364,6 @@
 
                     const select = document.createElement('select');
                     select.id = `${section.id}${type}Attachment`;
-                    select.classList.add('centered-select');
                     select.innerHTML = `<option value="">-- Choose an Attachment --</option>`;
                     sectionDiv.appendChild(select);
                 });
@@ -391,7 +392,6 @@
 
                     const select = document.createElement('select');
                     select.id = section.id;
-                    select.classList.add('centered-select');
                     const options = [`<option value="">-- Choose ${section.name} --</option>`];
                     section.options.forEach((option) => {
                         options.push(`<option value="${option.id}">${option.name}</option>`);
@@ -424,7 +424,6 @@
 
                     const select = document.createElement('select');
                     select.id = section.id;
-                    select.classList.add('centered-select');
                     const options = [`<option value="">-- Choose ${section.name} --</option>`];
                     section.options.forEach((option) => {
                         options.push(`<option value="${option.id}">${option.name}</option>`);
@@ -448,14 +447,10 @@
             // Update each attachment type
             Object.keys(weaponData.attachments).forEach(type => {
                 const select = document.getElementById(`${sectionId}${type}Attachment`);
-                if (select) {
-                    select.classList.add('centered-select');
-
-                    const options = weaponData.attachments[type].map(
-                        attachment => `<option value="${attachment.id}">${attachment.name}</option>`
-                    );
-                    select.innerHTML = `<option value="">-- Choose an Attachment --</option>` + options.join('');
-                }
+                const options = weaponData.attachments[type].map(
+                    attachment => `<option value="${attachment.id}">${attachment.name}</option>`
+                );
+                select.innerHTML = `<option value="">-- Choose an Attachment --</option>` + options.join('');
             });
         }
 
