@@ -21,7 +21,7 @@
         }
 
         /* Container styling */
-        .container {
+        .maincontainer {
             width: max-content;
             max-width: max-content;
             margin: 0 auto;
@@ -30,7 +30,8 @@
             border-radius: 8px;
             box-shadow: 0 0 15px rgba(0, 0, 0, 0.2);
         }
-        .maincontainer {
+        .container {
+            display: flex;
             width: max-content;
             max-width: max-content;
             margin: 0 auto;
@@ -42,7 +43,7 @@
 
         /* Section styling */
         .section {
-            margin-bottom: 0px;
+            margin-inline: 10px;
             padding: 15px;
             background: #4a4a4a;
             border-radius: 8px;
@@ -328,7 +329,6 @@
             data.sections.forEach((section) => {
                 const sectionDiv = document.createElement('div');
                 sectionDiv.classList.add('section');
-                sectionDiv.style.marginInline = '20px';
 
                 const header = document.createElement('h2');
                 header.textContent = section.name;
