@@ -17,36 +17,38 @@
         h1 {
             text-align: center;
             color: #ffcc00;
-            margin-bottom: 20px;
+            font-size: 5rem;
+            padding-top: 10px;
+        }
+        h2 {
+            text-align: center;
+            color: #ffcc00;
+            font-size: 3rem;
         }
 
         /* Container styling */
         .maincontainer {
-            width: max-content;
-            max-width: max-content;
+            width: 90%;
             margin: 0 auto;
             background: #3c3c3c;
-            padding: 20px;
-            border-radius: 8px;
-            box-shadow: 0 0 15px rgba(0, 0, 0, 0.2);
-        }
-        .container {
-            display: flex;
-            width: max-content;
-            max-width: max-content;
-            margin: 0 auto;
-            background: #3c3c3c;
-            padding: 20px;
+            padding-bottom: 10px;
             border-radius: 8px;
             box-shadow: 0 0 15px rgba(0, 0, 0, 0.2);
         }
 
         /* Section styling */
         .section {
+            flex: 1;
             margin-inline: 10px;
             padding: 15px;
             background: #4a4a4a;
             border-radius: 8px;
+        }
+        .section h1 {
+            font-size: 2rem;
+            margin-bottom: 10px;
+            color: #ffd700;
+            text-align: center;
         }
         .section h2 {
             font-size: 1.5rem;
@@ -54,9 +56,8 @@
             color: #ffd700;
             text-align: center;
         }
-        label {
+        .itemlabel {
             display: block;
-            margin-bottom: 5px;
             font-weight: bold;
             color: #ffeb99;
         }
@@ -134,26 +135,29 @@
 <body>
     <h1>Loadout Creator</h1>
     <div class="maincontainer">
+        <h2>Weapons</h2>
         <div id="weaponSections" style="display: flex;align-items: center;"></div>
     </div>
     <br>
     <div class="maincontainer">
-        <div class="container">
-            <div id="fillableGearSections"style="display: flex;align-items: center;"></div>
-        </div>
-        
-        <br>
-
-        <div class="container">
-            <div id="headGearSections"style="display: flex;align-items: center;"></div>
-        </div>
+        <h2>Main Gear</h2>
+        <div id="fillableGearSections"style="display: flex;align-items: center;"></div>  
     </div>
     <br>
+    <div class="maincontainer">
+        <h2>Head Gear</h2>
+        <div id="headGearSections"style="display: flex;align-items: center;"></div>
+    </div>
     <br>
+    <div class="maincontainer">
+        <h2>Other Gear</h2>
+        <div id="otherGearSections"style="display: flex;align-items: center;"></div>
+    </div>
     <br>
     <div id="stickyBar">
-        <h1>Generated Import String</h1>
-        <div style="display: flex; align-items: center;">
+        <h2 style="padding-bottom: 20px;">Generated Import String</h2>
+        <hr>
+        <div style="display: flex; align-items: center;padding-bottom: 10px;">
             <a class="button" onclick="copyFunction()">
                 <img src="copy_icon.png" alt="Copy"/>
             </a>
@@ -190,6 +194,7 @@
             .then((data) => {
                 renderFillableGearSections(data);
                 renderHeadGearSections(data);
+                renderOtherGearSections(data);
                 attachEventListenersForAll();
             })
             .catch((error) => {
@@ -334,7 +339,7 @@
                 header.textContent = section.name;
                 sectionDiv.appendChild(header);
 
-                const weaponLabel = document.createElement('label');
+                const weaponLabel = document.createElement('itemlabel');
                 weaponLabel.setAttribute('for', `${section.id}Weapon`);
                 weaponLabel.textContent = `Select ${section.name}:`;
                 sectionDiv.appendChild(weaponLabel);
@@ -357,7 +362,7 @@
                     'primaryMagazines', 
                     'secondaryMagazines'
                 ].forEach((type) => {
-                    const label = document.createElement('label');
+                    const label = document.createElement('itemlabel');
                     label.setAttribute('for', `${section.id}${type}Attachment`);
                     label.textContent = `${type.replace(/([A-Z])/g, ' $1').replace(/^./, str => str.toUpperCase())} Attachment:`;
                     sectionDiv.appendChild(label);
@@ -385,7 +390,7 @@
                     header.textContent = section.name;
                     sectionDiv.appendChild(header);
 
-                    const label = document.createElement('label');
+                    const label = document.createElement('itemlabel');
                     label.setAttribute('for', section.id);
                     label.textContent = `Select ${section.name}:`;
                     sectionDiv.appendChild(label);
@@ -417,7 +422,7 @@
                     header.textContent = section.name;
                     sectionDiv.appendChild(header);
 
-                    const label = document.createElement('label');
+                    const label = document.createElement('itemlabel');
                     label.setAttribute('for', section.id);
                     label.textContent = `Select ${section.name}:`;
                     sectionDiv.appendChild(label);
@@ -432,6 +437,69 @@
                     sectionDiv.appendChild(select);
 
                     headGearSections.appendChild(sectionDiv);
+                }
+            });
+        }
+
+        // Function to render other gear sections
+        function renderOtherGearSections(data) {
+            const otherGearSections = document.getElementById('otherGearSections');
+            otherGearSections.style.display = 'flex';
+            otherGearSections.style.flexWrap = 'wrap';
+            otherGearSections.style.gap = '20px';
+
+            data.sections.forEach((section) => {
+                if (section.id == "binoculars" || section.id == "map" || section.id == "terminal" || section.id == "communication") {
+                    const sectionDiv = document.createElement('div');
+                    sectionDiv.classList.add('section');
+                    sectionDiv.style.flex = '1 1 25%';
+                    sectionDiv.style.order = '0';
+
+                    const header = document.createElement('h2');
+                    header.textContent = section.name;
+                    sectionDiv.appendChild(header);
+
+                    const label = document.createElement('itemlabel');
+                    label.setAttribute('for', section.id);
+                    label.textContent = `Select ${section.name}:`;
+                    sectionDiv.appendChild(label);
+
+                    const select = document.createElement('select');
+                    select.id = section.id;
+                    const options = [`<option value="">-- Choose ${section.name} --</option>`];
+                    section.options.forEach((option) => {
+                        options.push(`<option value="${option.id}">${option.name}</option>`);
+                    });
+                    select.innerHTML = options.join('');
+                    sectionDiv.appendChild(select);
+
+                    otherGearSections.appendChild(sectionDiv);
+                }
+                else if (section.id == "navigation" || section.id == "watch" || section.id == "insignia" || section.id == "earplugs") {
+                        const sectionDiv = document.createElement('div');
+                        sectionDiv.classList.add('section');
+                        sectionDiv.style.flex = '1 1 25%';
+                        sectionDiv.style.order = '1';
+
+                        const header = document.createElement('h2');
+                        header.textContent = section.name;
+                        sectionDiv.appendChild(header);
+
+                        const label = document.createElement('itemlabel');
+                        label.setAttribute('for', section.id);
+                        label.textContent = `Select ${section.name}:`;
+                        sectionDiv.appendChild(label);
+
+                        const select = document.createElement('select');
+                        select.id = section.id;
+                        const options = [`<option value="">-- Choose ${section.name} --</option>`];
+                        section.options.forEach((option) => {
+                            options.push(`<option value="${option.id}">${option.name}</option>`);
+                        });
+                        select.innerHTML = options.join('');
+                        sectionDiv.appendChild(select);
+
+                        otherGearSections.appendChild(sectionDiv);
                 }
             });
         }
