@@ -247,12 +247,7 @@
       {
         "id": "communication",
         "name": "Communication",
-        "options": [
-          {
-            "id": "na",
-            "name": "Option Not In Use"
-          }
-        ]
+        "options": []
       },
       {
         "id": "navigation",

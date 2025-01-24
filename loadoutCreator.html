@@ -164,7 +164,7 @@
     </div>
     <br>
     <div id="stickyBar">
-        <h2 style="padding-bottom: 20px;">Generated Import String</h2>
+        <h2 style="width: calc(100% + 2 * 10px);margin-left: -10px;margin-top: -10px;border-top-left-radius: 20px;border-top-right-radius: 20px;padding-top: 10px;">Generated Import String</h2>
         <hr>
         <div style="display: flex; align-items: center;padding-bottom: 10px;">
             <a class="button" onclick="copyFunction()">
@@ -493,10 +493,12 @@
                     select.id = section.id;
                     const options = [];
                     if (section.id == "communication") {
-                        options = [`<option value="None">Option Not Available</option>`];
+                        options.push(`<option value="None">Option Not Available</option>`);
+                        select.style.pointerEvents = 'none';
+                        select.style.opacity = '0.5';
                     }
                     else {
-                        options = [`<option value="None">-- None --</option>`];
+                        options.push(`<option value="None">-- None --</option>`);
                     }
                     section.options.forEach((option) => {
                         options.push(`<option value="${option.id}">${option.name}</option>`);
