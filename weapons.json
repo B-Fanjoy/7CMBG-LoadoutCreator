@@ -309,6 +309,154 @@
                 { "id": "None", "name": "None" }
               ]
             }
+          },
+          {
+            "id": "TFC_W_c6",
+            "name": "C6 Medium Machine Gun",
+            "attachments": {
+              "sights": [
+                { "id": "None", "name": "None" },
+                { "id": "rhsusf_acc_ELCAN", "name": "[RHS] M145 MGO" },
+                { "id": "rhsusf_acc_ELCAN_ard", "name": "[RHS] M145 MGO (ARD)" },
+                { "id": "TFC_WA_C79_Elcan", "name": "[TFC] ELCAN C79A2 (PIP)" },
+                { "id": "TFC_WA_c79_Elcan_3d", "name": "[TFC] ELCAN C79A2 (3D)" },
+                { "id": "TFC_WA_Elcan_SpecterDR_3d", "name": "[TFC] ELCAN SpectreDR (Tan)" },
+                { "id": "TFC_WA_Elcan_SpecterDR_3d_blk", "name": "[TFC] ELCAN SpectreDR (Black)" },
+                { "id": "TFC_WA_Elcan_SpecterDR_3d_mrds", "name": "[TFC] ELCAN SpectreDR w/MRDS (Tan)" },
+                { "id": "TFC_WA_Elcan_SpecterDR_3d_mrds_blk", "name": "[TFC] ELCAN SpectreDR w/MRDS (Black)" },
+                { "id": "TFC_WA_Elcan_SpecterDR_3d_WF", "name": "[TFC] ELCAN SpectreDR w/MRDS + Flashhide (Tan)" },
+                { "id": "TFC_WA_Elcan_SpecterDR_3d_WF_blk", "name": "[TFC] ELCAN SpectreDR w/MRDS + Flashhide (Black)" },
+                { "id": "TFC_WA_Eotech_flip_up_blk", "name": "[TFC] EOTech w/3x Magnifier (Black)" },
+                { "id": "TFC_WA_Eotech_flip_up_tan", "name": "[TFC] EOTech w/3x Magnifier (Tan)" },
+                { "id": "optic_Holosight_arid_F", "name": "EOTech XPS3 (Arid)" },
+                { "id": "optic_Holosight_blk_F", "name": "EOTech XPS3 (Black)" },
+                { "id": "optic_Holosight_khk_F", "name": "EOTech XPS3 (Khaki)" },
+                { "id": "optic_Holosight_lush_F", "name": "EOTech XPS3 (Lush)" },
+                { "id": "optic_Holosight", "name": "EOTech XPS3 (Tan)" },
+                { "id": "optic_Holosight_smg_blk_F", "name": "EOTech XPS3 SMG (Black)" },
+                { "id": "optic_Holosight_smg_khk_F", "name": "EOTech XPS3 SMG (Khaki)" },
+                { "id": "optic_Holosight_smg", "name": "EOTech XPS3 SMG (Tan)" },
+                { "id": "rhsusf_acc_eotech_xps3", "name": "[RHS] XPS3 (Black) (Doesn't have any dirt)" },
+                { "id": "rhsusf_acc_eotech_552", "name": "[RHS] M552 CCO (Black)" },
+                { "id": "rhsusf_acc_eotech_552_d", "name": "[RHS] M552 CCO (Desert)" },
+                { "id": "rhsusf_acc_eotech_552_wd", "name": "[RHS] M552 CCO (Woodland)" }
+              ],
+              "rails": [
+                { "id": "None", "name": "None" },
+                { "id": "TFC_WA_peq15_sand", "name": "[TFC] PEQ-15 (Arid)" },
+                { "id": "TFC_WA_peq15_blk", "name": "[TFC] PEQ-15 (Black)" },
+                { "id": "TFC_WA_peq15_tan", "name": "[TFC] PEQ-15 (Tan)" },
+                { "id": "TFC_WA_peq15_winter", "name": "[TFC] PEQ-15 (Winter)" },
+                { "id": "TFC_WA_peq15_wood", "name": "[TFC] PEQ-15 (Woodland)" }
+              ],
+              "muzzles": [
+                { "id": "None", "name": "None" }
+              ],
+              "undermounts": [
+                { "id": "None", "name": "None" }
+              ],
+              "primaryMagazines": [
+                { "id": "None", "name": "None" },
+                { "id": "TFC_220Rnd_762x51_Box", "name": "[TFC] 220 Round 7.62x51 Box" }
+              ],
+              "secondaryMagazines": [
+                { "id": "None", "name": "None" }
+              ]
+            }
+          },
+          {
+            "id": "TFC_W_c6a1",
+            "name": "C6A1 General Purpose Machine Gun",
+            "attachments": {
+              "sights": [
+                { "id": "None", "name": "None" },
+                { "id": "rhsusf_acc_ELCAN", "name": "[RHS] M145 MGO" },
+                { "id": "rhsusf_acc_ELCAN_ard", "name": "[RHS] M145 MGO (ARD)" },
+                { "id": "TFC_WA_C79_Elcan", "name": "[TFC] ELCAN C79A2 (PIP)" },
+                { "id": "TFC_WA_c79_Elcan_3d", "name": "[TFC] ELCAN C79A2 (3D)" },
+                { "id": "TFC_WA_Elcan_SpecterDR_3d", "name": "[TFC] ELCAN SpectreDR (Tan)" },
+                { "id": "TFC_WA_Elcan_SpecterDR_3d_blk", "name": "[TFC] ELCAN SpectreDR (Black)" },
+                { "id": "TFC_WA_Elcan_SpecterDR_3d_mrds", "name": "[TFC] ELCAN SpectreDR w/MRDS (Tan)" },
+                { "id": "TFC_WA_Elcan_SpecterDR_3d_mrds_blk", "name": "[TFC] ELCAN SpectreDR w/MRDS (Black)" },
+                { "id": "TFC_WA_Elcan_SpecterDR_3d_WF", "name": "[TFC] ELCAN SpectreDR w/MRDS + Flashhide (Tan)" },
+                { "id": "TFC_WA_Elcan_SpecterDR_3d_WF_blk", "name": "[TFC] ELCAN SpectreDR w/MRDS + Flashhide (Black)" },
+                { "id": "TFC_WA_Eotech_flip_up_blk", "name": "[TFC] EOTech w/3x Magnifier (Black)" },
+                { "id": "TFC_WA_Eotech_flip_up_tan", "name": "[TFC] EOTech w/3x Magnifier (Tan)" },
+                { "id": "optic_Holosight_arid_F", "name": "EOTech XPS3 (Arid)" },
+                { "id": "optic_Holosight_blk_F", "name": "EOTech XPS3 (Black)" },
+                { "id": "optic_Holosight_khk_F", "name": "EOTech XPS3 (Khaki)" },
+                { "id": "optic_Holosight_lush_F", "name": "EOTech XPS3 (Lush)" },
+                { "id": "optic_Holosight", "name": "EOTech XPS3 (Tan)" },
+                { "id": "optic_Holosight_smg_blk_F", "name": "EOTech XPS3 SMG (Black)" },
+                { "id": "optic_Holosight_smg_khk_F", "name": "EOTech XPS3 SMG (Khaki)" },
+                { "id": "optic_Holosight_smg", "name": "EOTech XPS3 SMG (Tan)" },
+                { "id": "rhsusf_acc_eotech_xps3", "name": "[RHS] XPS3 (Black) (Doesn't have any dirt)" },
+                { "id": "rhsusf_acc_eotech_552", "name": "[RHS] M552 CCO (Black)" },
+                { "id": "rhsusf_acc_eotech_552_d", "name": "[RHS] M552 CCO (Desert)" },
+                { "id": "rhsusf_acc_eotech_552_wd", "name": "[RHS] M552 CCO (Woodland)" }
+              ],
+              "rails": [
+                { "id": "None", "name": "None" },
+                { "id": "TFC_WA_peq15_sand", "name": "[TFC] PEQ-15 (Arid)" },
+                { "id": "TFC_WA_peq15_blk", "name": "[TFC] PEQ-15 (Black)" },
+                { "id": "TFC_WA_peq15_tan", "name": "[TFC] PEQ-15 (Tan)" },
+                { "id": "TFC_WA_peq15_winter", "name": "[TFC] PEQ-15 (Winter)" },
+                { "id": "TFC_WA_peq15_wood", "name": "[TFC] PEQ-15 (Woodland)" }
+              ],
+              "muzzles": [
+                { "id": "None", "name": "None" }
+              ],
+              "undermounts": [
+                { "id": "None", "name": "None" }
+              ],
+              "primaryMagazines": [
+                { "id": "None", "name": "None" },
+                { "id": "TFC_220Rnd_762x51_Box", "name": "[TFC] 220 Round 7.62x51 Box" }
+              ],
+              "secondaryMagazines": [
+                { "id": "None", "name": "None" }
+              ]
+            }
+          },
+          {
+            "id": "TFC_W_c20",
+            "name": "C20 Semi-Automatic Sniper Weapon",
+            "attachments": {
+              "sights": [
+                { "id": "None", "name": "None" },
+                { "id": "tfc_wa_3_20_x50", "name": "S&B 3-20x50 PM II Ultra Short" },
+                { "id": "tfc_wa_5_25_x56_high", "name": "S&B 5-25x56 PM II/LP High Mount" },
+                { "id": "tfc_wa_5_25_x56_low", "name": "S&B 5-25x56 PM II/LP Low Mount" }
+              ],
+              "rails": [
+                { "id": "None", "name": "None" },
+                { "id": "TFC_WA_peq15_sand", "name": "[TFC] PEQ-15 (Arid)" },
+                { "id": "TFC_WA_peq15_blk", "name": "[TFC] PEQ-15 (Black)" },
+                { "id": "TFC_WA_peq15_tan", "name": "[TFC] PEQ-15 (Tan)" },
+                { "id": "TFC_WA_peq15_winter", "name": "[TFC] PEQ-15 (Winter)" },
+                { "id": "TFC_WA_peq15_wood", "name": "[TFC] PEQ-15 (Woodland)" }
+              ],
+              "muzzles": [
+                { "id": "None", "name": "None" },
+                { "id": "TFC_WA_c20_suppressor", "name": "[TFC] C20 Suppressor" }
+              ],
+              "undermounts": [
+                { "id": "None", "name": "None" },
+                { "id": "tfc_wa_harris_bipod_small", "name": "[TFC] Harris Bipod (C20 Only)" },
+                { "id": "TFC_WA_c20_vgbp", "name": "[TFC] Vert Grip w/Harris Bipod (C20 Only)" },
+                { "id": "TFC_WA_grip_afg", "name": "[TFC] Angled Forward Grip" },
+                { "id": "TFC_WA_cadex_grip", "name": "[TFC] CADEX Folding Grip" },
+                { "id": "TFC_WA_Virtgrip", "name": "[TFC] Vert Grip" }
+              ],
+              "primaryMagazines": [
+                { "id": "None", "name": "None" },
+                { "id": "rhsusf_20Rnd_762x51_SR25_m118_special_Mag", "name": "[RHS] 20 Round SR-25 M118" },
+                { "id": "rhsusf_20Rnd_762x51_SR25_m993_Mag", "name": "[RHS] 20 Round SR-25 M993 AP" }
+              ],
+              "secondaryMagazines": [
+                { "id": "None", "name": "None" }
+              ]
+            }
           }
         ]
       },
