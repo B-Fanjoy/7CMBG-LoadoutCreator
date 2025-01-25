@@ -174,6 +174,9 @@
     </div>
     
     <script>
+        // List of restricted weapons (use the values from the dropdown options)
+        const restrictedWeapons = ["TFC_W_c6", "TFC_W_c6a1", "TFC_W_c20", "TFC_launch_CarlG_M3", "rhs_weap_maaws"]; 
+
         // Load weapon data from weapons.json
         fetch('weapons.json')
             .then((response) => {
@@ -184,8 +187,12 @@
             })
             .then((data) => {
                 renderWeaponSections(data);
+                populateWeaponDropdown('primaryWeapon', data.sections.find(s => s.id === "primary").weapons);
+                populateWeaponDropdown('secondaryWeapon', data.sections.find(s => s.id === "secondary").weapons);
+                populateWeaponDropdown('tertiaryWeapon', data.sections.find(s => s.id === "tertiary").weapons);
                 attachWeaponEventListeners(data);
                 attachEventListenersForAll();
+                attachWeaponWarnings();
             })
             .catch((error) => {
                 console.error('Error loading weapons.json:', error);
@@ -208,6 +215,39 @@
             .catch((error) => {
                 console.error('Error loading gear.json:', error);
             });
+    
+        // Function to check if the selected weapon is a restricted weapon
+        function checkRestrictedWeapon(selectElement) {
+            // Remove any existing warning
+            const existingWarning = selectElement.nextElementSibling;
+            if (existingWarning && existingWarning.classList.contains('warning-message')) {
+                existingWarning.remove();
+            }
+
+            const selectedValue = selectElement.value;
+
+            if (restrictedWeapons.includes(selectedValue)) {
+                // Create warning message
+                const warningMessage = document.createElement('div');
+                warningMessage.classList.add('warning-message');
+                warningMessage.textContent = "⚠ Warning: Ensure this weapon is part of your orders!";
+                warningMessage.style.color = "#ff0000";
+                warningMessage.style.fontWeight = "bold";
+                warningMessage.style.marginBottom = "5px";
+
+                // Insert warning below the dropdown
+                selectElement.parentNode.insertBefore(warningMessage, selectElement.nextSibling);
+            }
+        }
+
+        // Attach the weapon warning event listener to all weapon dropdowns
+        function attachWeaponWarnings() {
+            document.querySelectorAll('select[id$="Weapon"]').forEach(select => {
+                select.addEventListener('change', function() {
+                    checkRestrictedWeapon(this);
+                });
+            });
+        }
 
         // Function to copy output string to clipboard
         function copyFunction() {
@@ -220,13 +260,48 @@
             });
         }
 
-        //Function to show the copy popup
+        // Function to show the copy popup
         function showPopup() {
             var popup = document.getElementById("customPopup");
             popup.style.display = "block";
             setTimeout(() => {
                 popup.style.display = "none";
             }, 2000); // Hide after 2 seconds
+        }
+
+        // Function to add dropdown groups
+        function populateWeaponDropdown(dropdownId, weapons) {
+            const selectElement = document.getElementById(dropdownId);
+            if (!selectElement) return;
+            selectElement.innerHTML = '';  // Clear existing options
+
+            // Create optgroup elements for normal and restricted weapons
+            const normalGroup = document.createElement('optgroup');
+            normalGroup.label = "⟶ Normal Weapons ⟵";
+
+            const restrictedGroup = document.createElement('optgroup');
+            restrictedGroup.label = "⟶ On Order Weapons ⟵";
+
+            weapons.forEach(weapon => {
+                const option = document.createElement('option');
+                option.value = weapon.id;
+                option.textContent = weapon.name;
+
+                // Check if the weapon is restricted and add to the respective group
+                if (restrictedWeapons.includes(weapon.id)) {
+                    restrictedGroup.appendChild(option);
+                } else {
+                    normalGroup.appendChild(option);
+                }
+            });
+
+            // Add groups to dropdown only if they have options
+            if (normalGroup.children.length > 0) {
+                selectElement.appendChild(normalGroup);
+            }
+            if (restrictedGroup.children.length > 0) {
+                selectElement.appendChild(restrictedGroup);
+            }
         }
 
         // Function to generate import string
@@ -589,6 +664,9 @@
 
     <div id="customPopup" style="display: none; position: fixed; bottom: 22px; left: 50%; transform: translateX(-50%); background-color: #ffcc00; color: #000; padding: 15px 20px; border-radius: 8px; box-shadow: 0 0 10px rgba(0,0,0,0.3); font-size: 1.2rem; z-index: 2000;">
         Copied to clipboard!
+    </div>
+    <div id="weaponWarning" style="display: none; position: fixed; top: 20px; left: 50%; transform: translateX(-50%); background-color: #ff0000; color: #fff; padding: 15px 20px; border-radius: 8px; box-shadow: 0 0 10px rgba(0,0,0,0.3); font-size: 1.2rem; z-index: 2000;">
+        Warning: Make sure this weapon is part of your orders!
     </div>
 </body>
 </html>
