@@ -174,8 +174,27 @@
     </div>
     
     <script>
-        // List of restricted weapons (use the values from the dropdown options)
-        const restrictedWeapons = ["TFC_W_c6", "TFC_W_c6a1", "TFC_W_c20", "TFC_launch_CarlG_M3", "rhs_weap_maaws"]; 
+        // List of restricted weapons
+        const restrictedWeapons = [
+            "TFC_W_c6", 
+            "TFC_W_c6a1", 
+            "TFC_W_c20", 
+            "TFC_launch_CarlG_M3", 
+            "rhs_weap_maaws"
+        ];
+
+        // List of restricted attachment
+        const restrictedAttachments = [
+            // Special Sights
+        
+            // All Suppressors
+            "TFC_WA_huxwrx_556",
+            "TFC_WA_556_Ops_painted",
+            "TFC_WA_opsinc_556",
+            "TFC_WA_556_Ops_painted_tw",
+            "TFC_WA_556_Ops_painted_wo",
+            "TFC_WA_c20_suppressor"
+        ];
 
         // Load weapon data from weapons.json
         fetch('weapons.json')
@@ -275,12 +294,20 @@
             if (!selectElement) return;
             selectElement.innerHTML = '';  // Clear existing options
 
+            // Add "None" option at the top of the dropdown
+            const noneOption = document.createElement('option');
+            noneOption.value = "";
+            noneOption.textContent = "-- None --";
+            noneOption.style.color = "white"
+            selectElement.appendChild(noneOption);
+
             // Create optgroup elements for normal and restricted weapons
             const normalGroup = document.createElement('optgroup');
-            normalGroup.label = "⟶ Normal Weapons ⟵";
+            normalGroup.label = "⟶ Unrestricted Weapons ⟵";
 
             const restrictedGroup = document.createElement('optgroup');
-            restrictedGroup.label = "⟶ On Order Weapons ⟵";
+            restrictedGroup.label = "⟶ On Order ⟵";
+            restrictedGroup.style.color = "#007888";
 
             weapons.forEach(weapon => {
                 const option = document.createElement('option');
@@ -289,6 +316,7 @@
 
                 // Check if the weapon is restricted and add to the respective group
                 if (restrictedWeapons.includes(weapon.id)) {
+                    option.style.color = "#007888";
                     restrictedGroup.appendChild(option);
                 } else {
                     normalGroup.appendChild(option);
@@ -610,12 +638,21 @@
 
                     const label = document.createElement('itemlabel');
                     label.setAttribute('for', section.id);
-                    label.textContent = `Select ${section.name}:`;
+                    if (section.id == "earplugs") {
+                        label.textContent = `${section.name}:`;
+                    }
+                    else {
+                        label.textContent = `Select ${section.name}:`;
+                    }
                     sectionDiv.appendChild(label);
 
                     const select = document.createElement('select');
                     select.id = section.id;
-                    const options = [`<option value="None">-- None --</option>`];
+                    const options = [];
+                    if (section.id == "earplugs") {}
+                    else {
+                        options.push(`<option value="None">-- None --</option>`);
+                    }
                     section.options.forEach((option) => {
                         options.push(`<option value="${option.id}">${option.name}</option>`);
                     });
@@ -631,17 +668,53 @@
         function updateAttachments(weapon, sectionId, data) {
             const selectedWeapon = weapon.value;
             const sectionData = data.sections.find(section => section.id === sectionId);
-            const weaponData = sectionData.weapons.find(w => w.id === selectedWeapon);
+            const weaponData = sectionData ? sectionData.weapons.find(w => w.id === selectedWeapon) : null;
 
             if (!weaponData || !weaponData.attachments) return;
 
-            // Update each attachment type
+            // Update each attachment type (sights, rails, muzzles, undermounts, etc.)
             Object.keys(weaponData.attachments).forEach(type => {
                 const select = document.getElementById(`${sectionId}${type}Attachment`);
-                const options = weaponData.attachments[type].map(
-                    attachment => `<option value="${attachment.id}">${attachment.name}</option>`
-                );
-                select.innerHTML = `<option value="None">-- None --</option>` + options.join('');
+                if (!select) return;
+
+                select.innerHTML = ''; // Clear existing options
+
+                // Add "None" option
+                const noneOption = document.createElement('option');
+                noneOption.value = "None";
+                noneOption.textContent = `-- No ${type.charAt(0).toUpperCase() + type.slice(1)} --`;
+                noneOption.style.color = "white"
+                select.appendChild(noneOption);
+
+                // Create optgroups for normal and restricted attachments
+                const normalGroup = document.createElement('optgroup');
+                normalGroup.label = `⟶ Unrestricted ${type.charAt(0).toUpperCase() + type.slice(1)} ⟵`;
+
+                const restrictedGroup = document.createElement('optgroup');
+                restrictedGroup.label = `⟶ On Order ${type.charAt(0).toUpperCase() + type.slice(1)} ⟵`;
+                restrictedGroup.style.color = "#007888"; // Highlight restricted attachments
+
+                weaponData.attachments[type].forEach(attachment => {
+                    const option = document.createElement('option');
+                    option.value = attachment.id;
+                    option.textContent = attachment.name;
+
+                    // Check if attachment is restricted and add to the respective group
+                    if (restrictedAttachments.includes(attachment.id)) {
+                        option.style.color = "#007888";  // Highlight restricted attachment
+                        restrictedGroup.appendChild(option);
+                    } else {
+                        normalGroup.appendChild(option);
+                    }
+                });
+
+                // Append groups to the dropdown if they contain options
+                if (normalGroup.children.length > 0) {
+                    select.appendChild(normalGroup);
+                }
+                if (restrictedGroup.children.length > 0) {
+                    select.appendChild(restrictedGroup);
+                }
             });
         }
 
