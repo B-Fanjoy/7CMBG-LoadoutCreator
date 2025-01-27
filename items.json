@@ -1,15 +1,29 @@
 {
     "sections": [
       {
-        "id": "medical",
-        "name": "Medical",
+        "id": "sights",
+        "name": "Sights",
         "options": [
 
         ]
       },
       {
-        "id": "tools",
-        "name": "Tools",
+        "id": "rails",
+        "name": "Rail Attachments",
+        "options": [
+
+        ]
+      },
+      {
+        "id": "muzzles",
+        "name": "Muzzle Attachments",
+        "options": [
+
+        ]
+      },
+      {
+        "id": "undermount",
+        "name": "Undermount Attachments",
         "options": [
 
         ]
@@ -18,7 +32,102 @@
         "id": "magazines",
         "name": "Magazines",
         "options": [
+          {
+            "id": "primary",
+            "name": "Primary",
+            "options": [
+              { "id": "rhs_mag_30Rnd_556x45_Mk262_Stanag", "name": "[RHS] 30 Round STANAG Mk262 Mod 1" },
+              { "id": "rhs_mag_30Rnd_556x45_Mk262_Stanag_Pull", "name": "[RHS] 30 Round STANAG (Puller) Mk262 Mod 1" },
+              { "id": "rhsusf_200rnd_556x45_mixed_box", "name": "[RHS] 200 Round M249 Box M855A1 (Mixed)" },
+              { "id": "TFC_220Rnd_762x51_Box", "name": "[TFC] 220 Round 7.62x51 Box" },
+              { "id": "16Rnd_9x21_Mag", "name": "17 Round 9mm Magazine" }
+            ]
+          },
+          {
+            "id": "secondary",
+            "name": "Secondary",
+            "options": [
+              { "id": "rhs_mag_M433_HEDP", "name": "[RHS] M433 HEDP Grenade Round" },
+              { "id": "rhs_mag_m713_Red", "name": "[RHS] M713 Red Smoke Round" },
+              { "id": "rhs_mag_m714_White", "name": "[RHS] M714 White Smoke Round" },
+              { "id": "rhs_mag_m715_Green", "name": "[RHS] M715 Green Smoke Round" }
+            ]
+          }
+        ]
+      },
+      {
+        "id": "throwables",
+        "name": "Throwables",
+        "groupings": [
+          {
+            "id": "grenades",
+            "name": "Grenades",
+            "options": [
+              { "id": "rhs_mag_m67", "name": "M67 Fragmentation Grenade" },
+              { "id": "SmokeShell", "name": "M83 Smoke Grenade (White)" }
+            ]
+          },
+          {
+            "id": "other",
+            "name": "Other",
+            "options": [
+              { "id": "ACE_Chemlight_HiBlue", "name": "Chemlight (Hi Blue)" },
+              { "id": "ACE_Chemlight_HiGreen", "name": "Chemlight (Hi Green)" },
+              { "id": "ACE_Chemlight_HiRed", "name": "Chemlight (Hi Red)" },
+              { "id": "ACE_Chemlight_HiYellow", "name": "Chemlight (Hi Yellow)" },
+              { "id": "ACE_EarPlugs", "name": "Chemlight (IR)" }
+            ]
+          }
+        ]
+      },
+      {
+        "id": "explosives",
+        "name": "Explosives",
+        "options": [
 
+        ]
+      },
+      {
+        "id": "tools",
+        "name": "Tools",
+        "options": [
+          { "id": "ACE_MapTools", "name": "Map Tools" },
+          { "id": "ACE_Flashlight_XL50", "name": "Maglite XL50" },
+          { "id": "ACE_Flashlight_MX991", "name": "Fulton MX-991" },
+          { "id": "ACE_EntrenchingTool", "name": "Entrenching Tool" }
+        ]
+      },
+      {
+        "id": "ace_rations",
+        "name": "ACE Rations",
+        "options": [
+
+        ]
+      },
+      {
+        "id": "medical",
+        "name": "Medical",
+        "options": [
+          { "id": "ACE_fieldDressing", "name": "Bandage (Basic)" },
+          { "id": "ACE_elasticBandage", "name": "Bandage (Elastic)" },
+          { "id": "ACE_packingBandage", "name": "Bandage (Packing)" },
+          { "id": "ACE_splint", "name": "Splint" },
+          { "id": "ACE_tourniquet", "name": "Tourniquet (CAT)" },
+          { "id": "kat_chestSeal", "name": "Chest Seal" },
+          { "id": "ACE_painkillers", "name": "Painkillers" }
+        ]
+      },
+      {
+        "id": "misc",
+        "name": "Misc",
+        "options": [
+          { "id": "ACE_CableTie", "name": "Cable Tie" },
+          { "id": "ACE_EarPlugs", "name": "Earplugs" },
+          { "id": "ACE_IR_Strobe_Item", "name": "IR Strobe" },
+          { "id": "ACRE_PRC343", "name": "AN/PRC-343" },
+          { "id": "ACRE_PRC152", "name": "AN/PRC-152" },
+          { "id": "kat_mask_M50", "name": "M50 Promask" },
+          { "id": "kat_gasmaskFilter", "name": "Gas Mask Filter" }
         ]
       }
     ]
