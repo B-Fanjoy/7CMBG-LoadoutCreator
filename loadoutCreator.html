@@ -145,6 +145,8 @@
             color: #f0e68c;
             resize: none;
         }
+
+        .scrollable-ul { overflow-y: auto; height: 100px; }
     </style>
 </head>
 <body>
@@ -540,6 +542,30 @@
                     });
                     select.innerHTML = options.join('');
                     sectionDiv.appendChild(select);
+
+                    // Add items section
+                    const listlabel = document.createElement('itemlabel');
+                    listlabel.textContent = "Items:";
+                    sectionDiv.appendChild(listlabel);
+
+                    const items = document.createElement('ul');
+                    items.classList.add('scrollable-ul');
+                    const itemOptions = ['<li>Item One</li>', '<li>Item Two</li>', '<li>Item Three</li>', '<li>Item Four</li>'];
+                    items.innerHTML = itemOptions.join('');
+                    // Add item count dropdown
+                    const removeItemButton = document.createElement('button');
+                    removeItemButton.textContent = "-";
+                    const itemCount = document.createElement('input');
+                    itemCount.type = "number";
+                    itemCount.min = "0";
+                    itemCount.disabled = true;
+                    const addItemButton = document.createElement('button');
+                    addItemButton.textContent = "+";
+                    items.appendChild(removeItemButton);
+                    items.appendChild(itemCount);
+                    items.appendChild(addItemButton);
+   
+                    sectionDiv.appendChild(items);
 
                     fillableGearSections.appendChild(sectionDiv);
                 }
