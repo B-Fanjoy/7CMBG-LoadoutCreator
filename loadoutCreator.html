@@ -146,7 +146,109 @@
             resize: none;
         }
 
-        .scrollable-ul { overflow-y: auto; height: 100px; }
+        /* Item list styling */
+        .scrollable-ul {
+            list-style-type: none;
+            padding: 0;
+        }
+        .item-list {
+            font-size: 20px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 10px;
+            border-bottom: 1px solid #ccc;
+        }
+        .item-controls {
+            display: flex;
+            gap: 5px;
+        }
+        .item-controls span {
+            font-size: 20px;
+            padding-inline: 10px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            box-sizing: content-box;
+        }
+
+        /* Center the Add Item button */
+        .centered-button {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            width: 100%;
+            margin-top: 20px;
+        }
+
+        /* Style the Add Item button */
+        .add-item-btn {
+            padding: 15px 30px;
+            margin-bottom: 15px;
+            font-size: 1.2rem;
+            font-weight: bold;
+            border: none;
+            border-radius: 30px;
+            background-color: #ffeb99;  /* Matching theme color */
+            color: #2e2e2e;
+            cursor: pointer;
+            transition: background-color 0.3s ease, box-shadow 0.3s ease;
+            text-shadow: 1px 1px 5px rgba(0, 0, 0, 0.2);
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+        }
+
+        .add-item-btn:hover {
+            background-color: #e6b800; /* Darker shade on hover */
+            box-shadow: 0 6px 12px rgba(0, 0, 0, 0.5);
+        }
+
+        .add-item-btn:active {
+            background-color: #d1a700; /* Pressed state */
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
+        }
+
+        /* Modal overlay styles */
+        .modal {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.7);
+            z-index: 1000;
+        }
+
+        .modal-content {
+            background: #2e2e2e;
+            color: #f0e68c;
+            width: 50%;
+            max-height: 70vh;
+            overflow: hidden;
+            margin: 10% auto;
+            padding: 20px;
+            border-radius: 10px;
+            text-align: center;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+        }
+
+        /* Scrollable list inside modal */
+        .scrollable-list {
+            max-height: 50vh;
+            overflow-y: auto;
+            list-style: none;
+            padding: 0;
+            margin: 0;
+        }
+
+        .scrollable-list li {
+            padding: 10px;
+            border-bottom: 1px solid #ccc;
+            cursor: pointer;
+        }
+
+        .scrollable-list li:hover {
+            background-color: #444;
+        }
     </style>
 </head>
 <body>
@@ -182,6 +284,9 @@
     </div>
     
     <script>
+        let selectedSectionId = null;
+        let selectedItemId = null;
+
         // List of restricted weapons
         const restrictedWeapons = [
             "TFC_W_c6", 
@@ -242,7 +347,15 @@
             .catch((error) => {
                 console.error('Error loading gear.json:', error);
             });
-    
+
+        // Load items.json and store globally
+        fetch('items.json')
+            .then(response => response.json())
+            .then(data => {
+                window.itemsData = data;
+            })
+            .catch(error => console.error('Error loading items.json:', error));
+            
         // Function to check if the selected weapon is a restricted weapon
         function checkRestrictedWeapon(selectElement) {
             // Remove any existing warning
@@ -512,64 +625,212 @@
             });
         }
 
-        // Function to render fillable gear sections
+        // Function to render fillable gear sections with modal
         function renderFillableGearSections(data) {
             const fillableGearSections = document.getElementById('fillableGearSections');
 
-            data.sections.forEach((section) => {
-                if (section.id == "uniform" || section.id == "vest" || section.id == "backpack") {
+            data.sections.forEach(section => {
+                if (section.id === "uniform" || section.id === "vest" || section.id === "backpack") {
                     const sectionDiv = document.createElement('div');
                     sectionDiv.classList.add('section');
 
+                    // Section header
                     const header = document.createElement('h3');
                     header.textContent = section.name;
-                    header.style.width = "calc(100% + 2 * 15px)";
-                    header.style.marginLeft = "-15px";
-                    header.style.marginRight = "-15px";
-                    header.style.marginTop = "0px";
                     sectionDiv.appendChild(header);
 
-                    const label = document.createElement('itemlabel');
-                    label.setAttribute('for', section.id);
-                    label.textContent = `Select ${section.name}:`;
-                    sectionDiv.appendChild(label);
-
+                    // Dropdown for selecting gear
                     const select = document.createElement('select');
                     select.id = section.id;
-                    const options = [`<option value="None">-- None --</option>`];
-                    section.options.forEach((option) => {
-                        options.push(`<option value="${option.id}">${option.name}</option>`);
+                    select.innerHTML = `<option value="">-- Select ${section.name} --</option>`;
+                    section.options.forEach(option => {
+                        select.innerHTML += `<option value="${option.id}">${option.name}</option>`;
                     });
-                    select.innerHTML = options.join('');
                     sectionDiv.appendChild(select);
 
-                    // Add items section
-                    const listlabel = document.createElement('itemlabel');
-                    listlabel.textContent = "Items:";
-                    sectionDiv.appendChild(listlabel);
+                    // Item list
+                    const itemList = document.createElement('ul');
+                    itemList.classList.add('scrollable-ul');
+                    itemList.id = `${section.id}ItemList`;
+                    sectionDiv.appendChild(itemList);
 
-                    const items = document.createElement('ul');
-                    items.classList.add('scrollable-ul');
-                    const itemOptions = ['<li>Item One</li>', '<li>Item Two</li>', '<li>Item Three</li>', '<li>Item Four</li>'];
-                    items.innerHTML = itemOptions.join('');
-                    // Add item count dropdown
-                    const removeItemButton = document.createElement('button');
-                    removeItemButton.textContent = "-";
-                    const itemCount = document.createElement('input');
-                    itemCount.type = "number";
-                    itemCount.min = "0";
-                    itemCount.disabled = true;
+                    // Add item button (centered)
+                    const addItemContainer = document.createElement('div');
+                    addItemContainer.classList.add('centered-button');
+
                     const addItemButton = document.createElement('button');
-                    addItemButton.textContent = "+";
-                    items.appendChild(removeItemButton);
-                    items.appendChild(itemCount);
-                    items.appendChild(addItemButton);
-   
-                    sectionDiv.appendChild(items);
+                    addItemButton.textContent = '+ Add Item';
+                    addItemButton.classList.add('add-item-btn');
+                    addItemButton.onclick = function () {
+                        showCategoryModal(section.id);
+                    };
+                    addItemContainer.appendChild(addItemButton);
 
+                    sectionDiv.appendChild(addItemContainer);
+
+                    // Append everything to the main container
                     fillableGearSections.appendChild(sectionDiv);
+
+                    // Create a modal for item selection
+                    const modalDiv = document.createElement('div');
+                    modalDiv.id = `${section.id}Modal`;
+                    modalDiv.classList.add('modal');
+                    modalDiv.innerHTML = `
+                        <div class="modal-content">
+                            <h3>Select an Item Category for ${section.name}</h3>
+                            <ul id="${section.id}ModalCategoryList" class="scrollable-list"></ul>
+                            <button onclick="closeModal('${section.id}')">Cancel</button>
+                        </div>
+                    `;
+                    document.body.appendChild(modalDiv);
                 }
             });
+        }
+
+        // Function to show the category selection modal
+        function showCategoryModal(sectionId) {
+            selectedSectionId = sectionId;
+            const modal = document.getElementById(`${sectionId}Modal`);
+            modal.style.display = 'block';
+
+            const categoryList = document.getElementById(`${sectionId}ModalCategoryList`);
+            categoryList.innerHTML = ''; // Clear previous categories
+
+            // Load categories dynamically
+            window.itemsData.sections.forEach(section => {
+                const listItem = document.createElement('li');
+                listItem.textContent = section.name;
+                listItem.onclick = () => showItemSelection(sectionId, section);
+                categoryList.appendChild(listItem);
+            });
+        }
+
+        // Function to show items within the selected category
+        function showItemSelection(sectionId, category) {
+            const categoryList = document.getElementById(`${sectionId}ModalCategoryList`);
+            categoryList.innerHTML = ''; // Clear previous content
+
+            if (category.options) {
+                category.options.forEach(option => {
+                    const listItem = document.createElement('li');
+                    listItem.textContent = option.name;
+                    listItem.dataset.id = option.id;
+                    listItem.onclick = () => selectItem(option.id, option.name);
+                    categoryList.appendChild(listItem);
+                });
+            }
+
+            if (category.groupings) {
+                category.groupings.forEach(group => {
+                    const groupHeader = document.createElement('h4');
+                    groupHeader.textContent = group.name;
+                    categoryList.appendChild(groupHeader);
+
+                    group.options.forEach(option => {
+                        const listItem = document.createElement('li');
+                        listItem.textContent = option.name;
+                        listItem.dataset.id = option.id;
+                        listItem.onclick = () => selectItem(option.id, option.name);
+                        categoryList.appendChild(listItem);
+                    });
+                });
+            }
+
+            // Back button to return to category selection
+            const backButton = document.createElement('button');
+            backButton.textContent = 'Back';
+            backButton.onclick = () => showCategoryModal(sectionId);
+            categoryList.appendChild(backButton);
+        }
+
+        // Function to select an item
+        function selectItem(itemId, itemName) {
+            selectedItemId = itemId;
+
+            // Highlight the selected item
+            document.querySelectorAll(`#${selectedSectionId}ModalCategoryList li`).forEach(item => {
+                item.style.backgroundColor = '';
+            });
+
+            event.target.style.backgroundColor = '#ffcc00'; // Highlight selected item
+
+            // Check if a confirm button exists, and create it dynamically if not
+            let confirmBtn = document.getElementById(`${selectedSectionId}-confirmSelectionBtn`);
+            if (!confirmBtn) {
+                confirmBtn = document.createElement('button');
+                confirmBtn.id = `${selectedSectionId}-confirmSelectionBtn`; // Unique ID per section
+                confirmBtn.textContent = 'Confirm';
+                confirmBtn.onclick = () => confirmItemSelection(selectedSectionId);
+                document.getElementById(`${selectedSectionId}ModalCategoryList`).appendChild(confirmBtn);
+            }
+        }
+
+        // Function to confirm and add the selected item to the list
+        function confirmItemSelection(sectionId) {
+            if (!selectedItemId) {
+                alert("Please select an item!");
+                return;
+            }
+
+            const selectedItemText = document.querySelector(`[data-id="${selectedItemId}"]`).textContent;
+            const itemList = document.getElementById(`${sectionId}ItemList`);
+
+            // Create the item row
+            const listItem = document.createElement('li');
+            listItem.classList.add('item-list');
+
+            const itemName = document.createElement('span');
+            itemName.textContent = selectedItemText;
+            listItem.appendChild(itemName);
+
+            // Quantity controls
+            const controls = document.createElement('div');
+            controls.classList.add('item-controls');
+
+            const minusBtn = document.createElement('button');
+            minusBtn.textContent = '-';
+            minusBtn.onclick = () => adjustItemQuantity(quantitySpan, -1);
+            controls.appendChild(minusBtn);
+
+            const quantitySpan = document.createElement('span');
+            quantitySpan.textContent = '1';
+            quantitySpan.classList.add('item-quantity');
+            controls.appendChild(quantitySpan);
+
+            const plusBtn = document.createElement('button');
+            plusBtn.textContent = '+';
+            plusBtn.onclick = () => adjustItemQuantity(quantitySpan, 1);
+            controls.appendChild(plusBtn);
+
+            const removeBtn = document.createElement('button');
+            removeBtn.textContent = 'Remove';
+            removeBtn.onclick = () => itemList.removeChild(listItem);
+            controls.appendChild(removeBtn);
+
+            listItem.appendChild(controls);
+            itemList.appendChild(listItem);
+
+            // Close modal and reset
+            closeModal(sectionId);
+            selectedItemId = null; // Reset selection
+        }
+
+        // Close modal function
+        function closeModal(sectionId) {
+            const modal = document.getElementById(`${sectionId}Modal`);
+            modal.style.display = 'none';
+
+            // Reset the modal content
+            const categoryList = document.getElementById(`${sectionId}ModalCategoryList`);
+            categoryList.innerHTML = ''; // Clear the list for reuse
+            selectedItemId = null; // Reset the selected item
+        }
+
+        // Function to adjust item quantity
+        function adjustItemQuantity(element, change) {
+            let quantity = parseInt(element.textContent);
+            quantity = Math.max(1, quantity + change);
+            element.textContent = quantity;
         }
 
         // Function to render head gear sections

@@ -31,10 +31,10 @@
       {
         "id": "magazines",
         "name": "Magazines",
-        "options": [
+        "groupings": [
           {
             "id": "primary",
-            "name": "Primary",
+            "name": "Primary Magazines",
             "options": [
               { "id": "rhs_mag_30Rnd_556x45_Mk262_Stanag", "name": "[RHS] 30 Round STANAG Mk262 Mod 1" },
               { "id": "rhs_mag_30Rnd_556x45_Mk262_Stanag_Pull", "name": "[RHS] 30 Round STANAG (Puller) Mk262 Mod 1" },
@@ -45,7 +45,7 @@
           },
           {
             "id": "secondary",
-            "name": "Secondary",
+            "name": "Secondary Magazines",
             "options": [
               { "id": "rhs_mag_M433_HEDP", "name": "[RHS] M433 HEDP Grenade Round" },
               { "id": "rhs_mag_m713_Red", "name": "[RHS] M713 Red Smoke Round" },
@@ -114,7 +114,13 @@
           { "id": "ACE_splint", "name": "Splint" },
           { "id": "ACE_tourniquet", "name": "Tourniquet (CAT)" },
           { "id": "kat_chestSeal", "name": "Chest Seal" },
-          { "id": "ACE_painkillers", "name": "Painkillers" }
+          { "id": "ACE_painkillers", "name": "Painkillers" },
+          { "id": "ACE_morphine", "name": "Morphine" },
+          { "id": "ACE_epinephrine", "name": "Epinephrine" },
+          { "id": "ACE_bloodIV", "name": "Blood IV" },
+          { "id": "ACE_personalAidKit", "name": "Personal Aid Kit" },
+          { "id": "ACE_surgicalKit", "name": "Surgical Kit" },
+          { "id": "ACE_bodyBag", "name": "Body Bag" }
         ]
       },
       {
