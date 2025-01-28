@@ -476,91 +476,70 @@
 
             // Map dropdown selections to loadout
             document.querySelectorAll('select').forEach(select => {
-                const selectedOption = select.options[select.selectedIndex];
-                const selectedText = selectedOption.text;
-                const selectedValue = selectedOption.value; // Use the value for ID mapping
+                const selectedValue = select.value; // Use the value for ID mapping
                 const selectId = select.id;
 
-                // Primary
-                if (selectId.includes("primaryWeapon")) {
-                    loadout[0][0][0] = selectedValue !== "None" ? selectedValue : "";
-                } else if (selectId.includes("primarymuzzlesAttachment")) {
-                    loadout[0][0][1] = selectedValue !== "None" ? selectedValue : "";
-                } else if (selectId.includes("primaryrailsAttachment")) {
-                    loadout[0][0][2] = selectedValue !== "None" ? selectedValue : "";
-                } else if (selectId.includes("primarysightsAttachment")) {
-                    loadout[0][0][3] = selectedValue !== "None" ? selectedValue : "";
-                } else if (selectId.includes("primaryprimaryMagazinesAttachment")) {
-                    loadout[0][0][4][0] = selectedValue !== "None" ? selectedValue : "";
-                } else if (selectId.includes("primarysecondaryMagazinesAttachment")) {
-                    loadout[0][0][5][0] = selectedValue !== "None" ? selectedValue : "";
-                } else if (selectId.includes("primaryundermountsAttachment")) {
-                    loadout[0][0][6] = selectedValue !== "None" ? selectedValue : "";
-                } 
+                // Primary Weapon
+                if (selectId.includes("primaryWeapon")) loadout[0][0][0] = selectedValue !== "None" ? selectedValue : "";
+                else if (selectId.includes("primarymuzzlesAttachment")) loadout[0][0][1] = selectedValue !== "None" ? selectedValue : "";
+                else if (selectId.includes("primaryrailsAttachment")) loadout[0][0][2] = selectedValue !== "None" ? selectedValue : "";
+                else if (selectId.includes("primarysightsAttachment")) loadout[0][0][3] = selectedValue !== "None" ? selectedValue : "";
+                else if (selectId.includes("primaryprimaryMagazinesAttachment")) loadout[0][0][4][0] = selectedValue !== "None" ? selectedValue : "";
+                else if (selectId.includes("primarysecondaryMagazinesAttachment")) loadout[0][0][5][0] = selectedValue !== "None" ? selectedValue : "";
+                else if (selectId.includes("primaryundermountsAttachment")) loadout[0][0][6] = selectedValue !== "None" ? selectedValue : "";
 
-                // Secondary
-                else if (selectId.includes("secondaryWeapon")) {
-                    loadout[0][1][0] = selectedValue !== "None" ? selectedValue : "";
-                } else if (selectId.includes("secondarymuzzlesAttachment")) {
-                    loadout[0][1][1] = selectedValue !== "None" ? selectedValue : "";
-                } else if (selectId.includes("secondaryrailsAttachment")) {
-                    loadout[0][1][2] = selectedValue !== "None" ? selectedValue : "";
-                } else if (selectId.includes("secondarysightsAttachment")) {
-                    loadout[0][1][3] = selectedValue !== "None" ? selectedValue : "";
-                } else if (selectId.includes("secondaryprimaryMagazinesAttachment")) {
-                    loadout[0][1][4][0] = selectedValue !== "None" ? selectedValue : "";
-                } else if (selectId.includes("secondarysecondaryMagazinesAttachment")) {
-                    loadout[0][1][5][0] = selectedValue !== "None" ? selectedValue : "";
-                } else if (selectId.includes("secondaryundermountsAttachment")) {
-                    loadout[0][1][6] = selectedValue !== "None" ? selectedValue : "";
-                } 
-                
-                // Tertiary
-                else if (selectId.includes("tertiaryWeapon")) {
-                    loadout[0][2][0] = selectedValue !== "None" ? selectedValue : "";
-                } else if (selectId.includes("tertiarymuzzlesAttachment")) {
-                    loadout[0][2][1] = selectedValue !== "None" ? selectedValue : "";
-                } else if (selectId.includes("tertiaryrailsAttachment")) {
-                    loadout[0][2][2] = selectedValue !== "None" ? selectedValue : "";
-                } else if (selectId.includes("tertiarysightsAttachment")) {
-                    loadout[0][2][3] = selectedValue !== "None" ? selectedValue : "";
-                } else if (selectId.includes("tertiaryprimaryMagazinesAttachment")) {
-                    loadout[0][2][4][0] = selectedValue !== "None" ? selectedValue : "";
-                } else if (selectId.includes("tertiarysecondaryMagazinesAttachment")) {
-                    loadout[0][2][5][0] = selectedValue !== "None" ? selectedValue : "";
-                } else if (selectId.includes("tertiaryundermountsAttachment")) {
-                    loadout[0][2][6] = selectedValue !== "None" ? selectedValue : "";
-                } 
-                
+                // Secondary Weapon
+                else if (selectId.includes("secondaryWeapon")) loadout[0][1][0] = selectedValue !== "None" ? selectedValue : "";
+                else if (selectId.includes("secondarymuzzlesAttachment")) loadout[0][1][1] = selectedValue !== "None" ? selectedValue : "";
+                else if (selectId.includes("secondaryrailsAttachment")) loadout[0][1][2] = selectedValue !== "None" ? selectedValue : "";
+                else if (selectId.includes("secondarysightsAttachment")) loadout[0][1][3] = selectedValue !== "None" ? selectedValue : "";
+                else if (selectId.includes("secondaryprimaryMagazinesAttachment")) loadout[0][1][4][0] = selectedValue !== "None" ? selectedValue : "";
+                else if (selectId.includes("secondarysecondaryMagazinesAttachment")) loadout[0][1][5][0] = selectedValue !== "None" ? selectedValue : "";
+                else if (selectId.includes("secondaryundermountsAttachment")) loadout[0][1][6] = selectedValue !== "None" ? selectedValue : "";
+
+                // Tertiary Weapon
+                else if (selectId.includes("tertiaryWeapon")) loadout[0][2][0] = selectedValue !== "None" ? selectedValue : "";
+                else if (selectId.includes("tertiarymuzzlesAttachment")) loadout[0][2][1] = selectedValue !== "None" ? selectedValue : "";
+                else if (selectId.includes("tertiaryrailsAttachment")) loadout[0][2][2] = selectedValue !== "None" ? selectedValue : "";
+                else if (selectId.includes("tertiarysightsAttachment")) loadout[0][2][3] = selectedValue !== "None" ? selectedValue : "";
+                else if (selectId.includes("tertiaryprimaryMagazinesAttachment")) loadout[0][2][4][0] = selectedValue !== "None" ? selectedValue : "";
+                else if (selectId.includes("tertiarysecondaryMagazinesAttachment")) loadout[0][2][5][0] = selectedValue !== "None" ? selectedValue : "";
+                else if (selectId.includes("tertiaryundermountsAttachment")) loadout[0][2][6] = selectedValue !== "None" ? selectedValue : "";
+
+                // Uniform, Vest, Backpack
+                else if (selectId.includes("uniform")) loadout[0][3][0] = selectedValue !== "None" ? selectedValue : "";
+                else if (selectId.includes("vest")) loadout[0][4][0] = selectedValue !== "None" ? selectedValue : "";
+                else if (selectId.includes("backpack")) loadout[0][5][0] = selectedValue !== "None" ? selectedValue : "";
+
                 // Other Gear
-                else if (selectId.includes("uniform")) {
-                    loadout[0][3][0] = selectedValue !== "None" ? selectedValue : "";
-                } else if (selectId.includes("vest")) {
-                    loadout[0][4][0] = selectedValue !== "None" ? selectedValue : "";
-                } else if (selectId.includes("backpack")) {
-                    loadout[0][5][0] = selectedValue !== "None" ? selectedValue : "";
-                } else if (selectId.includes("headgear")) {
-                    loadout[0][6] = selectedValue !== "None" ? selectedValue : "";
-                } else if (selectId.includes("facewear")) {
-                    loadout[0][7] = selectedValue !== "None" ? selectedValue : "";
-                } else if (selectId.includes("binoculars")) {
-                    loadout[0][8][0] = selectedValue !== "None" ? selectedValue : "";
-                } else if (selectId.includes("map")) {
-                    loadout[0][9][0] = selectedValue !== "None" ? selectedValue : "";
-                } else if (selectId.includes("terminal")) {
-                    loadout[0][9][1] = selectedValue !== "None" ? selectedValue : "";
-                } else if (selectId.includes("communication")) {
-                    loadout[0][9][2] = selectedValue !== "None" ? selectedValue : "";
-                } else if (selectId.includes("navigation")) {
-                    loadout[0][9][3] = selectedValue !== "None" ? selectedValue : "";
-                } else if (selectId.includes("watch")) {
-                    loadout[0][9][4] = selectedValue !== "None" ? selectedValue : "";
-                } else if (selectId.includes("nvgs")) {
-                    loadout[0][9][5] = selectedValue !== "None" ? selectedValue : "";
-                } else if (selectId.includes("insignia")) {
-                    loadout[1][0][1] = selectedValue !== "None" ? selectedValue : "";
-                } else if (selectId.includes("earplugs")) {
-                    loadout[1][1][1] = selectedText === "Yes" ? true : false;
+                else if (selectId.includes("headgear")) loadout[0][6] = selectedValue !== "None" ? selectedValue : "";
+                else if (selectId.includes("facewear")) loadout[0][7] = selectedValue !== "None" ? selectedValue : "";
+                else if (selectId.includes("binoculars")) loadout[0][8][0] = selectedValue !== "None" ? selectedValue : "";
+                else if (selectId.includes("map")) loadout[0][9][0] = selectedValue !== "None" ? selectedValue : "";
+                else if (selectId.includes("terminal")) loadout[0][9][1] = selectedValue !== "None" ? selectedValue : "";
+                else if (selectId.includes("communication")) loadout[0][9][2] = selectedValue !== "None" ? selectedValue : "";
+                else if (selectId.includes("navigation")) loadout[0][9][3] = selectedValue !== "None" ? selectedValue : "";
+                else if (selectId.includes("watch")) loadout[0][9][4] = selectedValue !== "None" ? selectedValue : "";
+                else if (selectId.includes("nvgs")) loadout[0][9][5] = selectedValue !== "None" ? selectedValue : "";
+                else if (selectId.includes("insignia")) loadout[1][0][1] = selectedValue !== "None" ? selectedValue : "";
+                else if (selectId.includes("earplugs")) loadout[1][1][1] = selectedValue !== "None" ? selectedValue : "";
+            });
+
+            // Add items to uniform, vest, backpack
+            ["uniform", "vest", "backpack"].forEach((gearType, index) => {
+                const list = document.getElementById(`${gearType}ItemList`);
+                if (list) {
+                    const items = Array.from(list.querySelectorAll(".item-list")).map(item => {
+                        const itemId = item.id;
+                        const quantity = parseInt(item.querySelector(".item-quantity").textContent, 10) || 1;
+                        if (item.dataset.section === "magazines" || item.dataset.section === "throwables" || item.dataset.section === "explosives") {
+                            return [itemId, quantity, 1000];
+                        }
+                        else {
+                            return [itemId, quantity];
+                        }
+                    });
+                    loadout[0][3 + index][1] = items;
                 }
             });
 
@@ -661,15 +640,33 @@
                     const addItemButton = document.createElement('button');
                     addItemButton.textContent = '+ Add Item';
                     addItemButton.classList.add('add-item-btn');
-                    addItemButton.onclick = function () {
-                        showCategoryModal(section.id);
-                    };
+                    addItemButton.style.opacity = '0.5';
+                    addItemButton.addEventListener('click', (event) => {
+                        if (addItemButton.style.opacity === '0.5') {
+                            var popup = document.getElementById("customPopup3");
+                            popup.style.display = "block";
+                            setTimeout(() => {
+                                popup.style.display = "none";
+                            }, 2000);
+                        } else {
+                            showCategoryModal(section.id);
+                        }
+                    });
                     addItemContainer.appendChild(addItemButton);
 
                     sectionDiv.appendChild(addItemContainer);
 
                     // Append everything to the main container
                     fillableGearSections.appendChild(sectionDiv);
+
+                    // Enable the Add Item button when gear is selected
+                    select.addEventListener('change', () => {
+                        if (select.value) {
+                            addItemButton.style.opacity = '1';
+                        } else {
+                            addItemButton.style.opacity = '0.5';
+                        }
+                    });
 
                     // Create a modal for item selection
                     const modalDiv = document.createElement('div');
@@ -700,13 +697,13 @@
             window.itemsData.sections.forEach(section => {
                 const listItem = document.createElement('li');
                 listItem.textContent = section.name;
-                listItem.onclick = () => showItemSelection(sectionId, section);
+                listItem.onclick = () => showItemSelection(sectionId, section, section.id);
                 categoryList.appendChild(listItem);
             });
         }
 
         // Function to show items within the selected category
-        function showItemSelection(sectionId, category) {
+        function showItemSelection(sectionId, category, itemSectionId) {
             const categoryList = document.getElementById(`${sectionId}ModalCategoryList`);
             categoryList.innerHTML = ''; // Clear previous content
 
@@ -715,7 +712,7 @@
                     const listItem = document.createElement('li');
                     listItem.textContent = option.name;
                     listItem.dataset.id = option.id;
-                    listItem.onclick = () => selectItem(option.id, option.name);
+                    listItem.onclick = () => selectItem(option.id, option.name, itemSectionId);
                     categoryList.appendChild(listItem);
                 });
             }
@@ -730,7 +727,7 @@
                         const listItem = document.createElement('li');
                         listItem.textContent = option.name;
                         listItem.dataset.id = option.id;
-                        listItem.onclick = () => selectItem(option.id, option.name);
+                        listItem.onclick = () => selectItem(option.id, option.name, itemSectionId);
                         categoryList.appendChild(listItem);
                     });
                 });
@@ -744,7 +741,7 @@
         }
 
         // Function to select an item
-        function selectItem(itemId, itemName) {
+        function selectItem(itemId, itemName, itemSectionId) {
             selectedItemId = itemId;
 
             // Highlight the selected item
@@ -760,13 +757,13 @@
                 confirmBtn = document.createElement('button');
                 confirmBtn.id = `${selectedSectionId}-confirmSelectionBtn`; // Unique ID per section
                 confirmBtn.textContent = 'Confirm';
-                confirmBtn.onclick = () => confirmItemSelection(selectedSectionId);
+                confirmBtn.onclick = () => confirmItemSelection(selectedSectionId, itemSectionId);
                 document.getElementById(`${selectedSectionId}ModalCategoryList`).appendChild(confirmBtn);
             }
         }
 
         // Function to confirm and add the selected item to the list
-        function confirmItemSelection(sectionId) {
+        function confirmItemSelection(sectionId, itemSectionId) {
             if (!selectedItemId) {
                 alert("Please select an item!");
                 return;
@@ -775,9 +772,22 @@
             const selectedItemText = document.querySelector(`[data-id="${selectedItemId}"]`).textContent;
             const itemList = document.getElementById(`${sectionId}ItemList`);
 
+            // Check if the item already exists in the list
+            const existingItem = itemList.querySelector(`#${CSS.escape(selectedItemId)}`);
+            if (existingItem) {
+                var popup = document.getElementById("customPopup2");
+                popup.style.display = "block";
+                setTimeout(() => {
+                    popup.style.display = "none";
+                }, 2000);
+                return;
+            }
+
             // Create the item row
             const listItem = document.createElement('li');
             listItem.classList.add('item-list');
+            listItem.id = selectedItemId;
+            listItem.dataset.section = itemSectionId;
 
             const itemName = document.createElement('span');
             itemName.textContent = selectedItemText;
@@ -804,11 +814,15 @@
 
             const removeBtn = document.createElement('button');
             removeBtn.textContent = 'Remove';
-            removeBtn.onclick = () => itemList.removeChild(listItem);
+            removeBtn.onclick = () => removeItem(listItem, itemList);
             controls.appendChild(removeBtn);
 
             listItem.appendChild(controls);
             itemList.appendChild(listItem);
+
+            // Dispatch custom event
+            const event = new CustomEvent('itemAdded', { detail: { itemId: selectedItemId, section: itemSectionId } });
+            itemList.dispatchEvent(event);
 
             // Close modal and reset
             closeModal(sectionId);
@@ -828,9 +842,26 @@
 
         // Function to adjust item quantity
         function adjustItemQuantity(element, change) {
-            let quantity = parseInt(element.textContent);
+            let quantity = parseInt(element.textContent, 10);
             quantity = Math.max(1, quantity + change);
             element.textContent = quantity;
+
+            // Dispatch custom event
+            const itemList = element.closest('.scrollable-ul');
+            const listItem = element.closest('.item-list');
+            const event = new CustomEvent('quantityChanged', {
+                detail: { itemId: listItem.id, newQuantity: quantity },
+            });
+            itemList.dispatchEvent(event);
+        }
+
+        // Function to remove an item from the list
+        function removeItem(listItem, itemList) {
+            itemList.removeChild(listItem);
+
+            // Dispatch custom event
+            const event = new CustomEvent('itemRemoved', { detail: { itemId: listItem.id } });
+            itemList.dispatchEvent(event);
         }
 
         // Function to render head gear sections
@@ -1021,15 +1052,36 @@
 
         // Function to update import string when any option is changed
         function attachEventListenersForAll() {
+            // Attach a change event listener to each select element
             document.querySelectorAll('select').forEach(select => {
-                // Attach a change event listener to each select element
                 select.addEventListener('change', generateImportString);
+            });
+
+            // Attach listeners for item changes in uniform, vest, and backpack lists
+            ['uniform', 'vest', 'backpack'].forEach(sectionId => {
+                const itemList = document.getElementById(`${sectionId}ItemList`);
+                if (itemList) {
+                    // Listen for item addition
+                    itemList.addEventListener('itemAdded', generateImportString);
+
+                    // Listen for item removal
+                    itemList.addEventListener('itemRemoved', generateImportString);
+
+                    // Listen for item quantity changes
+                    itemList.addEventListener('quantityChanged', generateImportString);
+                }
             });
         }
     </script>
 
     <div id="customPopup" style="display: none; position: fixed; bottom: 22px; left: 50%; transform: translateX(-50%); background-color: #ffcc00; color: #000; padding: 15px 20px; border-radius: 8px; box-shadow: 0 0 10px rgba(0,0,0,0.3); font-size: 1.2rem; z-index: 2000;">
         Copied to clipboard!
+    </div>
+    <div id="customPopup2" style="display: none; position: fixed; bottom: 22px; left: 50%; transform: translateX(-50%); background-color: #ffcc00; color: #000; padding: 15px 20px; border-radius: 8px; box-shadow: 0 0 10px rgba(0,0,0,0.3); font-size: 1.2rem; z-index: 2000;">
+        Item already added to this container!
+    </div>
+    <div id="customPopup3" style="display: none; position: fixed; bottom: 22px; left: 50%; transform: translateX(-50%); background-color: #ffcc00; color: #000; padding: 15px 20px; border-radius: 8px; box-shadow: 0 0 10px rgba(0,0,0,0.3); font-size: 1.2rem; z-index: 2000;">
+        Select your gear first!
     </div>
     <div id="weaponWarning" style="display: none; position: fixed; top: 20px; left: 50%; transform: translateX(-50%); background-color: #ff0000; color: #fff; padding: 15px 20px; border-radius: 8px; box-shadow: 0 0 10px rgba(0,0,0,0.3); font-size: 1.2rem; z-index: 2000;">
         Warning: Make sure this weapon is part of your orders!

@@ -110,17 +110,7 @@
         "options": [
           { "id": "ACE_fieldDressing", "name": "Bandage (Basic)" },
           { "id": "ACE_elasticBandage", "name": "Bandage (Elastic)" },
-          { "id": "ACE_packingBandage", "name": "Bandage (Packing)" },
-          { "id": "ACE_splint", "name": "Splint" },
-          { "id": "ACE_tourniquet", "name": "Tourniquet (CAT)" },
-          { "id": "kat_chestSeal", "name": "Chest Seal" },
-          { "id": "ACE_painkillers", "name": "Painkillers" },
-          { "id": "ACE_morphine", "name": "Morphine" },
-          { "id": "ACE_epinephrine", "name": "Epinephrine" },
-          { "id": "ACE_bloodIV", "name": "Blood IV" },
-          { "id": "ACE_personalAidKit", "name": "Personal Aid Kit" },
-          { "id": "ACE_surgicalKit", "name": "Surgical Kit" },
-          { "id": "ACE_bodyBag", "name": "Body Bag" }
+          { "id": "ACE_packingBandage", "name": "Bandage (Packing)" }
         ]
       },
       {
