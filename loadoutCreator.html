@@ -206,6 +206,32 @@
             box-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
         }
 
+        /* Style the modal buttons */
+        .modal-btns {
+            padding: 15px 30px;
+            margin-bottom: 15px;
+            font-size: 1.2rem;
+            font-weight: bold;
+            border: none;
+            border-radius: 30px;
+            background-color: #ffeb99;  /* Matching theme color */
+            color: #2e2e2e;
+            cursor: pointer;
+            transition: background-color 0.3s ease, box-shadow 0.3s ease;
+            text-shadow: 1px 1px 5px rgba(0, 0, 0, 0.2);
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+        }
+
+        .modal-btns:hover {
+            background-color: #e6b800; /* Darker shade on hover */
+            box-shadow: 0 6px 12px rgba(0, 0, 0, 0.5);
+        }
+
+        .modal-btns:active {
+            background-color: #d1a700; /* Pressed state */
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
+        }
+
         /* Modal overlay styles */
         .modal {
             display: none;
@@ -615,6 +641,10 @@
 
                     // Section header
                     const header = document.createElement('h3');
+                    header.style.width = "calc(100% + 2 * 15px)";
+                    header.style.marginLeft = "-15px";
+                    header.style.marginRight = "-15px";
+                    header.style.marginTop = "0px";
                     header.textContent = section.name;
                     sectionDiv.appendChild(header);
 
@@ -674,9 +704,9 @@
                     modalDiv.classList.add('modal');
                     modalDiv.innerHTML = `
                         <div id="modal-view" class="modal-content">
-                            <h3>Select an Item Category for ${section.name}</h3>
+                            <h3 style="width: calc(100% + 2 * 20px);margin-left: -20px;margin-right: -20px;margin-top: -20px">Select an Item Category for ${section.name}</h3>
                             <ul id="${section.id}ModalCategoryList" class="scrollable-list"></ul>
-                            <button onclick="closeModal('${section.id}')">Cancel</button>
+                            <button style="margin-top: 20px" class="modal-btns" onclick="closeModal('${section.id}')">Cancel</button>
                         </div>
                     `;
                     document.body.appendChild(modalDiv);
@@ -753,6 +783,7 @@
                 backButton = document.createElement('button');
                 backButton.id = `${sectionId}-backButton`; // Unique ID per section
                 backButton.textContent = 'Back';
+                backButton.classList.add('modal-btns');
                 backButton.onclick = () => showCategoryModal(sectionId);
                 document.getElementById(`modal-view`).appendChild(backButton);
             } else {
@@ -777,6 +808,7 @@
                 confirmBtn = document.createElement('button');
                 confirmBtn.id = `${selectedSectionId}-confirmSelectionBtn`; // Unique ID per section
                 confirmBtn.textContent = 'Confirm';
+                confirmBtn.classList.add('modal-btns');
                 confirmBtn.onclick = () => confirmItemSelection(selectedSectionId, itemSectionId);
                 document.getElementById(`modal-view`).appendChild(confirmBtn);
             } else {
