@@ -150,9 +150,11 @@
         .scrollable-ul {
             list-style-type: none;
             padding: 0;
+            border-style: solid;
+            border-radius: 5px;
         }
         .item-list {
-            font-size: 20px;
+            font-size: 10px;
             display: flex;
             justify-content: space-between;
             align-items: center;
@@ -188,7 +190,7 @@
             font-weight: bold;
             border: none;
             border-radius: 30px;
-            background-color: #ffeb99;  /* Matching theme color */
+            background-color: #ffeb99;
             color: #2e2e2e;
             cursor: pointer;
             transition: background-color 0.3s ease, box-shadow 0.3s ease;
@@ -197,24 +199,27 @@
         }
 
         .add-item-btn:hover {
-            background-color: #e6b800; /* Darker shade on hover */
+            background-color: #e6b800;
             box-shadow: 0 6px 12px rgba(0, 0, 0, 0.5);
         }
 
         .add-item-btn:active {
-            background-color: #d1a700; /* Pressed state */
+            background-color: #d1a700;
             box-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
         }
 
         /* Style the modal buttons */
         .modal-btns {
-            padding: 15px 30px;
-            margin-bottom: 15px;
+            width: 150px;
+            padding: 15px 15px;
+            margin-top: 10px;
+            margin-bottom: 10px;
+            margin-inline: 10px;
             font-size: 1.2rem;
             font-weight: bold;
             border: none;
             border-radius: 30px;
-            background-color: #ffeb99;  /* Matching theme color */
+            background-color: #ffeb99;
             color: #2e2e2e;
             cursor: pointer;
             transition: background-color 0.3s ease, box-shadow 0.3s ease;
@@ -223,12 +228,12 @@
         }
 
         .modal-btns:hover {
-            background-color: #e6b800; /* Darker shade on hover */
+            background-color: #e6b800;
             box-shadow: 0 6px 12px rgba(0, 0, 0, 0.5);
         }
 
         .modal-btns:active {
-            background-color: #d1a700; /* Pressed state */
+            background-color: #d1a700;
             box-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
         }
 
@@ -264,6 +269,8 @@
             list-style: none;
             padding: 0;
             margin: 0;
+            border-style: solid;
+            border-radius: 5px;
         }
 
         .scrollable-list li {
@@ -706,7 +713,8 @@
                         <div id="modal-view" class="modal-content">
                             <h3 style="width: calc(100% + 2 * 20px);margin-left: -20px;margin-right: -20px;margin-top: -20px">Select an Item Category for ${section.name}</h3>
                             <ul id="${section.id}ModalCategoryList" class="scrollable-list"></ul>
-                            <button style="margin-top: 20px" class="modal-btns" onclick="closeModal('${section.id}')">Cancel</button>
+                            <div id="ModalButtons" style="display: flex; justify-content: center;"></div>
+                            <button style="margin-bottom: -5px" class="modal-btns" onclick="closeModal('${section.id}')">Cancel</button>
                         </div>
                     `;
                     document.body.appendChild(modalDiv);
@@ -785,7 +793,7 @@
                 backButton.textContent = 'Back';
                 backButton.classList.add('modal-btns');
                 backButton.onclick = () => showCategoryModal(sectionId);
-                document.getElementById(`modal-view`).appendChild(backButton);
+                document.getElementById(`ModalButtons`).appendChild(backButton);
             } else {
                 backButton.hidden = false;
             }
@@ -810,7 +818,7 @@
                 confirmBtn.textContent = 'Confirm';
                 confirmBtn.classList.add('modal-btns');
                 confirmBtn.onclick = () => confirmItemSelection(selectedSectionId, itemSectionId);
-                document.getElementById(`modal-view`).appendChild(confirmBtn);
+                document.getElementById(`ModalButtons`).appendChild(confirmBtn);
             } else {
                 confirmBtn.hidden = false; // Show the confirm button
             }
