@@ -673,7 +673,7 @@
                     modalDiv.id = `${section.id}Modal`;
                     modalDiv.classList.add('modal');
                     modalDiv.innerHTML = `
-                        <div class="modal-content">
+                        <div id="modal-view" class="modal-content">
                             <h3>Select an Item Category for ${section.name}</h3>
                             <ul id="${section.id}ModalCategoryList" class="scrollable-list"></ul>
                             <button onclick="closeModal('${section.id}')">Cancel</button>
@@ -693,6 +693,15 @@
             const categoryList = document.getElementById(`${sectionId}ModalCategoryList`);
             categoryList.innerHTML = ''; // Clear previous categories
 
+            let backButton = document.getElementById(`${sectionId}-backButton`);
+            if (backButton) {
+                backButton.hidden = true;
+            }
+            let confirmBtn = document.getElementById(`${sectionId}-confirmSelectionBtn`);
+            if (confirmBtn) {
+                confirmBtn.hidden = true;
+            }
+
             // Load categories dynamically
             window.itemsData.sections.forEach(section => {
                 const listItem = document.createElement('li');
@@ -706,6 +715,11 @@
         function showItemSelection(sectionId, category, itemSectionId) {
             const categoryList = document.getElementById(`${sectionId}ModalCategoryList`);
             categoryList.innerHTML = ''; // Clear previous content
+
+            let confirmBtn = document.getElementById(`${sectionId}-confirmSelectionBtn`);
+            if (confirmBtn) {
+                confirmBtn.hidden = true;
+            }
 
             if (category.options) {
                 category.options.forEach(option => {
@@ -734,10 +748,16 @@
             }
 
             // Back button to return to category selection
-            const backButton = document.createElement('button');
-            backButton.textContent = 'Back';
-            backButton.onclick = () => showCategoryModal(sectionId);
-            categoryList.appendChild(backButton);
+            let backButton = document.getElementById(`${sectionId}-backButton`);
+            if (!backButton) {
+                backButton = document.createElement('button');
+                backButton.id = `${sectionId}-backButton`; // Unique ID per section
+                backButton.textContent = 'Back';
+                backButton.onclick = () => showCategoryModal(sectionId);
+                document.getElementById(`modal-view`).appendChild(backButton);
+            } else {
+                backButton.hidden = false;
+            }
         }
 
         // Function to select an item
@@ -758,7 +778,9 @@
                 confirmBtn.id = `${selectedSectionId}-confirmSelectionBtn`; // Unique ID per section
                 confirmBtn.textContent = 'Confirm';
                 confirmBtn.onclick = () => confirmItemSelection(selectedSectionId, itemSectionId);
-                document.getElementById(`${selectedSectionId}ModalCategoryList`).appendChild(confirmBtn);
+                document.getElementById(`modal-view`).appendChild(confirmBtn);
+            } else {
+                confirmBtn.hidden = false; // Show the confirm button
             }
         }
 
