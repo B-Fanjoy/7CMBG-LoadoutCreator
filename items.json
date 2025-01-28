@@ -4,28 +4,71 @@
         "id": "sights",
         "name": "Sights",
         "options": [
-
+          { "id": "TFC_WA_C79_Elcan", "name": "[TFC] ELCAN C79A2 (PIP)" },
+          { "id": "TFC_WA_c79_Elcan_3d", "name": "[TFC] ELCAN C79A2 (3D)" },
+          { "id": "TFC_WA_Elcan_SpecterDR_3d", "name": "[TFC] ELCAN SpectreDR (Tan)" },
+          { "id": "TFC_WA_Elcan_SpecterDR_3d_blk", "name": "[TFC] ELCAN SpectreDR (Black)" },
+          { "id": "TFC_WA_Elcan_SpecterDR_3d_mrds", "name": "[TFC] ELCAN SpectreDR w/MRDS (Tan)" },
+          { "id": "TFC_WA_Elcan_SpecterDR_3d_mrds_blk", "name": "[TFC] ELCAN SpectreDR w/MRDS (Black)" },
+          { "id": "TFC_WA_Elcan_SpecterDR_3d_WF", "name": "[TFC] ELCAN SpectreDR w/MRDS + Flashhide (Tan)" },
+          { "id": "TFC_WA_Elcan_SpecterDR_3d_WF_blk", "name": "[TFC] ELCAN SpectreDR w/MRDS + Flashhide (Black)" },
+          { "id": "TFC_WA_Eotech_flip_up_blk", "name": "[TFC] EOTech w/3x Magnifier (Black)" },
+          { "id": "TFC_WA_Eotech_flip_up_tan", "name": "[TFC] EOTech w/3x Magnifier (Tan)" },
+          { "id": "optic_Holosight_arid_F", "name": "EOTech XPS3 (Arid)" },
+          { "id": "optic_Holosight_blk_F", "name": "EOTech XPS3 (Black)" },
+          { "id": "optic_Holosight_khk_F", "name": "EOTech XPS3 (Khaki)" },
+          { "id": "optic_Holosight_lush_F", "name": "EOTech XPS3 (Lush)" },
+          { "id": "optic_Holosight", "name": "EOTech XPS3 (Tan)" },
+          { "id": "optic_Holosight_smg_blk_F", "name": "EOTech XPS3 SMG (Black)" },
+          { "id": "optic_Holosight_smg_khk_F", "name": "EOTech XPS3 SMG (Khaki)" },
+          { "id": "optic_Holosight_smg", "name": "EOTech XPS3 SMG (Tan)" },
+          { "id": "rhsusf_acc_eotech_xps3", "name": "[RHS] XPS3 (Black) (Doesn't have any dirt)" },
+          { "id": "rhsusf_acc_eotech_552", "name": "[RHS] M552 CCO (Black)" },
+          { "id": "rhsusf_acc_eotech_552_d", "name": "[RHS] M552 CCO (Desert)" },
+          { "id": "rhsusf_acc_eotech_552_wd", "name": "[RHS] M552 CCO (Woodland)" },
+          { "id": "rhsusf_acc_ELCAN", "name": "[RHS] M145 MGO" },
+          { "id": "rhsusf_acc_ELCAN_ard", "name": "[RHS] M145 MGO (ARD)" },
+          { "id": "tfc_wa_3_20_x50", "name": "S&B 3-20x50 PM II Ultra Short" },
+          { "id": "tfc_wa_5_25_x56_high", "name": "S&B 5-25x56 PM II/LP High Mount" },
+          { "id": "tfc_wa_5_25_x56_low", "name": "S&B 5-25x56 PM II/LP Low Mount" },
+          { "id": "tfc_wa_CG_Sight", "name": "Carl-G Sight" },
+          { "id": "rhs_optic_maaws", "name": "M3 MAAWS Sight" }
         ]
       },
       {
         "id": "rails",
         "name": "Rail Attachments",
         "options": [
-
+          { "id": "TFC_WA_peq15_sand", "name": "[TFC] PEQ-15 (Arid)" },
+          { "id": "TFC_WA_peq15_blk", "name": "[TFC] PEQ-15 (Black)" },
+          { "id": "TFC_WA_peq15_tan", "name": "[TFC] PEQ-15 (Tan)" },
+          { "id": "TFC_WA_peq15_winter", "name": "[TFC] PEQ-15 (Winter)" },
+          { "id": "TFC_WA_peq15_wood", "name": "[TFC] PEQ-15 (Woodland)" },
+          { "id": "acc_flashlight_pistol", "name": "Pistol Flashlight" },
+          { "id": "rhsusf_acc_anpeq15side", "name": "AN/PEQ-15 (For RHS M72)" }
         ]
       },
       {
         "id": "muzzles",
         "name": "Muzzle Attachments",
         "options": [
-
+          { "id": "TFC_WA_huxwrx_556", "name": "[TFC] HUXWRX Flow 556K (Tan)" },
+          { "id": "TFC_WA_556_Ops_painted", "name": "[TFC] Op Cinc 556 (Arid)" },
+          { "id": "TFC_WA_opsinc_556", "name": "[TFC] Op Cinc 556 (Black)" },
+          { "id": "TFC_WA_556_Ops_painted_tw", "name": "[TFC] Op Cinc 556 (Woodland)" },
+          { "id": "TFC_WA_556_Ops_painted_wo", "name": "[TFC] Op Cinc 556 (Winter)" },
+          { "id": "TFC_WA_c20_suppressor", "name": "[TFC] C20 Suppressor" }
         ]
       },
       {
         "id": "undermount",
         "name": "Undermount Attachments",
         "options": [
-
+          { "id": "TFC_WA_grip_afg", "name": "[TFC] Angled Forward Grip" },
+          { "id": "TFC_WA_cadex_grip", "name": "[TFC] CADEX Folding Grip" },
+          { "id": "TFC_WA_Virtgrip", "name": "[TFC] Vert Grip" },
+          { "id": "tfc_wa_harris_bipod_small", "name": "[TFC] Harris Bipod (C20 Only)" },
+          { "id": "TFC_WA_c20_vgbp", "name": "[TFC] Vert Grip w/Harris Bipod (C20 Only)" }
         ]
       },
       {
@@ -40,7 +83,12 @@
               { "id": "rhs_mag_30Rnd_556x45_Mk262_Stanag_Pull", "name": "[RHS] 30 Round STANAG (Puller) Mk262 Mod 1" },
               { "id": "rhsusf_200rnd_556x45_mixed_box", "name": "[RHS] 200 Round M249 Box M855A1 (Mixed)" },
               { "id": "TFC_220Rnd_762x51_Box", "name": "[TFC] 220 Round 7.62x51 Box" },
-              { "id": "16Rnd_9x21_Mag", "name": "17 Round 9mm Magazine" }
+              { "id": "16Rnd_9x21_Mag", "name": "17 Round 9mm Magazine" },
+              { "id": "rhsusf_20Rnd_762x51_SR25_m118_special_Mag", "name": "[RHS] 20 Round SR-25 M118" },
+              { "id": "rhsusf_20Rnd_762x51_SR25_m993_Mag", "name": "[RHS] 20 Round SR-25 M993 AP" },
+              { "id": "MRAWS_HE_F", "name": "MAAWS HE 44 Round" },
+              { "id": "MRAWS_HEAT55_F", "name": "MAAWS HEAT 55 Round (CarlG Only)" },
+              { "id": "MRAWS_HEAT_F", "name": "MAAWS HEAT 75 Round" }
             ]
           },
           {
@@ -84,24 +132,40 @@
         "id": "explosives",
         "name": "Explosives",
         "options": [
-
+          { "id": "rhsusf_m112_mag", "name": "M112 Demolition Block" },
+          { "id": "rhsusf_m112x4_mag", "name": "M112 Demolition Block (x4)" }
         ]
       },
       {
         "id": "tools",
         "name": "Tools",
         "options": [
+          { "id": "ACE_DefusalKit", "name": "Defusal Kit" },
+          { "id": "ACE_EntrenchingTool", "name": "Entrenching Tool" },
+          { "id": "ACE_Flashlight_MX991", "name": "Fulton MX-991" },
+          { "id": "ACE_Kestrel4500", "name": "Kestrel 4500NV" },
           { "id": "ACE_MapTools", "name": "Map Tools" },
           { "id": "ACE_Flashlight_XL50", "name": "Maglite XL50" },
-          { "id": "ACE_Flashlight_MX991", "name": "Fulton MX-991" },
-          { "id": "ACE_EntrenchingTool", "name": "Entrenching Tool" }
+          { "id": "ACE_M26_Clacker", "name": "M152 Firing Device" },
+          { "id": "ACE_Clacker", "name": "M57 Firing Device" },
+          { "id": "MineDetector", "name": "Mine Detector" },
+          { "id": "ACE_microDAGR", "name": "MicroDAGR GPS" },
+          { "id": "ACE_RangeCard", "name": "Range Card" },
+          { "id": "ACE_SpottingScope", "name": "Spotting Scope" },
+          { "id": "ACE_Tripod", "name": "SSWT Kit (Tripod)" },
+          { "id": "ToolKit", "name": "Toolkit" }
         ]
       },
       {
         "id": "ace_rations",
         "name": "ACE Rations",
         "options": [
-
+          { "id": "ACE_Canteen", "name": "Canteen" },
+          { "id": "ACE_Humanitarian_Ration", "name": "Humanitarian Ration" },
+          { "id": "ACE_MRE_BeefStew", "name": "MRE Beef Stew" },
+          { "id": "ACE_MRE_ChickenTikkaMasala", "name": "MRE Chicken Tikka Masala" },
+          { "id": "ACE_MRE_LambCurry", "name": "MRE Lamb Curry" },
+          { "id": "ACE_WaterBottle", "name": "Water Bottle" }
         ]
       },
       {
@@ -110,20 +174,30 @@
         "options": [
           { "id": "ACE_fieldDressing", "name": "Bandage (Basic)" },
           { "id": "ACE_elasticBandage", "name": "Bandage (Elastic)" },
-          { "id": "ACE_packingBandage", "name": "Bandage (Packing)" }
+          { "id": "ACE_packingBandage", "name": "Bandage (Packing)" },
+          { "id": "ACE_quikclot", "name": "Bandage (QuikClot)" },
+          { "id": "kat_chestSeal", "name": "Chest Seal" },
+          { "id": "kat_handWarmer", "name": "Hand Warmer" },
+          { "id": "ACE_painkillers", "name": "Painkillers" },
+          { "id": "ACE_splint", "name": "Splint" },
+          { "id": "ACE_tourniquet", "name": "Tourniquet (CAT)" }
         ]
       },
       {
         "id": "misc",
         "name": "Misc",
         "options": [
-          { "id": "ACE_CableTie", "name": "Cable Tie" },
-          { "id": "ACE_EarPlugs", "name": "Earplugs" },
-          { "id": "ACE_IR_Strobe_Item", "name": "IR Strobe" },
           { "id": "ACRE_PRC343", "name": "AN/PRC-343" },
           { "id": "ACRE_PRC152", "name": "AN/PRC-152" },
+          { "id": "ACE_CableTie", "name": "Cable Tie" },
+          { "id": "ACE_EarPlugs", "name": "Earplugs" },
+          { "id": "ItemAndroid", "name": "Galaxy S20 Tactical Edition" },
+          { "id": "kat_gasmaskFilter", "name": "Gas Mask Filter" },
+          { "id": "ACE_IR_Strobe_Item", "name": "IR Strobe" },
           { "id": "kat_mask_M50", "name": "M50 Promask" },
-          { "id": "kat_gasmaskFilter", "name": "Gas Mask Filter" }
+          { "id": "ACE_SpraypaintBlue", "name": "Spray Paint (Blue)" },
+          { "id": "ACE_SpraypaintGreen", "name": "Spray Paint (Green)" },
+          { "id": "ACE_SpraypaintRed", "name": "Spray Paint (Red)" }
         ]
       }
     ]

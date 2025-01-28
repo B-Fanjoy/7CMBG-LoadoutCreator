@@ -160,6 +160,7 @@
             align-items: center;
             padding: 10px;
             border-bottom: 1px solid #ccc;
+            border-style: dashed;
         }
         .item-controls {
             display: flex;
@@ -275,7 +276,9 @@
 
         .scrollable-list li {
             padding: 10px;
+            font-size: 20px;
             border-bottom: 1px solid #ccc;
+            border-style: dashed;
             cursor: pointer;
         }
 
@@ -713,7 +716,10 @@
                         <div id="modal-view" class="modal-content">
                             <h3 style="width: calc(100% + 2 * 20px);margin-left: -20px;margin-right: -20px;margin-top: -20px">Select an Item Category for ${section.name}</h3>
                             <ul id="${section.id}ModalCategoryList" class="scrollable-list"></ul>
-                            <div id="ModalButtons" style="display: flex; justify-content: center;"></div>
+                            <div id="${section.id}ModalButtons" style="display: flex; justify-content: center;">
+                                <button id="${section.id}BackButton" class="modal-btns" onclick="">Back</button>
+                                <button id="${section.id}ConfirmSelectionBtn" class="modal-btns" onclick="">Confirm</button>
+                            </div>
                             <button style="margin-bottom: -5px" class="modal-btns" onclick="closeModal('${section.id}')">Cancel</button>
                         </div>
                     `;
@@ -731,14 +737,8 @@
             const categoryList = document.getElementById(`${sectionId}ModalCategoryList`);
             categoryList.innerHTML = ''; // Clear previous categories
 
-            let backButton = document.getElementById(`${sectionId}-backButton`);
-            if (backButton) {
-                backButton.hidden = true;
-            }
-            let confirmBtn = document.getElementById(`${sectionId}-confirmSelectionBtn`);
-            if (confirmBtn) {
-                confirmBtn.hidden = true;
-            }
+            let modalButtons = document.getElementById(`${sectionId}ModalButtons`);
+            modalButtons.style.display = 'none';
 
             // Load categories dynamically
             window.itemsData.sections.forEach(section => {
@@ -754,10 +754,8 @@
             const categoryList = document.getElementById(`${sectionId}ModalCategoryList`);
             categoryList.innerHTML = ''; // Clear previous content
 
-            let confirmBtn = document.getElementById(`${sectionId}-confirmSelectionBtn`);
-            if (confirmBtn) {
-                confirmBtn.hidden = true;
-            }
+            let modalButtons = document.getElementById(`${sectionId}ModalButtons`);
+            modalButtons.style.display = 'flex';
 
             if (category.options) {
                 category.options.forEach(option => {
@@ -785,18 +783,11 @@
                 });
             }
 
-            // Back button to return to category selection
-            let backButton = document.getElementById(`${sectionId}-backButton`);
-            if (!backButton) {
-                backButton = document.createElement('button');
-                backButton.id = `${sectionId}-backButton`; // Unique ID per section
-                backButton.textContent = 'Back';
-                backButton.classList.add('modal-btns');
-                backButton.onclick = () => showCategoryModal(sectionId);
-                document.getElementById(`ModalButtons`).appendChild(backButton);
-            } else {
-                backButton.hidden = false;
-            }
+            // Handle button behaviours
+            const backButton = document.getElementById(`${sectionId}BackButton`);
+            backButton.onclick = () => showCategoryModal(sectionId);
+            const confirmButton = document.getElementById(`${sectionId}ConfirmSelectionBtn`);
+            confirmButton.onclick = () => confirmItemSelection(sectionId, itemSectionId);
         }
 
         // Function to select an item
@@ -818,16 +809,20 @@
                 confirmBtn.textContent = 'Confirm';
                 confirmBtn.classList.add('modal-btns');
                 confirmBtn.onclick = () => confirmItemSelection(selectedSectionId, itemSectionId);
-                document.getElementById(`ModalButtons`).appendChild(confirmBtn);
+                document.getElementById(`${sectionId}ModalButtons`).appendChild(confirmBtn);
             } else {
-                confirmBtn.hidden = false; // Show the confirm button
+                confirmBtn.hidden = false;
             }
         }
 
         // Function to confirm and add the selected item to the list
         function confirmItemSelection(sectionId, itemSectionId) {
             if (!selectedItemId) {
-                alert("Please select an item!");
+                var popup = document.getElementById("customPopup4");
+                popup.style.display = "block";
+                setTimeout(() => {
+                    popup.style.display = "none";
+                }, 2000);
                 return;
             }
 
@@ -1144,6 +1139,9 @@
     </div>
     <div id="customPopup3" style="display: none; position: fixed; bottom: 22px; left: 50%; transform: translateX(-50%); background-color: #ffcc00; color: #000; padding: 15px 20px; border-radius: 8px; box-shadow: 0 0 10px rgba(0,0,0,0.3); font-size: 1.2rem; z-index: 2000;">
         Select your gear first!
+    </div>
+    <div id="customPopup4" style="display: none; position: fixed; bottom: 22px; left: 50%; transform: translateX(-50%); background-color: #ffcc00; color: #000; padding: 15px 20px; border-radius: 8px; box-shadow: 0 0 10px rgba(0,0,0,0.3); font-size: 1.2rem; z-index: 2000;">
+        Please select an item first!
     </div>
     <div id="weaponWarning" style="display: none; position: fixed; top: 20px; left: 50%; transform: translateX(-50%); background-color: #ff0000; color: #fff; padding: 15px 20px; border-radius: 8px; box-shadow: 0 0 10px rgba(0,0,0,0.3); font-size: 1.2rem; z-index: 2000;">
         Warning: Make sure this weapon is part of your orders!

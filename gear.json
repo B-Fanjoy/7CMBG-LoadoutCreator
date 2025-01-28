@@ -203,6 +203,70 @@
           {
             "id": "tfc_cg_oakley_mframe",
             "name": "Oakley SI M-Frame"
+          },
+          {
+            "id": "rhsusf_shemagh_grn",
+            "name": "Shemagh (Green/Down)"
+          },
+          {
+            "id": "rhsusf_shemagh2_grn",
+            "name": "Shemagh (Green/Up)"
+          },
+          {
+            "id": "rhsusf_shemagh_gogg_grn",
+            "name": "Shemagh w/Goggles (Green/Down)"
+          },
+          {
+            "id": "rhsusf_shemagh2_gogg_grn",
+            "name": "Shemagh w/Goggles (Green/Up)"
+          },
+          {
+            "id": "rhsusf_shemagh_od",
+            "name": "Shemagh (OD/Down)"
+          },
+          {
+            "id": "rhsusf_shemagh2_od",
+            "name": "Shemagh (OD/Up)"
+          },
+          {
+            "id": "rhsusf_shemagh_gogg_od",
+            "name": "Shemagh w/Goggles (OD/Down)"
+          },
+          {
+            "id": "rhsusf_shemagh2_gogg_od",
+            "name": "Shemagh w/Goggles (OD/Up)"
+          },
+          {
+            "id": "rhsusf_shemagh_tan",
+            "name": "Shemagh (Tan/Down)"
+          },
+          {
+            "id": "rhsusf_shemagh2_tan",
+            "name": "Shemagh (Tan/Up)"
+          },
+          {
+            "id": "rhsusf_shemagh_gogg_tan",
+            "name": "Shemagh w/Goggles (Tan/Down)"
+          },
+          {
+            "id": "rhsusf_shemagh2_gogg_tan",
+            "name": "Shemagh w/Goggles (Tan/Up)"
+          },
+          {
+            "id": "rhsusf_shemagh_white",
+            "name": "Shemagh (White/Down)"
+          },
+          {
+            "id": "rhsusf_shemagh2_white",
+            "name": "Shemagh (White/Up)"
+          },
+          {
+            "id": "rhsusf_shemagh_gogg_white",
+            "name": "Shemagh w/Goggles (White/Down)"
+          },
+          {
+            "id": "rhsusf_shemagh2_gogg_white",
+            "name": "Shemagh w/Goggles (White/Up)"
           }
         ]
       },
@@ -221,6 +285,14 @@
           {
             "id": "rhsusf_bino_m24_ARD",
             "name": "M24 Binoculars (ARD)"
+          },
+          {
+            "id": "ACE_VectorDay",
+            "name": "Vector 21"
+          },
+          {
+            "id": "ACE_Vector",
+            "name": "Vector 21 Nite"
           }
         ]
       },
