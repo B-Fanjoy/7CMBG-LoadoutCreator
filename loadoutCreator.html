@@ -359,6 +359,9 @@
     <script>
         let selectedSectionId = null;
         let selectedItemId = null;
+        var primaryWeights = [0,[0,0,0,0,0,0]];
+        var secondaryWeights = [0,[0,0,0,0,0,0]];
+        var tertiaryWeights = [0,[0,0,0,0,0,0]];
 
         // List of restricted weapons
         const restrictedWeapons = [
@@ -381,7 +384,7 @@
             "TFC_WA_556_Ops_painted_wo",
             "TFC_WA_c20_suppressor"
         ];
-            
+
         // Load data globally
         fetch('weapons.json')
             .then((response) => {
@@ -726,7 +729,7 @@
                     const progressText = document.createElement('div');
                     progressText.classList.add('progress-text');
                     progressText.id = `${section.id}ProgressText`;
-                    progressText.textContent = '0.00 / 0.00';
+                    progressText.textContent = '0.00 / 0.00 lbs';
                     progressContainer.appendChild(progressText);
                     sectionDiv.appendChild(progressContainer);
 
@@ -734,7 +737,7 @@
                     function updateProgressText() {
                         const value = parseFloat(progress.value).toFixed(2);
                         const max = parseFloat(progress.max).toFixed(2);
-                        progressText.textContent = value + ' / ' + max;
+                        progressText.textContent = value + ' / ' + max + ' lbs';
                     }
 
                     // Item list
@@ -778,7 +781,7 @@
                         } else {
                             addItemButton.style.opacity = '0.5';
                             progress.value = 0;
-                            progressText.textContent = '0.00 / 0.00';
+                            progressText.textContent = '0.00 / 0.00 lbs';
                         }
                     });
 
@@ -921,9 +924,16 @@
             const maxWeight = parseFloat(progress.max);
 
             // Get the weight of the selected item (assuming weight is stored in itemsData)
-            const itemData = window.itemsData.sections
+            var itemData = null;
+            if (itemSectionId === "throwables" || itemSectionId === "magazines") {
+                const section = window.itemsData.sections.find(section => section.id === itemSectionId);
+                const group = section?.groupings.find(group => group.options.some(option => option.id === selectedItemId));
+                itemData = group?.options.find(option => option.id === selectedItemId);
+            } else {
+                itemData = window.itemsData.sections
                 .find(section => section.id === itemSectionId)
                 ?.options.find(option => option.id === selectedItemId);
+            }
             const itemWeight = itemData ? itemData.weight : 0;
 
             // Check if adding the item would exceed the weight limit
@@ -976,7 +986,7 @@
 
             // Update the progress bar and text
             progress.value = newWeight;
-            progressText.textContent = `${newWeight.toFixed(2)} / ${maxWeight.toFixed(2)}`;
+            progressText.textContent = `${newWeight.toFixed(2)} / ${maxWeight.toFixed(2)} lbs`;
 
             // Dispatch custom event
             const event = new CustomEvent('itemAdded', { detail: { itemId: selectedItemId, section: itemSectionId } });
@@ -1010,10 +1020,17 @@
             // Get the item weight (assuming weight is stored in itemsData)
             const itemId = listItem.id;
             const itemSectionId = listItem.dataset.section;
-            const itemData = window.itemsData.sections
+            var itemData = null;
+            if (itemSectionId === "throwables" || itemSectionId === "magazines") {
+                const section = window.itemsData.sections.find(section => section.id === itemSectionId);
+                const group = section?.groupings.find(group => group.options.some(option => option.id === itemId));
+                itemData = group?.options.find(option => option.id === itemId);
+            } else {
+                itemData = window.itemsData.sections
                 .find(section => section.id === itemSectionId)
                 ?.options.find(option => option.id === itemId);
-            const itemWeight = itemData ? itemData.weight : 0; // Replace with actual weight property
+            }
+            const itemWeight = itemData ? itemData.weight : 0;
 
             // Calculate the new quantity and weight
             let quantity = parseInt(element.textContent, 10);
@@ -1038,7 +1055,7 @@
 
             // Update the quantity and progress text
             element.textContent = quantity;
-            progressText.textContent = `${parseFloat(progress.value).toFixed(2)} / ${maxWeight.toFixed(2)}`;
+            progressText.textContent = `${parseFloat(progress.value).toFixed(2)} / ${maxWeight.toFixed(2)} lbs`;
 
             // Dispatch a custom event for quantity change
             const itemList = listItem.closest('.scrollable-ul');
@@ -1058,10 +1075,17 @@
             // Get the item weight (assuming weight is stored in itemsData)
             const itemId = listItem.id;
             const itemSectionId = listItem.dataset.section;
-            const itemData = window.itemsData.sections
+            var itemData = null;
+            if (itemSectionId === "throwables" || itemSectionId === "magazines") {
+                const section = window.itemsData.sections.find(section => section.id === itemSectionId);
+                const group = section?.groupings.find(group => group.options.some(option => option.id === itemId));
+                itemData = group?.options.find(option => option.id === itemId);
+            } else {
+                itemData = window.itemsData.sections
                 .find(section => section.id === itemSectionId)
                 ?.options.find(option => option.id === itemId);
-            const itemWeight = itemData ? itemData.weight : 0; // Replace with actual weight property
+            }
+            const itemWeight = itemData ? itemData.weight : 0;
 
             // Get the quantity of the item
             const quantity = parseInt(listItem.querySelector('.item-quantity').textContent, 10);
@@ -1072,7 +1096,7 @@
             // Update the progress bar
             const newWeight = Math.max(0, currentWeight - totalWeightToRemove); // Ensure weight doesn't go below 0
             progress.value = newWeight;
-            progressText.textContent = `${newWeight.toFixed(2)} / ${parseFloat(progress.max).toFixed(2)}`;
+            progressText.textContent = `${newWeight.toFixed(2)} / ${parseFloat(progress.max).toFixed(2)} lbs`;
 
             // Remove the item from the list
             itemList.removeChild(listItem);
@@ -1212,7 +1236,37 @@
             const sectionData = data.sections.find(section => section.id === sectionId);
             const weaponData = sectionData ? sectionData.weapons.find(w => w.id === selectedWeapon) : null;
 
-            if (!weaponData || !weaponData.attachments) return;
+            if (!weaponData || !weaponData.attachments) {
+                if (sectionId === "primary") {
+                    primaryWeights[0] = 0
+                    updateTotalWeight();
+                    return;
+                }
+                if (sectionId === "secondary") {
+                    secondaryWeights[0] = 0
+                    updateTotalWeight();
+                    return;
+                }
+                if (sectionId === "tertiary") {
+                    tertiaryWeights[0] = 0
+                    updateTotalWeight();
+                    return;
+                }
+            }
+            // Update weapon total weight
+            const currentWeaponWeight = weaponData.weight;
+            if (sectionId === "primary") {
+                primaryWeights[0] = currentWeaponWeight;
+                updateTotalWeight();
+            }
+            if (sectionId === "secondary") {
+                secondaryWeights[0] = currentWeaponWeight;
+                updateTotalWeight();
+            }
+            if (sectionId === "tertiary") {
+                tertiaryWeights[0] = currentWeaponWeight;
+                updateTotalWeight();
+            }
 
             // Update each attachment type (sights, rails, muzzles, undermounts, etc.)
             Object.keys(weaponData.attachments).forEach(type => {
@@ -1289,6 +1343,17 @@
                     itemList.addEventListener('quantityChanged', generateImportString);
                 }
             });
+        }
+
+        // Function to update total weight
+        function updateTotalWeight() {
+            var primaryTWeight = primaryWeights[0] + primaryWeights[1][0] + primaryWeights[1][1] + primaryWeights[1][2] + primaryWeights[1][3] + primaryWeights[1][4] + primaryWeights[1][5];
+            var secondaryTWeight = secondaryWeights[0] + secondaryWeights[1][0] + secondaryWeights[1][1] + secondaryWeights[1][2] + secondaryWeights[1][3] + secondaryWeights[1][4] + secondaryWeights[1][5];   
+            var tertiaryTWeight = tertiaryWeights[0] + tertiaryWeights[1][0] + tertiaryWeights[1][1] + tertiaryWeights[1][2] + tertiaryWeights[1][3] + tertiaryWeights[1][4] + tertiaryWeights[1][5];
+
+            var totalWeight = primaryTWeight + secondaryTWeight + tertiaryTWeight;
+            const totalWeightSpan = document.getElementById(`totalWeightDisplay`);
+            totalWeightSpan.textContent = "Total Weight: " + totalWeight + " lbs";
         }
     </script>
 
