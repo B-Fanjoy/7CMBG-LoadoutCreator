@@ -460,7 +460,8 @@
         "options": [
           {
             "id": "tfc_insignia_7cmbg",
-            "name": "7 Canadian Mechanized Brigade Group"
+            "name": "7 Canadian Mechanized Brigade Group",
+            "weight": 0.00
           }
         ]
       },
@@ -470,11 +471,13 @@
         "options": [
           {
             "id": "true",
-            "name": "Yes"
+            "name": "Yes",
+            "weight": 0.00
           },
           {
             "id": "false",
-            "name": "No"
+            "name": "No",
+            "weight": 0.00
           }
         ]
       }

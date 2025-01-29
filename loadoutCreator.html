@@ -346,6 +346,7 @@
     </div>
     <br>
     <div id="stickyBar">
+        <h2 id="totalWeightDisplay" style="text-align: center; margin-bottom: 10px;">Total Weight: 0.00 lbs</h2>
         <h2 style="width: calc(100% + 2 * 10px);margin-left: -10px;margin-top: -10px;border-top-left-radius: 20px;border-top-right-radius: 20px;">Generated Import String</h2>
         <div style="display: flex; align-items: center;padding-bottom: 10px;">
             <a class="button" onclick="copyFunction()">
@@ -380,8 +381,8 @@
             "TFC_WA_556_Ops_painted_wo",
             "TFC_WA_c20_suppressor"
         ];
-
-        // Load weapon data from weapons.json
+            
+        // Load data globally
         fetch('weapons.json')
             .then((response) => {
                 if (!response.ok) {
@@ -390,6 +391,7 @@
                 return response.json();
             })
             .then((data) => {
+                window.weaponsData = data
                 renderWeaponSections(data);
                 populateWeaponDropdown('primaryWeapon', data.sections.find(s => s.id === "primary").weapons);
                 populateWeaponDropdown('secondaryWeapon', data.sections.find(s => s.id === "secondary").weapons);
@@ -402,7 +404,6 @@
                 console.error('Error loading weapons.json:', error);
             });
 
-        // Load gear data from gear.json
         fetch('gear.json')
             .then((response) => {
                 if (!response.ok) {
@@ -411,6 +412,7 @@
                 return response.json();
             })
             .then((data) => {
+                window.gearData = data
                 renderFillableGearSections(data);
                 renderHeadGearSections(data);
                 renderOtherGearSections(data);
@@ -420,14 +422,20 @@
                 console.error('Error loading gear.json:', error);
             });
 
-        // Load items.json and store globally
         fetch('items.json')
-            .then(response => response.json())
+            .then((response) => {
+                if (!response.ok) {
+                    throw new Error(`HTTP error! status: ${response.status}`);
+                }
+                return response.json();
+            })
             .then(data => {
                 window.itemsData = data;
             })
-            .catch(error => console.error('Error loading items.json:', error));
-            
+            .catch((error) => {
+                console.error('Error loading items.json:', error);
+            });
+        
         // Function to check if the selected weapon is a restricted weapon
         function checkRestrictedWeapon(selectElement) {
             // Remove any existing warning
