@@ -5,7 +5,6 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Loadout Creator</title>
     <link rel="icon" type="image/x-icon" href="7cmbg_icon_coloured.svg">
-    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
     <style>
         /* General styling */
         body {
@@ -284,6 +283,43 @@
 
         .scrollable-list li:hover {
             background-color: #444;
+        }
+
+        /* Progress bar styles */
+        .progress-container {
+            position: relative;
+            width: 100%;
+            height: 30px;
+            margin-bottom: 10px;
+        }
+
+        progress {
+            width: 100%;
+            height: 100%;
+            -webkit-appearance: none;
+            appearance: none;
+        }
+
+        /* Style for the progress bar itself */
+        progress::-webkit-progress-bar {
+            background-color: #f3f3f3;
+            border-radius: 8px;
+        }
+
+        progress::-webkit-progress-value {
+            background-color: #4caf50;
+            border-radius: 8px;
+        }
+
+        /* Text over the progress bar */
+        .progress-text {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            font-weight: bold;
+            font-size: 14px;
+            color: #000;
         }
     </style>
 </head>
@@ -667,6 +703,32 @@
                     });
                     sectionDiv.appendChild(select);
 
+                    // Progress bar section
+                    const progressContainer = document.createElement('div');
+                    progressContainer.classList.add('progress-container');
+                    progressContainer.id = `${section.id}ProgressContainer`;
+
+                    const progress = document.createElement('progress');
+                    progress.id = `${section.id}Progress`;
+                    progress.min = 0;
+                    progress.max = 100;
+                    progress.value = 0;
+                    progressContainer.appendChild(progress);
+
+                    const progressText = document.createElement('div');
+                    progressText.classList.add('progress-text');
+                    progressText.id = `${section.id}ProgressText`;
+                    progressText.textContent = '0.00 / 0.00';
+                    progressContainer.appendChild(progressText);
+                    sectionDiv.appendChild(progressContainer);
+
+                    // Update text content based on value and max
+                    function updateProgressText() {
+                        const value = parseFloat(progress.value).toFixed(2);
+                        const max = parseFloat(progress.max).toFixed(2);
+                        progressText.textContent = value + ' / ' + max;
+                    }
+
                     // Item list
                     const itemList = document.createElement('ul');
                     itemList.classList.add('scrollable-ul');
@@ -703,8 +765,12 @@
                     select.addEventListener('change', () => {
                         if (select.value) {
                             addItemButton.style.opacity = '1';
+                            progress.max = parseFloat(section.options.find(option => option.id === select.value).load).toFixed(2);
+                            updateProgressText();
                         } else {
                             addItemButton.style.opacity = '0.5';
+                            progress.value = 0;
+                            progressText.textContent = '0.00 / 0.00';
                         }
                     });
 
@@ -840,6 +906,29 @@
                 return;
             }
 
+            // Retrieve the current progress and max weight
+            const progress = document.getElementById(`${sectionId}Progress`);
+            const progressText = document.getElementById(`${sectionId}ProgressText`);
+            const currentWeight = parseFloat(progress.value);
+            const maxWeight = parseFloat(progress.max);
+
+            // Get the weight of the selected item (assuming weight is stored in itemsData)
+            const itemData = window.itemsData.sections
+                .find(section => section.id === itemSectionId)
+                ?.options.find(option => option.id === selectedItemId);
+            const itemWeight = itemData ? itemData.weight : 0; // Replace with actual weight property
+
+            // Check if adding the item would exceed the weight limit
+            const newWeight = currentWeight + itemWeight;
+            if (newWeight > maxWeight) {
+                var popup = document.getElementById("customPopup5");
+                popup.style.display = "block";
+                setTimeout(() => {
+                    popup.style.display = "none";
+                }, 2000);
+                return;
+            }
+
             // Create the item row
             const listItem = document.createElement('li');
             listItem.classList.add('item-list');
@@ -877,6 +966,10 @@
             listItem.appendChild(controls);
             itemList.appendChild(listItem);
 
+            // Update the progress bar and text
+            progress.value = newWeight;
+            progressText.textContent = `${newWeight.toFixed(2)} / ${maxWeight.toFixed(2)}`;
+
             // Dispatch custom event
             const event = new CustomEvent('itemAdded', { detail: { itemId: selectedItemId, section: itemSectionId } });
             itemList.dispatchEvent(event);
@@ -899,13 +992,48 @@
 
         // Function to adjust item quantity
         function adjustItemQuantity(element, change) {
-            let quantity = parseInt(element.textContent, 10);
-            quantity = Math.max(1, quantity + change);
-            element.textContent = quantity;
-
-            // Dispatch custom event
-            const itemList = element.closest('.scrollable-ul');
             const listItem = element.closest('.item-list');
+            const sectionId = listItem.closest('.scrollable-ul').id.replace('ItemList', '');
+            const progress = document.getElementById(`${sectionId}Progress`);
+            const progressText = document.getElementById(`${sectionId}ProgressText`);
+            const currentWeight = parseFloat(progress.value);
+            const maxWeight = parseFloat(progress.max);
+
+            // Get the item weight (assuming weight is stored in itemsData)
+            const itemId = listItem.id;
+            const itemSectionId = listItem.dataset.section;
+            const itemData = window.itemsData.sections
+                .find(section => section.id === itemSectionId)
+                ?.options.find(option => option.id === itemId);
+            const itemWeight = itemData ? itemData.weight : 0; // Replace with actual weight property
+
+            // Calculate the new quantity and weight
+            let quantity = parseInt(element.textContent, 10);
+            const newQuantity = quantity + change;
+            const newWeight = currentWeight + itemWeight * change;
+
+            // Prevent decreasing below 1 or exceeding the weight limit
+            if (newQuantity < 1) {
+                quantity = 1; // Ensure the minimum quantity is 1
+            } else if (newWeight > maxWeight) {
+                // Show popup if the weight exceeds the limit
+                var popup = document.getElementById("customPopup5");
+                popup.style.display = "block";
+                setTimeout(() => {
+                    popup.style.display = "none";
+                }, 2000);
+                return;
+            } else {
+                quantity = newQuantity; // Update quantity only if valid
+                progress.value = newWeight; // Update progress bar
+            }
+
+            // Update the quantity and progress text
+            element.textContent = quantity;
+            progressText.textContent = `${parseFloat(progress.value).toFixed(2)} / ${maxWeight.toFixed(2)}`;
+
+            // Dispatch a custom event for quantity change
+            const itemList = listItem.closest('.scrollable-ul');
             const event = new CustomEvent('quantityChanged', {
                 detail: { itemId: listItem.id, newQuantity: quantity },
             });
@@ -914,9 +1042,34 @@
 
         // Function to remove an item from the list
         function removeItem(listItem, itemList) {
+            const sectionId = itemList.id.replace('ItemList', ''); // Get the section ID (e.g., "uniform", "vest")
+            const progress = document.getElementById(`${sectionId}Progress`);
+            const progressText = document.getElementById(`${sectionId}ProgressText`);
+            const currentWeight = parseFloat(progress.value);
+
+            // Get the item weight (assuming weight is stored in itemsData)
+            const itemId = listItem.id;
+            const itemSectionId = listItem.dataset.section;
+            const itemData = window.itemsData.sections
+                .find(section => section.id === itemSectionId)
+                ?.options.find(option => option.id === itemId);
+            const itemWeight = itemData ? itemData.weight : 0; // Replace with actual weight property
+
+            // Get the quantity of the item
+            const quantity = parseInt(listItem.querySelector('.item-quantity').textContent, 10);
+
+            // Calculate the total weight to subtract
+            const totalWeightToRemove = itemWeight * quantity;
+
+            // Update the progress bar
+            const newWeight = Math.max(0, currentWeight - totalWeightToRemove); // Ensure weight doesn't go below 0
+            progress.value = newWeight;
+            progressText.textContent = `${newWeight.toFixed(2)} / ${parseFloat(progress.max).toFixed(2)}`;
+
+            // Remove the item from the list
             itemList.removeChild(listItem);
 
-            // Dispatch custom event
+            // Dispatch a custom event for item removal
             const event = new CustomEvent('itemRemoved', { detail: { itemId: listItem.id } });
             itemList.dispatchEvent(event);
         }
@@ -1142,6 +1295,9 @@
     </div>
     <div id="customPopup4" style="display: none; position: fixed; bottom: 22px; left: 50%; transform: translateX(-50%); background-color: #ffcc00; color: #000; padding: 15px 20px; border-radius: 8px; box-shadow: 0 0 10px rgba(0,0,0,0.3); font-size: 1.2rem; z-index: 2000;">
         Please select an item first!
+    </div>
+    <div id="customPopup5" style="display: none; position: fixed; bottom: 22px; left: 50%; transform: translateX(-50%); background-color: #ffcc00; color: #000; padding: 15px 20px; border-radius: 8px; box-shadow: 0 0 10px rgba(0,0,0,0.3); font-size: 1.2rem; z-index: 2000;">
+        Item exceeds the load limit!
     </div>
     <div id="weaponWarning" style="display: none; position: fixed; top: 20px; left: 50%; transform: translateX(-50%); background-color: #ff0000; color: #fff; padding: 15px 20px; border-radius: 8px; box-shadow: 0 0 10px rgba(0,0,0,0.3); font-size: 1.2rem; z-index: 2000;">
         Warning: Make sure this weapon is part of your orders!
