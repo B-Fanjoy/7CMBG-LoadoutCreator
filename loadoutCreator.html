@@ -346,7 +346,7 @@
     </div>
     <br>
     <div id="stickyBar">
-        <h2 id="totalWeightDisplay" style="width: calc(100% + 2 * 10px);margin-left: -10px;text-align: center; margin-bottom: 20px;margin-top: -10px;border-radius: 20px;">Total Weight: 0.00 lbs</h2>
+        <!-- <h2 id="totalWeightDisplay" style="width: calc(100% + 2 * 10px);margin-left: -10px;text-align: center; margin-bottom: 20px;margin-top: -10px;border-radius: 20px;">Total Weight: 0.00 lbs</h2> -->
         <h2 style="width: calc(100% + 2 * 10px);margin-left: -10px;margin-top: -10px;border-top-left-radius: 20px;border-top-right-radius: 20px;">Generated Import String</h2>
         <div style="display: flex; align-items: center;padding-bottom: 10px;">
             <a class="button" onclick="copyFunction()">
@@ -1237,35 +1237,7 @@
             const weaponData = sectionData ? sectionData.weapons.find(w => w.id === selectedWeapon) : null;
 
             if (!weaponData || !weaponData.attachments) {
-                if (sectionId === "primary") {
-                    primaryWeights[0] = 0
-                    updateTotalWeight();
-                    return;
-                }
-                if (sectionId === "secondary") {
-                    secondaryWeights[0] = 0
-                    updateTotalWeight();
-                    return;
-                }
-                if (sectionId === "tertiary") {
-                    tertiaryWeights[0] = 0
-                    updateTotalWeight();
-                    return;
-                }
-            }
-            // Update weapon total weight
-            const currentWeaponWeight = weaponData.weight;
-            if (sectionId === "primary") {
-                primaryWeights[0] = currentWeaponWeight;
-                updateTotalWeight();
-            }
-            if (sectionId === "secondary") {
-                secondaryWeights[0] = currentWeaponWeight;
-                updateTotalWeight();
-            }
-            if (sectionId === "tertiary") {
-                tertiaryWeights[0] = currentWeaponWeight;
-                updateTotalWeight();
+                return;
             }
 
             // Update each attachment type (sights, rails, muzzles, undermounts, etc.)
@@ -1343,17 +1315,6 @@
                     itemList.addEventListener('quantityChanged', generateImportString);
                 }
             });
-        }
-
-        // Function to update total weight
-        function updateTotalWeight() {
-            var primaryTWeight = primaryWeights[0] + primaryWeights[1][0] + primaryWeights[1][1] + primaryWeights[1][2] + primaryWeights[1][3] + primaryWeights[1][4] + primaryWeights[1][5];
-            var secondaryTWeight = secondaryWeights[0] + secondaryWeights[1][0] + secondaryWeights[1][1] + secondaryWeights[1][2] + secondaryWeights[1][3] + secondaryWeights[1][4] + secondaryWeights[1][5];   
-            var tertiaryTWeight = tertiaryWeights[0] + tertiaryWeights[1][0] + tertiaryWeights[1][1] + tertiaryWeights[1][2] + tertiaryWeights[1][3] + tertiaryWeights[1][4] + tertiaryWeights[1][5];
-
-            var totalWeight = primaryTWeight + secondaryTWeight + tertiaryTWeight;
-            const totalWeightSpan = document.getElementById(`totalWeightDisplay`);
-            totalWeightSpan.textContent = "Total Weight: " + totalWeight + " lbs";
         }
     </script>
 
