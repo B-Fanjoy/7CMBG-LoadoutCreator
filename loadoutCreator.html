@@ -924,7 +924,7 @@
             const itemData = window.itemsData.sections
                 .find(section => section.id === itemSectionId)
                 ?.options.find(option => option.id === selectedItemId);
-            const itemWeight = itemData ? itemData.weight : 0; // Replace with actual weight property
+            const itemWeight = itemData ? itemData.weight : 0;
 
             // Check if adding the item would exceed the weight limit
             const newWeight = currentWeight + itemWeight;
