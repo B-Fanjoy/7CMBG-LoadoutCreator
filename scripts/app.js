@@ -27,7 +27,7 @@ const restrictedAttachments = [
 ];
 
 // Load data globally
-fetch('weapons.json')
+fetch('data/weapons.json')
     .then((response) => {
         if (!response.ok) {
             throw new Error(`HTTP error! status: ${response.status}`);
@@ -48,7 +48,7 @@ fetch('weapons.json')
         console.error('Error loading weapons.json:', error);
     });
 
-fetch('gear.json')
+fetch('data/gear.json')
     .then((response) => {
         if (!response.ok) {
             throw new Error(`HTTP error! status: ${response.status}`);
@@ -66,7 +66,7 @@ fetch('gear.json')
         console.error('Error loading gear.json:', error);
     });
 
-fetch('items.json')
+fetch('data/items.json')
     .then((response) => {
         if (!response.ok) {
             throw new Error(`HTTP error! status: ${response.status}`);
