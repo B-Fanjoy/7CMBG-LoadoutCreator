@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Loadout Creator</title>
+    <link rel="icon" type="image/x-icon" href="7CMBG-LoadoutCreator/media/7cmbg_icon_coloured.svg">
+    <link rel="stylesheet" type="text/css" href="7CMBG-LoadoutCreator/css/app-style.css">
+</head>
+<body>
+    <h1>Loadout Creator</h1>
+    <div class="maincontainer">
+        <h2>Weapons</h2>
+        <div id="weaponSections" style="display: flex;align-items: center;"></div>
+    </div>
+    <br>
+    <div class="maincontainer">
+        <h2>Main Gear</h2>
+        <div id="fillableGearSections"style="display: flex;align-items: center;"></div>  
+    </div>
+    <br>
+    <div class="maincontainer">
+        <h2>Head Gear</h2>
+        <div id="headGearSections"style="display: flex;align-items: center;"></div>
+    </div>
+    <br>
+    <div class="maincontainer">
+        <h2>Other Gear</h2>
+        <div id="otherGearSections"style="display: flex;align-items: center;"></div>
+    </div>
+    <br>
+    <div id="stickyBar">
+        <h2 id="totalWeightDisplay" style="width: calc(100% + 2 * 10px);margin-left: -10px;text-align: center; margin-bottom: 20px;margin-top: -10px;border-radius: 20px;">Total Weight: 0.00 lbs</h2>
+        <h2 style="width: calc(100% + 2 * 10px);margin-left: -10px;margin-top: -10px;border-top-left-radius: 20px;border-top-right-radius: 20px;">Generated Import String</h2>
+        <div style="display: flex; align-items: center;padding-bottom: 10px;">
+            <a class="button" onclick="copyFunction()">
+                <img src="media/copy_icon.png" alt="Copy"/>
+            </a>
+            <textarea id="textbox" readonly></textarea>
+        </div>
+    </div>
+    <script type="text/javascript" src="scripts/app.js"></script>
+    <div id="customPopup" style="display: none; position: fixed; bottom: 22px; left: 50%; transform: translateX(-50%); background-color: #ffcc00; color: #000; padding: 15px 20px; border-radius: 8px; box-shadow: 0 0 10px rgba(0,0,0,0.3); font-size: 1.2rem; z-index: 2000;">
+        Copied to clipboard!
+    </div>
+    <div id="customPopup2" style="display: none; position: fixed; bottom: 22px; left: 50%; transform: translateX(-50%); background-color: #ffcc00; color: #000; padding: 15px 20px; border-radius: 8px; box-shadow: 0 0 10px rgba(0,0,0,0.3); font-size: 1.2rem; z-index: 2000;">
+        Item already added to this container!
+    </div>
+    <div id="customPopup3" style="display: none; position: fixed; bottom: 22px; left: 50%; transform: translateX(-50%); background-color: #ffcc00; color: #000; padding: 15px 20px; border-radius: 8px; box-shadow: 0 0 10px rgba(0,0,0,0.3); font-size: 1.2rem; z-index: 2000;">
+        Select your gear first!
+    </div>
+    <div id="customPopup4" style="display: none; position: fixed; bottom: 22px; left: 50%; transform: translateX(-50%); background-color: #ffcc00; color: #000; padding: 15px 20px; border-radius: 8px; box-shadow: 0 0 10px rgba(0,0,0,0.3); font-size: 1.2rem; z-index: 2000;">
+        Please select an item first!
+    </div>
+    <div id="customPopup5" style="display: none; position: fixed; bottom: 22px; left: 50%; transform: translateX(-50%); background-color: #ffcc00; color: #000; padding: 15px 20px; border-radius: 8px; box-shadow: 0 0 10px rgba(0,0,0,0.3); font-size: 1.2rem; z-index: 2000;">
+        Item exceeds the load limit!
+    </div>
+    <div id="weaponWarning" style="display: none; position: fixed; top: 20px; left: 50%; transform: translateX(-50%); background-color: #ff0000; color: #fff; padding: 15px 20px; border-radius: 8px; box-shadow: 0 0 10px rgba(0,0,0,0.3); font-size: 1.2rem; z-index: 2000;">
+        Warning: Make sure this weapon is part of your orders!
+    </div>
+</body>
+</html>
