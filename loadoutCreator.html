@@ -11,31 +11,40 @@
     <h1>Loadout Creator</h1>
     <div class="maincontainers">
         <h2>Weapons</h2>
-        <div id="weaponSections"></div>
+        <div id="weaponSections">
+            <h3>Test</h3>
+        </div>
     </div>
     <br>
     <div class="maincontainers">
         <h2>Main Gear</h2>
-        <div id="fillableGearSections"></div>  
+        <div id="fillableGearSections">
+            <h3>Test</h3>
+        </div>  
     </div>
     <br>
     <div class="maincontainers">
         <h2>Head Gear</h2>
-        <div id="headGearSections"
+        <div id="headGearSections">
+            <h3>Test</h3>
+        </div>
+    </div>
     <br>
     <div class="maincontainers">
         <h2>Other Gear</h2>
-        <div id="otherGearSections"></div>
+        <div id="otherGearSections">
+            <h3>Test</h3>
+        </div>
     </div>
     <br>
     <div id="stickyBar">
-        <h2 id="totalWeightDisplay" style="width: calc(100% + 2 * 10px);margin-left: -10px;text-align: center; margin-bottom: 20px;margin-top: -10px;border-radius: 20px;">Total Weight: 0.00 lbs</h2>
-        <h2 style="width: calc(100% + 2 * 10px);margin-left: -10px;margin-top: -10px;border-top-left-radius: 20px;border-top-right-radius: 20px;">Generated Import String</h2>
-        <div style="display: flex; align-items: center;padding-bottom: 10px;">
-            <a class="button" onclick="copyFunction()">
+        <h1>Total Weight: 0.00 lbs</h1>
+        <h1 style="border-bottom-left-radius: 0px;border-bottom-right-radius: 0px;">Generated Import String</h1>
+        <div>
+            <button onclick="copyFunction()">
                 <img src="media/copy_icon.png" alt="Copy"/>
-            </a>
-            <textarea id="textbox" readonly></textarea>
+            </button>
+            <textarea id="importStringBox" readonly></textarea>
         </div>
     </div>
     <!-- <script type="text/javascript" src="scripts/app.js"></script> -->
