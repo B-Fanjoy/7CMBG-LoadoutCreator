@@ -201,6 +201,36 @@
             "weight": 3.00
           },
           {
+            "id": "TFC_CH_CG634_CADPAT_SCRIM_01_MT",
+            "name": "CG634 CADPAT w/Scrim(1) (Multi-Terrain)",
+            "weight": 3.00
+          },
+          {
+            "id": "TFC_CH_CG634_CADPAT_SCRIM_02_MT",
+            "name": "CG634 CADPAT w/Scrim(2) (Multi-Terrain)",
+            "weight": 3.00
+          },
+          {
+            "id": "TFC_CH_CG634_CADPAT_SCRIM_03_MT",
+            "name": "CG634 CADPAT w/Scrim(3) (Multi-Terrain)",
+            "weight": 3.00
+          },
+          {
+            "id": "TFC_CH_CG634_CADPAT_SCRIM_L_01_MT",
+            "name": "CG634 CADPAT w/Light-Scrim(1) (Multi-Terrain)",
+            "weight": 3.00
+          },
+          {
+            "id": "TFC_CH_CG634_CADPAT_SCRIM_L_02_MT",
+            "name": "CG634 CADPAT w/Light-Scrim(2) (Multi-Terrain)",
+            "weight": 3.00
+          },
+          {
+            "id": "TFC_CH_CG634_CADPAT_SCRIM_L_03_MT",
+            "name": "CG634 CADPAT w/Light-Scrim(3) (Multi-Terrain)",
+            "weight": 3.00
+          },
+          {
             "id": "TFC_CH_CG634_CADPAT_TW",
             "name": "CG634 CADPAT (Temperate Woodlands)",
             "weight": 3.00
@@ -221,6 +251,36 @@
             "weight": 3.00
           },
           {
+            "id": "TFC_CH_CG634_CADPAT_SCRIM_01_TW",
+            "name": "CG634 CADPAT w/Scrim(1) (Temperate Woodlands)",
+            "weight": 3.00
+          },
+          {
+            "id": "TFC_CH_CG634_CADPAT_SCRIM_02_TW",
+            "name": "CG634 CADPAT w/Scrim(2) (Temperate Woodlands)",
+            "weight": 3.00
+          },
+          {
+            "id": "TFC_CH_CG634_CADPAT_SCRIM_03_TW",
+            "name": "CG634 CADPAT w/Scrim(3) (Temperate Woodlands)",
+            "weight": 3.00
+          },
+          {
+            "id": "TFC_CH_CG634_CADPAT_SCRIM_L_01_TW",
+            "name": "CG634 CADPAT w/Light-Scrim(1) (Temperate Woodlands)",
+            "weight": 3.00
+          },
+          {
+            "id": "TFC_CH_CG634_CADPAT_SCRIM_L_02_TW",
+            "name": "CG634 CADPAT w/Light-Scrim(2) (Temperate Woodlands)",
+            "weight": 3.00
+          },
+          {
+            "id": "TFC_CH_CG634_CADPAT_SCRIM_L_03_TW",
+            "name": "CG634 CADPAT w/Light-Scrim(3) (Temperate Woodlands)",
+            "weight": 3.00
+          },
+          {
             "id": "TFC_CH_CG634_CADPAT_WO",
             "name": "CG634 CADPAT (Winter)",
             "weight": 3.00
@@ -238,6 +298,16 @@
           {
             "id": "TFC_CH_CG634_CADPAT_GG_HS_WO",
             "name": "CG634 CADPAT w/Goggles + Headset (Winter)",
+            "weight": 3.00
+          },
+          {
+            "id": "TFC_CH_CG634_CADPAT_SCRIM_01_WO",
+            "name": "CG634 CADPAT w/Scrim (Winter)",
+            "weight": 3.00
+          },
+          {
+            "id": "TFC_CH_CG634_CADPAT_SCRIM_L_01_WO",
+            "name": "CG634 CADPAT w/Light-Scrim (Winter)",
             "weight": 3.00
           }
         ]
