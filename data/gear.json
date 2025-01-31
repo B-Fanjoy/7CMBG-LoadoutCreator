@@ -1,244 +1,434 @@
 {
     "sections": [
       {
-        "id": "uniform",
-        "name": "Uniform",
-        "options": [
+        "id": "uniforms",
+        "name": "Uniforms",
+        "groupings": [
           {
-            "id": "TFC_CU_CombatUniform_otw_cadpat_AR",
-            "name": "Outside The Wire CADPAT (Arid Regions)",
-            "load": 4.00,
-            "weight": 4.00
+            "id": "aridUniforms",
+            "name": "Arid Regions Uniforms",
+            "options": [
+              {
+                "id": "TFC_CU_CombatUniform_otw_cadpat_AR",
+                "name": "Outside The Wire CADPAT (Arid Regions)",
+                "load": 4.00,
+                "weight": 4.00
+              },
+              {
+                "id": "TFC_CU_CombatUniform_tunic_cadpat_AR",
+                "name": "Tunic CADPAT (Arid Regions)",
+                "load": 4.00,
+                "weight": 4.00
+              }
+            ] 
           },
           {
-            "id": "TFC_CU_CombatUniform_otw_cadpat_MT",
-            "name": "Outside The Wire CADPAT (Multi-Terrain)",
-            "load": 4.00,
-            "weight": 4.00
+            "id": "multiterrainUniforms",
+            "name": "Multi-Terrain Uniforms",
+            "options": [
+              {
+                "id": "TFC_CU_CombatUniform_otw_cadpat_MT",
+                "name": "Outside The Wire CADPAT (Multi-Terrain)",
+                "load": 4.00,
+                "weight": 4.00
+              },
+              {
+                "id": "TFC_CU_CombatUniform_tunic_cadpat_MT",
+                "name": "Tunic CADPAT (Multi-Terrain)",
+                "load": 4.00,
+                "weight": 4.00
+              }
+            ] 
           },
           {
-            "id": "TFC_CU_CombatUniform_otw_cadpat_TW",
-            "name": "Outside The Wire CADPAT (Temperate Woodlands)",
-            "load": 4.00,
-            "weight": 4.00
+            "id": "temperateUniforms",
+            "name": "Temperate Woodlands Uniforms",
+            "options": [
+              {
+                "id": "TFC_CU_CombatUniform_otw_cadpat_TW",
+                "name": "Outside The Wire CADPAT (Temperate Woodlands)",
+                "load": 4.00,
+                "weight": 4.00
+              },
+              {
+                "id": "TFC_CU_CombatUniform_tunic_cadpat_TW",
+                "name": "Tunic CADPAT (Temperate Woodlands)",
+                "load": 4.00,
+                "weight": 4.00
+              }
+            ] 
           },
           {
-            "id": "TFC_CU_CombatUniform_tunic_cadpat_AR",
-            "name": "Tunic CADPAT (Arid Regions)",
-            "load": 4.00,
-            "weight": 4.00
-          },
-          {
-            "id": "TFC_CU_CombatUniform_tunic_cadpat_MT",
-            "name": "Tunic CADPAT (Multi-Terrain)",
-            "load": 4.00,
-            "weight": 4.00
-          },
-          {
-            "id": "TFC_CU_CombatUniform_tunic_cadpat_TW",
-            "name": "Tunic CADPAT (Temperate Woodlands)",
-            "load": 4.00,
-            "weight": 4.00
-          },
-          {
-            "id": "TFC_CU_CombatUniform_tunic_cadpat_WO",
-            "name": "Tunic CADPAT (Winter)",
-            "load": 4.00,
-            "weight": 4.00
+            "id": "winterUniforms",
+            "name": "Winter Uniforms",
+            "options": [
+              {
+                "id": "TFC_CU_CombatUniform_tunic_cadpat_WO",
+                "name": "Tunic CADPAT (Winter)",
+                "load": 4.00,
+                "weight": 4.00
+              }
+            ] 
           }
         ]
       },
       {
-        "id": "vest",
-        "name": "Vest",
-        "options": [
+        "id": "vests",
+        "name": "Vests",
+        "groupings": [
           {
-            "id": "TFC_CV_SORD_Ballistic_AR",
-            "name": "SORD SCS Basic + Ballistic Vest (Arid Regions)",
-            "load": 14.00,
-            "weight": 6.00
+            "id": "aridVests",
+            "name": "Arid Regions Vests",
+            "options": [
+              {
+                "id": "TFC_CV_SORD_Ballistic_AR",
+                "name": "SORD SCS Basic + Ballistic Vest (Arid Regions)",
+                "load": 14.00,
+                "weight": 6.00
+              },
+              {
+                "id": "TFC_CV_OTV_BV_ar",
+                "name": "TacVest + Ballistic Vest (Arid Regions)",
+                "load": 14.00,
+                "weight": 6.00
+              }
+            ] 
           },
           {
-            "id": "TFC_CV_SORD_Ballistic_MT",
-            "name": "SORD SCS Basic + Ballistic Vest (Multi-Terrain)",
-            "load": 14.00,
-            "weight": 6.00
+            "id": "multiterrainVests",
+            "name": "Multi-Terrain Vests",
+            "options": [
+              {
+                "id": "TFC_CV_SORD_Ballistic_MT",
+                "name": "SORD SCS Basic + Ballistic Vest (Multi-Terrain)",
+                "load": 14.00,
+                "weight": 6.00
+              },
+              {
+                "id": "TFC_CV_OTV_BV_MT",
+                "name": "TacVest + Ballistic Vest (Multi-Terrain)",
+                "load": 14.00,
+                "weight": 6.00
+              }
+            ] 
           },
           {
-            "id": "TFC_CV_SORD_Ballistic_TW",
-            "name": "SORD SCS Basic + Ballistic Vest (Temperate Woodlands)",
-            "load": 14.00,
-            "weight": 6.00
+            "id": "temperateVests",
+            "name": "Temperate Woodlands Vests",
+            "options": [
+              {
+                "id": "TFC_CV_SORD_Ballistic_TW",
+                "name": "SORD SCS Basic + Ballistic Vest (Temperate Woodlands)",
+                "load": 14.00,
+                "weight": 6.00
+              },
+              {
+                "id": "TFC_CV_OTV_BV_tw",
+                "name": "TacVest + Ballistic Vest (Temperate Woodlands)",
+                "load": 14.00,
+                "weight": 6.00
+              }
+            ] 
           },
           {
-            "id": "TFC_CV_OTV_BV_ar",
-            "name": "TacVest + Ballistic Vest (Arid Regions)",
-            "load": 14.00,
-            "weight": 6.00
-          },
-          {
-            "id": "TFC_CV_OTV_BV_MT",
-            "name": "TacVest + Ballistic Vest (Multi-Terrain)",
-            "load": 14.00,
-            "weight": 6.00
-          },
-          {
-            "id": "TFC_CV_OTV_BV_tw",
-            "name": "TacVest + Ballistic Vest (Temperate Woodlands)",
-            "load": 14.00,
-            "weight": 6.00
+            "id": "winterVests",
+            "name": "Winter Vests",
+            "options": [
+              {
+                "id": "",
+                "name": "None",
+                "load": 0.00,
+                "weight": 0.00
+              }
+            ] 
           }
         ]
       },
       {
-        "id": "backpack",
-        "name": "Backpack",
-        "options": [
+        "id": "backpacks",
+        "name": "Backpacks",
+        "groupings": [
           {
-            "id": "TFC_CB_Smallpack_AR",
-            "name": "Small Pack (Arid Regions)",
-            "load": 32.00,
-            "weight": 3.00
+            "id": "aridBackpacks",
+            "name": "Arid Regions Backpacks",
+            "options": [
+              {
+                "id": "TFC_CB_Smallpack_AR",
+                "name": "Small Pack (Arid Regions)",
+                "load": 32.00,
+                "weight": 3.00
+              },
+              {
+                "id": "tfc_cb_Carryall_AR",
+                "name": "Carryall (Arid Regions)",
+                "load": 32.00,
+                "weight": 3.00
+              },
+              {
+                "id": "TFC_CB_CTS_Rucksack_AR",
+                "name": "Rucksack (Arid Regions)",
+                "load": 45.00,
+                "weight": 6.00
+              }
+            ] 
           },
           {
-            "id": "TFC_CB_Smallpack_AR",
-            "name": "Small Pack (Multi-Terrain)",
-            "load": 32.00,
-            "weight": 3.00
+            "id": "multiterrainBackpacks",
+            "name": "Multi-Terrain Backpacks",
+            "options": [
+              {
+                "id": "TFC_CB_Smallpack_MT",
+                "name": "Small Pack (Multi-Terrain)",
+                "load": 32.00,
+                "weight": 3.00
+              },
+              {
+                "id": "tfc_cb_Carryall_MT",
+                "name": "Carryall (Multi-Terrain)",
+                "load": 32.00,
+                "weight": 3.00
+              },
+              {
+                "id": "TFC_CB_CTS_Rucksack_MT",
+                "name": "Rucksack (Multi-Terrain)",
+                "load": 45.00,
+                "weight": 6.00
+              }
+            ] 
           },
           {
-            "id": "TFC_CB_Smallpack_TW",
-            "name": "Small Pack (Temperate Woodlands)",
-            "load": 32.00,
-            "weight": 3.00
+            "id": "temperateBackpacks",
+            "name": "Temperate Woodlands Backpacks",
+            "options": [
+              {
+                "id": "TFC_CB_Smallpack_TW",
+                "name": "Small Pack (Temperate Woodlands)",
+                "load": 32.00,
+                "weight": 3.00
+              },
+              {
+                "id": "tfc_cb_Carryall_tw",
+                "name": "Carryall (Temperate Woodlands)",
+                "load": 32.00,
+                "weight": 3.00
+              },
+              {
+                "id": "TFC_CB_CTS_Rucksack_TW",
+                "name": "Rucksack (Temperate Woodlands)",
+                "load": 45.00,
+                "weight": 6.00
+              }
+            ] 
           },
           {
-            "id": "tfc_cb_Carryall_AR",
-            "name": "Carryall (Arid Regions)",
-            "load": 32.00,
-            "weight": 3.00
-          },
-          {
-            "id": "tfc_cb_Carryall_MT",
-            "name": "Carryall (Multi-Terrain)",
-            "load": 32.00,
-            "weight": 3.00
-          },
-          {
-            "id": "tfc_cb_Carryall_tw",
-            "name": "Carryall (Temperate Woodlands)",
-            "load": 32.00,
-            "weight": 3.00
-          },
-          {
-            "id": "TFC_CB_CTS_Rucksack_AR",
-            "name": "Rucksack (Arid Regions)",
-            "load": 45.00,
-            "weight": 6.00
-          },
-          {
-            "id": "TFC_CB_CTS_Rucksack_MT",
-            "name": "Rucksack (Multi-Terrain)",
-            "load": 45.00,
-            "weight": 6.00
-          },
-          {
-            "id": "TFC_CB_CTS_Rucksack_TW",
-            "name": "Rucksack (Temperate Woodlands)",
-            "load": 45.00,
-            "weight": 6.00
-          },
-          {
-            "id": "TFC_CB_CTS_Rucksack_WO",
-            "name": "Rucksack (Winter)",
-            "load": 45.00,
-            "weight": 6.00
+            "id": "winterBackpacks",
+            "name": "Winter Backpacks",
+            "options": [
+              {
+                "id": "TFC_CB_CTS_Rucksack_WO",
+                "name": "Rucksack (Winter)",
+                "load": 45.00,
+                "weight": 6.00
+              }
+            ] 
           }
         ]
       },
       {
         "id": "headgear",
         "name": "Headgear",
-        "options": [
+        "groupings": [
           {
-            "id": "TFC_CH_CG634_CADPAT_AR",
-            "name": "CG634 CADPAT (Arid Regions)",
-            "weight": 3.00
+            "id": "aridHeadgear",
+            "name": "Arid Regions Headgear",
+            "options": [
+              {
+                "id": "TFC_CH_CG634_CADPAT_AR",
+                "name": "CG634 CADPAT (Arid Regions)",
+                "weight": 3.00
+              },
+              {
+                "id": "TFC_CH_CG634_CADPAT_GG_AR",
+                "name": "CG634 CADPAT w/Goggles (Arid Regions)",
+                "weight": 3.00
+              },
+              {
+                "id": "TFC_CH_CG634_HS_CADPAT_AR",
+                "name": "CG634 CADPAT w/Headset (Arid Regions)",
+                "weight": 3.00
+              },
+              {
+                "id": "TFC_CH_CG634_CADPAT_GG_HS_AR",
+                "name": "CG634 CADPAT w/Goggles + Headset (Arid Regions)",
+                "weight": 3.00
+              }
+            ] 
           },
           {
-            "id": "TFC_CH_CG634_CADPAT_GG_AR",
-            "name": "CG634 CADPAT w/Goggles (Arid Regions)",
-            "weight": 3.00
+            "id": "multiterrainHeadgear",
+            "name": "Multi-Terrain Headgear",
+            "options": [
+              {
+                "id": "TFC_CH_CG634_CADPAT_MT",
+                "name": "CG634 CADPAT (Multi-Terrain)",
+                "weight": 3.00
+              },
+              {
+                "id": "TFC_CH_CG634_CADPAT_GG_MT",
+                "name": "CG634 CADPAT w/Goggles (Multi-Terrain)",
+                "weight": 3.00
+              },
+              {
+                "id": "TFC_CH_CG634_HS_CADPAT_MT",
+                "name": "CG634 CADPAT w/Headset (Multi-Terrain)",
+                "weight": 3.00
+              },
+              {
+                "id": "TFC_CH_CG634_CADPAT_GG_HS_MT",
+                "name": "CG634 CADPAT w/Goggles + Headset (Multi-Terrain)",
+                "weight": 3.00
+              },
+              {
+                "id": "multiterrainScrimHeadgear",
+                "name": "Multi-Terrain Scrim Headgear",
+                "options": [
+                  {
+                    "id": "TFC_CH_CG634_CADPAT_SCRIM_01_MT",
+                    "name": "CG634 CADPAT w/Scrim(1) (Multi-Terrain)",
+                    "weight": 3.00
+                  },
+                  {
+                    "id": "TFC_CH_CG634_CADPAT_SCRIM_02_MT",
+                    "name": "CG634 CADPAT w/Scrim(2) (Multi-Terrain)",
+                    "weight": 3.00
+                  },
+                  {
+                    "id": "TFC_CH_CG634_CADPAT_SCRIM_03_MT",
+                    "name": "CG634 CADPAT w/Scrim(3) (Multi-Terrain)",
+                    "weight": 3.00
+                  },
+                  {
+                    "id": "TFC_CH_CG634_CADPAT_SCRIM_L_01_MT",
+                    "name": "CG634 CADPAT w/Light-Scrim(1) (Multi-Terrain)",
+                    "weight": 3.00
+                  },
+                  {
+                    "id": "TFC_CH_CG634_CADPAT_SCRIM_L_02_MT",
+                    "name": "CG634 CADPAT w/Light-Scrim(2) (Multi-Terrain)",
+                    "weight": 3.00
+                  },
+                  {
+                    "id": "TFC_CH_CG634_CADPAT_SCRIM_L_03_MT",
+                    "name": "CG634 CADPAT w/Light-Scrim(3) (Multi-Terrain)",
+                    "weight": 3.00
+                  }
+                ]
+              }
+            ] 
           },
           {
-            "id": "TFC_CH_CG634_HS_CADPAT_AR",
-            "name": "CG634 CADPAT w/Headset (Arid Regions)",
-            "weight": 3.00
+            "id": "temperateHeadgear",
+            "name": "Temperate Woodlands Headgear",
+            "options": [
+              {
+                "id": "TFC_CH_CG634_CADPAT_TW",
+                "name": "CG634 CADPAT (Temperate Woodlands)",
+                "weight": 3.00
+              },
+              {
+                "id": "TFC_CH_CG634_CADPAT_GG_TW",
+                "name": "CG634 CADPAT w/Goggles (Temperate Woodlands)",
+                "weight": 3.00
+              },
+              {
+                "id": "TFC_CH_CG634_HS_CADPAT_TW",
+                "name": "CG634 CADPAT w/Headset (Temperate Woodlands)",
+                "weight": 3.00
+              },
+              {
+                "id": "TFC_CH_CG634_CADPAT_GG_HS_TW",
+                "name": "CG634 CADPAT w/Goggles + Headset (Temperate Woodlands)",
+                "weight": 3.00
+              },
+              {
+                "id": "temperateScrimHeadgear",
+                "name": "Temperate Woodlands Scrim Headgear",
+                "options": [
+                  {
+                    "id": "TFC_CH_CG634_CADPAT_SCRIM_01_TW",
+                    "name": "CG634 CADPAT w/Scrim(1) (Temperate Woodlands)",
+                    "weight": 3.00
+                  },
+                  {
+                    "id": "TFC_CH_CG634_CADPAT_SCRIM_02_TW",
+                    "name": "CG634 CADPAT w/Scrim(2) (Temperate Woodlands)",
+                    "weight": 3.00
+                  },
+                  {
+                    "id": "TFC_CH_CG634_CADPAT_SCRIM_03_TW",
+                    "name": "CG634 CADPAT w/Scrim(3) (Temperate Woodlands)",
+                    "weight": 3.00
+                  },
+                  {
+                    "id": "TFC_CH_CG634_CADPAT_SCRIM_L_01_TW",
+                    "name": "CG634 CADPAT w/Light-Scrim(1) (Temperate Woodlands)",
+                    "weight": 3.00
+                  },
+                  {
+                    "id": "TFC_CH_CG634_CADPAT_SCRIM_L_02_TW",
+                    "name": "CG634 CADPAT w/Light-Scrim(2) (Temperate Woodlands)",
+                    "weight": 3.00
+                  },
+                  {
+                    "id": "TFC_CH_CG634_CADPAT_SCRIM_L_03_TW",
+                    "name": "CG634 CADPAT w/Light-Scrim(3) (Temperate Woodlands)",
+                    "weight": 3.00
+                  }
+                ]
+              }
+            ] 
           },
           {
-            "id": "TFC_CH_CG634_CADPAT_GG_HS_AR",
-            "name": "CG634 CADPAT w/Goggles + Headset (Arid Regions)",
-            "weight": 3.00
-          },
-          {
-            "id": "TFC_CH_CG634_CADPAT_MT",
-            "name": "CG634 CADPAT (Multi-Terrain)",
-            "weight": 3.00
-          },
-          {
-            "id": "TFC_CH_CG634_CADPAT_GG_MT",
-            "name": "CG634 CADPAT w/Goggles (Multi-Terrain)",
-            "weight": 3.00
-          },
-          {
-            "id": "TFC_CH_CG634_HS_CADPAT_MT",
-            "name": "CG634 CADPAT w/Headset (Multi-Terrain)",
-            "weight": 3.00
-          },
-          {
-            "id": "TFC_CH_CG634_CADPAT_GG_HS_MT",
-            "name": "CG634 CADPAT w/Goggles + Headset (Multi-Terrain)",
-            "weight": 3.00
-          },
-          {
-            "id": "TFC_CH_CG634_CADPAT_TW",
-            "name": "CG634 CADPAT (Temperate Woodlands)",
-            "weight": 3.00
-          },
-          {
-            "id": "TFC_CH_CG634_CADPAT_GG_TW",
-            "name": "CG634 CADPAT w/Goggles (Temperate Woodlands)",
-            "weight": 3.00
-          },
-          {
-            "id": "TFC_CH_CG634_HS_CADPAT_TW",
-            "name": "CG634 CADPAT w/Headset (Temperate Woodlands)",
-            "weight": 3.00
-          },
-          {
-            "id": "TFC_CH_CG634_CADPAT_GG_HS_TW",
-            "name": "CG634 CADPAT w/Goggles + Headset (Temperate Woodlands)",
-            "weight": 3.00
-          },
-          {
-            "id": "TFC_CH_CG634_CADPAT_WO",
-            "name": "CG634 CADPAT (Winter)",
-            "weight": 3.00
-          },
-          {
-            "id": "TFC_CH_CG634_CADPAT_GG_WO",
-            "name": "CG634 CADPAT w/Goggles (Winter)",
-            "weight": 3.00
-          },
-          {
-            "id": "TFC_CH_CG634_HS_CADPAT_WO",
-            "name": "CG634 CADPAT w/Headset (Winter)",
-            "weight": 3.00
-          },
-          {
-            "id": "TFC_CH_CG634_CADPAT_GG_HS_WO",
-            "name": "CG634 CADPAT w/Goggles + Headset (Winter)",
-            "weight": 3.00
+            "id": "winterHeadgear",
+            "name": "Winter Headgear",
+            "options": [
+              {
+                "id": "TFC_CH_CG634_CADPAT_WO",
+                "name": "CG634 CADPAT (Winter)",
+                "weight": 3.00
+              },
+              {
+                "id": "TFC_CH_CG634_CADPAT_GG_WO",
+                "name": "CG634 CADPAT w/Goggles (Winter)",
+                "weight": 3.00
+              },
+              {
+                "id": "TFC_CH_CG634_HS_CADPAT_WO",
+                "name": "CG634 CADPAT w/Headset (Winter)",
+                "weight": 3.00
+              },
+              {
+                "id": "TFC_CH_CG634_CADPAT_GG_HS_WO",
+                "name": "CG634 CADPAT w/Goggles + Headset (Winter)",
+                "weight": 3.00
+              },
+              {
+                "id": "winterScrimHeadgear",
+                "name": "Winter Scrim Headgear",
+                "options": [
+                  {
+                    "id": "TFC_CH_CG634_CADPAT_SCRIM_01_WO",
+                    "name": "CG634 CADPAT w/Scrim (Winter)",
+                    "weight": 3.00
+                  },
+                  {
+                    "id": "TFC_CH_CG634_CADPAT_SCRIM_L_01_WO",
+                    "name": "CG634 CADPAT w/Light-Scrim (Winter)",
+                    "weight": 3.00
+                  }
+                ]
+              }
+            ] 
           }
         ]
       },

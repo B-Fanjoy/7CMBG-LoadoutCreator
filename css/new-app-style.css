@@ -22,11 +22,17 @@ h2 {
 }
 h3 {
     text-align: center;
-    color: #ffcc00;
+    background-color: #272727;
+    border-top-left-radius: 10px;
+    border-top-right-radius: 10px;
+    padding: 5px;
+    margin-top: 0;
+    color: #ffec9e;
     font-size: 2rem;
+    width: 100%;
 }
 
-/* Main Container Styling */
+/* Container Styling */
 .maincontainers {
     width: 90%;
     margin: 0 auto;
@@ -36,6 +42,17 @@ h3 {
     display: flex;
     flex-direction: column;
     align-items: center;
+}
+.maincontainers div {
+    flex-direction: row;
+}
+.subcontainers {
+    display: flex;
+    flex-direction: column;
+    margin-inline: 10px;
+    background: #4a4a4a;
+    border-radius: 8px;
+    width: 100%;
 }
 
 /* Sticky Bar Styling */
@@ -92,4 +109,20 @@ h3 {
 }
 #stickyBar button:hover {
     background-color: #e6b800;
+}
+
+/* Popup Styling */
+.popup {
+    display: none;
+    position: fixed;
+    bottom: 22px;
+    left: 50%;
+    transform: translateX(-50%);
+    background-color: #ffcc00;
+    color: #000;
+    padding: 15px 20px;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0,0,0,0.3);
+    font-size: 1.2rem;
+    z-index: 2000;
 }

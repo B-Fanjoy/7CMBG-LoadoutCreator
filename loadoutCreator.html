@@ -12,21 +12,48 @@
     <div class="maincontainers">
         <h2>Weapons</h2>
         <div id="weaponSections">
-            <h3>Test</h3>
+            <div id="primaryWeaponContainer" class="subcontainers">
+                <h3>Primary Weapon</h3>
+                <select id="primaryWeaponSelect"></select>
+            </div>
+            <div id="secondaryWeaponContainer" class="subcontainers">
+                <h3>Secondary Weapon</h3>
+                <select id="secondaryWeaponSelect"></select>
+            </div>
+            <div id="tertiaryWeaponContainer" class="subcontainers">
+                <h3>Tertiary Weapon</h3>
+                <select id="tertiaryWeaponSelect"></select>
+            </div>
         </div>
     </div>
     <br>
     <div class="maincontainers">
         <h2>Main Gear</h2>
         <div id="fillableGearSections">
-            <h3>Test</h3>
+            <div id="uniformContainer" class="subcontainers">
+                <h3>Uniform</h3>
+            </div>
+            <div id="vestContainer" class="subcontainers">
+                <h3>Vest</h3>
+            </div>
+            <div id="backpackContainer" class="subcontainers">
+                <h3>Backpack</h3>
+            </div>
         </div>  
     </div>
     <br>
     <div class="maincontainers">
         <h2>Head Gear</h2>
         <div id="headGearSections">
-            <h3>Test</h3>
+            <div id="headgearContainer" class="subcontainers">
+                <h3>Headgear</h3>
+            </div>
+            <div id="facewearContainer" class="subcontainers">
+                <h3>Facewear</h3>
+            </div>
+            <div id="nvgsContainer" class="subcontainers">
+                <h3>NVGs</h3>
+            </div>
         </div>
     </div>
     <br>
@@ -47,23 +74,23 @@
             <textarea id="importStringBox" readonly></textarea>
         </div>
     </div>
-    <!-- <script type="text/javascript" src="scripts/app.js"></script> -->
-    <div id="customPopup" style="display: none; position: fixed; bottom: 22px; left: 50%; transform: translateX(-50%); background-color: #ffcc00; color: #000; padding: 15px 20px; border-radius: 8px; box-shadow: 0 0 10px rgba(0,0,0,0.3); font-size: 1.2rem; z-index: 2000;">
+    <script type="text/javascript" src="scripts/new-app.js"></script>
+    <div id="copiedMessage" class="popup">
         Copied to clipboard!
     </div>
-    <div id="customPopup2" style="display: none; position: fixed; bottom: 22px; left: 50%; transform: translateX(-50%); background-color: #ffcc00; color: #000; padding: 15px 20px; border-radius: 8px; box-shadow: 0 0 10px rgba(0,0,0,0.3); font-size: 1.2rem; z-index: 2000;">
+    <div id="alreadyAddedMessage" class="popup">
         Item already added to this container!
     </div>
-    <div id="customPopup3" style="display: none; position: fixed; bottom: 22px; left: 50%; transform: translateX(-50%); background-color: #ffcc00; color: #000; padding: 15px 20px; border-radius: 8px; box-shadow: 0 0 10px rgba(0,0,0,0.3); font-size: 1.2rem; z-index: 2000;">
+    <div id="selectGearMessage" class="popup">
         Select your gear first!
     </div>
-    <div id="customPopup4" style="display: none; position: fixed; bottom: 22px; left: 50%; transform: translateX(-50%); background-color: #ffcc00; color: #000; padding: 15px 20px; border-radius: 8px; box-shadow: 0 0 10px rgba(0,0,0,0.3); font-size: 1.2rem; z-index: 2000;">
+    <div id="selectItemMessage" class="popup">
         Please select an item first!
     </div>
-    <div id="customPopup5" style="display: none; position: fixed; bottom: 22px; left: 50%; transform: translateX(-50%); background-color: #ffcc00; color: #000; padding: 15px 20px; border-radius: 8px; box-shadow: 0 0 10px rgba(0,0,0,0.3); font-size: 1.2rem; z-index: 2000;">
+    <div id="exceedsLoadMessage" class="popup">
         Item exceeds the load limit!
     </div>
-    <div id="weaponWarning" style="display: none; position: fixed; top: 20px; left: 50%; transform: translateX(-50%); background-color: #ff0000; color: #fff; padding: 15px 20px; border-radius: 8px; box-shadow: 0 0 10px rgba(0,0,0,0.3); font-size: 1.2rem; z-index: 2000;">
+    <div id="restrictedWeaponWarning" class="popup">
         Warning: Make sure this weapon is part of your orders!
     </div>
 </body>
