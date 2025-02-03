@@ -1,15 +1,15 @@
 <template>
   <header>
     <div class="wrapper">
-      <nav
-        class="flex justify-center gap-4 py-8 uppercase border border-b border-zinc-900 font-medium"
-      >
+      <nav class="flex justify-center gap-4 py-8 uppercase border border-b border-zinc-900 font-medium">
         <RouterLink to="/creator" class="hover:text-orange-500 transition-all ease-in-out">
-          Creator
+          Loadout Creator
         </RouterLink>
+        <div class="vl"></div>
         <RouterLink to="/saved-loadouts" class="hover:text-orange-500 transition-all ease-in-out">
-          Saved Load outs
+          Saved Loadouts
         </RouterLink>
+        <div class="vl"></div>
         <RouterLink to="/presets" class="hover:text-orange-500 transition-all ease-in-out">
           Presets
         </RouterLink>
