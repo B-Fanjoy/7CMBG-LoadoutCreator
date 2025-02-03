@@ -1,0 +1,35 @@
+<template>
+  <header>
+    <div class="wrapper">
+      <nav
+        class="flex justify-center gap-4 py-8 uppercase border border-b border-zinc-900 font-medium"
+      >
+        <RouterLink to="/creator" class="hover:text-orange-500 transition-all ease-in-out">
+          Creator
+        </RouterLink>
+        <RouterLink to="/saved-loadouts" class="hover:text-orange-500 transition-all ease-in-out">
+          Saved Load outs
+        </RouterLink>
+        <RouterLink to="/presets" class="hover:text-orange-500 transition-all ease-in-out">
+          Presets
+        </RouterLink>
+      </nav>
+    </div>
+  </header>
+
+  <div class="container mx-auto py-8">
+    <RouterView />
+  </div>
+</template>
+
+<script>
+import { RouterLink, RouterView } from 'vue-router'
+
+export default {
+  components: {
+    RouterLink,
+    RouterView,
+  },
+  name: 'App',
+}
+</script>
