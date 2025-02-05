@@ -31,43 +31,63 @@
 </template>
 
 <script>
-import { ref, onMounted } from "vue";
+import { ref, onMounted } from 'vue'
 
 export default {
   name: 'CreatorView',
 
-  Data() {
+  data() {
     return {
-      selectedWeapon: "-- None --"
-    };
+      selectedWeapon: '-- None --',
+      weaponSections: [],
+      fillableGearSections: [],
+      selectedGear: {},
+    }
   },
 
-  setup() {
-    const weaponSections = ref([]);
-    const fillableGearSections = ref([]);
-    const selectedWeapons = ref({});
-    const selectedGear = ref({});
-
-    onMounted(async () => {
-      try {
-        const weaponsResponse = await fetch("old/weapons.json");
-        weaponSections.value = (await weaponsResponse.json()).sections;
-
-        const gearResponse = await fetch("old/gear.json");
-        fillableGearSections.value = (await gearResponse.json()).sections;
-      } catch (error) {
-        console.error("Error loading data:", error);
-      }
-    });
-
-    return {
-      weaponSections,
-      fillableGearSections,
-      selectedWeapons,
-      selectedGear,
-    };
+  mounted() {
+    this.getWeapons()
   },
-};
+
+  methods: {
+    getWeapons() {
+      fetch('old/weapons.json')
+        .then((response) => response.json())
+        .then((data) => {
+          this.weaponSections = data.sections
+        })
+        .catch((error) => {
+          console.error('Error loading data:', error)
+        })
+    },
+  },
+
+  // setup() {
+  //   const weaponSections = ref([])
+  //   const fillableGearSections = ref([])
+  //   const selectedWeapons = ref({})
+  //   const selectedGear = ref({})
+  //
+  //   onMounted(async () => {
+  //     try {
+  //       const weaponsResponse = await fetch('old/weapons.json')
+  //       weaponSections.value = (await weaponsResponse.json()).sections
+  //
+  //       const gearResponse = await fetch('old/gear.json')
+  //       fillableGearSections.value = (await gearResponse.json()).sections
+  //     } catch (error) {
+  //       console.error('Error loading data:', error)
+  //     }
+  //   })
+  //
+  //   return {
+  //     weaponSections,
+  //     fillableGearSections,
+  //     selectedWeapons,
+  //     selectedGear,
+  //   }
+  // },
+}
 </script>
 
 <style scoped>
