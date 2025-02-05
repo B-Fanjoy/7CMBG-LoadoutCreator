@@ -3,21 +3,9 @@
 
 @theme {
 	--font-sans: "Figtree", serif;
-	--spacing: 5px
 }
 
 .vl {
 	border-left: 1px solid rgb(149, 149, 149);
 	height: auto;
   }
-
-  h1 {
-	text-align: center;
-	color: #ffcc00;
-	font-size: 5rem;
-	background-color: #000000;
-	text-shadow: 2px 2px 10px rgba(0, 0, 0, 0.5);
-	font-weight: bold;
-	margin-top: 1rem;
-	border-radius: 50px;
-}

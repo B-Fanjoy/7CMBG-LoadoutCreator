@@ -17,7 +17,7 @@
     </div>
   </header>
 
-  <div class="container mx-auto py-8">
+  <div class="container mx-auto">
     <RouterView />
   </div>
 </template>
