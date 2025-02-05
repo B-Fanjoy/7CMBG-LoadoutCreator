@@ -1,16 +1,16 @@
 <template>
   <div>
     <h1>Loadout Creator</h1>
-    <div class="maincontainer">
+    <div class="maincontainer scale-90 bg-black rounded-2xl">
       <h2>Weapons</h2>
-      <div id="weaponSections">
-        <div v-for="section in weaponSections" :key="section.id" class="section">
+      <div id="weaponSections" class="grid grid-cols-3 gap-4 p-2">
+        <div v-for="section in weaponSections" :key="section.id" class="section basis-full">
           <h3>{{ section.name }}</h3>
-          <select v-model="selectedWeapon">
+          <select v-model="selectedWeapon[section.id]" class="text-center">
+            <option value="">-- None --</option>
             <option v-for="weapon in section.weapons" :key="weapon.id" :value="weapon.id">
               {{ weapon.name }}
             </option>
-            <option value="">-- None --</option>
           </select>
         </div>
       </div>
@@ -32,8 +32,6 @@
 </template>
 
 <script>
-import { ref, onMounted } from 'vue'
-
 export default {
   name: 'CreatorView',
 
@@ -62,44 +60,10 @@ export default {
         })
     },
   },
-
-  // setup() {
-  //   const weaponSections = ref([])
-  //   const fillableGearSections = ref([])
-  //   const selectedWeapons = ref({})
-  //   const selectedGear = ref({})
-  //
-  //   onMounted(async () => {
-  //     try {
-  //       const weaponsResponse = await fetch('old/weapons.json')
-  //       weaponSections.value = (await weaponsResponse.json()).sections
-  //
-  //       const gearResponse = await fetch('old/gear.json')
-  //       fillableGearSections.value = (await gearResponse.json()).sections
-  //     } catch (error) {
-  //       console.error('Error loading data:', error)
-  //     }
-  //   })
-  //
-  //   return {
-  //     weaponSections,
-  //     fillableGearSections,
-  //     selectedWeapons,
-  //     selectedGear,
-  //   }
-  // },
 }
 </script>
 
 <style scoped>
-.maincontainer {
-  width: 90%;
-  margin: 0 auto;
-  background: #3c3c3c;
-  padding: 10px;
-  border-radius: 8px;
-  box-shadow: 0 0 15px rgba(0, 0, 0, 0.2);
-}
 .section {
   background: #4a4a4a;
   border-radius: 8px;
