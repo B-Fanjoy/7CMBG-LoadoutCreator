@@ -10,6 +10,7 @@
             <option v-for="weapon in section.weapons" :key="weapon.id" :value="weapon.id">
               {{ weapon.name }}
             </option>
+            <option value="">-- None --</option>
           </select>
         </div>
       </div>
@@ -38,7 +39,7 @@ export default {
 
   data() {
     return {
-      selectedWeapon: '-- None --',
+      selectedWeapon: '',
       weaponSections: [],
       fillableGearSections: [],
       selectedGear: {},
