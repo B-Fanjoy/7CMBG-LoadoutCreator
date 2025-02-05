@@ -1,96 +1,132 @@
 <template>
-  <div>
-    <h1>Loadout Creator</h1>
-    <div class="maincontainer scale-90 bg-black rounded-2xl">
-      <h2>Weapons</h2>
-      <div id="weaponSections" class="grid grid-cols-3 gap-4 p-2">
-        <div v-for="section in weaponSections" :key="section.id" class="section basis-full">
-          <h3>{{ section.name }}</h3>
-          <select v-model="selectedWeapon[section.id]" class="text-center">
-            <option value="">-- None --</option>
-            <option v-for="weapon in section.weapons" :key="weapon.id" :value="weapon.id">
-              {{ weapon.name }}
-            </option>
-          </select>
+  <div class="p-6 bg-gray-900 min-h-screen text-white">
+    <h1 class="text-3xl font-bold mb-6 text-center">Arma 3 Loadout Creator</h1>
+
+    <!-- Weapons Section -->
+    <div class="mb-8">
+      <h2 class="text-2xl font-semibold mb-2 border-b border-gray-700 pb-2">Weapons</h2>
+      <div class="grid grid-cols-3 gap-6">
+        <div v-for="section in weaponSections" :key="section.id" class="mb-4 flex flex-col items-center">
+          <label class="block text-lg font-medium mb-1 text-center w-full">{{ section.name }}</label>
+          <div class="w-full flex justify-center">
+            <select
+              v-model="selectedWeapons[section.id]"
+              class="w-full p-2 bg-gray-800 border border-gray-700 rounded focus:outline-none text-center"
+            >
+              <option v-for="weapon in section.weapons" :key="weapon.id" :value="weapon.id">
+                {{ weapon.name }}
+              </option>
+            </select>
+          </div>
         </div>
       </div>
     </div>
-    <!-- <br>
-    <div class="maincontainer">
-      <h2>Main Gear</h2>
-      <div id="fillableGearSections">
-        <div v-for="section in fillableGearSections" :key="section.id" class="section">
-          <h3>{{ section.name }}</h3>
-          <select v-model="selectedGear[section.id]">
-            <option value="">-- Select {{ section.name }} --</option>
-            <option v-for="option in section.options" :key="option.id" :value="option.id">{{ option.name }}</option>
-          </select>
+
+    <!-- Apparel Section -->
+    <div class="mb-8">
+      <h2 class="text-2xl font-semibold mb-2 border-b border-gray-700 pb-2">Apparel</h2>
+      <div class="grid grid-cols-3 gap-6">
+        <div v-for="section in apparelSections" :key="section.id" class="mb-4 flex flex-col items-center">
+          <label class="block text-lg font-medium mb-1 text-center w-full">{{ section.name }}</label>
+          <div class="w-full flex justify-center">
+            <select
+              v-model="selectedGear[section.id]"
+              class="w-full p-2 bg-gray-800 border border-gray-700 rounded focus:outline-none text-center"
+            >
+              <option v-for="option in section.options" :key="option.id" :value="option.id">
+                {{ option.name }}
+              </option>
+            </select>
+          </div>
         </div>
       </div>
-    </div> -->
+    </div>
+
+    <!-- Equipment Section -->
+    <div class="mb-8">
+      <h2 class="text-2xl font-semibold mb-2 border-b border-gray-700 pb-2">Equipment</h2>
+
+      <!-- Main Grid -->
+      <div class="grid grid-cols-3 gap-6">
+        <template v-for="(section, index) in equipmentSections" :key="section.id">
+          <div
+            v-if="index < lastFullRowStart"
+            class="mb-4 flex flex-col items-center"
+          >
+            <label class="block text-lg font-medium mb-1 text-center w-full">{{ section.name }}</label>
+            <div class="w-full flex justify-center">
+              <select
+                v-model="selectedGear[section.id]"
+                class="w-full p-2 bg-gray-800 border border-gray-700 rounded focus:outline-none text-center"
+              >
+                <option v-for="option in section.options" :key="option.id" :value="option.id">
+                  {{ option.name }}
+                </option>
+              </select>
+            </div>
+          </div>
+        </template>
+      </div>
+
+      <!-- Last Row - Centered When Not Full -->
+      <div v-if="isLastRowCentered" class="flex justify-center gap-6 mt-4">
+        <div v-for="(section) in lastRowItems" :key="section.id" class="mb-4 flex flex-col items-center">
+          <label class="block text-lg font-medium mb-1 text-center w-full">{{ section.name }}</label>
+          <div class="w-full flex justify-center">
+            <select
+              v-model="selectedGear[section.id]"
+              class="w-full p-2 bg-gray-800 border border-gray-700 rounded focus:outline-none text-center"
+            >
+              <option v-for="option in section.options" :key="option.id" :value="option.id">
+                {{ option.name }}
+              </option>
+            </select>
+          </div>
+        </div>
+      </div>
+
+    </div>
   </div>
 </template>
 
 <script>
-export default {
-  name: 'CreatorView',
+import gearData from "/old/gear.json";
+import weaponsData from "/old/weapons.json";
 
+export default {
   data() {
     return {
-      selectedWeapon: '',
-      weaponSections: [],
-      fillableGearSections: [],
+      weapons: weaponsData.sections,
+      gear: gearData.sections,
+      selectedWeapons: {},
       selectedGear: {},
-    }
+    };
   },
-
-  mounted() {
-    this.getWeapons()
-  },
-
-  methods: {
-    getWeapons() {
-      fetch('old/weapons.json')
-        .then((response) => response.json())
-        .then((data) => {
-          this.weaponSections = data.sections
-        })
-        .catch((error) => {
-          console.error('Error loading data:', error)
-        })
+  computed: {
+    weaponSections() {
+      return this.weapons.filter(section => ["primary", "secondary", "tertiary"].includes(section.id));
+    },
+    apparelSections() {
+      return this.gear.filter(section => ["uniform", "vest", "backpack", "headgear", "facewear", "insignia"].includes(section.id));
+    },
+    equipmentSections() {
+      return this.gear.filter(section => ["binoculars", "map", "terminal", "communication", "navigation", "watch", "nvgs", "earplugs"].includes(section.id));
+    },
+    lastFullRowStart() {
+      return Math.floor(this.equipmentSections.length / 3) * 3;
+    },
+    isLastRowCentered() {
+      return this.equipmentSections.length % 3 !== 0;
+    },
+    lastRowItems() {
+      return this.equipmentSections.slice(this.lastFullRowStart);
     },
   },
-}
+};
 </script>
 
 <style scoped>
-.section {
-  background: #4a4a4a;
-  border-radius: 8px;
-  padding: 10px;
-  margin-top: 10px;
-}
-h1 {
-  text-align: center;
-  color: #ffcc00;
-  font-size: 5rem;
-  background-color: black;
-  margin-bottom: 30px;
-  border-radius: 15px;
-}
-h2 {
-  text-align: center;
-  color: #ffcc00;
-  font-size: 2rem;
-}
-h3 {
-  text-align: center;
-  color: #ffcc00;
-}
 select {
-  width: 100%;
-  padding: 10px;
-  border-radius: 4px;
-  background-color: #3c3c3c;
+  cursor: pointer;
 }
 </style>
