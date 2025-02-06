@@ -91,6 +91,13 @@
         </div>
       </div>
 
+      <!-- Import String Nav Bar -->
+      <nav class="sticky bottom-0">
+        <textarea>
+          Blah
+        </textarea>
+      </nav>
+
     </div>
   </div>
 </template>
