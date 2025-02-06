@@ -5,6 +5,11 @@
         "name": "Uniform",
         "options": [
           {
+            "id": "",
+            "name": "-- None --",
+            "weight": 0.00
+          },
+          {
             "id": "TFC_CU_CombatUniform_otw_cadpat_AR",
             "name": "Outside The Wire CADPAT (Arid Regions)",
             "load": 4.00,
@@ -53,6 +58,11 @@
         "name": "Vest",
         "options": [
           {
+            "id": "",
+            "name": "-- None --",
+            "weight": 0.00
+          },
+          {
             "id": "TFC_CV_SORD_Ballistic_AR",
             "name": "SORD SCS Basic + Ballistic Vest (Arid Regions)",
             "load": 14.00,
@@ -94,6 +104,11 @@
         "id": "backpack",
         "name": "Backpack",
         "options": [
+          {
+            "id": "",
+            "name": "-- None --",
+            "weight": 0.00
+          },
           {
             "id": "TFC_CB_Smallpack_AR",
             "name": "Small Pack (Arid Regions)",
@@ -160,6 +175,11 @@
         "id": "headgear",
         "name": "Headgear",
         "options": [
+          {
+            "id": "",
+            "name": "-- None --",
+            "weight": 0.00
+          },
           {
             "id": "TFC_CH_CG634_CADPAT_AR",
             "name": "CG634 CADPAT (Arid Regions)",
@@ -317,6 +337,11 @@
         "name": "Facewear",
         "options": [
           {
+            "id": "",
+            "name": "-- None --",
+            "weight": 0.00
+          },
+          {
             "id": "tfc_cg_ballistics_clear",
             "name": "Ballistics Eyewear - Clear Shade",
             "weight": 0.10
@@ -428,6 +453,11 @@
         "name": "Binoculars",
         "options": [
           {
+            "id": "",
+            "name": "-- None --",
+            "weight": 0.00
+          },
+          {
             "id": "Binocular",
             "name": "Binoculars",
             "weight": 1.00
@@ -459,6 +489,11 @@
         "name": "Map",
         "options": [
           {
+            "id": "",
+            "name": "-- None --",
+            "weight": 0.00
+          },
+          {
             "id": "ItemMap",
             "name": "Map",
             "weight": 0.20
@@ -470,6 +505,11 @@
         "name": "Terminal",
         "options": [
           {
+            "id": "",
+            "name": "-- None --",
+            "weight": 0.00
+          },
+          {
             "id": "ItemGPS",
             "name": "GPS",
             "weight": 0.80
@@ -479,12 +519,23 @@
       {
         "id": "communication",
         "name": "Communication",
-        "options": []
+        "options": [
+          {
+            "id": "",
+            "name": "-- Option Not Available --",
+            "weight": 0.00
+          }
+        ]
       },
       {
         "id": "navigation",
         "name": "Navigation",
         "options": [
+          {
+            "id": "",
+            "name": "-- None --",
+            "weight": 0.00
+          },
           {
             "id": "ItemCompass",
             "name": "Compass",
@@ -496,6 +547,11 @@
         "id": "watch",
         "name": "Watch",
         "options": [
+          {
+            "id": "",
+            "name": "-- None --",
+            "weight": 0.00
+          },
           {
             "id": "ItemWatch",
             "name": "Watch",
@@ -513,6 +569,11 @@
         "name": "NVGs",
         "options": [
           {
+            "id": "",
+            "name": "-- None --",
+            "weight": 0.00
+          },
+          {
             "id": "TFC_NVG_PVS14",
             "name": "[TFC] PVS-14",
             "weight": 0.10
@@ -529,6 +590,11 @@
         "name": "Insignia",
         "options": [
           {
+            "id": "",
+            "name": "-- None --",
+            "weight": 0.00
+          },
+          {
             "id": "tfc_insignia_7cmbg",
             "name": "7 Canadian Mechanized Brigade Group",
             "weight": 0.00
@@ -540,13 +606,13 @@
         "name": "ACE Earplugs",
         "options": [
           {
-            "id": "true",
-            "name": "Yes",
+            "id": "false",
+            "name": "No",
             "weight": 0.00
           },
           {
-            "id": "false",
-            "name": "No",
+            "id": "true",
+            "name": "Yes",
             "weight": 0.00
           }
         ]
