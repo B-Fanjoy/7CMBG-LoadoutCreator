@@ -93,9 +93,8 @@
     </div>
 
     <!-- Import String Nav Bar -->
-    <nav class="sticky bottom-0.5 bg-[#3c3c3c] border-4 border-[#F4C356] shadow-2xl rounded-2xl">
+    <nav class="sticky bottom-0 bg-[#3c3c3c] border-4 border-[#F4C356] shadow-2xl rounded-2xl">
       <div class="flex items-center h-25">
-        <!-- Fixed SVG -->
         <svg
           class="w-12 h-20 ml-6 m-3 fill-white transition-all duration-300 hover:fill-[#F4C356]"
           xmlns="http://www.w3.org/2000/svg"
@@ -107,8 +106,6 @@
             192l160 0c8.8 0 16 7.2 16 16s-7.2 16-16 16l-160 0c-8.8 0-16-7.2-16-16s7.2-16 16-16z"
           />
         </svg>
-
-        <!-- Disabled Textarea -->
         <textarea
           disabled
           class="flex-grow m-2.5 h-20 rounded-[4px] border-2 resize-none"
@@ -119,14 +116,16 @@
 </template>
 
 <script>
-import gearData from "/old/gear.json";
-import weaponsData from "/src/assets/weapons.json";
+import gearData from "/src/data/gear.json";
+import weaponsData from "/src/data/weapons.json";
+import itemsData from "/src/data/items.json";
 
 export default {
   data() {
     return {
       weapons: weaponsData.sections,
       gear: gearData.sections,
+      items: itemsData.sections,
       selectedWeapons: {},
       selectedGear: {},
     };
