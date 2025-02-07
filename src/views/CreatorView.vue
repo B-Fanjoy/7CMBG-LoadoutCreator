@@ -93,11 +93,11 @@
     </div>
 
     <!-- Import String Nav Bar -->
-    <nav class="sticky bottom-0 bg-[#3c3c3c] shadow-2xl rounded-2xl">
+    <nav class="sticky bottom-0.5 bg-[#3c3c3c] border-4 border-[#F4C356] shadow-2xl rounded-2xl">
       <div class="flex items-center h-25">
         <!-- Fixed SVG -->
         <svg
-          class="w-12 h-20 ml-6 m-3 fill-white transition-all duration-300 hover:fill-orange-500"
+          class="w-12 h-20 ml-6 m-3 fill-white transition-all duration-300 hover:fill-[#F4C356]"
           xmlns="http://www.w3.org/2000/svg"
           viewBox="0 0 384 512"
         >
@@ -120,7 +120,7 @@
 
 <script>
 import gearData from "/old/gear.json";
-import weaponsData from "/old/weapons.json";
+import weaponsData from "/src/assets/weapons.json";
 
 export default {
   data() {
