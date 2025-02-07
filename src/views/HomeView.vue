@@ -2,7 +2,7 @@
   <div>
     <header class="bg-yellow-500 text-black text-center text-6xl font-bold py-8 shadow-md">7CMBG Loadout Creator</header>
 
-    <section class="flex flex-col justify-center items-center text-center h-screen bg-cover bg-center text-white" style="background-image: url('/old/hero-bg.webp');">
+    <section class="flex flex-col justify-center items-center text-center h-screen bg-cover bg-center text-white" style="background-image: url('/src/assets/hero-bg.webp');">
       <h1 class="text-4xl font-bold bg-black bg-opacity-50 rounded-md px-4 py-2">Build Your Perfect Loadout</h1>
       <p class="text-xl max-w-3xl mt-4 bg-black bg-opacity-50 rounded-md px-4 py-2">Create your ideal loadout following the approved kit-list and be mission-ready.</p>
     </section>

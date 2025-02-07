@@ -95,8 +95,8 @@
     <!-- Import String Nav Bar -->
     <nav class="sticky bottom-0 bg-[#3c3c3c] shadow-2xl rounded-3xl">
       <div class="flex items-center w-full">
-        <button type="button" class="inline-flex items-center content-center p-2.5 m-2.5 h-auto w-auto bg-[#F4C356] rounded-4xl hover:bg-[#f4c256e1]">
-          <img src="/old/copy_icon.png" alt="Copy"/>
+        <button type="button" class="inline-flex items-center content-center p-2.5 ml-4 h-auto w-auto bg-[#F4C356] rounded-3xl hover:bg-[#f4c256e1]">
+          <img src="/src/assets/copy_icon.png" alt="Copy"/>
         </button>
         <textarea disabled class="flex-grow m-5 p-2.5 h-20 rounded-[4px] border-2 resize-none"></textarea>
       </div>
