@@ -1,9 +1,9 @@
 <template>
   <div class="p-4 mb-10 bg-[#303030] text-white rounded-4xl">
-    <h1 class="text-5xl font-bold mb-6 py-8 text-center border border-[#F4C356] rounded-3xl">Loadout Creator</h1>
+    <h1 class="text-5xl font-bold mb-6 py-8 text-center border-6 border-[#F4C356] rounded-3xl">Loadout Creator</h1>
 
     <!-- Weapons Section -->
-    <div class="mb-8 border border-[#F4C356] rounded-3xl">
+    <div class="mb-8 border-4 border-[#F4C356] rounded-3xl">
       <h2 class="text-4xl font-semibold mb-2 mt-2 text-center text-[#F4C356]">Weapons</h2>
       <hr>
       <br>
@@ -24,30 +24,33 @@
       </div>
     </div>
 
-    <!-- Apparel Section -->
-    <div class="mb-8 border border-[#F4C356] rounded-3xl">
-      <h2 class="text-4xl font-semibold mb-2 mt-2 text-center text-[#F4C356]">Apparel</h2>
+    <!-- Main Gear Section -->
+    <div class="mb-8 border-4 border-[#F4C356] rounded-3xl">
+      <h2 class="text-4xl font-semibold mb-2 mt-2 text-center text-[#F4C356]">Main Gear</h2>
       <hr>
       <br>
-      <div class="grid grid-cols-3 gap-6">
-        <div v-for="section in apparelSections" :key="section.id" class="mb-4 flex flex-col items-center">
+      <div class="grid grid-cols-3 gap-4">
+        <div v-for="section in maingearSections" :key="section.id" class="mb-4 flex flex-col items-center">
           <label class="block text-lg font-medium mb-1 text-center w-full">{{ section.name }}</label>
-          <div class="w-full flex justify-center">
+          <div class="w-full flex flex-col justify-center">
             <select
               v-model="selectedGear[section.id]"
-              class="w-full p-2 ms-4 me-4 bg-[#494949] border border-[#F4C356] rounded focus:outline-none text-center text-[#ffffff]"
+              class=" w-auto p-2 mx-5 bg-[#494949] border border-[#F4C356] rounded focus:outline-none text-center text-[#ffffff]"
             >
               <option v-for="option in section.options" :key="option.id" :value="option.id">
                 {{ option.name }}
               </option>
             </select>
+            <ul :id="itemList[section.id]" class="w-auto flex flex-col mx-5 mt-3 list-none border-1 rounded-2xl">
+              <button class="m-2 p-2 border-2 border-[#000000] rounded-2xl bg-[#F4C356] hover:bg-amber-500">+ Add Item</button>
+            </ul>
           </div>
         </div>
       </div>
     </div>
 
     <!-- Equipment Section -->
-    <div class="mb-8 border border-[#F4C356] rounded-3xl">
+    <div class="mb-8 border-4 border-[#F4C356] rounded-3xl">
       <h2 class="text-4xl font-semibold mb-2 mt-2 text-center text-[#F4C356]">Equipment</h2>
       <hr>
       <br>
@@ -109,6 +112,7 @@
         <textarea
           disabled
           class="flex-grow m-2.5 h-20 rounded-[4px] border-2 resize-none"
+          :value="generateImportString"
         ></textarea>
       </div>
     </nav>
@@ -128,17 +132,18 @@ export default {
       items: itemsData.sections,
       selectedWeapons: {},
       selectedGear: {},
+      itemList: {},
     };
   },
   computed: {
     weaponSections() {
       return this.weapons.filter(section => ["primary", "secondary", "tertiary"].includes(section.id));
     },
-    apparelSections() {
-      return this.gear.filter(section => ["uniform", "vest", "backpack", "headgear", "facewear", "insignia"].includes(section.id));
+    maingearSections() {
+      return this.gear.filter(section => ["uniform", "vest", "backpack"].includes(section.id));
     },
     equipmentSections() {
-      return this.gear.filter(section => ["binoculars", "map", "terminal", "communication", "navigation", "watch", "nvgs", "earplugs"].includes(section.id));
+      return this.gear.filter(section => ["headgear", "facewear", "insignia", "binoculars", "map", "terminal", "communication", "navigation", "watch", "nvgs", "earplugs"].includes(section.id));
     },
     lastFullRowStart() {
       return Math.floor(this.equipmentSections.length / 3) * 3;
@@ -149,6 +154,64 @@ export default {
     lastRowItems() {
       return this.equipmentSections.slice(this.lastFullRowStart);
     },
+    generateImportString() {
+      // Extract selected weapons
+      const primaryWeapon = this.selectedWeapons.primary || "";
+      const secondaryWeapon = this.selectedWeapons.secondary || "";
+      const tertiaryWeapon = this.selectedWeapons.tertiary || "";
+
+      // Extract selected main gear
+      const uniform = [this.selectedGear.uniform || "", []];
+      const vest = [this.selectedGear.vest || "", []];
+      const backpack = [this.selectedGear.backpack || "", []];
+
+      // Extract selected headwear
+      const headgear = this.selectedGear.headgear || "";
+      const facewear = this.selectedGear.facewear || "";
+
+      // Extract selected equipment
+      const binoculars = [
+        this.selectedGear.binoculars || "",
+        "",
+        "",
+        "",
+        ["", 1000],
+        [],
+        ""
+      ];
+      const map = this.selectedGear.map || "";
+      const terminal = this.selectedGear.terminal || "";
+      const communication = this.selectedGear.communication || "";
+      const navigation = this.selectedGear.navigation || "";
+      const watch = this.selectedGear.watch || "";
+      const nvgs = this.selectedGear.nvgs || "";
+
+      // Special items
+      const insignia = [this.selectedGear.insignia || "", ""];
+      const earplugs = ["earplugs", this.selectedGear.earplugs || false];
+
+      // Construct the loadout array
+      const loadout = [
+        [
+          [primaryWeapon, "", "", "", ["", 1000], ["", 1000], ""], // Primary weapon
+          [secondaryWeapon, "", "", "", ["", 1000], ["", 1000], ""], // Secondary weapon
+          [tertiaryWeapon, "", "", "", ["", 1000], ["", 1000], ""], // Tertiary weapon
+          uniform,
+          vest,
+          backpack,
+          headgear,
+          facewear,
+          binoculars,
+          [map, terminal, communication, navigation, watch, nvgs]
+        ],
+        [
+          insignia,
+          earplugs
+        ]
+      ];
+
+      return JSON.stringify(loadout);
+    }
   },
   created() {
     this.selectedWeapons = this.weaponSections.reduce((acc, section) => {
