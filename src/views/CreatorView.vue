@@ -41,9 +41,8 @@
                 {{ option.name }}
               </option>
             </select>
-            <ul :id="itemList[section.id]" class="w-auto flex flex-col mx-5 mt-3 list-none border-1 rounded-2xl">
-              <button class="m-2 p-2 border-2 border-[#000000] rounded-2xl bg-[#F4C356] hover:bg-amber-500">+ Add Item</button>
-            </ul>
+            <ul :id="itemList[section.id]" class="w-auto flex flex-col mx-5 mt-3 p-2 list-none border-1 rounded-2xl"></ul>
+            <button @click="addItem()" class="mt-2 mx-4 p-2 border-2 border-[#000000] rounded-2xl bg-[#F4C356] hover:bg-amber-500">+ Add Item</button>
           </div>
         </div>
       </div>
