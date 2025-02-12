@@ -42,10 +42,15 @@
               </option>
             </select>
             <ul :id="itemList[section.id]" class="w-auto flex flex-col mx-5 mt-3 p-2 list-none border-1 rounded-2xl"></ul>
-            <button @click="addItem()" class="mt-2 mx-4 p-2 border-2 border-[#000000] rounded-2xl bg-[#F4C356] hover:bg-amber-500">+ Add Item</button>
+            <button @click="showModal = true" class="mt-2 mx-4 p-2 border-2 border-[#000000] rounded-2xl bg-[#F4C356] hover:bg-amber-500">+ Add Item</button>
           </div>
         </div>
       </div>
+    </div>
+
+    <!-- Items Modal -->
+    <div>
+      <ItemsModal :isOpen="showModal" @update:isOpen="showModal = $event"></ItemsModal>
     </div>
 
     <!-- Equipment Section -->
@@ -121,17 +126,20 @@
 <script>
 import gearData from "/src/data/gear.json";
 import weaponsData from "/src/data/weapons.json";
-import itemsData from "/src/data/items.json";
+import ItemsModal from '/src/components/ItemsModal.vue';
 
 export default {
+  components: {
+    ItemsModal
+  },
   data() {
     return {
       weapons: weaponsData.sections,
       gear: gearData.sections,
-      items: itemsData.sections,
       selectedWeapons: {},
       selectedGear: {},
       itemList: {},
+      showModal: false
     };
   },
   computed: {
