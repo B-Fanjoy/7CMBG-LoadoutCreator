@@ -41,7 +41,37 @@
                 {{ option.name }}
               </option>
             </select>
-            <div :id="section.id + 'GearList'" class="w-auto flex flex-col mx-5 mt-3 p-2 list-none border-1 rounded-2xl"></div>
+            <ul :id="section.id + 'GearList'" class="w-auto flex flex-col mx-5 mt-3 p-2 list-none border-1 rounded-2xl">
+              <li v-for="(item, index) in selectedItems[section.id]" :key="index"
+                  class="p-2 border-b grid grid-cols-[minmax(0,1fr)_auto_auto_auto] items-center gap-2">
+
+                <!-- Item Name -->
+                <div class="truncate">
+                  {{ getItemName(item.id) }}
+                </div>
+
+                <!-- Decrease Quantity Button -->
+                <button @click="updateQuantity(section.id, item.id, -1)"
+                        class="px-2 py-1 bg-red-500 text-white rounded-md hover:bg-red-700">
+                  -
+                </button>
+
+                <!-- Item Quantity -->
+                <span class="text-lg font-semibold px-2">{{ item.quantity }}</span>
+
+                <!-- Increase Quantity Button -->
+                <button @click="updateQuantity(section.id, item.id, 1)"
+                        class="px-2 py-1 bg-green-500 text-white rounded-md hover:bg-green-700">
+                  +
+                </button>
+
+                <!-- Remove Button -->
+                <button @click="removeItem(section.id, index)"
+                        class="ml-2 text-red-500 hover:text-red-700">
+                  Remove
+                </button>
+              </li>
+            </ul>
             <button @click="openItemsModal(section.id)" class="mt-2 mx-4 p-2 border-2 border-[#000000] rounded-2xl bg-[#F4C356] hover:bg-amber-500">+ Add Item</button>
           </div>
         </div>
@@ -50,7 +80,7 @@
 
     <!-- Items Modal -->
     <div>
-      <ItemsModal :isOpen="showModal" :currentCategory="selectedCategory"  @update:isOpen="showModal = $event" @itemSelected="addItemToGear"></ItemsModal>
+      <ItemsModal :isOpen="showModal" :currentContainer="selectedContainer"  @update:isOpen="showModal = $event" @add-item="addItemToList"></ItemsModal>
     </div>
 
     <!-- Equipment Section -->
@@ -126,6 +156,7 @@
 <script>
 import gearData from "/src/data/gear.json";
 import weaponsData from "/src/data/weapons.json";
+import itemsData from "/src/data/items.json";
 import ItemsModal from '/src/components/ItemsModal.vue';
 
 export default {
@@ -136,6 +167,7 @@ export default {
     return {
       weapons: weaponsData.sections,
       gear: gearData.sections,
+      items: itemsData.sections,
       selectedWeapons: {},
       selectedGear: {},
       selectedItems: {
@@ -147,9 +179,41 @@ export default {
     };
   },
   methods: {
-    openItemsModal(category) {
-      this.selectedCategory = category;
+    openItemsModal(section) {
+      this.selectedContainer = section;
       this.showModal = true;
+    },
+    addItemToList({ container, item }) {
+      const existingItem = this.selectedItems[container].find(i => i.id === item);
+
+      if (existingItem) {
+        existingItem.quantity += 1;
+      } else {
+        this.selectedItems[container].push({ id: item, quantity: 1 });
+      }
+    },
+    removeItem(section, index) {
+      this.selectedItems[section].splice(index, 1);
+    },
+    updateQuantity(container, itemId, change) {
+      const item = this.selectedItems[container].find(i => i.id === itemId);
+      if (item) {
+        item.quantity += change;
+
+        // Remove item if quantity drops to 0
+        if (item.quantity <= 0) {
+          this.selectedItems[container] = this.selectedItems[container].filter(i => i.id !== itemId);
+        }
+      }
+    },
+    getItemName(itemId) {
+      for (let section of this.items) {
+        for (let group of section.groupings) {
+          let foundItem = group.options.find(item => item.id === itemId);
+          if (foundItem) return foundItem.name;
+        }
+      }
+      return itemId;
     }
   },
   computed: {
@@ -178,7 +242,7 @@ export default {
       const tertiaryWeapon = this.selectedWeapons.tertiary || "";
 
       // Extract selected main gear
-      const uniform = [this.selectedGear.uniform || "", []];
+      const uniform = [this.selectedGear.uniform || "", [this.selectedItems['uniform'] || ""]];
       const vest = [this.selectedGear.vest || "", []];
       const backpack = [this.selectedGear.backpack || "", []];
 
