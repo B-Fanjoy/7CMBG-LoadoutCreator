@@ -41,8 +41,8 @@
                 {{ option.name }}
               </option>
             </select>
-            <ul :id="itemList[section.id]" class="w-auto flex flex-col mx-5 mt-3 p-2 list-none border-1 rounded-2xl"></ul>
-            <button @click="showModal = true" class="mt-2 mx-4 p-2 border-2 border-[#000000] rounded-2xl bg-[#F4C356] hover:bg-amber-500">+ Add Item</button>
+            <div :id="section.id + 'GearList'" class="w-auto flex flex-col mx-5 mt-3 p-2 list-none border-1 rounded-2xl"></div>
+            <button @click="openItemsModal(section.id)" class="mt-2 mx-4 p-2 border-2 border-[#000000] rounded-2xl bg-[#F4C356] hover:bg-amber-500">+ Add Item</button>
           </div>
         </div>
       </div>
@@ -50,7 +50,7 @@
 
     <!-- Items Modal -->
     <div>
-      <ItemsModal :isOpen="showModal" @update:isOpen="showModal = $event"></ItemsModal>
+      <ItemsModal :isOpen="showModal" :currentCategory="selectedCategory"  @update:isOpen="showModal = $event" @itemSelected="addItemToGear"></ItemsModal>
     </div>
 
     <!-- Equipment Section -->
@@ -138,9 +138,19 @@ export default {
       gear: gearData.sections,
       selectedWeapons: {},
       selectedGear: {},
-      itemList: {},
-      showModal: false
+      selectedItems: {
+        uniform: [],
+        vest: [],
+        backpack: []
+      },
+      showModal: false,
     };
+  },
+  methods: {
+    openItemsModal(category) {
+      this.selectedCategory = category;
+      this.showModal = true;
+    }
   },
   computed: {
     weaponSections() {
