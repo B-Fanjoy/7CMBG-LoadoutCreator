@@ -27,7 +27,7 @@
             Loadout Creator
           </RouterLink>
           <div class="vl"></div>
-          <RouterLink to="/saved-loadouts" class="hover:text-orange-500 transition-all ease-in-out">
+          <RouterLink to="/loadouts" class="hover:text-orange-500 transition-all ease-in-out">
             Saved Loadouts
           </RouterLink>
           <div class="vl"></div>
