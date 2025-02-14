@@ -80,7 +80,11 @@
               </li>
             </ul>
 
-            <button @click="openItemsModal(section.id)" class="mt-2 mx-4 p-2 border-2 border-[#000000] rounded-2xl bg-[#F4C356] hover:bg-amber-500">
+            <button
+              @click="openItemsModal(section.id)"
+              class="mt-2 mx-4 p-2 border-2 border-[#000000] rounded-2xl bg-[#F4C356] hover:bg-amber-500 disabled:opacity-50 disabled:cursor-not-allowed"
+              :disabled="!selectedGear[section.id]"
+            >
               + Add Item
             </button>
           </div>
@@ -143,7 +147,8 @@
     <nav class="sticky bottom-0 bg-[#3c3c3c] border-4 border-[#F4C356] shadow-2xl rounded-2xl">
       <div class="flex items-center h-25">
         <svg
-          class="w-12 h-20 ml-6 m-3 fill-white transition-all duration-300 hover:fill-[#F4C356]"
+          @click="copyToClipboard"
+          class="w-12 h-20 ml-6 m-3 fill-white transition-all duration-300 hover:fill-[#F4C356] cursor-pointer"
           xmlns="http://www.w3.org/2000/svg"
           viewBox="0 0 384 512"
         >
@@ -188,12 +193,33 @@ export default {
       showModal: false,
     };
   },
+  watch: {
+    selectedGear: {
+      handler(newVal) {
+        for (const container in newVal) {
+          if (!newVal[container]) {
+            this.selectedItems[container] = [];
+          }
+        }
+      },
+      deep: true,
+    }
+  },
   methods: {
     openItemsModal(section) {
       this.selectedContainer = section;
       this.showModal = true;
     },
     addItemToList({ container, item }) {
+      const itemWeight = Number(this.getItemWeight(item));
+      const currentLoad = Number(this.getTotalLoad(container));
+      const maxLoad = Number(this.getMaxLoad(container));
+
+      if (currentLoad + itemWeight > maxLoad) {
+        alert("Cannot add item: Exceeds max weight limit!");
+        return;
+      }
+
       const existingItem = this.selectedItems[container].find(i => i.id === item);
 
       if (existingItem) {
@@ -206,6 +232,17 @@ export default {
       this.selectedItems[section].splice(index, 1);
     },
     updateQuantity(container, itemId, change) {
+      const itemWeight = Number(this.getItemWeight(itemId));
+      const currentLoad = Number(this.getTotalLoad(container));
+      const maxLoad = Number(this.getMaxLoad(container));
+
+      if (change === 1) {
+        if (currentLoad + itemWeight > maxLoad) {
+          alert("Cannot add item: Exceeds max weight limit!");
+          return;
+        }
+      }
+
       const item = this.selectedItems[container].find(i => i.id === itemId);
       if (item) {
         item.quantity += change;
@@ -224,6 +261,15 @@ export default {
         }
       }
       return itemId;
+    },
+    getItemWeight(itemId) {
+      for (let section of this.items) {
+        for (let group of section.groupings) {
+          let foundItem = group.options.find(item => item.id === itemId);
+          if (foundItem) return foundItem.weight;
+        }
+      }
+      return null;
     },
     isSpecialItem(itemId) {
       for (let section of this.items) {
@@ -261,6 +307,15 @@ export default {
     getProgressBarColor(container) {
       const percentage = this.getLoadPercentage(container);
       return percentage < 75 ? "bg-green-500" : percentage < 100 ? "bg-yellow-500" : "bg-red-500";
+    },
+    async copyToClipboard() {
+      try {
+        await navigator.clipboard.writeText(this.generateImportString);
+        alert("Loadout copied to clipboard!");
+      } catch (err) {
+        console.error("Failed to copy: ", err);
+        alert("Failed to copy!");
+      }
     }
   },
   computed: {
