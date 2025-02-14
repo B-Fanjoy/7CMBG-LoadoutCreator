@@ -32,47 +32,57 @@
       <div class="grid grid-cols-3 gap-4">
         <div v-for="section in maingearSections" :key="section.id" class="mb-4 flex flex-col items-center">
           <label class="block text-lg font-medium mb-1 text-center w-full">{{ section.name }}</label>
+
           <div class="w-full flex flex-col justify-center">
             <select
               v-model="selectedGear[section.id]"
-              class=" w-auto p-2 mx-5 bg-[#494949] border border-[#F4C356] rounded focus:outline-none text-center text-[#ffffff]"
+              class="w-auto p-2 mx-5 bg-[#494949] border border-[#F4C356] rounded focus:outline-none text-center text-[#ffffff]"
             >
               <option v-for="option in section.options" :key="option.id" :value="option.id">
                 {{ option.name }}
               </option>
             </select>
+
+            <!-- Weight Progress Bar -->
+            <div class="w-full px-5">
+              <div class="relative w-full bg-gray-700 rounded-full h-4">
+                <div
+                  class="h-4 rounded-full"
+                  :class="getProgressBarColor(section.id)"
+                  :style="{ width: getLoadPercentage(section.id) + '%' }"
+                ></div>
+                <span class="absolute top-0 left-2 text-xs text-center">
+                  {{ getTotalLoad(section.id) }} / {{ getMaxLoad(section.id) }} lb
+                </span>
+              </div>
+            </div>
+
+            <!-- Item List -->
             <ul :id="section.id + 'GearList'" class="w-auto flex flex-col mx-5 mt-3 p-2 list-none border-1 rounded-2xl">
               <li v-for="(item, index) in selectedItems[section.id]" :key="index"
-                  class="p-2 border-b grid grid-cols-[minmax(0,1fr)_auto_auto_auto] items-center gap-2">
+                  class="p-2 border-b-2 border-dashed grid grid-cols-[minmax(0,1fr)_auto_auto_auto_auto] items-center gap-2">
 
-                <!-- Item Name -->
-                <div class="truncate">
-                  {{ getItemName(item.id) }}
-                </div>
+                <div class="truncate text-[0.8rem]">{{ getItemName(item.id) }}</div>
 
-                <!-- Decrease Quantity Button -->
-                <button @click="updateQuantity(section.id, item.id, -1)"
-                        class="px-2 py-1 bg-red-500 text-white rounded-md hover:bg-red-700">
+                <button @click="updateQuantity(section.id, item.id, -1)" class="px-2 py-1 bg-red-500 text-white rounded-md hover:bg-red-700">
                   -
                 </button>
 
-                <!-- Item Quantity -->
                 <span class="text-lg font-semibold px-2">{{ item.quantity }}</span>
 
-                <!-- Increase Quantity Button -->
-                <button @click="updateQuantity(section.id, item.id, 1)"
-                        class="px-2 py-1 bg-green-500 text-white rounded-md hover:bg-green-700">
+                <button @click="updateQuantity(section.id, item.id, 1)" class="px-2 py-1 bg-green-500 text-white rounded-md hover:bg-green-700">
                   +
                 </button>
 
-                <!-- Remove Button -->
-                <button @click="removeItem(section.id, index)"
-                        class="ml-2 text-red-500 hover:text-red-700">
+                <button @click="removeItem(section.id, index)" class="p-1 ml-2 text-red-500 hover:text-red-700 border-2 rounded-2xl">
                   Remove
                 </button>
               </li>
             </ul>
-            <button @click="openItemsModal(section.id)" class="mt-2 mx-4 p-2 border-2 border-[#000000] rounded-2xl bg-[#F4C356] hover:bg-amber-500">+ Add Item</button>
+
+            <button @click="openItemsModal(section.id)" class="mt-2 mx-4 p-2 border-2 border-[#000000] rounded-2xl bg-[#F4C356] hover:bg-amber-500">
+              + Add Item
+            </button>
           </div>
         </div>
       </div>
@@ -189,7 +199,7 @@ export default {
       if (existingItem) {
         existingItem.quantity += 1;
       } else {
-        this.selectedItems[container].push({ id: item, quantity: 1 });
+        this.selectedItems[container].push({ id: item, quantity: 1, loaded: 1000 });
       }
     },
     removeItem(section, index) {
@@ -214,6 +224,43 @@ export default {
         }
       }
       return itemId;
+    },
+    isSpecialItem(itemId) {
+      for (let section of this.items) {
+        if (["magazines", "throwables", "explosives"].includes(section.id)) { // Check category
+          for (let group of section.groupings) {
+            let foundItem = group.options.find(item => item.id === itemId);
+            if (foundItem) {
+              return true;
+            }
+          }
+        }
+      }
+      return false;
+    },
+    getMaxLoad(container) {
+      const selectedItem = this.gear.find(section => section.id === container)
+        ?.options.find(option => option.id === this.selectedGear[container]);
+
+      let maxLoad = selectedItem?.load || 0;
+      return maxLoad.toFixed(2);
+    },
+    getTotalLoad(container) {
+      return this.selectedItems[container].reduce((total, item) => {
+        const itemData = this.items.flatMap(section => section.groupings)
+          .flatMap(group => group.options)
+          .find(option => option.id === item.id);
+        return total + (itemData?.weight || 0) * item.quantity;
+      }, 0).toFixed(2);
+    },
+    getLoadPercentage(container) {
+      const maxLoad = this.getMaxLoad(container);
+      const totalLoad = this.getTotalLoad(container);
+      return maxLoad > 0 ? Math.min((totalLoad / maxLoad) * 100, 100) : 0;
+    },
+    getProgressBarColor(container) {
+      const percentage = this.getLoadPercentage(container);
+      return percentage < 75 ? "bg-green-500" : percentage < 100 ? "bg-yellow-500" : "bg-red-500";
     }
   },
   computed: {
@@ -241,10 +288,15 @@ export default {
       const secondaryWeapon = this.selectedWeapons.secondary || "";
       const tertiaryWeapon = this.selectedWeapons.tertiary || "";
 
-      // Extract selected main gear
-      const uniform = [this.selectedGear.uniform || "", [this.selectedItems['uniform'] || ""]];
-      const vest = [this.selectedGear.vest || "", []];
-      const backpack = [this.selectedGear.backpack || "", []];
+      // Function to format selected items with 'loaded' value if applicable
+      const formatItems = (items) => items.map(item => {
+        const isSpecialItem = this.isSpecialItem(item.id);
+        return isSpecialItem ? [item.id, item.quantity, 1000] : [item.id, item.quantity];
+      });
+
+      const uniform = [this.selectedGear.uniform || "", formatItems(this.selectedItems.uniform)];
+      const vest = [this.selectedGear.vest || "", formatItems(this.selectedItems.vest)];
+      const backpack = [this.selectedGear.backpack || "", formatItems(this.selectedItems.backpack)];
 
       // Extract selected headwear
       const headgear = this.selectedGear.headgear || "";
@@ -292,7 +344,7 @@ export default {
       ];
 
       return JSON.stringify(loadout);
-    }
+    },
   },
   created() {
     this.selectedWeapons = this.weaponSections.reduce((acc, section) => {
