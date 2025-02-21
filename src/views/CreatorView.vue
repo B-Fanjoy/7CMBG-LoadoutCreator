@@ -156,7 +156,13 @@
     </div>
 
     <!-- Import String Nav Bar -->
-    <nav class="sticky bottom-0 bg-[#3c3c3c] border-4 border-[#F4C356] shadow-2xl rounded-2xl">
+    <nav class="sticky bottom-0 bg-[#3c3c3c] border-4 border-[#F4C356] shadow-2xl rounded-3xl">
+      <div class="p-4 border-4 border-[#F4C356] rounded-t-2xl text-center">
+        <h2 class="text-3xl font-bold text-[#F4C356]">Total Loadout Weight</h2>
+        <p class="text-2xl font-semibold mt-2" :class="getTotalWeightColor()">
+          {{ getTotalWeight() }} lb
+        </p>
+      </div>
       <div class="flex items-center h-25">
         <svg
           @click="copyToClipboard"
@@ -359,6 +365,70 @@ export default {
         primaryMagazines: [],
         secondaryMagazines: []
       };
+    },
+    getWeaponsWeight() {
+      let total = 0;
+
+      Object.entries(this.selectedWeapons).forEach(([weaponSection, weaponId]) => {
+        let weapon = this.weapons.flatMap(section => section.weapons).find(w => w.id === weaponId);
+        if (weapon) total += weapon.weight || 0;
+
+        let attachments = this.selectedAttachments[weaponSection];
+        if (attachments) {
+          Object.values(attachments).forEach(attachmentId => {
+            let attachment = this.items.flatMap(section => section.groupings)
+              .flatMap(group => group.options)
+              .find(option => option.id === attachmentId);
+            if (attachment) total += attachment.weight || 0;
+          });
+        }
+      });
+
+      return total;
+    },
+    getGearWeight() {
+      let total = 0;
+
+      Object.entries(this.selectedGear).forEach(([, gearId]) => {
+        let gearItem = this.gear.flatMap(section => section.options).find(g => g.id === gearId);
+        if (gearItem) total += gearItem.weight || 0;
+      });
+
+      return total;
+    },
+    getItemsWeight() {
+      let total = 0;
+
+      Object.values(this.selectedItems).forEach(items => {
+        items.forEach(item => {
+          let itemData = this.items.flatMap(section => section.groupings)
+            .flatMap(group => group.options)
+            .find(option => option.id === item.id);
+
+          if (itemData) total += (itemData.weight || 0) * item.quantity;
+        });
+      });
+
+      return total;
+    },
+    getTotalWeight() {
+      return (
+        this.getWeaponsWeight() +
+        this.getGearWeight() +
+        this.getItemsWeight()
+      ).toFixed(2);
+    },
+    getTotalWeightColor() {
+      let totalWeight = this.getTotalWeight();
+      if (totalWeight <= 60) {
+        return "text-green-400"
+      }
+      else if (totalWeight > 60 && totalWeight < 80) {
+        return "text-yellow-400"
+      }
+      else {
+        return "text-red-500"
+      }
     }
   },
   computed: {
