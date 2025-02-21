@@ -8,17 +8,29 @@
       <hr>
       <br>
       <div class="grid grid-cols-3 gap-6">
-        <div v-for="section in weaponSections" :key="section.id" class="mb-4 flex flex-col items-center">
+        <div v-for="section in weaponSections" :key="section.id" class="mb-4 flex flex-col items-center w-full">
           <label class="block text-lg font-medium mb-1 text-center w-full">{{ section.name }}</label>
-          <div class="w-full flex justify-center">
+          <div class="w-full flex flex-col items-center">
             <select
               v-model="selectedWeapons[section.id]"
-              class="w-full p-2 ms-4 me-4 bg-[#494949] border border-[#F4C356] rounded focus:outline-none text-center text-[#ffffff]"
+              @change="updateAttachments(section.id)"
+              class="w-full p-2 bg-[#494949] border border-[#F4C356] rounded focus:outline-none text-center text-[#ffffff]"
             >
               <option v-for="weapon in section.weapons" :key="weapon.id" :value="weapon.id">
                 {{ weapon.name }}
               </option>
             </select>
+            <div v-if="selectedWeapons[section.id]" class="flex flex-col w-full mt-2 transition-opacity duration-500 ease-in-out opacity-100 transform translate-y-0" :class="{'opacity-0 translate-y-[-10px]': !selectedWeapons[section.id]}">
+              <template v-for="(attachments, type) in selectedAttachments[section.id]" :key="type">
+                <label v-if="attachments.length" class="w-full capitalize"> {{ type }}:
+                  <select v-model="selectedAttachments[section.id][type]" class="w-full p-2 bg-[#494949] border border-[#F4C356] rounded">
+                    <option v-for="attachment in attachments" :key="attachment.id" :value="attachment.id">
+                      {{ attachment.name }}
+                    </option>
+                  </select>
+                </label>
+              </template>
+            </div>
           </div>
         </div>
       </div>
@@ -184,6 +196,7 @@ export default {
       gear: gearData.sections,
       items: itemsData.sections,
       selectedWeapons: {},
+      selectedAttachments: {},
       selectedGear: {},
       selectedItems: {
         uniform: [],
@@ -316,6 +329,21 @@ export default {
         console.error("Failed to copy: ", err);
         alert("Failed to copy!");
       }
+    },
+    updateAttachments(sectionId) {
+      const weaponId = this.selectedWeapons[sectionId];
+      const section = this.weapons.find(sec => sec.id === sectionId);
+      if (!section) return;
+
+      const weapon = section.weapons.find(w => w.id === weaponId);
+      this.selectedAttachments[sectionId] = weapon ? weapon.attachments : {
+        sights: [],
+        rails: [],
+        muzzles: [],
+        undermounts: [],
+        primaryMagazines: [],
+        secondaryMagazines: []
+      };
     }
   },
   computed: {
