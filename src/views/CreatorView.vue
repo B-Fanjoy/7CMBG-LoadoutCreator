@@ -423,7 +423,7 @@ export default {
       if (totalWeight <= 60) {
         return "text-green-400"
       }
-      else if (totalWeight > 60 && totalWeight < 80) {
+      else if (totalWeight > 60 && totalWeight <= 80) {
         return "text-yellow-400"
       }
       else {
