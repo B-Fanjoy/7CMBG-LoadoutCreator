@@ -10,7 +10,7 @@
       <div class="grid grid-cols-3 gap-6">
         <div v-for="section in weaponSections" :key="section.id" class="mb-4 flex flex-col items-center w-full">
           <label class="block text-lg font-medium mb-1 text-center w-full">{{ section.name }}</label>
-          <div class="w-full flex flex-col items-center">
+          <div class="w-full flex flex-col items-center px-2">
             <select
               v-model="selectedWeapons[section.id]"
               @change="updateAttachments(section.id)"
@@ -21,9 +21,9 @@
               </option>
             </select>
             <div v-if="selectedWeapons[section.id]" class="flex flex-col w-full mt-2 transition-opacity duration-500 ease-in-out opacity-100 transform translate-y-0" :class="{'opacity-0 translate-y-[-10px]': !selectedWeapons[section.id]}">
-              <template v-for="(attachments, type) in selectedAttachments[section.id]" :key="type">
+              <template v-for="(attachments, type) in getAttachments(section.id)" :key="type">
                 <label v-if="attachments.length" class="w-full capitalize"> {{ type }}:
-                  <select v-model="selectedAttachments[section.id][type]" class="w-full p-2 bg-[#494949] border border-[#F4C356] rounded">
+                  <select v-model="selectedAttachments[section.id][type]" class="w-full p-2 text-center bg-[#494949] border border-[#F4C356] rounded">
                     <option v-for="attachment in attachments" :key="attachment.id" :value="attachment.id">
                       {{ attachment.name }}
                     </option>
@@ -336,7 +336,22 @@ export default {
       if (!section) return;
 
       const weapon = section.weapons.find(w => w.id === weaponId);
-      this.selectedAttachments[sectionId] = weapon ? weapon.attachments : {
+      this.selectedAttachments[sectionId] = weapon ? {
+        sights: '',
+        rails: '',
+        muzzles: '',
+        undermounts: '',
+        primaryMagazines: '',
+        secondaryMagazines: ''
+      } : {};
+    },
+    getAttachments(sectionId) {
+      const weaponId = this.selectedWeapons[sectionId];
+      const section = this.weapons.find(sec => sec.id === sectionId);
+      if (!section) return {};
+
+      const weapon = section.weapons.find(w => w.id === weaponId);
+      return weapon ? weapon.attachments : {
         sights: [],
         rails: [],
         muzzles: [],
@@ -368,8 +383,11 @@ export default {
     generateImportString() {
       // Extract selected weapons
       const primaryWeapon = this.selectedWeapons.primary || "";
+      const primaryAttachments = this.selectedAttachments.primary || "";
       const secondaryWeapon = this.selectedWeapons.secondary || "";
+      const secondaryAttachments = this.selectedAttachments.secondary || "";
       const tertiaryWeapon = this.selectedWeapons.tertiary || "";
+      const tertiaryAttachments = this.selectedAttachments.tertiary || "";
 
       // Function to format selected items with 'loaded' value if applicable
       const formatItems = (items) => items.map(item => {
@@ -409,9 +427,9 @@ export default {
       // Construct the loadout array
       const loadout = [
         [
-          [primaryWeapon, "", "", "", ["", 1000], ["", 1000], ""], // Primary weapon
-          [secondaryWeapon, "", "", "", ["", 1000], ["", 1000], ""], // Secondary weapon
-          [tertiaryWeapon, "", "", "", ["", 1000], ["", 1000], ""], // Tertiary weapon
+          [primaryWeapon, primaryAttachments.muzzles || "", primaryAttachments.rails || "", primaryAttachments.sights || "", [primaryAttachments.primaryMagazines || "", 1000], [primaryAttachments.secondaryMagazines || "", 1000], primaryAttachments.undermounts || ""], // Primary weapon
+          [secondaryWeapon, secondaryAttachments.muzzles || "", secondaryAttachments.rails || "", secondaryAttachments.sights || "", [secondaryAttachments.primaryMagazines || "", 1000], [secondaryAttachments.secondaryMagazines || "", 1000], secondaryAttachments.undermounts || ""], // Secondary weapon
+          [tertiaryWeapon, tertiaryAttachments.muzzles || "", tertiaryAttachments.rails || "", tertiaryAttachments.sights || "", [tertiaryAttachments.primaryMagazines || "", 1000], [tertiaryAttachments.secondaryMagazines || "", 1000], tertiaryAttachments.undermounts || ""], // Tertiary weapon
           uniform,
           vest,
           backpack,
