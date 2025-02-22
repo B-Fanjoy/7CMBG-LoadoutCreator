@@ -1,5 +1,5 @@
 <template>
-  <div class="p-4 mb-10 bg-[#303030] text-white rounded-4xl">
+  <div class="p-4 bg-[#303030] text-white rounded-4xl">
     <h1 class="text-5xl font-bold mb-6 py-8 text-center border-6 border-[#F4C356] rounded-3xl">Loadout Creator</h1>
 
     <!-- Weapons Section -->
@@ -491,7 +491,7 @@ export default {
       const nvgs = this.selectedGear.nvgs || "";
 
       // Special items
-      const insignia = [this.selectedGear.insignia || "", ""];
+      const insignia = ["ace_arsenal_insignia", this.selectedGear.insignia || ""];
       const earplugs = ["earplugs", this.selectedGear.earplugs || false];
 
       // Construct the loadout array
