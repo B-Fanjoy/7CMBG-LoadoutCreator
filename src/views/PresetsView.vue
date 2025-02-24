@@ -60,6 +60,8 @@
 </template>
 
 <script>
+import { useLoadoutStore } from '/src/stores/loadoutStore.js';
+
 export default {
   name: 'PresetsView',
   data() {
@@ -178,7 +180,9 @@ export default {
   },
   methods: {
     editPreset(preset) {
-      this.$emit('edit-preset', preset.loadout);
+      const loadoutStore = useLoadoutStore();
+      loadoutStore.setLoadout(preset.loadout);
+      this.$router.push({ name: 'creator' });
     },
     async copyToClipboard(loadout) {
       try {

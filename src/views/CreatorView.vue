@@ -191,8 +191,20 @@ import gearData from "/src/data/gear.json";
 import weaponsData from "/src/data/weapons.json";
 import itemsData from "/src/data/items.json";
 import ItemsModal from '/src/components/ItemsModal.vue';
+import { useLoadoutStore } from '/src/stores/loadoutStore.js';
 
 export default {
+  setup() {
+    const loadoutStore = useLoadoutStore();
+    return { loadout: loadoutStore.selectedLoadout };
+  },
+  mounted() {
+    if (this.loadout) {
+      this.loadLoadout({ loadout: this.loadout });
+    } else {
+      console.warn('No loadout found in store.');
+    }
+  },
   components: {
     ItemsModal
   },
@@ -246,6 +258,73 @@ export default {
       } else {
         this.selectedItems[container].push({ id: item, quantity: 1, loaded: 1000 });
       }
+
+      this.sortItems(container);
+    },
+    loadLoadout({ loadout }) {
+      const [weapons, equipment] = loadout;
+      const [primary, secondary, tertiary, uniform, vest, backpack, headgear, facewear, binoculars, misc] = weapons;
+      const [insignia, earplugs] = equipment;
+
+      this.selectedWeapons = {
+        primary: primary[0],
+        secondary: secondary[0],
+        tertiary: tertiary[0]
+      };
+
+      this.selectedAttachments = {
+        primary: {
+          muzzles: primary[1],
+          rails: primary[2],
+          sights: primary[3],
+          primaryMagazines: primary[4][0],
+          secondaryMagazines: primary[5][0],
+          undermounts: primary[6]
+        },
+        secondary: {
+          muzzles: secondary[1],
+          rails: secondary[2],
+          sights: secondary[3],
+          primaryMagazines: secondary[4][0],
+          secondaryMagazines: secondary[5][0],
+          undermounts: secondary[6]
+        },
+        tertiary: {
+          muzzles: tertiary[1],
+          rails: tertiary[2],
+          sights: tertiary[3],
+          primaryMagazines: tertiary[4][0],
+          secondaryMagazines: tertiary[5][0],
+          undermounts: tertiary[6]
+        }
+      };
+
+      this.selectedGear = {
+        uniform: uniform[0],
+        vest: vest[0],
+        backpack: backpack[0],
+        headgear: headgear,
+        facewear: facewear,
+        binoculars: binoculars[0],
+        map: misc[0],
+        terminal: misc[1],
+        communication: misc[2],
+        navigation: misc[3],
+        watch: misc[4],
+        nvgs: misc[5],
+        insignia: insignia[1],
+        earplugs: earplugs[1]
+      };
+
+      this.selectedItems = {
+        uniform: uniform[1].map(([id, quantity, loaded]) => ({ id, quantity, loaded })),
+        vest: vest[1].map(([id, quantity, loaded]) => ({ id, quantity, loaded })),
+        backpack: backpack[1].map(([id, quantity, loaded]) => ({ id, quantity, loaded }))
+      };
+
+      Object.keys(this.selectedItems).forEach((container) => {
+        this.sortItems(container);
+      });
     },
     removeItem(section, index) {
       this.selectedItems[section].splice(index, 1);
@@ -271,6 +350,20 @@ export default {
           this.selectedItems[container] = this.selectedItems[container].filter(i => i.id !== itemId);
         }
       }
+
+      this.sortItems(container);
+    },
+    sortItems(container) {
+      this.selectedItems[container].sort((a, b) => {
+        const nameA = this.getItemName(a.id).toLowerCase();
+        const nameB = this.getItemName(b.id).toLowerCase();
+
+        if (nameA < nameB) return -1;
+        if (nameA > nameB) return 1;
+
+        // If names are equal, sort by quantity (descending)
+        return b.quantity - a.quantity;
+      });
     },
     getItemName(itemId) {
       for (let section of this.items) {

@@ -181,6 +181,11 @@
             "weight": 0.00
           },
           {
+            "id": "TFC_CH_Caiman_CADPAT_MT",
+            "name": "Caiman",
+            "weight": 0.00
+          },
+          {
             "id": "TFC_CH_CG634_CADPAT_AR",
             "name": "CG634 CADPAT (Arid Regions)",
             "weight": 3.00
