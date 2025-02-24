@@ -1,57 +1,113 @@
 <template>
-  <main class="p-4">
-    <h1 class="text-4xl font-bold mb-6">Preset Loadouts</h1>
+  <main class="p-6 bg-gray-900 min-h-screen text-white">
+    <!-- Page Title -->
+    <h1 class="text-5xl font-bold text-center text-[#F4C356] mb-8">Preset Loadouts</h1>
 
-    <div class="grid grid-cols-2 gap-6">
-      <div v-for="preset in presets" :key="preset.name" class="border-2 p-4 rounded-lg bg-gray-800 text-white">
-        <h2 class="text-2xl font-semibold">{{ preset.name }}</h2>
+    <!-- Loadout Presets Grid -->
+    <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+      <div
+        v-for="preset in presets"
+        :key="preset.name"
+        class="p-6 bg-gray-800 border border-gray-700 shadow-lg rounded-3xl hover:shadow-2xl transition-all"
+      >
+        <!-- Loadout Name -->
+        <h2 class="text-3xl font-bold text-[#F4C356] border-b-2 pb-2 mb-4">{{ preset.name }}</h2>
 
-        <p class="text-sm text-gray-400">Primary: {{ preset.loadout[0][0][0] }}</p>
-        <p class="text-sm text-gray-400">Secondary: {{ preset.loadout[0][1][0] }}</p>
-        <p class="text-sm text-gray-400">Tertiary: {{ preset.loadout[0][2][0] }}</p>
-        <p class="text-sm text-gray-400">Uniform: {{ preset.loadout[0][3][0] }}</p>
-        <p class="text-sm text-gray-400">Uniform Items: {{ preset.loadout[0][3][1] }}</p>
-        <p class="text-sm text-gray-400">Vest: {{ preset.loadout[0][4][0] }}</p>
-        <p class="text-sm text-gray-400">Vest Items: {{ preset.loadout[0][4][1] }}</p>
-        <p class="text-sm text-gray-400">Backpack: {{ preset.loadout[0][5][0] }}</p>
-        <p class="text-sm text-gray-400">Backpack Items: {{ preset.loadout[0][5][1] }}</p>
-        <p class="text-sm text-gray-400">Headgear: {{ preset.loadout[0][6] }}</p>
-        <p class="text-sm text-gray-400">Facewear: {{ preset.loadout[0][7] }}</p>
-        <p class="text-sm text-gray-400">Binoculars: {{ preset.loadout[0][8][0] }}</p>
-        <p class="text-sm text-gray-400">Map: {{ preset.loadout[0][9][0] }}</p>
-        <p class="text-sm text-gray-400">Terminal: {{ preset.loadout[0][9][1] }}</p>
-        <p class="text-sm text-gray-400">Communication: {{ preset.loadout[0][9][2] }}</p>
-        <p class="text-sm text-gray-400">Navigation: {{ preset.loadout[0][9][3] }}</p>
-        <p class="text-sm text-gray-400">Watch: {{ preset.loadout[0][9][4] }}</p>
-        <p class="text-sm text-gray-400">NVGs: {{ preset.loadout[0][9][5] }}</p>
-        <p class="text-sm text-gray-400">Insignia: {{ preset.loadout[1][0][0] }}</p>
-        <p class="text-sm text-gray-400">Earplugs: {{ preset.loadout[1][1][1] }}</p>
+        <!-- Weapons Section -->
+        <div class="mb-4">
+          <h3 class="text-lg font-semibold text-gray-300">Weapons:</h3>
+          <ul class="text-gray-400 text-sm space-y-2">
+            <li>
+              <strong>Primary:</strong> {{ preset.loadout[0][0][0] }}
+              <button @click="toggleSection('primary', preset.name)" class="text-blue-400 ml-2">▼</button>
+              <ul v-if="expandedSections[preset.name]?.primary" class="ml-4 mt-2 text-gray-500">
+                <li v-for="(attachment, index) in formatAttachments(preset.loadout[0][0])" :key="index">
+                  • {{ attachment || "None" }}
+                </li>
+              </ul>
+            </li>
+            <li>
+              <strong>Secondary:</strong> {{ preset.loadout[0][1][0] }}
+              <button @click="toggleSection('secondary', preset.name)" class="text-blue-400 ml-2">▼</button>
+              <ul v-if="expandedSections[preset.name]?.secondary" class="ml-4 mt-2 text-gray-500">
+                <li v-for="(attachment, index) in formatAttachments(preset.loadout[0][1])" :key="index">
+                  • {{ attachment || "None" }}
+                </li>
+              </ul>
+            </li>
+            <li>
+              <strong>Tertiary:</strong> {{ preset.loadout[0][2][0] }}
+              <button @click="toggleSection('tertiary', preset.name)" class="text-blue-400 ml-2">▼</button>
+              <ul v-if="expandedSections[preset.name]?.tertiary" class="ml-4 mt-2 text-gray-500">
+                <li v-for="(attachment, index) in formatAttachments(preset.loadout[0][2])" :key="index">
+                  • {{ attachment || "None" }}
+                </li>
+              </ul>
+            </li>
+          </ul>
+        </div>
 
-        <div class="flex gap-2 mt-3">
+        <!-- Gear Section with Items Display -->
+        <div class="mb-4">
+          <h3 class="text-lg font-semibold text-gray-300">Gear:</h3>
+          <ul class="text-gray-400 text-sm space-y-1">
+            <li>
+              <strong>Uniform:</strong> {{ preset.loadout[0][3][0] }}
+              <button @click="toggleSection('uniform', preset.name)" class="text-blue-400 ml-2">▼</button>
+              <ul v-if="expandedSections[preset.name]?.uniform" class="ml-4 mt-2 text-gray-500">
+                <li v-for="(item, index) in preset.loadout[0][3][1]" :key="index">
+                  • {{ item[0] }} x{{ item[1] }}
+                </li>
+              </ul>
+            </li>
+            <li>
+              <strong>Vest:</strong> {{ preset.loadout[0][4][0] }}
+              <button @click="toggleSection('vest', preset.name)" class="text-blue-400 ml-2">▼</button>
+              <ul v-if="expandedSections[preset.name]?.vest" class="ml-4 mt-2 text-gray-500">
+                <li v-for="(item, index) in preset.loadout[0][4][1]" :key="index">
+                  • {{ item[0] }} x{{ item[1] }}
+                </li>
+              </ul>
+            </li>
+            <li>
+              <strong>Backpack:</strong> {{ preset.loadout[0][5][0] }}
+              <button @click="toggleSection('backpack', preset.name)" class="text-blue-400 ml-2">▼</button>
+              <ul v-if="expandedSections[preset.name]?.backpack" class="ml-4 mt-2 text-gray-500">
+                <li v-for="(item, index) in preset.loadout[0][5][1]" :key="index">
+                  • {{ item[0] }} x{{ item[1] }}
+                </li>
+              </ul>
+            </li>
+          </ul>
+        </div>
+
+        <!-- Action Buttons -->
+        <div class="flex flex-col space-y-3">
           <!-- Edit Preset Button -->
           <button
             @click="editPreset(preset)"
-            class="flex-1 p-2 bg-yellow-500 hover:bg-yellow-600 rounded-lg"
+            class="w-full py-3 bg-[#F4C356] text-black font-bold rounded-2xl hover:bg-amber-500 transition-all"
           >
-            Edit Preset in Loadout Creator
+            Edit in Loadout Creator
           </button>
 
           <!-- Copy to Clipboard Button -->
           <button
             @click="copyToClipboard(preset.loadout)"
-            class="p-2 bg-blue-500 hover:bg-blue-600 rounded-lg flex items-center justify-center"
+            class="w-full py-3 bg-blue-600 hover:bg-blue-700 text-white font-bold rounded-2xl flex items-center justify-center space-x-2 transition-all"
           >
             <svg
-              class="w-6 h-6 fill-white hover:fill-gray-300"
+              class="w-5 h-5 fill-white"
               xmlns="http://www.w3.org/2000/svg"
               viewBox="0 0 384 512"
             >
               <path
-                  d="M192 0c-41.8 0-77.4 26.7-90.5 64L64 64C28.7 64 0 92.7 0 128L0 448c0 35.3 28.7 64 64 64l256 0c35.3 0 64-28.7
-                  64-64l0-320c0-35.3-28.7-64-64-64l-37.5 0C269.4 26.7 233.8 0 192 0zm0 64a32 32 0 1 1 0 64 32 32 0 1 1 0-64zM112
-                  192l160 0c8.8 0 16 7.2 16 16s-7.2 16-16 16l-160 0c-8.8 0-16-7.2-16-16s7.2-16 16-16z"
-                />
+                d="M192 0c-41.8 0-77.4 26.7-90.5 64L64 64C28.7 64 0 92.7 0 128L0 448c0 35.3 28.7 64 64 64l256 0c35.3 0 64-28.7
+                64-64l0-320c0-35.3-28.7-64-64-64l-37.5 0C269.4 26.7 233.8 0 192 0zm0 64a32 32 0 1 1 0 64 32 32 0 1 1 0-64zM112
+                192l160 0c8.8 0 16 7.2 16 16s-7.2 16-16 16l-160 0c-8.8 0-16-7.2-16-16s7.2-16 16-16z"
+              />
             </svg>
+            <span>Copy to Clipboard</span>
           </button>
         </div>
       </div>
@@ -66,6 +122,7 @@ export default {
   name: 'PresetsView',
   data() {
     return {
+      expandedSections: {},
       presets: [
         {
           name: "Rifleman",
@@ -179,6 +236,20 @@ export default {
     };
   },
   methods: {
+    toggleSection(section, presetName) {
+      if (!this.expandedSections[presetName]) {
+        this.expandedSections[presetName] = {};
+      }
+      this.expandedSections[presetName][section] = !this.expandedSections[presetName][section];
+    },
+    formatAttachments(weaponData) {
+      return weaponData.slice(1).map((attachment) => {
+        if (Array.isArray(attachment)) {
+          return attachment[0];
+        }
+        return attachment;
+      });
+    },
     editPreset(preset) {
       const loadoutStore = useLoadoutStore();
       loadoutStore.setLoadout(preset.loadout);
