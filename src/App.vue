@@ -1,5 +1,5 @@
 <template>
-  <header>
+  <header v-if="!shouldHideHeader">
     <div class="wrapper">
       <nav class="flex justify-center py-8 uppercase border-b border-zinc-900 bg-[#000000] font-medium">
         <div class="absolute left-8 top-5">
@@ -39,7 +39,7 @@
     </div>
   </header>
 
-  <div class="justify-self-center p-5 w-full">
+  <div class="justify-self-center w-full">
     <RouterView />
   </div>
 </template>
@@ -53,5 +53,10 @@ export default {
     RouterView,
   },
   name: 'App',
+  computed: {
+    shouldHideHeader() {
+      return this.$route.path === '/';
+    }
+  }
 }
 </script>
