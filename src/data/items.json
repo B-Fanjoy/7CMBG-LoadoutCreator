@@ -56,6 +56,16 @@
               { "id": "tfc_wa_CG_Sight", "name": "Carl-G Sight", "weight": 0.80 },
               { "id": "rhs_optic_maaws", "name": "M3 MAAWS Sight", "weight": 0.80 }
             ]
+          },
+          {
+            "id": "specialSights",
+            "name": "Special Sights",
+            "options": [
+              { "id": "optic_tws", "name": "Thermal Weapon Sight (TWS)", "weight": 1.40 },
+              { "id": "optic_NVS", "name": "Night Vision Sight (NVS)", "weight": 1.00 },
+              { "id": "optic_Nightstalker", "name": "Nightstalker (NVG/Thermal Weapon Sight)", "weight": 1.20 },
+              { "id": "optic_tws_mg", "name": "Thermal Weapon Sight for Machine Guns (TWS MG)", "weight": 1.60 }
+            ]
           }
         ]
       },
@@ -172,7 +182,13 @@
             "name": "Grenades",
             "options": [
               { "id": "rhs_mag_m67", "name": "[RHS] M67 Fragmentation Grenade", "weight": 0.88 },
-              { "id": "SmokeShell", "name": "M83 Smoke Grenade (White)", "weight": 0.40 }
+              { "id": "SmokeShell", "name": "M83 Smoke Grenade (White)", "weight": 0.40 },
+              { "id": "SmokeShellBlue", "name": "M18 Smoke Grenade (Blue)", "weight": 0.40 },
+              { "id": "SmokeShellGreen", "name": "M18 Smoke Grenade (Green)", "weight": 0.40 },
+              { "id": "SmokeShellOrange", "name": "M18 Smoke Grenade (Orange)", "weight": 0.40 },
+              { "id": "SmokeShellPurple", "name": "M18 Smoke Grenade (Purple)", "weight": 0.40 },
+              { "id": "SmokeShellRed", "name": "M18 Smoke Grenade (Red)", "weight": 0.40 },
+              { "id": "SmokeShellYellow", "name": "M18 Smoke Grenade (Yellow)", "weight": 0.40 }
             ]
           },
           {
@@ -182,6 +198,7 @@
               { "id": "ACE_Chemlight_HiBlue", "name": "Chemlight (Hi Blue)", "weight": 0.20 },
               { "id": "ACE_Chemlight_HiGreen", "name": "Chemlight (Hi Green)", "weight": 0.20 },
               { "id": "ACE_Chemlight_HiRed", "name": "Chemlight (Hi Red)", "weight": 0.20 },
+              { "id": "ACE_Chemlight_HiWhite", "name": "Chemlight (Hi White)", "weight": 0.20 },
               { "id": "ACE_Chemlight_HiYellow", "name": "Chemlight (Hi Yellow)", "weight": 0.20 },
               { "id": "ACE_Chemlight_IR", "name": "Chemlight (IR)", "weight": 0.20 }
             ]
@@ -221,6 +238,7 @@
             "name": "Special Tools",
             "options": [
               { "id": "ACE_DefusalKit", "name": "Defusal Kit", "weight": 0.50 },
+              { "id": "ACE_Fortify", "name": "Fortify Tool", "weight": 0.00 },
               { "id": "ACE_Kestrel4500", "name": "Kestrel 4500NV", "weight": 0.20 },
               { "id": "ACE_M26_Clacker", "name": "M152 Firing Device", "weight": 0.30 },
               { "id": "ACE_Clacker", "name": "M57 Firing Device", "weight": 0.30 },
@@ -229,7 +247,8 @@
               { "id": "ACE_RangeCard", "name": "Range Card", "weight": 0.01 },
               { "id": "ACE_SpottingScope", "name": "Spotting Scope", "weight": 4.00 },
               { "id": "ACE_Tripod", "name": "SSWT Kit (Tripod)", "weight": 4.00 },
-              { "id": "ToolKit", "name": "Toolkit", "weight": 8.00 }
+              { "id": "ToolKit", "name": "Toolkit", "weight": 8.00 },
+              { "id": "ACE_wirecutter", "name": "Wirecutter", "weight": 2.50 }
             ]
           }
         ]
@@ -281,7 +300,9 @@
             "id": "advancedMedical",
             "name": "Advanced Medical",
             "options": [
-              
+              { "id": "ACE_bloodIV", "name": "Blood IV (1000ml)", "weight": 1.00 },
+              { "id": "ACE_bloodIV_500", "name": "Blood IV (500ml)", "weight": 0.50 },
+              { "id": "ACE_bloodIV_250", "name": "Blood IV (250ml)", "weight": 0.25 }
             ]
           }
         ]
@@ -312,6 +333,7 @@
             "name": "Special Miscellaneous",
             "options": [
               { "id": "ACRE_PRC152", "name": "AN/PRC-152", "weight": 0.80 },
+              { "id": "ACRE_PRC117F", "name": "AN/PRC-117F", "weight": 12.00 },
               { "id": "ItemAndroid", "name": "Galaxy S20 Tactical Edition", "weight": 0.40 },
               { "id": "ACE_SpraypaintBlue", "name": "Spray Paint (Blue)", "weight": 1.00 },
               { "id": "ACE_SpraypaintGreen", "name": "Spray Paint (Green)", "weight": 1.00 },
