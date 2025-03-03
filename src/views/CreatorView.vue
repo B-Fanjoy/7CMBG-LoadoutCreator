@@ -1,9 +1,9 @@
 <template>
   <div class="p-4 bg-[#303030] text-white rounded-4xl">
-    <h1 class="text-5xl font-bold mb-6 py-8 text-center border-6 border-[#F4C356] rounded-3xl">Loadout Creator</h1>
+    <h1 class="text-5xl font-bold mb-6 py-8 text-center border-6 border-[#F4C356] rounded-3xl bg-[#212121]">Loadout Creator</h1>
 
     <!-- Weapons Section -->
-    <div class="mb-8 border-4 border-[#F4C356] rounded-3xl">
+    <div class="mb-8 border-4 border-[#F4C356] rounded-3xl bg-[#212121]">
       <h2 class="text-4xl font-semibold mb-2 mt-2 text-center text-[#F4C356]">Weapons</h2>
       <hr>
       <br>
@@ -37,7 +37,7 @@
     </div>
 
     <!-- Main Gear Section -->
-    <div class="mb-8 border-4 border-[#F4C356] rounded-3xl">
+    <div class="mb-8 border-4 border-[#F4C356] rounded-3xl bg-[#212121]">
       <h2 class="text-4xl font-semibold mb-2 mt-2 text-center text-[#F4C356]">Main Gear</h2>
       <hr>
       <br>
@@ -110,7 +110,7 @@
     </div>
 
     <!-- Equipment Section -->
-    <div class="mb-8 border-4 border-[#F4C356] rounded-3xl">
+    <div class="mb-8 border-4 border-[#F4C356] rounded-3xl bg-[#212121]">
       <h2 class="text-4xl font-semibold mb-2 mt-2 text-center text-[#F4C356]">Equipment</h2>
       <hr>
       <br>
@@ -156,7 +156,7 @@
     </div>
 
     <!-- Import String Nav Bar -->
-    <nav class="sticky bottom-0 bg-[#3c3c3c] border-4 border-[#F4C356] shadow-2xl rounded-3xl">
+    <nav class="sticky bottom-0 border-4 border-[#F4C356] shadow-2xl rounded-3xl bg-[#212121]">
       <div class="p-4 border-4 border-[#F4C356] rounded-t-2xl text-center">
         <h2 class="text-3xl font-bold text-[#F4C356]">Total Loadout Weight</h2>
         <p class="text-2xl font-semibold mt-2" :class="getTotalWeightColor()">
