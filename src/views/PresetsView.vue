@@ -1,14 +1,14 @@
 <template>
-  <main class="p-6 bg-gray-900 min-h-screen text-white">
+  <main class="p-6 bg-[#303030] min-h-screen text-white">
     <!-- Page Title -->
-    <h1 class="text-5xl font-bold text-center text-[#F4C356] mb-8">Preset Loadouts</h1>
+    <h1 class="text-7xl font-bold text-center text-[#F4C356] mb-8">Preset Loadouts</h1>
 
     <!-- Loadout Presets Grid -->
     <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
       <div
         v-for="preset in presets"
         :key="preset.name"
-        class="p-6 bg-gray-800 border border-gray-700 shadow-lg rounded-3xl hover:shadow-2xl transition-all"
+        class="p-6 bg-[#212121] border border-[#000000] shadow-lg rounded-3xl hover:shadow-2xl transition-all"
       >
         <!-- Loadout Name -->
         <h2 class="text-3xl font-bold text-[#F4C356] border-b-2 pb-2 mb-4">{{ preset.name }}</h2>

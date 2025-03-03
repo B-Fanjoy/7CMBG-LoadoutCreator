@@ -1,6 +1,6 @@
 <template>
   <div class="p-4 bg-[#303030] text-white rounded-4xl">
-    <h1 class="text-5xl font-bold mb-6 py-8 text-center border-6 border-[#F4C356] rounded-3xl bg-[#212121]">Loadout Creator</h1>
+    <h1 class="text-7xl font-bold text-center text-[#F4C356] mb-8">Loadout Creator</h1>
 
     <!-- Weapons Section -->
     <div class="mb-8 border-4 border-[#F4C356] rounded-3xl bg-[#212121]">
