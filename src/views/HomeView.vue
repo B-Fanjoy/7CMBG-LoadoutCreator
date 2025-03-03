@@ -5,6 +5,7 @@
         <header class="bg-yellow-500 text-black text-center text-8xl font-bold p-6 rounded-md shadow-md">7CMBG Loadout Creator</header>
         <h1 class="text-4xl font-bold bg-black bg-opacity-50 rounded-md px-4 py-2">Build Your Perfect Loadout</h1>
         <p class="text-4x1 bg-black bg-opacity-50 rounded-md px-4 py-2">Create your ideal loadout following the approved kit-list and be mission-ready.</p>
+        <router-link to="/creator" class="bg-[#F4C356] text-black text-6xl font-bold px-4 py-2 rounded-md mt-30 shadow-2xl hover:bg-amber-500">Get Started</router-link>
       </div>
 
       <!-- Floating Arrows -->
@@ -24,18 +25,18 @@
     </section>
 
     <section class="text-center p-8">
-      <h2 class="text-3xl text-yellow-500 mb-4">Why Use The Loadout Creator?</h2>
-      <p class="text-lg max-w-2xl mx-auto mb-6">This tool simplifies loadout customization, ensuring compliance with unit regulations and operational readiness.</p>
+      <h2 class="text-4xl text-yellow-500 mb-4 font-bold">Why Use The Loadout Creator?</h2>
+      <p class="mb-6">This tool simplifies loadout customization, ensuring compliance with unit regulations and operational readiness.</p>
 
       <div class="flex flex-wrap justify-center gap-6">
         <div v-for="(feature, index) in features" :key="index" class="bg-gray-800 text-white p-6 rounded-lg max-w-sm shadow-lg">
-          <h3 class="text-xl text-yellow-500 font-semibold">{{ feature.title }}</h3>
+          <h3 class="text-4xl text-yellow-500 font-semibold">{{ feature.title }}</h3>
           <p class="mt-2">{{ feature.description }}</p>
         </div>
       </div>
     </section>
 
-    <footer class="mt-10 py-4 bg-gray-200 text-center text-gray-800 text-sm">
+    <footer class="mt-10 py-4 bg-[#393939] text-center text-[#bababa] text-sm">
       <p>Created with ❤️ by <a href="https://github.com/B-Fanjoy" target="_blank" class="text-green-600 hover:underline">B. Fanjoy</a>. Hosted on <a href="https://pages.github.com" target="_blank" class="text-green-600 hover:underline">GitHub Pages</a>.</p>
     </footer>
   </div>
