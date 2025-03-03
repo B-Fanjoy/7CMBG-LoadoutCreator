@@ -49,8 +49,8 @@
 
         <!-- Gear Section with Items Display -->
         <div class="mb-4">
-          <h3 class="text-lg font-semibold text-gray-300">Gear:</h3>
-          <ul class="text-gray-400 text-sm space-y-1">
+          <h3 class="text-lg font-semibold text-gray-300">Main Gear:</h3>
+          <ul class="text-gray-400 text-sm space-y-2">
             <li>
               <strong>Uniform:</strong> {{ findItemName(preset.loadout[0][3][0]) }}
               <button @click="toggleSection('uniform', preset.name)" class="text-blue-400 ml-2">▼</button>
@@ -78,6 +78,27 @@
                 </li>
               </ul>
             </li>
+          </ul>
+        </div>
+
+        <!-- Equipment Section -->
+        <div class="mb-4">
+          <h3 class="text-lg font-semibold text-gray-300">Equipment:</h3>
+          <ul class="text-gray-400 text-sm space-y-1">
+            <li><strong>Headgear:</strong> {{ findItemName(preset.loadout[0][6]) }}</li>
+            <li><strong>Facewear:</strong> {{ findItemName(preset.loadout[0][7]) }}</li>
+            <li><strong>Binoculars:</strong> {{ findItemName(preset.loadout[0][8][0]) }}</li>
+
+            <!-- Individual Equipment Items -->
+            <li v-for="(item, index) in preset.loadout[0][9]" :key="index">
+              <strong>{{ getEquipmentLabel(index) }}:</strong> {{ findItemName(item) }}
+            </li>
+
+            <!-- Insignia -->
+            <li><strong>Insignia:</strong> {{ findItemName(preset.loadout[1][0][1]) }}</li>
+
+            <!-- Earplugs -->
+            <li><strong>Earplugs:</strong> {{ preset.loadout[1][1][1] === "true" ? "Yes" : "No" }}</li>
           </ul>
         </div>
 
@@ -131,7 +152,7 @@ export default {
       expandedSections: {},
       presets: [
         {
-          name: "Rifleman",
+          name: "Basic Rifleman",
           loadout: [
             [
               ["tfc_w_c7a2","","TFC_WA_peq15_blk","TFC_WA_C79_Elcan",["rhs_mag_30Rnd_556x45_Mk262_Stanag",1000],["",1000],"TFC_WA_Virtgrip"], // Primary weapon
@@ -182,7 +203,7 @@ export default {
           ]
         },
         {
-          name: "Grenadier",
+          name: "Basic Grenadier",
           loadout: [
             [
               ["tfc_w_c7a2_m203","","TFC_WA_peq15_blk","TFC_WA_C79_Elcan",["rhs_mag_30Rnd_556x45_Mk262_Stanag",1000],["rhs_mag_M433_HEDP",1000],""], // Primary weapon
@@ -276,6 +297,10 @@ export default {
       }
 
       return id;
+    },
+    getEquipmentLabel(index) {
+      const labels = ["Map", "Terminal", "Communication", "Navigation", "Watch", "Night Vision"];
+      return labels[index] || `Equipment ${index + 1}`; // Fallback label if more items exist
     },
     toggleSection(section, presetName) {
       if (!this.expandedSections[presetName]) {
