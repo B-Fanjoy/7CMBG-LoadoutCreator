@@ -183,7 +183,7 @@
               { "id": "ACE_Chemlight_HiGreen", "name": "Chemlight (Hi Green)", "weight": 0.20 },
               { "id": "ACE_Chemlight_HiRed", "name": "Chemlight (Hi Red)", "weight": 0.20 },
               { "id": "ACE_Chemlight_HiYellow", "name": "Chemlight (Hi Yellow)", "weight": 0.20 },
-              { "id": "ACE_EarPlugs", "name": "Chemlight (IR)", "weight": 0.20 }
+              { "id": "ACE_Chemlight_IR", "name": "Chemlight (IR)", "weight": 0.20 }
             ]
           }
         ]

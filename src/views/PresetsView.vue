@@ -18,29 +18,29 @@
           <h3 class="text-lg font-semibold text-gray-300">Weapons:</h3>
           <ul class="text-gray-400 text-sm space-y-2">
             <li>
-              <strong>Primary:</strong> {{ preset.loadout[0][0][0] }}
+              <strong>Primary:</strong> {{ findItemName(preset.loadout[0][0][0]) }}
               <button @click="toggleSection('primary', preset.name)" class="text-blue-400 ml-2">▼</button>
               <ul v-if="expandedSections[preset.name]?.primary" class="ml-4 mt-2 text-gray-500">
                 <li v-for="(attachment, index) in formatAttachments(preset.loadout[0][0])" :key="index">
-                  • {{ attachment || "None" }}
+                  • {{ findItemName(attachment) || "None" }}
                 </li>
               </ul>
             </li>
             <li>
-              <strong>Secondary:</strong> {{ preset.loadout[0][1][0] }}
+              <strong>Secondary:</strong> {{ findItemName(preset.loadout[0][1][0]) }}
               <button @click="toggleSection('secondary', preset.name)" class="text-blue-400 ml-2">▼</button>
               <ul v-if="expandedSections[preset.name]?.secondary" class="ml-4 mt-2 text-gray-500">
                 <li v-for="(attachment, index) in formatAttachments(preset.loadout[0][1])" :key="index">
-                  • {{ attachment || "None" }}
+                  • {{ findItemName(attachment) || "None" }}
                 </li>
               </ul>
             </li>
             <li>
-              <strong>Tertiary:</strong> {{ preset.loadout[0][2][0] }}
+              <strong>Tertiary:</strong> {{ findItemName(preset.loadout[0][2][0]) }}
               <button @click="toggleSection('tertiary', preset.name)" class="text-blue-400 ml-2">▼</button>
               <ul v-if="expandedSections[preset.name]?.tertiary" class="ml-4 mt-2 text-gray-500">
                 <li v-for="(attachment, index) in formatAttachments(preset.loadout[0][2])" :key="index">
-                  • {{ attachment || "None" }}
+                  • {{ findItemName(attachment) || "None" }}
                 </li>
               </ul>
             </li>
@@ -52,29 +52,29 @@
           <h3 class="text-lg font-semibold text-gray-300">Gear:</h3>
           <ul class="text-gray-400 text-sm space-y-1">
             <li>
-              <strong>Uniform:</strong> {{ preset.loadout[0][3][0] }}
+              <strong>Uniform:</strong> {{ findItemName(preset.loadout[0][3][0]) }}
               <button @click="toggleSection('uniform', preset.name)" class="text-blue-400 ml-2">▼</button>
               <ul v-if="expandedSections[preset.name]?.uniform" class="ml-4 mt-2 text-gray-500">
                 <li v-for="(item, index) in preset.loadout[0][3][1]" :key="index">
-                  • {{ item[0] }} x{{ item[1] }}
+                  • {{ findItemName(item[0]) }} x{{ item[1] }}
                 </li>
               </ul>
             </li>
             <li>
-              <strong>Vest:</strong> {{ preset.loadout[0][4][0] }}
+              <strong>Vest:</strong> {{ findItemName(preset.loadout[0][4][0]) }}
               <button @click="toggleSection('vest', preset.name)" class="text-blue-400 ml-2">▼</button>
               <ul v-if="expandedSections[preset.name]?.vest" class="ml-4 mt-2 text-gray-500">
                 <li v-for="(item, index) in preset.loadout[0][4][1]" :key="index">
-                  • {{ item[0] }} x{{ item[1] }}
+                  • {{ findItemName(item[0]) }} x{{ item[1] }}
                 </li>
               </ul>
             </li>
             <li>
-              <strong>Backpack:</strong> {{ preset.loadout[0][5][0] }}
+              <strong>Backpack:</strong> {{ findItemName(preset.loadout[0][5][0]) }}
               <button @click="toggleSection('backpack', preset.name)" class="text-blue-400 ml-2">▼</button>
               <ul v-if="expandedSections[preset.name]?.backpack" class="ml-4 mt-2 text-gray-500">
                 <li v-for="(item, index) in preset.loadout[0][5][1]" :key="index">
-                  • {{ item[0] }} x{{ item[1] }}
+                  • {{ findItemName(item[0]) }} x{{ item[1] }}
                 </li>
               </ul>
             </li>
@@ -116,12 +116,18 @@
 </template>
 
 <script>
+import gearData from "/src/data/gear.json";
+import weaponsData from "/src/data/weapons.json";
+import itemsData from "/src/data/items.json";
 import { useLoadoutStore } from '/src/stores/loadoutStore.js';
 
 export default {
   name: 'PresetsView',
   data() {
     return {
+      weapons: weaponsData.sections,
+      gear: gearData.sections,
+      items: itemsData.sections,
       expandedSections: {},
       presets: [
         {
@@ -152,7 +158,6 @@ export default {
                   ["ACRE_PRC343", 1],
                   ["SmokeShell", 2, 1],
                   ["rhs_mag_m67", 2, 1],
-                  ["SmokeShellGreen", 1, 1],
                   ["rhs_mag_30Rnd_556x45_Mk262_Stanag", 4, 30]
                 ]
               ], // Vest
@@ -236,6 +241,42 @@ export default {
     };
   },
   methods: {
+    findItemName(id) {
+      if (!id) return "None";
+
+      // Search Weapons
+      for (const section of this.weapons) {
+        if (section.weapons) {
+          for (const weapon of section.weapons) {
+            if (weapon.id === id) return weapon.name;
+          }
+        }
+      }
+
+      // Search Gear
+      for (const section of this.gear) {
+        if (section.options) {
+          for (const option of section.options) {
+            if (option.id === id) return option.name;
+          }
+        }
+      }
+
+      // Search Items
+      for (const section of this.items) {
+        if (section.groupings) {
+          for (const group of section.groupings) {
+            if (group.options) {
+              for (const option of group.options) {
+                if (option.id === id) return option.name;
+              }
+            }
+          }
+        }
+      }
+
+      return id;
+    },
     toggleSection(section, presetName) {
       if (!this.expandedSections[presetName]) {
         this.expandedSections[presetName] = {};
