@@ -295,6 +295,9 @@
             "name": "Regular Miscellaneous",
             "options": [
               { "id": "ACRE_PRC343", "name": "AN/PRC-343", "weight": 0.80 },
+              { "id": "TFC_CH_Booniehat_CADPAT_AR", "name": "Booniehat CADPAT Arid Regions", "weight": 0.10 },
+              { "id": "TFC_CH_Booniehat_CADPAT_MT", "name": "Booniehat CADPAT Multi-Terrain", "weight": 0.10 },
+              { "id": "TFC_CH_Booniehat_CADPAT_TW", "name": "Booniehat CADPAT Temperate Woodlands", "weight": 0.10 },
               { "id": "ACE_CableTie", "name": "Cable Tie", "weight": 0.03 },
               { "id": "ACE_EarPlugs", "name": "Earplugs", "weight": 0.01 },
               { "id": "kat_gasmaskFilter", "name": "Gas Mask Filter", "weight": 0.10 },

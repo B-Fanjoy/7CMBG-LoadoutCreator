@@ -74,7 +74,7 @@
               <li v-for="(item, index) in selectedItems[section.id]" :key="index"
                   class="p-2 border-b-2 border-dashed grid grid-cols-[minmax(0,1fr)_auto_auto_auto_auto] items-center gap-2">
 
-                <div class="truncate text-[0.8rem]">{{ getItemName(item.id) }}</div>
+                <div class="truncate text-[1rem]">{{ getItemName(item.id) }}</div>
 
                 <button @click="updateQuantity(section.id, item.id, -1)" class="px-2 py-1 bg-red-500 text-white rounded-md hover:bg-red-700">
                   -
