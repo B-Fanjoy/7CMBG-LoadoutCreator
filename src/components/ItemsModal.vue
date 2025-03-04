@@ -3,7 +3,7 @@
     <div class="fixed top-0 left-0 w-full h-full bg-[#00000085] flex justify-center items-center" v-if="isOpen">
 
       <!-- Modal Container -->
-      <div class="flex flex-col bg-[#4d4d4d] rounded-2xl w-auto h-auto">
+      <div class="flex flex-col bg-[#4d4d4d] border-2 border-[#F4C356] rounded-2xl w-auto h-auto">
 
         <!-- Modal Header -->
         <h2 class="text-4xl font-semibold py-2 text-center border-b-2 rounded-t-2xl text-[#F4C356] bg-[#2e2e2e]">
@@ -11,19 +11,20 @@
         </h2>
 
         <!-- Section Selector -->
-        <div class="flex flex-row items-center justify-center p-2 gap-4 border-b-2">
+        <div class="flex flex-row items-center justify-center p-2 gap-4 border-b-2 border-[#F4C356]">
           <div v-for="section in sections" :key="section.id"
-               @click="selectSection(section.id)"
-               class="hover:bg-[#222222] border-dashed border-2 p-2 cursor-pointer">
+              @click="selectSection(section.id)"
+              :class="['border-2 text-[#000000] rounded-2xl p-2 cursor-pointer',
+                        section.id === selectedSectionId ? 'bg-[#f49556]' : 'bg-[#F4C356] hover:bg-[#f49556]']">
             {{ section.name }}
           </div>
         </div>
 
         <!-- Item Selection (Auto-fill Groups in Row) -->
-        <div v-if="selectedSection" class="flex gap-4 flex-grow overflow-hidden p-2 w-full">
+        <div v-if="selectedSection" class="flex flex-grow overflow-hidden w-full">
 
           <div v-for="group in filteredItems" :key="group.id"
-              class="flex flex-col flex-1 min-w-[250px] w-full">
+            class="flex flex-col flex-1 border-1 border-[#F4C356] min-w-fit w-auto max-w-full">
 
             <!-- Group Header -->
             <h2 class="text-2xl font-semibold text-center text-[#F4C356] bg-[#2e2e2e] p-2">
@@ -31,27 +32,23 @@
             </h2>
 
             <!-- Scrollable Group List -->
-            <div class="flex-1 overflow-y-auto max-h-[50vh] p-2 text-center">
+            <div class="flex-1 overflow-y-auto max-h-[40vh] text-center custom-scrollbar">
               <div v-for="item in group.options" :key="item.id"
                   @click="selectItem(item.id)"
-                  class="grid grid-cols-[minmax(0,1fr)_auto] gap-2 pr-4 hover:bg-[#3b3b3b] cursor-pointer p-2 items-center">
-
+                  class="grid grid-cols-1 gap-2 hover:bg-[#3b3b3b] cursor-pointer p-2 items-center text-center">
                 <!-- Item Name -->
-                <div class="truncate">
+                <div class="w-full">
                   {{ item.name }}
                 </div>
-
-                <!-- Optional Extra Space -->
-                <div class="w-6 h-6"></div>
-
               </div>
             </div>
+
           </div>
 
         </div>
 
         <!-- Close Button -->
-        <button class="border-2 rounded-b-2xl hover:bg-[#6c5f5f] p-2 mt-auto" @click="close">
+        <button class="border-t-2 border-[#F4C356] rounded-b-2xl hover:bg-[#634545] p-2 mt-auto" @click="close">
           Close
         </button>
 
@@ -106,3 +103,23 @@ export default {
   }
 };
 </script>
+
+<style scoped>
+.custom-scrollbar::-webkit-scrollbar {
+  width: 6px;
+}
+
+.custom-scrollbar::-webkit-scrollbar-track {
+  background: #2e2e2e;
+  border-radius: 10px;
+}
+
+.custom-scrollbar::-webkit-scrollbar-thumb {
+  background: #F4C356;
+  border-radius: 10px;
+}
+
+.custom-scrollbar::-webkit-scrollbar-thumb:hover {
+  background: #f49556;
+}
+</style>
