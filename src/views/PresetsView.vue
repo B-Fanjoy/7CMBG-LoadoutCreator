@@ -8,7 +8,7 @@
       <div
         v-for="preset in presets"
         :key="preset.name"
-        class="p-6 bg-[#212121] border border-[#000000] shadow-lg rounded-3xl hover:shadow-2xl transition-all"
+        class="p-6 bg-[#212121] border-2 border-[#000000] shadow-lg rounded-3xl hover:shadow-2xl transition-all"
       >
         <!-- Loadout Name -->
         <h2 class="text-3xl font-bold text-[#F4C356] border-b-2 pb-2 mb-4">{{ preset.name }}</h2>
@@ -245,6 +245,106 @@ export default {
                   ["rhs_mag_m714_White", 2, 1],
                   ["rhs_mag_m715_Green", 1, 1],
                   ["rhs_mag_m713_Red", 1, 1]
+                ]
+              ], // Backpack
+              "TFC_CH_Caiman_CADPAT_MT", // Headgear
+              "rhsusf_shemagh2_gogg_tan", // Facewear
+              ["rhsusf_bino_m24","","","",["",1000],[],""], // Binoculars
+              ["ItemMap","ItemGPS","","ItemCompass","ItemWatch","TFC_NVG_PVS14"] // Misc gear
+            ],
+            [
+              ["ace_arsenal_insignia","tfc_insignia_7cmbg"], // Insignia
+              ["earplugs","true"] // Earplugs
+            ]
+          ]
+        },
+        {
+          name: "Basic C9 Gunner",
+          loadout: [
+            [
+              ["TFC_W_c9a2","","TFC_WA_peq15_blk","TFC_WA_C79_Elcan",["rhsusf_200rnd_556x45_mixed_box",1000],["",1000],""], // Primary weapon
+              ["","","","",["",1000],["",1000],""], // Secondary weapon
+              ["","","","",["",1000],["",1000],""], // Tertiary weapon
+              ["TFC_CU_CombatUniform_otw_cadpat_MT",
+                [
+                  ["ACE_packingBandage", 6],
+                  ["ACE_tourniquet", 4],
+                  ["ACE_elasticBandage", 6],
+                  ["kat_chestSeal", 2],
+                  ["ACE_splint", 4],
+                  ["kat_mask_M50", 1],
+                  ["kat_gasmaskFilter", 2],
+                  ["ACE_CableTie", 2],
+                  ["ACE_EarPlugs", 1],
+                  ["ACE_painkillers", 1, 10]
+                ]
+              ], // Uniform
+              ["TFC_CV_SORD_Ballistic_MT",
+                [
+                  ["ACE_Flashlight_XL50", 1],
+                  ["ACE_MapTools", 1],
+                  ["ACRE_PRC343", 1],
+                  ["SmokeShell", 2, 1],
+                  ["rhsusf_200rnd_556x45_mixed_box", 1, 200],
+                  ["rhs_mag_m67", 2, 1]
+                ]
+              ], // Vest
+              ["TFC_CB_Smallpack_MT",
+                [
+                  ["ACE_EntrenchingTool", 1],
+                  ["TFC_CH_Booniehat_CADPAT_MT", 1],
+                  ["ACE_IR_Strobe_Item", 1],
+                  ["rhsusf_200rnd_556x45_mixed_box", 2, 200]
+                ]
+              ], // Backpack
+              "TFC_CH_Caiman_CADPAT_MT", // Headgear
+              "rhsusf_shemagh2_gogg_tan", // Facewear
+              ["rhsusf_bino_m24","","","",["",1000],[],""], // Binoculars
+              ["ItemMap","ItemGPS","","ItemCompass","ItemWatch","TFC_NVG_PVS14"] // Misc gear
+            ],
+            [
+              ["ace_arsenal_insignia","tfc_insignia_7cmbg"], // Insignia
+              ["earplugs","true"] // Earplugs
+            ]
+          ]
+        },
+        {
+          name: "Basic C6 Gunner",
+          loadout: [
+            [
+              ["TFC_W_c6a1","","TFC_WA_peq15_blk","TFC_WA_C79_Elcan",["TFC_220Rnd_762x51_Box",1000],["",1000],""], // Primary weapon
+              ["","","","",["",1000],["",1000],""], // Secondary weapon
+              ["","","","",["",1000],["",1000],""], // Tertiary weapon
+              ["TFC_CU_CombatUniform_otw_cadpat_MT",
+                [
+                  ["ACE_packingBandage", 6],
+                  ["ACE_tourniquet", 4],
+                  ["ACE_elasticBandage", 6],
+                  ["kat_chestSeal", 2],
+                  ["ACE_splint", 4],
+                  ["kat_mask_M50", 1],
+                  ["kat_gasmaskFilter", 2],
+                  ["ACE_CableTie", 2],
+                  ["ACE_EarPlugs", 1],
+                  ["ACE_painkillers", 1, 10]
+                ]
+              ], // Uniform
+              ["TFC_CV_SORD_Ballistic_MT",
+                [
+                  ["ACE_Flashlight_XL50", 1],
+                  ["ACE_MapTools", 1],
+                  ["ACRE_PRC343", 1],
+                  ["SmokeShell", 2, 1],
+                  ["TFC_220Rnd_762x51_Box", 1, 220],
+                  ["rhs_mag_m67", 2, 1]
+                ]
+              ], // Vest
+              ["TFC_CB_Smallpack_MT",
+                [
+                  ["ACE_EntrenchingTool", 1],
+                  ["TFC_CH_Booniehat_CADPAT_MT", 1],
+                  ["ACE_IR_Strobe_Item", 1],
+                  ["TFC_220Rnd_762x51_Box", 2, 220]
                 ]
               ], // Backpack
               "TFC_CH_Caiman_CADPAT_MT", // Headgear
