@@ -1,5 +1,5 @@
 <template>
-  <main class="p-6 bg-[#303030] min-h-screen text-white">
+  <main class="p-6 m-2 rounded-4xl bg-[#303030] min-h-screen text-white">
     <!-- Page Title -->
     <h1 class="text-7xl font-bold text-center text-[#F4C356] mb-8">Preset Loadouts</h1>
 

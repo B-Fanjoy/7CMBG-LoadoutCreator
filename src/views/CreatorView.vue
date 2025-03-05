@@ -1,5 +1,5 @@
 <template>
-  <div class="p-4 bg-[#303030] text-white rounded-4xl">
+  <div class="m-2 p-4 bg-[#303030] text-white rounded-4xl">
     <h1 class="text-7xl font-bold text-center text-[#F4C356] mb-8">Loadout Creator</h1>
 
     <!-- Weapons Section -->
