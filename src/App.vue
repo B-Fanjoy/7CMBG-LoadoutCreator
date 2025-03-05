@@ -1,8 +1,8 @@
 <template>
   <div class="app-container">
-    <header v-if="!shouldHideHeader">
+    <header v-if="!shouldHideHeader" class="">
       <div class="wrapper">
-        <nav class="flex justify-center py-8 uppercase border-b border-zinc-900 bg-[#000000] font-medium">
+        <nav class="relative flex justify-center py-8 uppercase border-b border-zinc-900 bg-[#000000] font-medium">
           <div class="absolute left-8 top-5">
             <RouterLink to="/">
               <svg
