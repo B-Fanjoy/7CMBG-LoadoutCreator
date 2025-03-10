@@ -6,9 +6,12 @@
       <div class="flex flex-col bg-[#4d4d4d] border-2 border-[#F4C356] rounded-2xl w-auto h-auto">
 
         <!-- Modal Header -->
-        <h2 class="text-4xl font-semibold py-2 text-center border-b-2 rounded-t-2xl text-[#F4C356] bg-[#2e2e2e]">
-          Add an Item
-        </h2>
+        <div class="relative flex justify-center items-center border-b-2 pb-1 rounded-t-2xl text-[#F4C356] bg-[#2e2e2e]">
+          <h2 class="text-4xl font-semibold py-2 text-center">
+            Add an Item
+          </h2>
+          <input type="text" class="absolute right-2 top-2 p-2 text-center rounded-2xl bg-[#585858] border-2 border-[#F4C356] text-[#F4C356]" placeholder="Search" />
+        </div>
 
         <!-- Section Selector -->
         <div class="flex flex-row items-center justify-center p-2 gap-4 border-b-2 border-[#F4C356]">
