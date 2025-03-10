@@ -59,11 +59,11 @@
             <div class="w-full px-5">
               <div class="relative w-full bg-gray-700 rounded-full h-4">
                 <div
-                  class="h-4 rounded-full"
+                  class="h-4 rounded-full ease-in-out transition-all duration-500"
                   :class="getProgressBarColor(section.id)"
                   :style="{ width: getLoadPercentage(section.id) + '%' }"
                 ></div>
-                <span class="absolute top-0 left-2 text-xs text-center">
+                <span class="absolute inset-0 flex items-center justify-center text-xs text-center">
                   {{ getTotalLoad(section.id) }} / {{ getMaxLoad(section.id) }} lb
                 </span>
               </div>
@@ -626,7 +626,6 @@ export default {
       acc[section.id] = section.weapons.length > 0 ? section.weapons[0].id : "";
       return acc;
     }, {});
-
     this.selectedGear = this.gear.reduce((acc, section) => {
       acc[section.id] = section.options.length > 0 ? section.options[0].id : "";
       return acc;
