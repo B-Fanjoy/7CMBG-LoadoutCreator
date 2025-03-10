@@ -27,7 +27,7 @@
             class="flex flex-col flex-1 border-1 border-[#F4C356] min-w-fit w-auto max-w-full">
 
             <!-- Group Header -->
-            <h2 class="text-2xl font-semibold text-center text-[#F4C356] bg-[#2e2e2e] p-2">
+            <h2 class="text-2xl font-semibold text-center border-b-2 text-[#F4C356] bg-[#2e2e2e] p-2">
               {{ group.name }}
             </h2>
 
@@ -35,7 +35,7 @@
             <div class="flex-1 overflow-y-auto max-h-[40vh] text-center custom-scrollbar">
               <div v-for="item in group.options" :key="item.id"
                   @click="selectItem(item.id)"
-                  class="grid grid-cols-1 gap-2 hover:bg-[#3b3b3b] cursor-pointer p-2 items-center text-center">
+                  class="grid grid-cols-1 gap-2 bg-[#585858] hover:bg-[#3b3b3b] cursor-pointer p-2 items-center text-center not-last:border-b-2 border-[#F4C356] border-dashed">
                 <!-- Item Name -->
                 <div class="w-full">
                   {{ item.name }}
@@ -48,7 +48,7 @@
         </div>
 
         <!-- Close Button -->
-        <button class="border-t-2 border-[#F4C356] rounded-b-2xl hover:bg-[#634545] p-2 mt-auto" @click="close">
+        <button class="border-t-2 border-[#F4C356] rounded-b-2xl bg-[#634545] hover:bg-[#673b3b] p-2 mt-auto" @click="close">
           Close
         </button>
 
