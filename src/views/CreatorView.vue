@@ -163,6 +163,7 @@
           {{ getTotalWeight() }} lb
         </p>
       </div>
+      <button @click="saveLoadout" class="mt-4 px-4 py-2 bg-blue-500 text-white rounded-lg">Save Loadout</button>
       <div class="flex items-center h-25">
         <!-- Copy Icon with Tooltip -->
         <div class="relative group">
@@ -248,6 +249,15 @@ export default {
     }
   },
   methods: {
+    saveLoadout() {
+      let savedLoadouts = JSON.parse(localStorage.getItem('loadouts')) || [];
+      savedLoadouts.push({
+        name: prompt("Enter a name for the loadout:"),
+        loadout: JSON.parse(this.generateImportString)
+      });
+      localStorage.setItem('loadouts', JSON.stringify(savedLoadouts));
+      alert('Loadout saved successfully!');
+    },
     openItemsModal(section) {
       this.selectedContainer = section;
       this.showModal = true;
