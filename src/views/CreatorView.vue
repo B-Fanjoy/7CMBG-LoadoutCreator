@@ -1,6 +1,10 @@
 <template>
   <div class="m-2 p-4 bg-[#303030] text-white rounded-4xl">
-    <h1 class="text-7xl font-bold text-center text-[#F4C356] mb-8">Loadout Creator</h1>
+    <div class="relative flex justify-evenly mb-4">
+      <button @click="saveLoadout" class="bg-green-500 text-white font-bold text-3xl rounded-lg px-4">Save Loadout</button>
+      <h1 class="text-7xl font-bold text-center text-[#F4C356]">Loadout Creator</h1>
+      <button @click="clearSelections" class="bg-red-500 text-white font-bold text-3xl rounded-lg px-4">Clear Selections</button>
+    </div>
 
     <!-- Weapons Section -->
     <div class="mb-8 border-4 border-[#F4C356] rounded-3xl bg-[#212121]">
@@ -163,7 +167,6 @@
           {{ getTotalWeight() }} lb
         </p>
       </div>
-      <button @click="saveLoadout" class="mt-4 px-4 py-2 bg-blue-500 text-white rounded-lg">Save Loadout</button>
       <div class="flex items-center h-25">
         <!-- Copy Icon with Tooltip -->
         <div class="relative group">
@@ -189,7 +192,7 @@
         <!-- Import String Textarea -->
         <textarea
           disabled
-          class="flex-grow m-2.5 h-20 rounded-[4px] border-2 resize-none"
+          class="flex-grow m-2.5 h-20 rounded-[4px] border-2 resize-none app-container"
           :value="generateImportString"
         ></textarea>
       </div>
@@ -197,6 +200,30 @@
 
   </div>
 </template>
+
+<style scoped>
+.app-container {
+  overflow-y: auto;
+}
+
+.app-container::-webkit-scrollbar {
+  width: 6px;
+}
+
+.app-container::-webkit-scrollbar-track {
+  background: #2e2e2e;
+  border-radius: 10px;
+}
+
+.app-container::-webkit-scrollbar-thumb {
+  background: #F4C356;
+  border-radius: 10px;
+}
+
+.app-container::-webkit-scrollbar-thumb:hover {
+  background: #f49556;
+}
+</style>
 
 <script>
 import gearData from "/src/data/gear.json";
@@ -257,6 +284,21 @@ export default {
       });
       localStorage.setItem('loadouts', JSON.stringify(savedLoadouts));
       alert('Loadout saved successfully!');
+    },
+    clearSelections() {
+      this.selectedWeapons = this.weaponSections.reduce((acc, section) => {
+        acc[section.id] = section.weapons.length > 0 ? section.weapons[0].id : "";
+        return acc;
+      }, {});
+      this.selectedGear = this.gear.reduce((acc, section) => {
+        acc[section.id] = section.options.length > 0 ? section.options[0].id : "";
+        return acc;
+      }, {});
+      this.selectedItems = {
+        uniform: [],
+        vest: [],
+        backpack: []
+      };
     },
     openItemsModal(section) {
       this.selectedContainer = section;
