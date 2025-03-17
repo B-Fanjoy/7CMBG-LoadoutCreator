@@ -1,6 +1,6 @@
 <template>
   <main class="p-6">
-    <h1 class="text-6xl font-bold mb-6 py-4 text-center border-6 border-[#F4C356] rounded-3xl">Saved Loadouts</h1>
+    <h1 class="text-7xl font-bold text-center text-[#F4C356] mb-2">Saved Loadouts</h1>
 
     <div class="flex justify-center gap-4 mb-6">
       <button @click="loadAllLoadouts" class="px-4 py-2 bg-green-500 text-white rounded-lg">Load Saved Loadouts</button>
