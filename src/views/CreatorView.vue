@@ -246,6 +246,31 @@ export default {
       console.warn('No loadout found in store.');
     }
   },
+  created() {
+    const savedWeapons = JSON.parse(localStorage.getItem('selectedWeapons')) || {};
+    const savedAttachments = JSON.parse(localStorage.getItem('selectedAttachments')) || {};
+    const savedGear = JSON.parse(localStorage.getItem('selectedGear')) || {};
+    const savedItems = JSON.parse(localStorage.getItem('selectedItems')) || {
+      uniform: [],
+      vest: [],
+      backpack: []
+    };
+    if (savedWeapons["primary"] || savedWeapons["secondary"] || savedWeapons["tertiary"]
+      || savedAttachments["primary"] || savedAttachments["secondary"] || savedAttachments["tertiary"]
+      || savedGear["uniform"] || savedGear["vest"] || savedGear["backpack"]
+      || savedItems["uniform"].length > 0 || savedItems["vest"].length > 0 || savedItems["backpack"].length > 0
+      || savedGear["headgear"] || savedGear["facewear"] || savedGear["binoculars"] || savedGear["map"]
+      || savedGear["terminal"] || savedGear["communication"] || savedGear["navigation"] || savedGear["watch"]
+      || savedGear["nvgs"] || savedGear["insignia"]
+    ) {
+      this.selectedWeapons = savedWeapons;
+      this.selectedAttachments = savedAttachments;
+      this.selectedGear = savedGear;
+      this.selectedItems = savedItems;
+    } else {
+      this.clearSelections();
+    }
+  },
   components: {
     ItemsModal
   },
@@ -254,10 +279,10 @@ export default {
       weapons: weaponsData.sections,
       gear: gearData.sections,
       items: itemsData.sections,
-      selectedWeapons: JSON.parse(localStorage.getItem('selectedWeapons')) || {},
-      selectedAttachments: JSON.parse(localStorage.getItem('selectedAttachments')) || {},
-      selectedGear: JSON.parse(localStorage.getItem('selectedGear')) || {},
-      selectedItems: JSON.parse(localStorage.getItem('selectedItems')) || {
+      selectedWeapons: {},
+      selectedAttachments: {},
+      selectedGear: {},
+      selectedItems: {
         uniform: [],
         vest: [],
         backpack: []
@@ -714,16 +739,6 @@ export default {
 
       return JSON.stringify(loadout);
     },
-  },
-  created() {
-    // this.selectedWeapons = this.weaponSections.reduce((acc, section) => {
-    //   acc[section.id] = section.weapons.length > 0 ? section.weapons[0].id : "";
-    //   return acc;
-    // }, {});
-    // this.selectedGear = this.gear.reduce((acc, section) => {
-    //   acc[section.id] = section.options.length > 0 ? section.options[0].id : "";
-    //   return acc;
-    // }, {});
   },
 };
 </script>
