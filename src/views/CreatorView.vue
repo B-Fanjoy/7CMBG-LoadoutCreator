@@ -306,6 +306,32 @@ export default {
         acc[section.id] = section.weapons.length > 0 ? section.weapons[0].id : "";
         return acc;
       }, {});
+      this.selectedAttachments = {
+        primary: {
+          muzzles: '',
+          rails: '',
+          sights: '',
+          primaryMagazines: '',
+          secondaryMagazines: '',
+          undermounts: ''
+        },
+        secondary: {
+          muzzles: '',
+          rails: '',
+          sights: '',
+          primaryMagazines: '',
+          secondaryMagazines: '',
+          undermounts: ''
+        },
+        tertiary: {
+          muzzles: '',
+          rails: '',
+          sights: '',
+          primaryMagazines: '',
+          secondaryMagazines: '',
+          undermounts: ''
+        }
+      };
       this.selectedGear = this.gear.reduce((acc, section) => {
         acc[section.id] = section.options.length > 0 ? section.options[0].id : "";
         return acc;
