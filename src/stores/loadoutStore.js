@@ -7,6 +7,9 @@ export const useLoadoutStore = defineStore('loadoutStore', {
   actions: {
     setLoadout(loadout) {
       this.selectedLoadout = loadout;
+    },
+    clearLoadout() {
+      this.selectedLoadout = null;
     }
   }
 });

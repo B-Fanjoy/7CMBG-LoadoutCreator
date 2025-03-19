@@ -240,6 +240,8 @@ export default {
   mounted() {
     if (this.loadout) {
       this.loadLoadout({ loadout: this.loadout });
+      const loadoutStore = useLoadoutStore();
+      loadoutStore.clearLoadout();
     } else {
       console.warn('No loadout found in store.');
     }
@@ -252,10 +254,10 @@ export default {
       weapons: weaponsData.sections,
       gear: gearData.sections,
       items: itemsData.sections,
-      selectedWeapons: {},
-      selectedAttachments: {},
-      selectedGear: {},
-      selectedItems: {
+      selectedWeapons: JSON.parse(localStorage.getItem('selectedWeapons')) || {},
+      selectedAttachments: JSON.parse(localStorage.getItem('selectedAttachments')) || {},
+      selectedGear: JSON.parse(localStorage.getItem('selectedGear')) || {},
+      selectedItems: JSON.parse(localStorage.getItem('selectedItems')) || {
         uniform: [],
         vest: [],
         backpack: []
@@ -264,13 +266,27 @@ export default {
     };
   },
   watch: {
+    selectedWeapons: {
+      handler(newVal) {
+        localStorage.setItem('selectedWeapons', JSON.stringify(newVal));
+      },
+      deep: true,
+    },
+    selectedAttachments: {
+      handler(newVal) {
+        localStorage.setItem('selectedAttachments', JSON.stringify(newVal));
+      },
+      deep: true,
+    },
     selectedGear: {
       handler(newVal) {
-        for (const container in newVal) {
-          if (!newVal[container]) {
-            this.selectedItems[container] = [];
-          }
-        }
+        localStorage.setItem('selectedGear', JSON.stringify(newVal));
+      },
+      deep: true,
+    },
+    selectedItems: {
+      handler(newVal) {
+        localStorage.setItem('selectedItems', JSON.stringify(newVal));
       },
       deep: true,
     }
@@ -674,14 +690,14 @@ export default {
     },
   },
   created() {
-    this.selectedWeapons = this.weaponSections.reduce((acc, section) => {
-      acc[section.id] = section.weapons.length > 0 ? section.weapons[0].id : "";
-      return acc;
-    }, {});
-    this.selectedGear = this.gear.reduce((acc, section) => {
-      acc[section.id] = section.options.length > 0 ? section.options[0].id : "";
-      return acc;
-    }, {});
+    // this.selectedWeapons = this.weaponSections.reduce((acc, section) => {
+    //   acc[section.id] = section.weapons.length > 0 ? section.weapons[0].id : "";
+    //   return acc;
+    // }, {});
+    // this.selectedGear = this.gear.reduce((acc, section) => {
+    //   acc[section.id] = section.options.length > 0 ? section.options[0].id : "";
+    //   return acc;
+    // }, {});
   },
 };
 </script>
