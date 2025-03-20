@@ -18,31 +18,64 @@
 
         <div v-if="expanded[index]">
           <!-- Weapons Section -->
-          <div class="mb-4" v-if="filteredWeapons(index).length">
+          <div class="mb-4">
             <h3 class="text-lg font-semibold text-gray-300">Weapons:</h3>
             <ul class="text-gray-400 text-sm space-y-2">
-              <li v-for="(weapon, wIndex) in filteredWeapons(index)" :key="wIndex">
-                <strong>{{ findItemName(weapon[0]) }}</strong>
-                <ul class="ml-4 text-gray-500 text-xs">
-                  <li v-if="weapon[2]">Attachment: {{ weapon[2] }}</li>
-                  <li v-if="weapon[3]">Scope: {{ weapon[3] }}</li>
-                  <li v-if="weapon[4] && Array.isArray(weapon[4])">Ammo: {{ weapon[4][0] }} ({{ weapon[4][1] }})</li>
+              <li>
+                <strong>Primary:</strong> {{ findItemName(loadout.loadout[0][0][0]) }}
+                <ul class="indent-4">
+                  <li v-if="loadout.loadout[0][0][3]">• <strong>Sight</strong> {{ findItemName(loadout.loadout[0][0][3]) }}</li>
+                  <li v-if="loadout.loadout[0][0][2]">• <strong>Rail:</strong> {{ findItemName(loadout.loadout[0][0][2]) }}</li>
+                  <li v-if="loadout.loadout[0][0][1]">• <strong>Muzzle:</strong> {{ findItemName(loadout.loadout[0][0][1]) }}</li>
+                  <li v-if="loadout.loadout[0][0][6]">• <strong>Undermount:</strong> {{ findItemName(loadout.loadout[0][0][6]) }}</li>
+                  <li v-if="loadout.loadout[0][0][4][0]">• <strong>Primary Magazine:</strong> {{ findItemName(loadout.loadout[0][0][4][0]) }}</li>
+                  <li v-if="loadout.loadout[0][0][5][0]">• <strong>Secondary Magazine:</strong> {{ findItemName(loadout.loadout[0][0][5][0]) }}</li>
+                </ul>
+              </li>
+              <li>
+                <strong>Secondary:</strong> {{ findItemName(loadout.loadout[0][1][0]) }}
+                <ul class="indent-4">
+                  <li v-if="loadout.loadout[0][1][3]">• <strong>Sight</strong> {{ findItemName(loadout.loadout[0][1][3]) }}</li>
+                  <li v-if="loadout.loadout[0][1][2]">• <strong>Rail:</strong> {{ findItemName(loadout.loadout[0][1][2]) }}</li>
+                  <li v-if="loadout.loadout[0][1][1]">• <strong>Muzzle:</strong> {{ findItemName(loadout.loadout[0][1][1]) }}</li>
+                  <li v-if="loadout.loadout[0][1][6]">• <strong>Undermount:</strong> {{ findItemName(loadout.loadout[0][1][6]) }}</li>
+                  <li v-if="loadout.loadout[0][1][4][0]">• <strong>Primary Magazine:</strong> {{ findItemName(loadout.loadout[0][1][4][0]) }}</li>
+                  <li v-if="loadout.loadout[0][1][5][0]">• <strong>Secondary Magazine:</strong> {{ findItemName(loadout.loadout[0][1][5][0]) }}</li>
+                </ul>
+              </li>
+              <li>
+                <strong>Tertiary:</strong> {{ findItemName(loadout.loadout[0][2][0]) }}
+                <ul class="indent-4">
+                  <li v-if="loadout.loadout[0][2][3]">• <strong>Sight</strong> {{ findItemName(loadout.loadout[0][2][3]) }}</li>
+                  <li v-if="loadout.loadout[0][2][2]">• <strong>Rail:</strong> {{ findItemName(loadout.loadout[0][2][2]) }}</li>
+                  <li v-if="loadout.loadout[0][2][1]">• <strong>Muzzle:</strong> {{ findItemName(loadout.loadout[0][2][1]) }}</li>
+                  <li v-if="loadout.loadout[0][2][6]">• <strong>Undermount:</strong> {{ findItemName(loadout.loadout[0][2][6]) }}</li>
+                  <li v-if="loadout.loadout[0][2][4][0]">• <strong>Primary Magazine:</strong> {{ findItemName(loadout.loadout[0][2][4][0]) }}</li>
+                  <li v-if="loadout.loadout[0][2][5][0]">• <strong>Secondary Magazine:</strong> {{ findItemName(loadout.loadout[0][2][5][0]) }}</li>
                 </ul>
               </li>
             </ul>
           </div>
 
-          <!-- Gear Section -->
-          <div class="mb-4" v-if="filteredGear(index).length">
-            <h3 class="text-lg font-semibold text-gray-300">Gear:</h3>
+          <!-- Main Gear Section -->
+          <div class="mb-4">
+            <h3 class="text-lg font-semibold text-gray-300">Main Gear:</h3>
             <ul class="text-gray-400 text-sm space-y-2">
-              <li v-if="filteredGear(index)[0]"> <strong>Uniform:</strong> {{ filteredGear(index)[0] }}</li>
-              <li v-if="filteredGear(index)[1]"> <strong>Vest:</strong> {{ filteredGear(index)[1] }}</li>
-              <li v-if="filteredGear(index)[2]"> <strong>Backpack:</strong> {{ filteredGear(index)[2] }}</li>
-              <li v-if="filteredGear(index)[3]"> <strong>Helmet:</strong> {{ filteredGear(index)[3] }}</li>
-              <li v-if="filteredGear(index)[4]"> <strong>Goggles:</strong> {{ filteredGear(index)[4] }}</li>
+              <li>
+                <strong>Uniform:</strong> {{ findItemName(loadout.loadout[0][3][0]) }}
+                <ul>
+
+                </ul>
+              </li>
+              <li>
+                <strong>Vest:</strong> {{ findItemName(loadout.loadout[0][4][0]) }}
+              </li>
+              <li>
+                <strong>Backpack:</strong> {{ findItemName(loadout.loadout[0][5][0]) }}
+              </li>
             </ul>
           </div>
+
         </div>
 
         <!-- Actions -->
@@ -74,26 +107,6 @@ export default {
       loadouts: [],
       expanded: []
     };
-  },
-  computed: {
-    filteredWeapons() {
-      return (index) => {
-        const loadout = this.loadouts[index];
-        return loadout?.loadout?.[0]?.filter(item => Array.isArray(item) && item.length > 0) || [];
-      };
-    },
-    filteredGear() {
-      return (index) => {
-        const loadout = this.loadouts[index]?.loadout?.[0] || [];
-        return [
-          loadout[3]?.[0] || '',
-          loadout[4]?.[0] || '',
-          loadout[5]?.[0] || '',
-          typeof loadout[6] === 'string' ? loadout[6] : '',
-          typeof loadout[7] === 'string' ? loadout[7] : ''
-        ];
-      };
-    }
   },
   methods: {
     editLoadout(loadout) {
