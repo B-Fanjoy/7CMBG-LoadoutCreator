@@ -1,7 +1,7 @@
 <template>
   <div class="m-2 p-4 bg-[#303030] text-white rounded-4xl">
     <div class="relative flex justify-evenly mb-4">
-      <button @click="saveLoadout" class="bg-green-500 text-white font-bold text-3xl rounded-lg px-4">Save Loadout</button>
+      <button @click="openSaveModal" class="bg-green-500 text-white font-bold text-3xl rounded-lg px-4">Save Loadout</button>
       <h1 class="text-7xl font-bold text-center text-[#F4C356]">Loadout Creator</h1>
       <button @click="clearSelections" class="bg-red-500 text-white font-bold text-3xl rounded-lg px-4">Clear Selections</button>
     </div>
@@ -111,6 +111,11 @@
     <!-- Items Modal -->
     <div>
       <ItemsModal :isOpen="showModal" :currentContainer="selectedContainer"  @update:isOpen="showModal = $event" @add-item="addItemToList"></ItemsModal>
+    </div>
+
+    <!-- Save Modal -->
+    <div>
+      <SaveModal :isOpen="showSaveModal" :currentLoadout="generateImportString" @update:isOpen="showSaveModal = $event"></SaveModal>
     </div>
 
     <!-- Equipment Section -->
@@ -231,6 +236,7 @@ import weaponsData from "/src/data/weapons.json";
 import itemsData from "/src/data/items.json";
 import ItemsModal from '/src/components/ItemsModal.vue';
 import { useLoadoutStore } from '/src/stores/loadoutStore.js';
+import SaveModal from "@/components/SaveModal.vue";
 
 export default {
   setup() {
@@ -272,7 +278,8 @@ export default {
     }
   },
   components: {
-    ItemsModal
+    ItemsModal,
+    SaveModal
   },
   data() {
     return {
@@ -288,6 +295,7 @@ export default {
         backpack: []
       },
       showModal: false,
+      showSaveModal: false,
     };
   },
   watch: {
@@ -319,8 +327,17 @@ export default {
   methods: {
     saveLoadout() {
       let savedLoadouts = JSON.parse(localStorage.getItem('loadouts')) || [];
+      let newName = prompt("Enter a name for the loadout:");
+      if (newName === "") {
+        alert("Name cannot be blank.");
+        return;
+      }
+      else if (newName === savedLoadouts.find(loadout => loadout.name === newName)?.name) {
+        alert("Name already exists. Please choose a different name.");
+        return;
+      }
       savedLoadouts.push({
-        name: prompt("Enter a name for the loadout:"),
+        name: newName,
         loadout: JSON.parse(this.generateImportString)
       });
       localStorage.setItem('loadouts', JSON.stringify(savedLoadouts));
@@ -370,6 +387,9 @@ export default {
     openItemsModal(section) {
       this.selectedContainer = section;
       this.showModal = true;
+    },
+    openSaveModal() {
+      this.showSaveModal = true;
     },
     addItemToList({ container, item }) {
       const itemWeight = Number(this.getItemWeight(item));
