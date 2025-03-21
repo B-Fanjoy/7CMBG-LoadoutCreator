@@ -11,9 +11,9 @@
         class="p-6 bg-[#212121] border-2 border-[#000000] shadow-lg rounded-3xl hover:shadow-2xl transition-all"
       >
         <!-- Loadout Name & Toggle -->
-        <div class="flex justify-between items-center border-b-2 pb-2 mb-4">
+        <div class="flex justify-between items-center border-b-2 pb-2 mb-4" @click="toggleLoadout(index)">
           <h2 class="text-3xl font-bold text-[#F4C356]">{{ loadout.name }}</h2>
-          <button @click="toggleLoadout(index)" class="text-[#F4C356] text-2xl">{{ expanded[index] ? '▲' : '▼' }}</button>
+          <button class="text-[#F4C356] text-2xl">{{ expanded[index] ? '▲' : '▼' }}</button>
         </div>
 
         <div v-if="expanded[index]">
@@ -63,16 +63,55 @@
             <ul class="text-gray-400 text-sm space-y-2">
               <li>
                 <strong>Uniform:</strong> {{ findItemName(loadout.loadout[0][3][0]) }}
-                <ul>
-
+                <ul class="indent-4">
+                  <li v-if="loadout.loadout[0][3][0]"> <strong>Items:</strong></li>
+                  <ul class="indent-6">
+                    <li v-for="item in loadout.loadout[0][3][1]" :key="item">
+                      • {{ item[1] }}x {{ findItemName(item[0]) }}
+                    </li>
+                  </ul>
                 </ul>
               </li>
               <li>
                 <strong>Vest:</strong> {{ findItemName(loadout.loadout[0][4][0]) }}
+                <ul class="indent-4">
+                  <li v-if="loadout.loadout[0][4][0]"> <strong>Items:</strong></li>
+                  <ul class="indent-6">
+                    <li v-for="item in loadout.loadout[0][4][1]" :key="item">
+                      • {{ item[1] }}x {{ findItemName(item[0]) }}
+                    </li>
+                  </ul>
+                </ul>
               </li>
               <li>
                 <strong>Backpack:</strong> {{ findItemName(loadout.loadout[0][5][0]) }}
+                <ul class="indent-4">
+                  <li v-if="loadout.loadout[0][5][0]"> <strong>Items:</strong></li>
+                  <ul class="indent-6">
+                    <li v-for="item in loadout.loadout[0][5][1]" :key="item">
+                      • {{ item[1] }}x {{ findItemName(item[0]) }}
+                    </li>
+                  </ul>
+                </ul>
               </li>
+            </ul>
+          </div>
+
+          <!-- Additional Gear Section -->
+          <div class="mb-4">
+            <h3 class="text-lg font-semibold text-gray-300">Other Gear:</h3>
+            <ul class="text-gray-400 text-sm">
+              <li><strong>Headgear:</strong> {{ findItemName(loadout.loadout[0][6]) }}</li>
+              <li><strong>Facewear:</strong> {{ findItemName(loadout.loadout[0][7]) }}</li>
+              <li><strong>Binoculars:</strong> {{ findItemName(loadout.loadout[0][8][0]) }}</li>
+              <li><strong>Map:</strong> {{ findItemName(loadout.loadout[0][9][0]) }}</li>
+              <li><strong>Terminal:</strong> {{ findItemName(loadout.loadout[0][9][1]) }}</li>
+              <li><strong>Communication:</strong> {{ findItemName(loadout.loadout[0][9][2]) }}</li>
+              <li><strong>Navigation:</strong> {{ findItemName(loadout.loadout[0][9][3]) }}</li>
+              <li><strong>Watch:</strong> {{ findItemName(loadout.loadout[0][9][4]) }}</li>
+              <li><strong>NVGs:</strong> {{ findItemName(loadout.loadout[0][9][5]) }}</li>
+              <li><strong>Inginia:</strong> {{ findItemName(loadout.loadout[1][0][1]) }}</li>
+              <li><strong>Earplugs:</strong> {{ findItemName(loadout.loadout[1][1][1]) }}</li>
             </ul>
           </div>
 
@@ -82,6 +121,7 @@
         <div class="flex gap-2 mt-4">
           <button @click="deleteLoadout(loadout.name)" class="px-3 py-1 bg-red-600 text-white rounded-lg">Delete</button>
           <button @click="editLoadout(loadout)" class="px-3 py-1 bg-green-600 text-white rounded-lg">Edit</button>
+          <button @click="copyToClipboard(loadout)" class="px-3 py-1 bg-blue-600 text-white rounded-lg">Copy</button>
         </div>
       </div>
     </div>
@@ -115,16 +155,24 @@ export default {
       this.$router.push({ name: 'creator' });
     },
     loadAllLoadouts() {
-      // Retrieve all loadouts stored in localStorage
       const savedLoadouts = JSON.parse(localStorage.getItem('loadouts')) || [];
       this.loadouts = savedLoadouts;
     },
     deleteLoadout(loadoutName) {
-      // Remove specific loadout from storage
       let savedLoadouts = JSON.parse(localStorage.getItem('loadouts')) || [];
       savedLoadouts = savedLoadouts.filter(loadout => loadout.name !== loadoutName);
       localStorage.setItem('loadouts', JSON.stringify(savedLoadouts));
       this.loadAllLoadouts();
+    },
+    async copyToClipboard(loadout) {
+      try {
+        const loadoutString = JSON.stringify(loadout.loadout);
+        await navigator.clipboard.writeText(loadoutString);
+        alert("Loadout copied to clipboard!");
+      } catch (err) {
+        console.error("Failed to copy: ", err);
+        alert("Failed to copy!");
+      }
     },
     clearAllLoadouts() {
       localStorage.removeItem('loadouts');
