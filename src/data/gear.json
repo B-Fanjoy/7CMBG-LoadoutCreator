@@ -480,12 +480,14 @@
           {
             "id": "ACE_VectorDay",
             "name": "Vector 21",
-            "weight": 1.00
+            "weight": 1.00,
+            "restricted": true
           },
           {
             "id": "ACE_Vector",
             "name": "Vector 21 Nite",
-            "weight": 1.00
+            "weight": 1.00,
+            "restricted": true
           }
         ]
       },

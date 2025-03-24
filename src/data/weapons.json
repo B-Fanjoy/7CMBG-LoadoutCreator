@@ -134,6 +134,7 @@
             "id": "TFC_W_c8a3",
             "name": "C8A3 Carbine Rifle",
             "weight": 7.30,
+            "restricted": true,
             "attachments": {
               "sights": [
                 { "id": "", "name":"-- None --", "weight": 0.00},
@@ -194,6 +195,7 @@
             "id": "TFC_W_c8a3_m203",
             "name": "C8A3 Carbine Rifle w/M203",
             "weight": 8.90,
+            "restricted": true,
             "attachments": {
               "sights": [
                 { "id": "", "name":"-- None --", "weight": 0.00},
@@ -311,6 +313,7 @@
             "id": "TFC_W_c6",
             "name": "C6 Medium Machine Gun",
             "weight": 26.00,
+            "restricted": true,
             "attachments": {
               "sights": [
                 { "id": "", "name":"-- None --", "weight": 0.00},
@@ -360,6 +363,7 @@
             "id": "TFC_W_c6a1",
             "name": "C6A1 General Purpose Machine Gun",
             "weight": 16.30,
+            "restricted": true,
             "attachments": {
               "sights": [
                 { "id": "", "name":"-- None --", "weight": 0.00},
@@ -409,6 +413,7 @@
             "id": "TFC_W_c20",
             "name": "C20 Semi-Automatic Sniper Weapon",
             "weight": 7.30,
+            "restricted": true,
             "attachments": {
               "sights": [
                 { "id": "", "name":"-- None --", "weight": 0.00},
@@ -518,6 +523,7 @@
             "id": "TFC_launch_CarlG_M3",
             "name": "M3 Carl Gustaf Recoilless Rifle",
             "weight": 1.73,
+            "restricted": true,
             "attachments": {
               "sights": [
                 { "id": "", "name":"-- None --", "weight": 0.00},
@@ -539,6 +545,7 @@
             "id": "rhs_weap_maaws",
             "name": "M3 MAAWS",
             "weight": 18.70,
+            "restricted": true,
             "attachments": {
               "sights": [
                 { "id": "", "name":"-- None --", "weight": 0.00},

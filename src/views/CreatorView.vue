@@ -30,9 +30,16 @@
               @change="updateAttachments(section.id)"
               class="w-full p-2 bg-[#494949] border border-[#F4C356] rounded focus:outline-none text-center text-[#ffffff]"
             >
-              <option v-for="weapon in section.weapons" :key="weapon.id" :value="weapon.id">
-                {{ weapon.name }}
-              </option>
+              <optgroup label="Non-Restricted Weapons">
+                <option v-for="weapon in section.weapons.filter(w => !isWeaponRestricted(w.id))" :key="weapon.id" :value="weapon.id">
+                  {{ weapon.name }}
+                </option>
+              </optgroup>
+              <optgroup label="Restricted Weapons" v-if="section.weapons.some(w => isWeaponRestricted(w.id))">
+                <option v-for="weapon in section.weapons.filter(w => isWeaponRestricted(w.id))" :key="weapon.id" :value="weapon.id" class="text-red-500">
+                  {{ weapon.name }}
+                </option>
+              </optgroup>
             </select>
             <div v-if="selectedWeapons[section.id]" class="flex flex-col w-full mt-2 transition-opacity duration-500 ease-in-out opacity-100 transform translate-y-0" :class="{'opacity-0 translate-y-[-10px]': !selectedWeapons[section.id]}">
               <template v-for="(attachments, type) in getAttachments(section.id)" :key="type">
@@ -56,17 +63,23 @@
       <hr>
       <br>
       <div class="grid grid-cols-3 gap-4">
-        <div v-for="section in maingearSections" :key="section.id" class="mb-4 flex flex-col items-center">
-          <label class="block text-lg font-medium mb-1 text-center w-full">{{ section.name }}</label>
-
+      <div v-for="section in maingearSections" :key="section.id" class="mb-4 flex flex-col items-center">
+        <label class="block text-lg font-medium mb-1 text-center w-full">{{ section.name }}</label>
           <div class="w-full flex flex-col justify-center">
             <select
               v-model="selectedGear[section.id]"
               class="w-auto p-2 mx-5 bg-[#494949] border border-[#F4C356] rounded focus:outline-none text-center text-[#ffffff]"
             >
-              <option v-for="option in section.options" :key="option.id" :value="option.id">
-                {{ option.name }}
-              </option>
+              <optgroup label="Non-Restricted Gear">
+                <option v-for="option in section.options.filter(g => !isGearRestricted(g.id))" :key="option.id" :value="option.id">
+                  {{ option.name }}
+                </option>
+              </optgroup>
+              <optgroup label="Restricted Gear" v-if="section.options.some(g => isGearRestricted(g.id))">
+                <option v-for="option in section.options.filter(g => isGearRestricted(g.id))" :key="option.id" :value="option.id" class="text-red-500">
+                  {{ option.name }}
+                </option>
+              </optgroup>
             </select>
 
             <!-- Weight Progress Bar -->
@@ -137,19 +150,23 @@
       <!-- Main Grid -->
       <div class="grid grid-cols-3 gap-6">
         <template v-for="(section, index) in equipmentSections" :key="section.id">
-          <div
-            v-if="index < lastFullRowStart"
-            class="mb-4 flex flex-col items-center"
-          >
+          <div v-if="index < lastFullRowStart" class="mb-4 flex flex-col items-center">
             <label class="block text-lg font-medium mb-1 text-center w-full">{{ section.name }}</label>
             <div class="w-full flex justify-center">
               <select
                 v-model="selectedGear[section.id]"
                 class="w-full p-2 ms-4 me-4 bg-[#494949] border border-[#F4C356] rounded focus:outline-none text-center text-[#ffffff]"
               >
-                <option v-for="option in section.options" :key="option.id" :value="option.id">
-                  {{ option.name }}
-                </option>
+                <optgroup label="Non-Restricted Gear">
+                  <option v-for="option in section.options.filter(g => !isGearRestricted(g.id))" :key="option.id" :value="option.id">
+                    {{ option.name }}
+                  </option>
+                </optgroup>
+                <optgroup label="Restricted Gear" v-if="section.options.some(g => isGearRestricted(g.id))">
+                  <option v-for="option in section.options.filter(g => isGearRestricted(g.id))" :key="option.id" :value="option.id" class="text-red-500">
+                    {{ option.name }}
+                  </option>
+                </optgroup>
               </select>
             </div>
           </div>
@@ -335,6 +352,18 @@ export default {
     }
   },
   methods: {
+    isWeaponRestricted(weaponId) {
+      const weapon = this.weapons.flatMap(section => section.weapons).find(w => w.id === weaponId);
+      return weapon ? weapon.restricted : false;
+    },
+    isItemRestricted(itemId) {
+      const item = this.items.flatMap(section => section.groupings).flatMap(group => group.options).find(i => i.id === itemId);
+      return item ? item.restricted : false;
+    },
+    isGearRestricted(gearId) {
+      const gear = this.gear.flatMap(section => section.options).find(g => g.id === gearId);
+      return gear ? gear.restricted : false;
+    },
     saveLoadout() {
       let savedLoadouts = JSON.parse(localStorage.getItem('loadouts')) || [];
       let newName = prompt("Enter a name for the loadout:");
