@@ -81,6 +81,7 @@ export default {
     },
     selectSection(sectionId) {
       this.selectedSectionId = sectionId;
+      this.searchQuery = "";
     },
     selectItem(selectedItem) {
       this.$emit('add-item', { container: this.currentContainer, item: selectedItem });

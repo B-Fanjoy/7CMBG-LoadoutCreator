@@ -1,9 +1,19 @@
 <template>
   <div class="m-2 p-4 bg-[#303030] text-white rounded-4xl">
     <div class="relative flex justify-evenly mb-4">
-      <button @click="openSaveModal" class="bg-green-500 text-white font-bold text-3xl rounded-lg px-4">Save Loadout</button>
+      <button
+        @click="openSaveModal"
+        class="bg-[#F4C356] text-black font-bold text-3xl rounded-lg px-4 py-2 transition duration-300 ease-in-out transform hover:bg-[#f49556] hover:scale-105 active:bg-[#d4844b] shadow-lg"
+      >
+        Save Loadout
+      </button>
       <h1 class="text-7xl font-bold text-center text-[#F4C356]">Loadout Creator</h1>
-      <button @click="clearSelections" class="bg-red-500 text-white font-bold text-3xl rounded-lg px-4">Clear Selections</button>
+      <button
+        @click="clearSelections"
+        class="bg-[#F4C356] text-black font-bold text-3xl rounded-lg px-4 py-2 transition duration-300 ease-in-out transform hover:bg-[#f49556] hover:scale-105 active:bg-[#d4844b] shadow-lg"
+      >
+        Clear Selections
+      </button>
     </div>
 
     <!-- Weapons Section -->
