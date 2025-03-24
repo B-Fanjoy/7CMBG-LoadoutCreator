@@ -1,9 +1,10 @@
 <template>
   <main class="p-6 m-2 rounded-4xl bg-[#303030] text-white flex">
     <!-- Sidebar with Loadout Names -->
-    <aside class="w-1/4 p-4 bg-[#212121] rounded-3xl mr-4">
-      <h2 class="text-3xl font-bold text-[#F4C356] mb-4">Loadouts</h2>
+    <aside class="w-1/4 p-6 bg-[#212121] rounded-3xl mr-4">
+      <h2 class="text-3xl font-bold text-[#F4C356] mb-4 pb-2 border-b-2">Loadouts</h2>
       <ul class="space-y-2">
+        <li v-if="loadouts.length === 0" class="text-gray-400">No loadouts saved</li>
         <li
           v-for="loadout in loadouts"
           :key="loadout.name"
@@ -102,9 +103,9 @@
           </ul>
         </div>
 
-        <!-- Additional Gear Section -->
+        <!-- Equipment Section -->
         <div class="mb-4">
-          <h3 class="text-lg font-semibold text-gray-300">Other Gear:</h3>
+          <h3 class="text-lg font-semibold text-gray-300">Equipment:</h3>
           <ul class="text-gray-400 text-sm">
             <li><strong>Headgear:</strong> {{ findItemName(selectedLoadout.loadout[0][6]) }}</li>
             <li><strong>Facewear:</strong> {{ findItemName(selectedLoadout.loadout[0][7]) }}</li>

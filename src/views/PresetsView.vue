@@ -1,8 +1,8 @@
 <template>
   <main class="p-6 m-2 rounded-4xl bg-[#303030] text-white flex">
     <!-- Sidebar with Loadout Names -->
-    <aside class="w-1/4 p-4 bg-[#212121] rounded-3xl mr-4">
-      <h2 class="text-3xl font-bold text-[#F4C356] mb-4">Presets</h2>
+    <aside class="w-1/4 p-6 bg-[#212121] rounded-3xl mr-4">
+      <h2 class="text-3xl font-bold text-[#F4C356] mb-4 pb-2 border-b-2">Presets</h2>
       <ul class="space-y-2">
         <li
           v-for="preset in presets"
@@ -28,63 +28,75 @@
           <ul class="text-gray-400 text-sm space-y-2">
             <li>
               <strong>Primary:</strong> {{ findItemName(selectedPreset.loadout[0][0][0]) }}
-              <button @click="toggleSection('primary', selectedPreset.name)" class="text-blue-400 ml-2">▼</button>
-              <ul v-if="expandedSections[selectedPreset.name]?.primary" class="ml-4 mt-2 text-gray-500">
-                <li v-for="(attachment, index) in formatAttachments(selectedPreset.loadout[0][0])" :key="index">
-                  • {{ findItemName(attachment) || "None" }}
-                </li>
+              <ul class="indent-4">
+                <li v-if="selectedPreset.loadout[0][0][3]">• <strong>Sight:</strong> {{ findItemName(selectedPreset.loadout[0][0][3]) }}</li>
+                <li v-if="selectedPreset.loadout[0][0][2]">• <strong>Rail:</strong> {{ findItemName(selectedPreset.loadout[0][0][2]) }}</li>
+                <li v-if="selectedPreset.loadout[0][0][1]">• <strong>Muzzle:</strong> {{ findItemName(selectedPreset.loadout[0][0][1]) }}</li>
+                <li v-if="selectedPreset.loadout[0][0][6]">• <strong>Undermount:</strong> {{ findItemName(selectedPreset.loadout[0][0][6]) }}</li>
+                <li v-if="selectedPreset.loadout[0][0][4][0]">• <strong>Primary Magazine:</strong> {{ findItemName(selectedPreset.loadout[0][0][4][0]) }}</li>
+                <li v-if="selectedPreset.loadout[0][0][5][0]">• <strong>Secondary Magazine:</strong> {{ findItemName(selectedPreset.loadout[0][0][5][0]) }}</li>
               </ul>
             </li>
             <li>
               <strong>Secondary:</strong> {{ findItemName(selectedPreset.loadout[0][1][0]) }}
-              <button @click="toggleSection('secondary', selectedPreset.name)" class="text-blue-400 ml-2">▼</button>
-              <ul v-if="expandedSections[selectedPreset.name]?.secondary" class="ml-4 mt-2 text-gray-500">
-                <li v-for="(attachment, index) in formatAttachments(selectedPreset.loadout[0][1])" :key="index">
-                  • {{ findItemName(attachment) || "None" }}
-                </li>
+              <ul class="indent-4">
+                <li v-if="selectedPreset.loadout[0][1][3]">• <strong>Sight:</strong> {{ findItemName(selectedPreset.loadout[0][1][3]) }}</li>
+                <li v-if="selectedPreset.loadout[0][1][2]">• <strong>Rail:</strong> {{ findItemName(selectedPreset.loadout[0][1][2]) }}</li>
+                <li v-if="selectedPreset.loadout[0][1][1]">• <strong>Muzzle:</strong> {{ findItemName(selectedPreset.loadout[0][1][1]) }}</li>
+                <li v-if="selectedPreset.loadout[0][1][6]">• <strong>Undermount:</strong> {{ findItemName(selectedPreset.loadout[0][1][6]) }}</li>
+                <li v-if="selectedPreset.loadout[0][1][4][0]">• <strong>Primary Magazine:</strong> {{ findItemName(selectedPreset.loadout[0][1][4][0]) }}</li>
+                <li v-if="selectedPreset.loadout[0][1][5][0]">• <strong>Secondary Magazine:</strong> {{ findItemName(selectedPreset.loadout[0][1][5][0]) }}</li>
               </ul>
             </li>
             <li>
               <strong>Tertiary:</strong> {{ findItemName(selectedPreset.loadout[0][2][0]) }}
-              <button @click="toggleSection('tertiary', selectedPreset.name)" class="text-blue-400 ml-2">▼</button>
-              <ul v-if="expandedSections[selectedPreset.name]?.tertiary" class="ml-4 mt-2 text-gray-500">
-                <li v-for="(attachment, index) in formatAttachments(selectedPreset.loadout[0][2])" :key="index">
-                  • {{ findItemName(attachment) || "None" }}
-                </li>
+              <ul class="indent-4">
+                <li v-if="selectedPreset.loadout[0][2][3]">• <strong>Sight:</strong> {{ findItemName(selectedPreset.loadout[0][2][3]) }}</li>
+                <li v-if="selectedPreset.loadout[0][2][2]">• <strong>Rail:</strong> {{ findItemName(selectedPreset.loadout[0][2][2]) }}</li>
+                <li v-if="selectedPreset.loadout[0][2][1]">• <strong>Muzzle:</strong> {{ findItemName(selectedPreset.loadout[0][2][1]) }}</li>
+                <li v-if="selectedPreset.loadout[0][2][6]">• <strong>Undermount:</strong> {{ findItemName(selectedPreset.loadout[0][2][6]) }}</li>
+                <li v-if="selectedPreset.loadout[0][2][4][0]">• <strong>Primary Magazine:</strong> {{ findItemName(selectedPreset.loadout[0][2][4][0]) }}</li>
+                <li v-if="selectedPreset.loadout[0][2][5][0]">• <strong>Secondary Magazine:</strong> {{ findItemName(selectedPreset.loadout[0][2][5][0]) }}</li>
               </ul>
             </li>
           </ul>
         </div>
 
-        <!-- Gear Section with Items Display -->
+        <!-- Main Gear Section -->
         <div class="mb-4">
           <h3 class="text-lg font-semibold text-gray-300">Main Gear:</h3>
           <ul class="text-gray-400 text-sm space-y-2">
             <li>
               <strong>Uniform:</strong> {{ findItemName(selectedPreset.loadout[0][3][0]) }}
-              <button @click="toggleSection('uniform', selectedPreset.name)" class="text-blue-400 ml-2">▼</button>
-              <ul v-if="expandedSections[selectedPreset.name]?.uniform" class="ml-4 mt-2 text-gray-500">
-                <li v-for="(item, index) in selectedPreset.loadout[0][3][1]" :key="index">
-                  • {{ findItemName(item[0]) }} x{{ item[1] }}
-                </li>
+              <ul class="indent-4">
+                <li v-if="selectedPreset.loadout[0][3][0]"> <strong>Items:</strong></li>
+                <ul class="indent-6">
+                  <li v-for="item in selectedPreset.loadout[0][3][1]" :key="item">
+                    • {{ item[1] }}x {{ findItemName(item[0]) }}
+                  </li>
+                </ul>
               </ul>
             </li>
             <li>
               <strong>Vest:</strong> {{ findItemName(selectedPreset.loadout[0][4][0]) }}
-              <button @click="toggleSection('vest', selectedPreset.name)" class="text-blue-400 ml-2">▼</button>
-              <ul v-if="expandedSections[selectedPreset.name]?.vest" class="ml-4 mt-2 text-gray-500">
-                <li v-for="(item, index) in selectedPreset.loadout[0][4][1]" :key="index">
-                  • {{ findItemName(item[0]) }} x{{ item[1] }}
-                </li>
+              <ul class="indent-4">
+                <li v-if="selectedPreset.loadout[0][4][0]"> <strong>Items:</strong></li>
+                <ul class="indent-6">
+                  <li v-for="item in selectedPreset.loadout[0][4][1]" :key="item">
+                    • {{ item[1] }}x {{ findItemName(item[0]) }}
+                  </li>
+                </ul>
               </ul>
             </li>
             <li>
               <strong>Backpack:</strong> {{ findItemName(selectedPreset.loadout[0][5][0]) }}
-              <button @click="toggleSection('backpack', selectedPreset.name)" class="text-blue-400 ml-2">▼</button>
-              <ul v-if="expandedSections[selectedPreset.name]?.backpack" class="ml-4 mt-2 text-gray-500">
-                <li v-for="(item, index) in selectedPreset.loadout[0][5][1]" :key="index">
-                  • {{ findItemName(item[0]) }} x{{ item[1] }}
-                </li>
+              <ul class="indent-4">
+                <li v-if="selectedPreset.loadout[0][5][0]"> <strong>Items:</strong></li>
+                <ul class="indent-6">
+                  <li v-for="item in selectedPreset.loadout[0][5][1]" :key="item">
+                    • {{ item[1] }}x {{ findItemName(item[0]) }}
+                  </li>
+                </ul>
               </ul>
             </li>
           </ul>
@@ -93,20 +105,17 @@
         <!-- Equipment Section -->
         <div class="mb-4">
           <h3 class="text-lg font-semibold text-gray-300">Equipment:</h3>
-          <ul class="text-gray-400 text-sm space-y-1">
+          <ul class="text-gray-400 text-sm">
             <li><strong>Headgear:</strong> {{ findItemName(selectedPreset.loadout[0][6]) }}</li>
             <li><strong>Facewear:</strong> {{ findItemName(selectedPreset.loadout[0][7]) }}</li>
             <li><strong>Binoculars:</strong> {{ findItemName(selectedPreset.loadout[0][8][0]) }}</li>
-
-            <!-- Individual Equipment Items -->
-            <li v-for="(item, index) in selectedPreset.loadout[0][9]" :key="index">
-              <strong>{{ getEquipmentLabel(index) }}:</strong> {{ findItemName(item) }}
-            </li>
-
-            <!-- Insignia -->
+            <li><strong>Map:</strong> {{ findItemName(selectedPreset.loadout[0][9][0]) }}</li>
+            <li><strong>Terminal:</strong> {{ findItemName(selectedPreset.loadout[0][9][1]) }}</li>
+            <li><strong>Communication:</strong> {{ findItemName(selectedPreset.loadout[0][9][2]) }}</li>
+            <li><strong>Navigation:</strong> {{ findItemName(selectedPreset.loadout[0][9][3]) }}</li>
+            <li><strong>Watch:</strong> {{ findItemName(selectedPreset.loadout[0][9][4]) }}</li>
+            <li><strong>NVGs:</strong> {{ findItemName(selectedPreset.loadout[0][9][5]) }}</li>
             <li><strong>Insignia:</strong> {{ findItemName(selectedPreset.loadout[1][0][1]) }}</li>
-
-            <!-- Earplugs -->
             <li><strong>Earplugs:</strong> {{ selectedPreset.loadout[1][1][1] === "true" ? "Yes" : "No" }}</li>
           </ul>
         </div>
