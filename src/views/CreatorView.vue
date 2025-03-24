@@ -166,7 +166,7 @@
 
     <!-- Import String Nav Bar -->
     <nav class="sticky bottom-0 border-4 border-[#F4C356] shadow-2xl rounded-3xl bg-[#212121]">
-      <div class="p-4 border-4 border-[#F4C356] rounded-t-2xl text-center">
+      <div class="p-4 border-b-4 border-[#F4C356] rounded-t-2xl text-center">
         <h2 class="text-3xl font-bold text-[#F4C356]">Total Loadout Weight</h2>
         <p class="text-2xl font-semibold mt-2" :class="getTotalWeightColor()">
           {{ getTotalWeight() }} lb

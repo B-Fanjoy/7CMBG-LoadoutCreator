@@ -1,45 +1,54 @@
 <template>
-  <main class="p-6 m-2 rounded-4xl bg-[#303030] min-h-screen text-white">
-    <!-- Page Title -->
-    <h1 class="text-7xl font-bold text-center text-[#F4C356] mb-8">Preset Loadouts</h1>
+  <main class="p-6 m-2 rounded-4xl bg-[#303030] text-white flex">
+    <!-- Sidebar with Loadout Names -->
+    <aside class="w-1/4 p-4 bg-[#212121] rounded-3xl mr-4">
+      <h2 class="text-3xl font-bold text-[#F4C356] mb-4">Presets</h2>
+      <ul class="space-y-2">
+        <li
+          v-for="preset in presets"
+          :key="preset.name"
+          @click="selectPreset(preset)"
+          class="cursor-pointer p-2 rounded-lg hover:bg-[#303030] transition-all"
+          :class="{'bg-[#303030]': selectedPreset && selectedPreset.name === preset.name}"
+        >
+          {{ preset.name }}
+        </li>
+      </ul>
+    </aside>
 
-    <!-- Loadout Presets Grid -->
-    <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
-      <div
-        v-for="preset in presets"
-        :key="preset.name"
-        class="p-6 bg-[#212121] border-2 border-[#000000] shadow-lg rounded-3xl hover:shadow-2xl transition-all"
-      >
+    <!-- Loadout Details -->
+    <section class="w-3/4">
+      <div v-if="selectedPreset" class="p-6 bg-[#212121] border-2 border-[#000000] shadow-lg rounded-3xl">
         <!-- Loadout Name -->
-        <h2 class="text-3xl font-bold text-[#F4C356] border-b-2 pb-2 mb-4">{{ preset.name }}</h2>
+        <h2 class="text-3xl font-bold text-[#F4C356] border-b-2 pb-2 mb-4">{{ selectedPreset.name }}</h2>
 
         <!-- Weapons Section -->
         <div class="mb-4">
           <h3 class="text-lg font-semibold text-gray-300">Weapons:</h3>
           <ul class="text-gray-400 text-sm space-y-2">
             <li>
-              <strong>Primary:</strong> {{ findItemName(preset.loadout[0][0][0]) }}
-              <button @click="toggleSection('primary', preset.name)" class="text-blue-400 ml-2">▼</button>
-              <ul v-if="expandedSections[preset.name]?.primary" class="ml-4 mt-2 text-gray-500">
-                <li v-for="(attachment, index) in formatAttachments(preset.loadout[0][0])" :key="index">
+              <strong>Primary:</strong> {{ findItemName(selectedPreset.loadout[0][0][0]) }}
+              <button @click="toggleSection('primary', selectedPreset.name)" class="text-blue-400 ml-2">▼</button>
+              <ul v-if="expandedSections[selectedPreset.name]?.primary" class="ml-4 mt-2 text-gray-500">
+                <li v-for="(attachment, index) in formatAttachments(selectedPreset.loadout[0][0])" :key="index">
                   • {{ findItemName(attachment) || "None" }}
                 </li>
               </ul>
             </li>
             <li>
-              <strong>Secondary:</strong> {{ findItemName(preset.loadout[0][1][0]) }}
-              <button @click="toggleSection('secondary', preset.name)" class="text-blue-400 ml-2">▼</button>
-              <ul v-if="expandedSections[preset.name]?.secondary" class="ml-4 mt-2 text-gray-500">
-                <li v-for="(attachment, index) in formatAttachments(preset.loadout[0][1])" :key="index">
+              <strong>Secondary:</strong> {{ findItemName(selectedPreset.loadout[0][1][0]) }}
+              <button @click="toggleSection('secondary', selectedPreset.name)" class="text-blue-400 ml-2">▼</button>
+              <ul v-if="expandedSections[selectedPreset.name]?.secondary" class="ml-4 mt-2 text-gray-500">
+                <li v-for="(attachment, index) in formatAttachments(selectedPreset.loadout[0][1])" :key="index">
                   • {{ findItemName(attachment) || "None" }}
                 </li>
               </ul>
             </li>
             <li>
-              <strong>Tertiary:</strong> {{ findItemName(preset.loadout[0][2][0]) }}
-              <button @click="toggleSection('tertiary', preset.name)" class="text-blue-400 ml-2">▼</button>
-              <ul v-if="expandedSections[preset.name]?.tertiary" class="ml-4 mt-2 text-gray-500">
-                <li v-for="(attachment, index) in formatAttachments(preset.loadout[0][2])" :key="index">
+              <strong>Tertiary:</strong> {{ findItemName(selectedPreset.loadout[0][2][0]) }}
+              <button @click="toggleSection('tertiary', selectedPreset.name)" class="text-blue-400 ml-2">▼</button>
+              <ul v-if="expandedSections[selectedPreset.name]?.tertiary" class="ml-4 mt-2 text-gray-500">
+                <li v-for="(attachment, index) in formatAttachments(selectedPreset.loadout[0][2])" :key="index">
                   • {{ findItemName(attachment) || "None" }}
                 </li>
               </ul>
@@ -52,28 +61,28 @@
           <h3 class="text-lg font-semibold text-gray-300">Main Gear:</h3>
           <ul class="text-gray-400 text-sm space-y-2">
             <li>
-              <strong>Uniform:</strong> {{ findItemName(preset.loadout[0][3][0]) }}
-              <button @click="toggleSection('uniform', preset.name)" class="text-blue-400 ml-2">▼</button>
-              <ul v-if="expandedSections[preset.name]?.uniform" class="ml-4 mt-2 text-gray-500">
-                <li v-for="(item, index) in preset.loadout[0][3][1]" :key="index">
+              <strong>Uniform:</strong> {{ findItemName(selectedPreset.loadout[0][3][0]) }}
+              <button @click="toggleSection('uniform', selectedPreset.name)" class="text-blue-400 ml-2">▼</button>
+              <ul v-if="expandedSections[selectedPreset.name]?.uniform" class="ml-4 mt-2 text-gray-500">
+                <li v-for="(item, index) in selectedPreset.loadout[0][3][1]" :key="index">
                   • {{ findItemName(item[0]) }} x{{ item[1] }}
                 </li>
               </ul>
             </li>
             <li>
-              <strong>Vest:</strong> {{ findItemName(preset.loadout[0][4][0]) }}
-              <button @click="toggleSection('vest', preset.name)" class="text-blue-400 ml-2">▼</button>
-              <ul v-if="expandedSections[preset.name]?.vest" class="ml-4 mt-2 text-gray-500">
-                <li v-for="(item, index) in preset.loadout[0][4][1]" :key="index">
+              <strong>Vest:</strong> {{ findItemName(selectedPreset.loadout[0][4][0]) }}
+              <button @click="toggleSection('vest', selectedPreset.name)" class="text-blue-400 ml-2">▼</button>
+              <ul v-if="expandedSections[selectedPreset.name]?.vest" class="ml-4 mt-2 text-gray-500">
+                <li v-for="(item, index) in selectedPreset.loadout[0][4][1]" :key="index">
                   • {{ findItemName(item[0]) }} x{{ item[1] }}
                 </li>
               </ul>
             </li>
             <li>
-              <strong>Backpack:</strong> {{ findItemName(preset.loadout[0][5][0]) }}
-              <button @click="toggleSection('backpack', preset.name)" class="text-blue-400 ml-2">▼</button>
-              <ul v-if="expandedSections[preset.name]?.backpack" class="ml-4 mt-2 text-gray-500">
-                <li v-for="(item, index) in preset.loadout[0][5][1]" :key="index">
+              <strong>Backpack:</strong> {{ findItemName(selectedPreset.loadout[0][5][0]) }}
+              <button @click="toggleSection('backpack', selectedPreset.name)" class="text-blue-400 ml-2">▼</button>
+              <ul v-if="expandedSections[selectedPreset.name]?.backpack" class="ml-4 mt-2 text-gray-500">
+                <li v-for="(item, index) in selectedPreset.loadout[0][5][1]" :key="index">
                   • {{ findItemName(item[0]) }} x{{ item[1] }}
                 </li>
               </ul>
@@ -85,20 +94,20 @@
         <div class="mb-4">
           <h3 class="text-lg font-semibold text-gray-300">Equipment:</h3>
           <ul class="text-gray-400 text-sm space-y-1">
-            <li><strong>Headgear:</strong> {{ findItemName(preset.loadout[0][6]) }}</li>
-            <li><strong>Facewear:</strong> {{ findItemName(preset.loadout[0][7]) }}</li>
-            <li><strong>Binoculars:</strong> {{ findItemName(preset.loadout[0][8][0]) }}</li>
+            <li><strong>Headgear:</strong> {{ findItemName(selectedPreset.loadout[0][6]) }}</li>
+            <li><strong>Facewear:</strong> {{ findItemName(selectedPreset.loadout[0][7]) }}</li>
+            <li><strong>Binoculars:</strong> {{ findItemName(selectedPreset.loadout[0][8][0]) }}</li>
 
             <!-- Individual Equipment Items -->
-            <li v-for="(item, index) in preset.loadout[0][9]" :key="index">
+            <li v-for="(item, index) in selectedPreset.loadout[0][9]" :key="index">
               <strong>{{ getEquipmentLabel(index) }}:</strong> {{ findItemName(item) }}
             </li>
 
             <!-- Insignia -->
-            <li><strong>Insignia:</strong> {{ findItemName(preset.loadout[1][0][1]) }}</li>
+            <li><strong>Insignia:</strong> {{ findItemName(selectedPreset.loadout[1][0][1]) }}</li>
 
             <!-- Earplugs -->
-            <li><strong>Earplugs:</strong> {{ preset.loadout[1][1][1] === "true" ? "Yes" : "No" }}</li>
+            <li><strong>Earplugs:</strong> {{ selectedPreset.loadout[1][1][1] === "true" ? "Yes" : "No" }}</li>
           </ul>
         </div>
 
@@ -106,7 +115,7 @@
         <div class="flex flex-col space-y-3">
           <!-- Edit Preset Button -->
           <button
-            @click="editPreset(preset)"
+            @click="editPreset(selectedPreset)"
             class="w-full py-3 bg-[#F4C356] text-black font-bold rounded-2xl hover:bg-amber-500 transition-all"
           >
             Edit in Loadout Creator
@@ -114,7 +123,7 @@
 
           <!-- Copy to Clipboard Button -->
           <button
-            @click="copyToClipboard(preset.loadout)"
+            @click="copyToClipboard(selectedPreset.loadout)"
             class="w-full py-3 bg-blue-600 hover:bg-blue-700 text-white font-bold rounded-2xl flex items-center justify-center space-x-2 transition-all"
           >
             <svg
@@ -132,7 +141,10 @@
           </button>
         </div>
       </div>
-    </div>
+      <div v-else class="text-center text-gray-400">
+        <p>Select a loadout to view details</p>
+      </div>
+    </section>
   </main>
 </template>
 
@@ -150,6 +162,7 @@ export default {
       gear: gearData.sections,
       items: itemsData.sections,
       expandedSections: {},
+      selectedPreset: null,
       presets: [
         {
           name: "Basic Rifleman",
@@ -430,6 +443,9 @@ export default {
         console.error("Failed to copy: ", err);
         alert("Failed to copy!");
       }
+    },
+    selectPreset(preset) {
+      this.selectedPreset = preset;
     }
   }
 };
