@@ -183,7 +183,7 @@ export default {
       try {
         const loadoutString = JSON.stringify(loadout);
         await navigator.clipboard.writeText(loadoutString);
-        alert("Loadout copied to clipboard!");
+        alert("Loadout copied to clipboard!\n\nOpen ACE Arsenal and click 'Import' at the bottom of the screen to load the loadout.\n\nNote: ACE Arsenal just takes whatever value is in your clipboard when you click 'Import'.");
       } catch (err) {
         console.error("Failed to copy: ", err);
         alert("Failed to copy!");

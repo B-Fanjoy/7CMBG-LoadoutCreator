@@ -35,7 +35,7 @@
                   {{ weapon.name }}
                 </option>
               </optgroup>
-              <optgroup label="Restricted Weapons" v-if="section.weapons.some(w => isWeaponRestricted(w.id))">
+              <optgroup label="Restricted Weapons" v-if="section.weapons.some(w => isWeaponRestricted(w.id))" class="text-red-600">
                 <option v-for="weapon in section.weapons.filter(w => isWeaponRestricted(w.id))" :key="weapon.id" :value="weapon.id" class="text-red-500">
                   {{ weapon.name }}
                 </option>
@@ -75,7 +75,7 @@
                   {{ option.name }}
                 </option>
               </optgroup>
-              <optgroup label="Restricted Gear" v-if="section.options.some(g => isGearRestricted(g.id))">
+              <optgroup label="Restricted Gear" v-if="section.options.some(g => isGearRestricted(g.id))" class="text-red-600">
                 <option v-for="option in section.options.filter(g => isGearRestricted(g.id))" :key="option.id" :value="option.id" class="text-red-500">
                   {{ option.name }}
                 </option>
@@ -162,7 +162,7 @@
                     {{ option.name }}
                   </option>
                 </optgroup>
-                <optgroup label="Restricted Gear" v-if="section.options.some(g => isGearRestricted(g.id))">
+                <optgroup label="Restricted Gear" v-if="section.options.some(g => isGearRestricted(g.id))" class="text-red-600">
                   <option v-for="option in section.options.filter(g => isGearRestricted(g.id))" :key="option.id" :value="option.id" class="text-red-500">
                     {{ option.name }}
                   </option>
