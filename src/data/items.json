@@ -44,27 +44,27 @@
             "id": "longRangeSights",
             "name": "Long Range Sights",
             "options": [
-              { "id": "tfc_wa_3_20_x50", "name": "S&B 3-20x50 PM II Ultra Short", "weight": 0.50 },
-              { "id": "tfc_wa_5_25_x56_high", "name": "S&B 5-25x56 PM II/LP High Mount", "weight": 0.50 },
-              { "id": "tfc_wa_5_25_x56_low", "name": "S&B 5-25x56 PM II/LP Low Mount", "weight": 0.50 }
+              { "id": "tfc_wa_3_20_x50", "name": "S&B 3-20x50 PM II Ultra Short", "weight": 0.50, "restricted": true },
+              { "id": "tfc_wa_5_25_x56_high", "name": "S&B 5-25x56 PM II/LP High Mount", "weight": 0.50, "restricted": true },
+              { "id": "tfc_wa_5_25_x56_low", "name": "S&B 5-25x56 PM II/LP Low Mount", "weight": 0.50, "restricted": true }
             ]
           },
           {
             "id": "launcherSights",
             "name": "Launcher Sights",
             "options": [
-              { "id": "tfc_wa_CG_Sight", "name": "Carl-G Sight", "weight": 0.80 },
-              { "id": "rhs_optic_maaws", "name": "M3 MAAWS Sight", "weight": 0.80 }
+              { "id": "tfc_wa_CG_Sight", "name": "Carl-G Sight", "weight": 0.80, "restricted": true },
+              { "id": "rhs_optic_maaws", "name": "M3 MAAWS Sight", "weight": 0.80, "restricted": true }
             ]
           },
           {
             "id": "specialSights",
             "name": "Special Sights",
             "options": [
-              { "id": "optic_tws", "name": "Thermal Weapon Sight (TWS)", "weight": 1.40 },
-              { "id": "optic_NVS", "name": "Night Vision Sight (NVS)", "weight": 1.00 },
-              { "id": "optic_Nightstalker", "name": "Nightstalker (NVG/Thermal Weapon Sight)", "weight": 1.20 },
-              { "id": "optic_tws_mg", "name": "Thermal Weapon Sight for Machine Guns (TWS MG)", "weight": 1.60 }
+              { "id": "optic_tws", "name": "Thermal Weapon Sight (TWS)", "weight": 1.40, "restricted": true },
+              { "id": "optic_NVS", "name": "Night Vision Sight (NVS)", "weight": 1.00, "restricted": true },
+              { "id": "optic_Nightstalker", "name": "Nightstalker (NVG/Thermal Weapon Sight)", "weight": 1.20, "restricted": true },
+              { "id": "optic_tws_mg", "name": "Thermal Weapon Sight for Machine Guns (TWS MG)", "weight": 1.60, "restricted": true }
             ]
           }
         ]
@@ -102,18 +102,18 @@
             "id": "regularMuzzles",
             "name": "Regular Muzzle Attachments",
             "options": [
-              { "id": "TFC_WA_huxwrx_556", "name": "[TFC] HUXWRX Flow 556K (Tan)", "weight": 0.10 },
-              { "id": "TFC_WA_556_Ops_painted", "name": "[TFC] Op Cinc 556 (Arid)", "weight": 0.10 },
-              { "id": "TFC_WA_opsinc_556", "name": "[TFC] Op Cinc 556 (Black)", "weight": 0.10 },
-              { "id": "TFC_WA_556_Ops_painted_tw", "name": "[TFC] Op Cinc 556 (Woodland)", "weight": 0.10 },
-              { "id": "TFC_WA_556_Ops_painted_wo", "name": "[TFC] Op Cinc 556 (Winter)", "weight": 0.10 }
+              { "id": "TFC_WA_huxwrx_556", "name": "[TFC] HUXWRX Flow 556K (Tan)", "weight": 0.10, "restricted": true },
+              { "id": "TFC_WA_556_Ops_painted", "name": "[TFC] Op Cinc 556 (Arid)", "weight": 0.10, "restricted": true },
+              { "id": "TFC_WA_opsinc_556", "name": "[TFC] Op Cinc 556 (Black)", "weight": 0.10, "restricted": true },
+              { "id": "TFC_WA_556_Ops_painted_tw", "name": "[TFC] Op Cinc 556 (Woodland)", "weight": 0.10, "restricted": true },
+              { "id": "TFC_WA_556_Ops_painted_wo", "name": "[TFC] Op Cinc 556 (Winter)", "weight": 0.10, "restricted": true }
             ]
           },
           {
             "id": "specialMuzzles",
             "name": "Special Muzzle Attachments",
             "options": [
-              { "id": "TFC_WA_c20_suppressor", "name": "[TFC] C20 Suppressor", "weight": 0.20 }
+              { "id": "TFC_WA_c20_suppressor", "name": "[TFC] C20 Suppressor", "weight": 0.20, "restricted": true }
             ]
           }
         ]
@@ -135,8 +135,8 @@
             "id": "specialUndermounts",
             "name": "Special Undermount Attachments",
             "options": [
-              { "id": "tfc_wa_harris_bipod_small", "name": "[TFC] Harris Bipod (C20 Only)", "weight": 0.30 },
-              { "id": "TFC_WA_c20_vgbp", "name": "[TFC] Vert Grip w/Harris Bipod (C20 Only)", "weight": 1.00 }
+              { "id": "tfc_wa_harris_bipod_small", "name": "[TFC] Harris Bipod (C20 Only)", "weight": 0.30, "restricted": true },
+              { "id": "TFC_WA_c20_vgbp", "name": "[TFC] Vert Grip w/Harris Bipod (C20 Only)", "weight": 1.00, "restricted": true }
             ]
           }
         ]
@@ -152,13 +152,13 @@
               { "id": "rhs_mag_30Rnd_556x45_Mk262_Stanag", "name": "[RHS] 30 Round STANAG Mk262 Mod 1", "weight": 0.94 },
               { "id": "rhs_mag_30Rnd_556x45_Mk262_Stanag_Pull", "name": "[RHS] 30 Round STANAG (Puller) Mk262 Mod 1", "weight": 0.51 },
               { "id": "rhsusf_200rnd_556x45_mixed_box", "name": "[RHS] 200 Round M249 Box M855A1 (Mixed)", "weight": 5.17 },
-              { "id": "TFC_220Rnd_762x51_Box", "name": "[TFC] 220 Round 7.62x51 Box", "weight": 5.00 },
+              { "id": "TFC_220Rnd_762x51_Box", "name": "[TFC] 220 Round 7.62x51 Box", "weight": 5.00, "restricted": true },
               { "id": "16Rnd_9x21_Mag", "name": "17 Round 9mm Magazine", "weight": 0.60 },
-              { "id": "rhsusf_20Rnd_762x51_SR25_m118_special_Mag", "name": "[RHS] 20 Round SR-25 M118", "weight": 1.62 },
-              { "id": "rhsusf_20Rnd_762x51_SR25_m993_Mag", "name": "[RHS] 20 Round SR-25 M993 AP", "weight": 1.62 },
-              { "id": "MRAWS_HE_F", "name": "MAAWS HE 44 Round", "weight": 4.00 },
-              { "id": "MRAWS_HEAT55_F", "name": "MAAWS HEAT 55 Round (CarlG Only)", "weight": 5.00 },
-              { "id": "MRAWS_HEAT_F", "name": "MAAWS HEAT 75 Round", "weight": 6.00 }
+              { "id": "rhsusf_20Rnd_762x51_SR25_m118_special_Mag", "name": "[RHS] 20 Round SR-25 M118", "weight": 1.62, "restricted": true },
+              { "id": "rhsusf_20Rnd_762x51_SR25_m993_Mag", "name": "[RHS] 20 Round SR-25 M993 AP", "weight": 1.62, "restricted": true },
+              { "id": "MRAWS_HE_F", "name": "MAAWS HE 44 Round", "weight": 4.00, "restricted": true },
+              { "id": "MRAWS_HEAT55_F", "name": "MAAWS HEAT 55 Round (CarlG Only)", "weight": 5.00, "restricted": true },
+              { "id": "MRAWS_HEAT_F", "name": "MAAWS HEAT 75 Round", "weight": 6.00, "restricted": true }
             ]
           },
           {
@@ -213,8 +213,8 @@
             "id": "regularExplosives",
             "name": "Regular Explosives",
             "options": [
-              { "id": "rhsusf_m112_mag", "name": "M112 Demolition Block", "weight": 1.25 },
-              { "id": "rhsusf_m112x4_mag", "name": "M112 Demolition Block (x4)", "weight": 5.02 }
+              { "id": "rhsusf_m112_mag", "name": "M112 Demolition Block", "weight": 1.25, "restricted": true },
+              { "id": "rhsusf_m112x4_mag", "name": "M112 Demolition Block (x4)", "weight": 5.02, "restricted": true }
             ]
           }
         ]
@@ -237,18 +237,18 @@
             "id": "specialTools",
             "name": "Special Tools",
             "options": [
-              { "id": "ACE_DefusalKit", "name": "Defusal Kit", "weight": 0.50 },
-              { "id": "ACE_Fortify", "name": "Fortify Tool", "weight": 0.00 },
-              { "id": "ACE_Kestrel4500", "name": "Kestrel 4500NV", "weight": 0.20 },
-              { "id": "ACE_M26_Clacker", "name": "M152 Firing Device", "weight": 0.30 },
-              { "id": "ACE_Clacker", "name": "M57 Firing Device", "weight": 0.30 },
-              { "id": "ACE_microDAGR", "name": "MicroDAGR GPS", "weight": 0.20 },
-              { "id": "MineDetector", "name": "Mine Detector", "weight": 2.00 },
-              { "id": "ACE_RangeCard", "name": "Range Card", "weight": 0.01 },
-              { "id": "ACE_SpottingScope", "name": "Spotting Scope", "weight": 4.00 },
-              { "id": "ACE_Tripod", "name": "SSWT Kit (Tripod)", "weight": 4.00 },
-              { "id": "ToolKit", "name": "Toolkit", "weight": 8.00 },
-              { "id": "ACE_wirecutter", "name": "Wirecutter", "weight": 2.50 }
+              { "id": "ACE_DefusalKit", "name": "Defusal Kit", "weight": 0.50, "restricted": true },
+              { "id": "ACE_Fortify", "name": "Fortify Tool", "weight": 0.00, "restricted": true },
+              { "id": "ACE_Kestrel4500", "name": "Kestrel 4500NV", "weight": 0.20, "restricted": true },
+              { "id": "ACE_M26_Clacker", "name": "M152 Firing Device", "weight": 0.30, "restricted": true },
+              { "id": "ACE_Clacker", "name": "M57 Firing Device", "weight": 0.30, "restricted": true },
+              { "id": "ACE_microDAGR", "name": "MicroDAGR GPS", "weight": 0.20, "restricted": true },
+              { "id": "MineDetector", "name": "Mine Detector", "weight": 2.00, "restricted": true },
+              { "id": "ACE_RangeCard", "name": "Range Card", "weight": 0.01, "restricted": true },
+              { "id": "ACE_SpottingScope", "name": "Spotting Scope", "weight": 4.00, "restricted": true },
+              { "id": "ACE_Tripod", "name": "SSWT Kit (Tripod)", "weight": 4.00, "restricted": true },
+              { "id": "ToolKit", "name": "Toolkit", "weight": 8.00, "restricted": true },
+              { "id": "ACE_wirecutter", "name": "Wirecutter", "weight": 2.50, "restricted": true }
             ]
           }
         ]
@@ -332,9 +332,9 @@
             "id": "specialMiscellaneous",
             "name": "Special Miscellaneous",
             "options": [
-              { "id": "ACRE_PRC152", "name": "AN/PRC-152", "weight": 0.80 },
-              { "id": "ACRE_PRC117F", "name": "AN/PRC-117F", "weight": 12.00 },
-              { "id": "ItemAndroid", "name": "Galaxy S20 Tactical Edition", "weight": 0.40 },
+              { "id": "ACRE_PRC152", "name": "AN/PRC-152", "weight": 0.80, "restricted": true },
+              { "id": "ACRE_PRC117F", "name": "AN/PRC-117F", "weight": 12.00, "restricted": true },
+              { "id": "ItemAndroid", "name": "Galaxy S20 Tactical Edition", "weight": 0.40, "restricted": true },
               { "id": "ACE_SpraypaintBlue", "name": "Spray Paint (Blue)", "weight": 1.00 },
               { "id": "ACE_SpraypaintGreen", "name": "Spray Paint (Green)", "weight": 1.00 },
               { "id": "ACE_SpraypaintRed", "name": "Spray Paint (Red)", "weight": 1.00 }

@@ -35,7 +35,7 @@
                   {{ weapon.name }}
                 </option>
               </optgroup>
-              <optgroup label="Restricted Weapons" v-if="section.weapons.some(w => isWeaponRestricted(w.id))" class="text-red-600">
+              <optgroup label="Limited Access Weapons" v-if="section.weapons.some(w => isWeaponRestricted(w.id))" class="text-[#ff3300] bg-[#323232]">
                 <option v-for="weapon in section.weapons.filter(w => isWeaponRestricted(w.id))" :key="weapon.id" :value="weapon.id" class="text-red-500">
                   {{ weapon.name }}
                 </option>
@@ -75,7 +75,7 @@
                   {{ option.name }}
                 </option>
               </optgroup>
-              <optgroup label="Restricted Gear" v-if="section.options.some(g => isGearRestricted(g.id))" class="text-red-600">
+              <optgroup label="Limited Access Gear" v-if="section.options.some(g => isGearRestricted(g.id))" class="text-[#ff3300] bg-[#323232]">
                 <option v-for="option in section.options.filter(g => isGearRestricted(g.id))" :key="option.id" :value="option.id" class="text-red-500">
                   {{ option.name }}
                 </option>
@@ -162,7 +162,7 @@
                     {{ option.name }}
                   </option>
                 </optgroup>
-                <optgroup label="Restricted Gear" v-if="section.options.some(g => isGearRestricted(g.id))" class="text-red-600">
+                <optgroup label="Limited Access Gear" v-if="section.options.some(g => isGearRestricted(g.id))" class="text-[#ff3300] bg-[#323232]">
                   <option v-for="option in section.options.filter(g => isGearRestricted(g.id))" :key="option.id" :value="option.id" class="text-red-500">
                     {{ option.name }}
                   </option>
@@ -226,6 +226,7 @@
           disabled
           class="flex-grow m-2.5 h-20 rounded-[4px] border-2 resize-none app-container"
           :value="generateImportString"
+          @copy="copyToClipboard"
         ></textarea>
       </div>
     </nav>

@@ -5,6 +5,9 @@
       <div class="flex flex-col bg-[#4d4d4d] border-2 border-[#F4C356] rounded-2xl w-auto h-auto">
         <!-- Modal Header -->
         <div class="relative flex justify-center items-center border-b-2 pb-1 rounded-t-2xl text-[#F4C356] bg-[#2e2e2e]">
+          <h2 class="absolute left-4 top-5 font-semibold text-[#ff7856]">
+            * Indicates Restricted Items *
+          </h2>
           <h2 class="text-4xl font-semibold py-2 text-center">
             Add an Item
           </h2>
@@ -34,10 +37,13 @@
             <div class="flex-1 overflow-y-auto max-h-[40vh] text-center custom-scrollbar">
               <div v-for="item in filteredItems" :key="item.id"
                   @click="selectItem(item.id)"
-                  class="grid grid-cols-1 gap-2 bg-[#585858] hover:bg-[#3b3b3b] cursor-pointer p-2 items-center text-center not-last:border-b-2 border-[#F4C356] border-dashed">
+                  class="grid grid-cols-1 gap-2 bg-[#4f4f4f] hover:bg-[#3b3b3b] cursor-pointer items-center text-center not-last:border-b-2 border-[#F4C356] border-dashed">
+                <div v-if="item.restricted" class="w-full p-2 text-[#ff7856]">
+                  <span>* {{ item.name }} *</span>
+                </div>
                 <!-- Item Name -->
-                <div class="w-full">
-                  {{ item.name }}
+                <div v-else class="w-full p-2">
+                  <span>{{ item.name }}</span>
                 </div>
               </div>
             </div>
