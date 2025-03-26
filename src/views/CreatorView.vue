@@ -3,14 +3,14 @@
     <div class="relative flex justify-evenly mb-4">
       <button
         @click="openSaveModal"
-        class="bg-[#F4C356] text-black font-bold text-3xl rounded-lg px-4 py-2 transition duration-300 ease-in-out transform hover:bg-[#f49556] hover:scale-105 active:bg-[#d4844b] shadow-lg"
+        class="bg-[#F4C356] text-black font-bold text-3xl rounded-lg px-4 transition duration-300 ease-in-out transform hover:bg-orange-500 hover:scale-105 active:bg-[#d4844b] shadow-lg"
       >
         Save Loadout
       </button>
       <h1 class="text-7xl font-bold text-center text-[#F4C356]">Loadout Creator</h1>
       <button
         @click="clearSelections"
-        class="bg-[#F4C356] text-black font-bold text-3xl rounded-lg px-4 py-2 transition duration-300 ease-in-out transform hover:bg-[#f49556] hover:scale-105 active:bg-[#d4844b] shadow-lg"
+        class="bg-[#F4C356] text-black font-bold text-3xl rounded-lg px-4 transition duration-300 ease-in-out transform hover:bg-orange-500 hover:scale-105 active:bg-[#d4844b] shadow-lg"
       >
         Clear Selections
       </button>
@@ -121,7 +121,7 @@
 
             <button
               @click="openItemsModal(section.id)"
-              class="mt-2 mx-4 p-2 border-2 border-[#000000] rounded-2xl bg-[#F4C356] hover:bg-amber-500 disabled:opacity-50 disabled:cursor-not-allowed"
+              class="mt-2 mx-4 p-2 border-2 border-[#000000] rounded-2xl ease-in-out transition bg-[#F4C356] hover:bg-orange-500 disabled:opacity-50 disabled:cursor-not-allowed"
               :disabled="!selectedGear[section.id]"
             >
               + Add Item
@@ -204,7 +204,7 @@
         <div class="relative group">
           <svg
             @click="copyToClipboard"
-            class="w-12 h-20 ml-6 m-3 fill-white transition-all duration-300 hover:fill-[#F4C356] cursor-pointer"
+            class="w-12 h-20 ml-6 m-3 fill-white transition-all duration-300 hover:fill-orange-500 cursor-pointer"
             xmlns="http://www.w3.org/2000/svg"
             viewBox="0 0 384 512"
           >

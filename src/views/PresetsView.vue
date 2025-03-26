@@ -125,7 +125,7 @@
           <!-- Edit Preset Button -->
           <button
             @click="editPreset(selectedPreset)"
-            class="w-full py-3 bg-[#F4C356] text-black font-bold rounded-2xl hover:bg-amber-500 transition-all"
+            class="w-full py-3 bg-[#F4C356] text-black font-bold rounded-2xl hover:bg-orange-500 transition-all"
           >
             Edit in Loadout Creator
           </button>
