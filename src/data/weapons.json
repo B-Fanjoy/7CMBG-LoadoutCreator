@@ -509,26 +509,26 @@
           {
             "id": "TFC_launch_M72A6",
             "name": "[TFC] M72C7 Light Anti-Tank Weapon",
-            "weight": 5.73,
+            "weight": 1.73,
             "attachments": {
               "sights": [],
               "rails": [],
               "muzzles": [],
               "undermounts": [],
-              "primaryMagazines": [],
+              "primaryMagazines": [
+                { "id": "", "name":"-- None --", "weight": 0.00},
+                { "id": "TFC_M72A6_1Rnd", "name": "M18 HE", "weight": 0.20 }
+              ],
               "secondaryMagazines": []
             }
           },
           {
-            "id": "TFC_launch_CarlG_M3",
-            "name": "M3 Carl Gustaf Recoilless Rifle",
-            "weight": 1.73,
+            "id": "tfc_launch_MRAWS_green_rail_F",
+            "name": "MAAWS Mk4 Mod 0 (Green)",
+            "weight": 10.00,
             "restricted": true,
             "attachments": {
-              "sights": [
-                { "id": "", "name":"-- None --", "weight": 0.00},
-                { "id": "tfc_wa_CG_Sight", "name": "Carl-G Sight", "weight": 0.80 }
-              ],
+              "sights": [],
               "rails": [],
               "muzzles": [],
               "undermounts": [],

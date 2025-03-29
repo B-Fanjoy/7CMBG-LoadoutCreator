@@ -300,9 +300,9 @@
             "id": "advancedMedical",
             "name": "Advanced Medical",
             "options": [
-              { "id": "ACE_bloodIV", "name": "Blood IV (1000ml)", "weight": 1.00 },
-              { "id": "ACE_bloodIV_500", "name": "Blood IV (500ml)", "weight": 0.50 },
-              { "id": "ACE_bloodIV_250", "name": "Blood IV (250ml)", "weight": 0.25 }
+              { "id": "kat_bloodIV_O_N", "name": "Blood IV (1000ml) BT: O-", "weight": 1.00 },
+              { "id": "kat_bloodIV_O_N_500", "name": "Blood IV (500) BT: O-", "weight": 1.00 },
+              { "id": "kat_bloodIV_O_N_@50", "name": "Blood IV (250) BT: O-", "weight": 1.00 }
             ]
           }
         ]
