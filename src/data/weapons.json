@@ -192,6 +192,67 @@
             }
           },
           {
+            "id": "TFC_W_c8a3_ris",
+            "name": "C8A3 Carbine Rifle (w/RIS)",
+            "weight": 7.30,
+            "restricted": true,
+            "attachments": {
+              "sights": [
+                { "id": "", "name":"-- None --", "weight": 0.00},
+                { "id": "TFC_WA_C79_Elcan", "name": "[TFC] ELCAN C79A2 (PIP)", "weight": 1.00 },
+                { "id": "TFC_WA_c79_Elcan_3d", "name": "[TFC] ELCAN C79A2 (3D)", "weight": 0.80 },
+                { "id": "TFC_WA_Elcan_SpecterDR_3d", "name": "[TFC] ELCAN SpectreDR (Tan)", "weight": 0.80 },
+                { "id": "TFC_WA_Elcan_SpecterDR_3d_blk", "name": "[TFC] ELCAN SpectreDR (Black)", "weight": 0.80 },
+                { "id": "TFC_WA_Elcan_SpecterDR_3d_mrds", "name": "[TFC] ELCAN SpectreDR w/MRDS (Tan)", "weight": 0.80 },
+                { "id": "TFC_WA_Elcan_SpecterDR_3d_mrds_blk", "name": "[TFC] ELCAN SpectreDR w/MRDS (Black)", "weight": 0.80 },
+                { "id": "TFC_WA_Elcan_SpecterDR_3d_WF", "name": "[TFC] ELCAN SpectreDR w/MRDS + Flashhide (Tan)", "weight": 0.80 },
+                { "id": "TFC_WA_Elcan_SpecterDR_3d_WF_blk", "name": "[TFC] ELCAN SpectreDR w/MRDS + Flashhide (Black)", "weight": 0.80 },
+                { "id": "TFC_WA_Eotech_flip_up_blk", "name": "[TFC] EOTech w/3x Magnifier (Black)", "weight": 0.60 },
+                { "id": "TFC_WA_Eotech_flip_up_tan", "name": "[TFC] EOTech w/3x Magnifier (Tan)", "weight": 0.60 },
+                { "id": "optic_Holosight_arid_F", "name": "EOTech XPS3 (Arid)", "weight": 0.60 },
+                { "id": "optic_Holosight_blk_F", "name": "EOTech XPS3 (Black)", "weight": 0.60 },
+                { "id": "optic_Holosight_khk_F", "name": "EOTech XPS3 (Khaki)", "weight": 0.60 },
+                { "id": "optic_Holosight_lush_F", "name": "EOTech XPS3 (Lush)", "weight": 0.60 },
+                { "id": "optic_Holosight", "name": "EOTech XPS3 (Tan)", "weight": 0.60 },
+                { "id": "optic_Holosight_smg_blk_F", "name": "EOTech XPS3 SMG (Black)", "weight": 0.60 },
+                { "id": "optic_Holosight_smg_khk_F", "name": "EOTech XPS3 SMG (Khaki)", "weight": 0.60 },
+                { "id": "optic_Holosight_smg", "name": "EOTech XPS3 SMG (Tan)", "weight": 0.60 },
+                { "id": "rhsusf_acc_eotech_xps3", "name": "[RHS] XPS3 (Black) (Doesn't have any dirt)", "weight": 0.60 },
+                { "id": "rhsusf_acc_eotech_552", "name": "[RHS] M552 CCO (Black)", "weight": 0.40 },
+                { "id": "rhsusf_acc_eotech_552_d", "name": "[RHS] M552 CCO (Desert)", "weight": 0.40 },
+                { "id": "rhsusf_acc_eotech_552_wd", "name": "[RHS] M552 CCO (Woodland)", "weight": 0.40 }
+              ],
+              "rails": [
+                { "id": "", "name":"-- None --", "weight": 0.00},
+                { "id": "TFC_WA_peq15_sand", "name": "[TFC] PEQ-15 (Arid)", "weight": 0.80 },
+                { "id": "TFC_WA_peq15_blk", "name": "[TFC] PEQ-15 (Black)", "weight": 0.80 },
+                { "id": "TFC_WA_peq15_tan", "name": "[TFC] PEQ-15 (Tan)", "weight": 0.80 },
+                { "id": "TFC_WA_peq15_winter", "name": "[TFC] PEQ-15 (Winter)", "weight": 0.80 },
+                { "id": "TFC_WA_peq15_wood", "name": "[TFC] PEQ-15 (Woodland)", "weight": 0.80 }
+              ],
+              "muzzles": [
+                { "id": "", "name":"-- None --", "weight": 0.00},
+                { "id": "TFC_WA_huxwrx_556", "name": "[TFC] HUXWRX Flow 556K (Tan)", "weight": 0.10 },
+                { "id": "TFC_WA_556_Ops_painted", "name": "[TFC] Op Cinc 556 (Arid)", "weight": 0.10 },
+                { "id": "TFC_WA_opsinc_556", "name": "[TFC] Op Cinc 556 (Black)", "weight": 0.10 },
+                { "id": "TFC_WA_556_Ops_painted_tw", "name": "[TFC] Op Cinc 556 (Woodland)", "weight": 0.10 },
+                { "id": "TFC_WA_556_Ops_painted_wo", "name": "[TFC] Op Cinc 556 (Winter)", "weight": 0.10 }
+              ],
+              "undermounts": [
+                { "id": "", "name":"-- None --", "weight": 0.00},
+                { "id": "TFC_WA_grip_afg", "name": "[TFC] Angled Forward Grip", "weight": 1.00 },
+                { "id": "TFC_WA_cadex_grip", "name": "[TFC] CADEX Folding Grip", "weight": 1.00 },
+                { "id": "TFC_WA_Virtgrip", "name": "[TFC] Vert Grip", "weight": 1.00 }
+              ],
+              "primaryMagazines": [
+                { "id": "", "name":"-- None --", "weight": 0.00},
+                { "id": "rhs_mag_30Rnd_556x45_Mk262_Stanag", "name": "[RHS] 30 Round STANAG Mk262 Mod 1", "weight": 0.94 },
+                { "id": "rhs_mag_30Rnd_556x45_Mk262_Stanag_Pull", "name": "[RHS] 30 Round STANAG (Puller) Mk262 Mod 1", "weight": 0.51 }
+              ],
+              "secondaryMagazines": []
+            }
+          },
+          {
             "id": "TFC_W_c8a3_m203",
             "name": "C8A3 Carbine Rifle w/M203",
             "weight": 8.90,

@@ -134,16 +134,34 @@
             "weight": 3.00
           },
           {
+            "id": "tfc_cb_Carryall_Med_AR",
+            "name": "Carryall Medical (Arid Regions)",
+            "load": 40.00,
+            "weight": 4.00
+          },
+          {
             "id": "tfc_cb_Carryall_MT",
             "name": "Carryall (Multi-Terrain)",
             "load": 32.00,
             "weight": 3.00
           },
           {
+            "id": "tfc_cb_Carryall_Med_MT",
+            "name": "Carryall Medical (Multi-Terrain)",
+            "load": 40.00,
+            "weight": 4.00
+          },
+          {
             "id": "tfc_cb_Carryall_tw",
             "name": "Carryall (Temperate Woodlands)",
             "load": 32.00,
             "weight": 3.00
+          },
+          {
+            "id": "tfc_cb_Carryall_Med_TW",
+            "name": "Carryall Medical (Temperate Woodlands)",
+            "load": 40.00,
+            "weight": 4.00
           },
           {
             "id": "TFC_CB_CTS_Rucksack_AR",
@@ -168,6 +186,48 @@
             "name": "Rucksack (Winter)",
             "load": 45.00,
             "weight": 6.00
+          },
+          {
+            "id": "TFC_CB_Medbag_ar",
+            "name": "Medbag (Arid Regions)",
+            "load": 32.00,
+            "weight": 4.00
+          },
+          {
+            "id": "TFC_CB_Medbag_tf_rt1523g_ar",
+            "name": "CAF MEDBAG TFAR (Arid Regions)",
+            "load": 50.00,
+            "weight": 4.00
+          },
+          {
+            "id": "TFC_CB_Medbag_mt",
+            "name": "Medbag (Multi-Terrain)",
+            "load": 32.00,
+            "weight": 4.00
+          },
+          {
+            "id": "TFC_CB_Medbag_tw",
+            "name": "Medbag (Temperate Woodlands)",
+            "load": 32.00,
+            "weight": 4.00
+          },
+          {
+            "id": "TFC_CB_Medbag_tf_rt1523g_tw",
+            "name": "CAF MEDBAG TFAR (Temperate Woodlands)",
+            "load": 50.00,
+            "weight": 4.00
+          },
+          {
+            "id": "TFC_CB_Mysteryranch_mcam",
+            "name": "Mystery Ranch MCAM",
+            "load": 70.00,
+            "weight": 1.00
+          },
+          {
+            "id": "TFC_CB_CTS_Rucksack_mcam",
+            "name": "Rucksack MCAM",
+            "load": 90.00,
+            "weight": 1.20
           }
         ]
       },
@@ -604,6 +664,11 @@
           {
             "id": "tfc_insignia_7cmbg",
             "name": "7 Canadian Mechanized Brigade Group",
+            "weight": 0.00
+          },
+          {
+            "id": "tfc_insignia_medicalTechnician",
+            "name": "Medical Technician",
             "weight": 0.00
           }
         ]
