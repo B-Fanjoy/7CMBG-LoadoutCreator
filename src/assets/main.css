@@ -1,0 +1,10 @@
+@import "tailwindcss";
+
+@theme {
+	--font-sans: "Figtree", serif;
+}
+
+.vl {
+	border-left: 1px solid rgb(149, 149, 149);
+	height: auto;
+}

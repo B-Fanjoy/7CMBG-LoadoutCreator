@@ -5,6 +5,11 @@
         "name": "Uniform",
         "options": [
           {
+            "id": "",
+            "name": "-- None --",
+            "weight": 0.00
+          },
+          {
             "id": "TFC_CU_CombatUniform_otw_cadpat_AR",
             "name": "Outside The Wire CADPAT (Arid Regions)",
             "load": 4.00,
@@ -53,6 +58,11 @@
         "name": "Vest",
         "options": [
           {
+            "id": "",
+            "name": "-- None --",
+            "weight": 0.00
+          },
+          {
             "id": "TFC_CV_SORD_Ballistic_AR",
             "name": "SORD SCS Basic + Ballistic Vest (Arid Regions)",
             "load": 14.00,
@@ -95,13 +105,18 @@
         "name": "Backpack",
         "options": [
           {
+            "id": "",
+            "name": "-- None --",
+            "weight": 0.00
+          },
+          {
             "id": "TFC_CB_Smallpack_AR",
             "name": "Small Pack (Arid Regions)",
             "load": 32.00,
             "weight": 3.00
           },
           {
-            "id": "TFC_CB_Smallpack_AR",
+            "id": "TFC_CB_Smallpack_MT",
             "name": "Small Pack (Multi-Terrain)",
             "load": 32.00,
             "weight": 3.00
@@ -119,16 +134,34 @@
             "weight": 3.00
           },
           {
+            "id": "tfc_cb_Carryall_Med_AR",
+            "name": "Carryall Medical (Arid Regions)",
+            "load": 40.00,
+            "weight": 4.00
+          },
+          {
             "id": "tfc_cb_Carryall_MT",
             "name": "Carryall (Multi-Terrain)",
             "load": 32.00,
             "weight": 3.00
           },
           {
+            "id": "tfc_cb_Carryall_Med_MT",
+            "name": "Carryall Medical (Multi-Terrain)",
+            "load": 40.00,
+            "weight": 4.00
+          },
+          {
             "id": "tfc_cb_Carryall_tw",
             "name": "Carryall (Temperate Woodlands)",
             "load": 32.00,
             "weight": 3.00
+          },
+          {
+            "id": "tfc_cb_Carryall_Med_TW",
+            "name": "Carryall Medical (Temperate Woodlands)",
+            "load": 40.00,
+            "weight": 4.00
           },
           {
             "id": "TFC_CB_CTS_Rucksack_AR",
@@ -153,6 +186,48 @@
             "name": "Rucksack (Winter)",
             "load": 45.00,
             "weight": 6.00
+          },
+          {
+            "id": "TFC_CB_Medbag_ar",
+            "name": "Medbag (Arid Regions)",
+            "load": 32.00,
+            "weight": 4.00
+          },
+          {
+            "id": "TFC_CB_Medbag_tf_rt1523g_ar",
+            "name": "CAF MEDBAG TFAR (Arid Regions)",
+            "load": 50.00,
+            "weight": 4.00
+          },
+          {
+            "id": "TFC_CB_Medbag_mt",
+            "name": "Medbag (Multi-Terrain)",
+            "load": 32.00,
+            "weight": 4.00
+          },
+          {
+            "id": "TFC_CB_Medbag_tw",
+            "name": "Medbag (Temperate Woodlands)",
+            "load": 32.00,
+            "weight": 4.00
+          },
+          {
+            "id": "TFC_CB_Medbag_tf_rt1523g_tw",
+            "name": "CAF MEDBAG TFAR (Temperate Woodlands)",
+            "load": 50.00,
+            "weight": 4.00
+          },
+          {
+            "id": "TFC_CB_Mysteryranch_mcam",
+            "name": "Mystery Ranch MCAM",
+            "load": 70.00,
+            "weight": 1.00
+          },
+          {
+            "id": "TFC_CB_CTS_Rucksack_mcam",
+            "name": "Rucksack MCAM",
+            "load": 90.00,
+            "weight": 1.20
           }
         ]
       },
@@ -160,6 +235,16 @@
         "id": "headgear",
         "name": "Headgear",
         "options": [
+          {
+            "id": "",
+            "name": "-- None --",
+            "weight": 0.00
+          },
+          {
+            "id": "TFC_CH_Caiman_CADPAT_MT",
+            "name": "Caiman Ballistic Hemlet (Multi-Terrain)",
+            "weight": 3.00
+          },
           {
             "id": "TFC_CH_CG634_CADPAT_AR",
             "name": "CG634 CADPAT (Arid Regions)",
@@ -317,6 +402,11 @@
         "name": "Facewear",
         "options": [
           {
+            "id": "",
+            "name": "-- None --",
+            "weight": 0.00
+          },
+          {
             "id": "tfc_cg_ballistics_clear",
             "name": "Ballistics Eyewear - Clear Shade",
             "weight": 0.10
@@ -428,6 +518,11 @@
         "name": "Binoculars",
         "options": [
           {
+            "id": "",
+            "name": "-- None --",
+            "weight": 0.00
+          },
+          {
             "id": "Binocular",
             "name": "Binoculars",
             "weight": 1.00
@@ -445,12 +540,14 @@
           {
             "id": "ACE_VectorDay",
             "name": "Vector 21",
-            "weight": 1.00
+            "weight": 1.00,
+            "restricted": true
           },
           {
             "id": "ACE_Vector",
             "name": "Vector 21 Nite",
-            "weight": 1.00
+            "weight": 1.00,
+            "restricted": true
           }
         ]
       },
@@ -458,6 +555,11 @@
         "id": "map",
         "name": "Map",
         "options": [
+          {
+            "id": "",
+            "name": "-- None --",
+            "weight": 0.00
+          },
           {
             "id": "ItemMap",
             "name": "Map",
@@ -470,6 +572,11 @@
         "name": "Terminal",
         "options": [
           {
+            "id": "",
+            "name": "-- None --",
+            "weight": 0.00
+          },
+          {
             "id": "ItemGPS",
             "name": "GPS",
             "weight": 0.80
@@ -479,12 +586,23 @@
       {
         "id": "communication",
         "name": "Communication",
-        "options": []
+        "options": [
+          {
+            "id": "",
+            "name": "-- Option Not Available --",
+            "weight": 0.00
+          }
+        ]
       },
       {
         "id": "navigation",
         "name": "Navigation",
         "options": [
+          {
+            "id": "",
+            "name": "-- None --",
+            "weight": 0.00
+          },
           {
             "id": "ItemCompass",
             "name": "Compass",
@@ -496,6 +614,11 @@
         "id": "watch",
         "name": "Watch",
         "options": [
+          {
+            "id": "",
+            "name": "-- None --",
+            "weight": 0.00
+          },
           {
             "id": "ItemWatch",
             "name": "Watch",
@@ -513,6 +636,11 @@
         "name": "NVGs",
         "options": [
           {
+            "id": "",
+            "name": "-- None --",
+            "weight": 0.00
+          },
+          {
             "id": "TFC_NVG_PVS14",
             "name": "[TFC] PVS-14",
             "weight": 0.10
@@ -520,7 +648,7 @@
           {
             "id": "rhsusf_ANPVS_14",
             "name": "[RHS] AN/PVS-14",
-            "weight": 0.10
+            "weight": 2.00
           }
         ]
       },
@@ -529,8 +657,18 @@
         "name": "Insignia",
         "options": [
           {
+            "id": "",
+            "name": "-- None --",
+            "weight": 0.00
+          },
+          {
             "id": "tfc_insignia_7cmbg",
             "name": "7 Canadian Mechanized Brigade Group",
+            "weight": 0.00
+          },
+          {
+            "id": "tfc_insignia_medicalTechnician",
+            "name": "Medical Technician",
             "weight": 0.00
           }
         ]
@@ -540,13 +678,13 @@
         "name": "ACE Earplugs",
         "options": [
           {
-            "id": "true",
-            "name": "Yes",
+            "id": "false",
+            "name": "No",
             "weight": 0.00
           },
           {
-            "id": "false",
-            "name": "No",
+            "id": "true",
+            "name": "Yes",
             "weight": 0.00
           }
         ]
