@@ -63,10 +63,6 @@ export default {
 }
 </script>
 
-<style>
-@import "vue-select/dist/vue-select.css";
-</style>
-
 <style scoped>
 .app-container {
   overflow-y: auto;

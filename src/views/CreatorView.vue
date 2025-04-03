@@ -83,14 +83,14 @@
             </select>
 
             <!-- Weight Progress Bar -->
-            <div class="w-full px-5">
-              <div class="relative w-full bg-gray-700 rounded-full h-4">
+            <div class="w-full px-5 pt-2">
+              <div class="relative w-full bg-gray-700 rounded-full h-8">
                 <div
-                  class="h-4 rounded-full ease-in-out transition-all duration-500"
+                  class="h-8 rounded-full ease-in-out transition-all duration-500"
                   :class="getProgressBarColor(section.id)"
                   :style="{ width: getLoadPercentage(section.id) + '%' }"
                 ></div>
-                <span class="absolute inset-0 flex items-center justify-center text-xs text-center">
+                <span class="absolute inset-0 flex items-center justify-center text-md text-center">
                   {{ getTotalLoad(section.id) }} / {{ getMaxLoad(section.id) }} lb
                 </span>
               </div>
