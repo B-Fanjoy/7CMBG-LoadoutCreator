@@ -1,16 +1,152 @@
 <!DOCTYPE html>
-<html lang="">
-  <head>
+<html lang="en">
+<head>
     <meta charset="UTF-8">
-    <link rel="icon" href="/src/assets/7cmbg_icon_coloured.svg">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Figtree:ital,wght@0,300..900;1,300..900&family=Funnel+Sans:ital,wght@0,300..800;1,300..800&display=swap" rel="stylesheet">
-    <title>7CMBG Loadout Creator</title>
-  </head>
-  <body class="bg-[#232323] text-zinc-50">
-    <div id="app"></div>
-    <script type="module" src="/src/main.js"></script>
-  </body>
+    <title>7CMBG - Loadout Creator</title>
+    <link rel="icon" type="image/x-icon" href="7cmbg_icon_coloured.svg">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+    <style>
+        body {
+            margin: 0;
+            font-family: 'Roboto', sans-serif;
+            background-color: #121212;
+            color: #f9f9f9;
+            line-height: 1.6;
+        }
+        header {
+            background-color: #F7AE27;
+            text-shadow: 2px 2px 10px rgba(0, 0, 0, 0.5);
+            color: black;
+            padding: 2rem;
+            text-align: center;
+            font-size: 6rem;
+            font-weight: bold;
+        }
+        .hero {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            height: 90vh;
+            background: url('hero-bg.webp') no-repeat center center/cover;
+            color: #fff;
+        }
+        .hero h1 {
+            font-size: 3.5rem;
+            margin: 0;
+            padding: 0.5rem 1rem;
+            text-shadow: 2px 2px 10px rgba(0, 0, 0, 0.5);
+            background-color: #12121265;
+            border-radius: 10px;
+            display: inline-block;
+            max-width: 100%;
+            box-sizing: border-box;
+        }
+        .hero p {
+            font-size: 1.5rem;
+            max-width: 1000px;
+            margin: 1rem auto;
+            text-shadow: 2px 2px 10px rgba(0, 0, 0, 0.5);
+            background-color: #12121265;
+            border-radius: 10px;
+        }
+        .button {
+            background-color: #F7AE27;
+            color: black;
+            padding: 1rem 2rem;
+            border: none;
+            border-radius: 8px;
+            font-size: 1.2rem;
+            cursor: pointer;
+            text-decoration: none;
+            transition: background-color 0.3s ease-in-out, transform 0.2s;
+        }
+        .button:hover {
+            background-color: #6a4500;
+            transform: scale(1.05);
+        }
+        .content {
+            padding: 2rem 2rem;
+            text-align: center;
+        }
+        .content h2 {
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+            color: #F7AE27;
+        }
+        .content p {
+            padding-bottom: 2rem;
+            font-size: 1.2rem;
+            max-width: 900px;
+            margin: 0 auto 2rem;
+        }
+        .features {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 2rem;
+        }
+        .feature {
+            background-color: #1e1e1e;
+            padding: 2rem;
+            border-radius: 10px;
+            max-width: 400px;
+            text-align: center;
+            box-shadow: 0 0 20px rgba(0, 0, 0, 0.2);
+        }
+        .feature h3 {
+            font-size: 1.8rem;
+            color: #F7AE27;
+        }
+        footer {
+            margin-top: 4rem;
+            padding: 1rem;
+            background-color: #f1f1f1;
+            text-align: center;
+            font-size: 0.9rem;
+            color: #333;
+        }
+        footer a {
+            color: #4CAF50;
+            text-decoration: none;
+        }
+        footer a:hover {
+            text-decoration: underline;
+        }
+    </style>
+</head>
+<body>
+    <header>7CMBG Loadout Creator</header>
+
+    <section class="hero">
+        <h1>Build Your Perfect Loadout</h1>
+        <p>Create your ideal loadout following the approved kit-list and be mission-ready.</p>
+        <a href="loadoutCreator.html" class="button">Get Started</a>
+    </section>
+
+    <section class="content">
+        <h2>Why Use The Loadout Creator?</h2>
+        <p>This tool simplifies loadout customization, ensuring compliance with unit regulations and operational readiness.</p>
+        <div class="features">
+            <div class="feature">
+                <h3>Easy to Use</h3>
+                <p>Intuitive design to help you create your loadout in just a few clicks.</p>
+            </div>
+            <div class="feature">
+                <h3>Kit Compliance</h3>
+                <p>Ensure all selections match the standard kit-list to stay within regulations.</p>
+            </div>
+            <div class="feature">
+                <h3>Importing</h3>
+                <p>Copy the generated import string to import your loadout directly into the ACE Arsenal.</p>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <p>Created with ❤️ by <a href="https://github.com/B-Fanjoy">B. Fanjoy</a>. Hosted on <a href="https://pages.github.com">GitHub Pages</a>.</p>
+    </footer>
+</body>
 </html>
