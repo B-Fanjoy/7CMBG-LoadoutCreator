@@ -1,6 +1,6 @@
 <template>
   <div>
-    <section class="relative h-screen bg-center text-white" style="background-image: url('/src/assets/hero-bg.webp');">
+    <section class="relative h-screen bg-center text-white" :style="{ backgroundImage: `url(${heroBg})` }">
       <div class="bg-[#30303052] mx-auto flex flex-col justify-center text-center items-center h-full space-y-2">
         <header class="bg-yellow-500 text-black text-center text-8xl font-bold p-6 rounded-md shadow-md">7CMBG Loadout Creator</header>
         <h1 class="text-4xl font-bold bg-black bg-opacity-50 rounded-md px-4 py-2">Build Your Perfect Loadout</h1>
@@ -41,6 +41,10 @@
     </footer>
   </div>
 </template>
+
+<script setup>
+import heroBg from '@/assets/hero-bg.webp';
+</script>
 
 <script>
 export default {
